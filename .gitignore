@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# v17 design mockup — kept locally for reference, not pushed
+rysen-mockup-v17.html
+
+# claude code per-user settings
+.claude/settings.local.json

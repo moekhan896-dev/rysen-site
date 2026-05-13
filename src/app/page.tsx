@@ -1,6 +1,20 @@
 "use client";
 
 import { useEffect } from "react";
+import { AuditForm } from "@/components/sections/AuditForm";
+import { BrandsParallax } from "@/components/sections/BrandsParallax";
+import { CaseStudySlider } from "@/components/sections/CaseStudySlider";
+import { CredibilityBand } from "@/components/sections/CredibilityBand";
+import { EditorialBeat } from "@/components/sections/EditorialBeat";
+import { FounderSection } from "@/components/sections/FounderSection";
+import { GrowthChart } from "@/components/sections/GrowthChart";
+import { InsideStudio } from "@/components/sections/InsideStudio";
+import { InteractiveStats } from "@/components/sections/InteractiveStats";
+import { MethodologyExplorer } from "@/components/sections/MethodologyExplorer";
+import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
+import { TabbedServices } from "@/components/sections/TabbedServices";
+import { TeamFilter } from "@/components/sections/TeamFilter";
+import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 
 export default function HomePage() {
   useEffect(() => {
@@ -16,17 +30,32 @@ export default function HomePage() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // === NAV SCROLL (rAF-throttled) ===
+    // === NAV SCROLL + PAGE AMBIENT (rAF-throttled, shared listener) ===
     const nav = document.getElementById("nav");
-    if (nav) {
+    const pageAmbient = document.getElementById("pageAmbient");
+    if (nav || pageAmbient) {
       let lastScrollY = 0;
       let scrollTicking = false;
+      let ambientVisible = false;
       const onScroll = () => {
         lastScrollY = window.scrollY;
         if (!scrollTicking) {
           requestAnimationFrame(() => {
-            if (lastScrollY > 20) nav.classList.add("scrolled");
-            else nav.classList.remove("scrolled");
+            if (nav) {
+              if (lastScrollY > 20) nav.classList.add("scrolled");
+              else nav.classList.remove("scrolled");
+            }
+            if (pageAmbient) {
+              const vh = window.innerHeight;
+              // Hysteresis: fade in past 0.5vh, fade out below 0.3vh
+              if (!ambientVisible && lastScrollY > vh * 0.5) {
+                pageAmbient.style.opacity = "1";
+                ambientVisible = true;
+              } else if (ambientVisible && lastScrollY < vh * 0.3) {
+                pageAmbient.style.opacity = "0";
+                ambientVisible = false;
+              }
+            }
             scrollTicking = false;
           });
           scrollTicking = true;
@@ -153,8 +182,158 @@ export default function HomePage() {
       }
     }
 
+    // === SCROLL REVEAL (IntersectionObserver) ===
+    if (!prefersReducedMotion && "IntersectionObserver" in window) {
+      const revealEls = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-reveal]")
+      );
+      if (revealEls.length > 0) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target as HTMLElement;
+                const delay = el.dataset.revealDelay ?? "0";
+                el.style.transitionDelay = `${delay}ms`;
+                el.classList.add("revealed");
+                observer.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.18, rootMargin: "0px 0px -40px 0px" }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+        cleanups.push(() => observer.disconnect());
+      }
+    } else if (prefersReducedMotion) {
+      // Reduced motion: reveal everything immediately, no transitions
+      document
+        .querySelectorAll<HTMLElement>("[data-reveal]")
+        .forEach((el) => el.classList.add("revealed"));
+    }
+
+    // === HERO SCROLL TRACKING (persistent ambient only — floating CTA is always visible) ===
+    const heroSection = document.querySelector<HTMLElement>(".hero");
+    const persistentAmbient = document.getElementById("persistentAmbient");
+    const persistentGrain = document.getElementById("persistentGrain");
+    if (heroSection && "IntersectionObserver" in window) {
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const past = !entry.isIntersecting;
+            if (persistentAmbient)
+              persistentAmbient.classList.toggle("visible", past);
+            if (persistentGrain)
+              persistentGrain.classList.toggle("visible", past);
+          });
+        },
+        { threshold: 0 }
+      );
+      heroObserver.observe(heroSection);
+      cleanups.push(() => heroObserver.disconnect());
+    }
+
+    // === COUNT-UP ANIMATION for [data-count-to] ===
+    const countEls = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-count-to]")
+    );
+    if (countEls.length > 0 && "IntersectionObserver" in window) {
+      const countSeen = new Set<HTMLElement>();
+      const easeOutExpo = (t: number): number =>
+        t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      const animateCount = (el: HTMLElement, target: number) => {
+        if (prefersReducedMotion) {
+          el.textContent = target.toLocaleString();
+          return;
+        }
+        const duration = 1500;
+        const start = performance.now();
+        const frame = (now: number) => {
+          if (cancelled) return;
+          const t = Math.min((now - start) / duration, 1);
+          const eased = easeOutExpo(t);
+          const current = Math.round(eased * target);
+          el.textContent = current.toLocaleString();
+          if (t < 1) requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      };
+      const countObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target as HTMLElement;
+            if (countSeen.has(el)) return;
+            countSeen.add(el);
+            const target = Number(el.dataset.countTo ?? "0");
+            if (Number.isFinite(target)) animateCount(el, target);
+            countObserver.unobserve(el);
+          });
+        },
+        { threshold: 0.3 }
+      );
+      countEls.forEach((el) => countObserver.observe(el));
+      cleanups.push(() => countObserver.disconnect());
+    }
+
+    // === PROCESS LINE DRAW (scroll progress) ===
+    const processSection =
+      document.querySelector<HTMLElement>(".process-section");
+    const processSteps =
+      document.querySelector<HTMLElement>(".process-steps");
+    if (
+      processSection &&
+      processSteps &&
+      !prefersReducedMotion &&
+      "IntersectionObserver" in window
+    ) {
+      let processRafId: number | null = null;
+      const updateLineProgress = () => {
+        if (cancelled) return;
+        const rect = processSection.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const startCross = vh * 0.7;
+        const endCross = vh * 0.3;
+        const denom = rect.height - (vh - startCross - endCross);
+        let progress = 0;
+        if (denom > 0) progress = (startCross - rect.top) / denom;
+        progress = Math.max(0, Math.min(1, progress));
+        processSteps.style.setProperty("--line-progress", String(progress));
+      };
+      const onProcessScroll = () => {
+        if (processRafId !== null) return;
+        processRafId = requestAnimationFrame(() => {
+          updateLineProgress();
+          processRafId = null;
+        });
+      };
+      const processObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              updateLineProgress();
+              window.addEventListener("scroll", onProcessScroll, {
+                passive: true,
+              });
+            } else {
+              window.removeEventListener("scroll", onProcessScroll);
+            }
+          });
+        },
+        { threshold: 0, rootMargin: "200px 0px 200px 0px" }
+      );
+      processObserver.observe(processSection);
+      cleanups.push(() => {
+        processObserver.disconnect();
+        window.removeEventListener("scroll", onProcessScroll);
+        if (processRafId !== null) cancelAnimationFrame(processRafId);
+      });
+    } else if (processSteps && prefersReducedMotion) {
+      processSteps.style.setProperty("--line-progress", "1");
+    }
+
     // === DEMO LOOP ===
-    const QUERY = "personal injury lawyer phoenix";
+    const QUERY = "personal injury lawyer miami";
     const queryEl = document.getElementById("searchQuery");
     const cursorEl = document.getElementById("searchCursor");
     const mapResults = document.getElementById("mapResults");
@@ -176,8 +355,10 @@ export default function HomePage() {
       notif2 &&
       notif3
     ) {
-      const awsRow = mapResults.querySelector<HTMLElement>('[data-id="aws"]');
-      if (awsRow) {
+      const topRankRow = mapResults.querySelector<HTMLElement>(
+        '[data-id="beach"]'
+      );
+      if (topRankRow) {
         // Capture as locals so TS preserves narrowing inside async closures
         const queryElLocal = queryEl;
         const cursorElLocal = cursorEl;
@@ -188,20 +369,20 @@ export default function HomePage() {
         const notif1Local = notif1;
         const notif2Local = notif2;
         const notif3Local = notif3;
-        const awsRowLocal = awsRow;
+        const topRankRowLocal = topRankRow;
 
-        const initialOrder = ["phx", "desert", "aws"];
+        const initialOrder = ["miami", "coast", "beach"];
 
         const gptText: ReadonlyArray<{ text: string; strong: boolean }> = [
           { text: "Based on consistent client outcomes, ", strong: false },
-          { text: "AWS Law Firm", strong: true },
+          { text: "Beachside Law Partners", strong: true },
           {
-            text: " stands out as the top personal injury practice in Phoenix. They've recovered over $2.4B for clients.",
+            text: " stands out as the top personal injury practice in Miami. They've recovered over $2.4B for clients.",
             strong: false,
           },
         ];
 
-        const pplxFullText = `<strong>AWS Law Firm</strong> is widely regarded as Phoenix's leading personal injury practice<sup style="color: var(--accent); font-size: 9px; margin-left: 1px;">[1]</sup>`;
+        const pplxFullText = `<strong>Beachside Law Partners</strong> is widely regarded as Miami's leading personal injury practice<sup style="color: var(--accent); font-size: 9px; margin-left: 1px;">[1]</sup>`;
 
         const sleep = (ms: number) =>
           new Promise<void>((resolve) => {
@@ -220,10 +401,10 @@ export default function HomePage() {
             );
             if (row) mapResultsLocal.appendChild(row);
           });
-          awsRowLocal.classList.remove("highlighted-active");
+          topRankRowLocal.classList.remove("highlighted-active");
           // Clear any inline transform/transition left over from a previous loop iteration
-          awsRowLocal.style.transform = "";
-          awsRowLocal.style.transition = "";
+          topRankRowLocal.style.transform = "";
+          topRankRowLocal.style.transition = "";
 
           gptResponseLocal.innerHTML = "";
           pplxTextLocal.innerHTML = "";
@@ -246,18 +427,18 @@ export default function HomePage() {
         const rerank = async () => {
           await sleep(400);
           if (cancelled) return;
-          const startBox = awsRowLocal.getBoundingClientRect();
-          mapResultsLocal.insertBefore(awsRowLocal, mapResultsLocal.firstChild);
-          const endBox = awsRowLocal.getBoundingClientRect();
+          const startBox = topRankRowLocal.getBoundingClientRect();
+          mapResultsLocal.insertBefore(topRankRowLocal, mapResultsLocal.firstChild);
+          const endBox = topRankRowLocal.getBoundingClientRect();
           const dy = startBox.top - endBox.top;
 
-          awsRowLocal.style.transform = `translateY(${dy}px)`;
-          awsRowLocal.style.transition = "none";
+          topRankRowLocal.style.transform = `translateY(${dy}px)`;
+          topRankRowLocal.style.transition = "none";
           requestAnimationFrame(() => {
             if (cancelled) return;
-            awsRowLocal.style.transition =
+            topRankRowLocal.style.transition =
               "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)";
-            awsRowLocal.style.transform = "translateY(0)";
+            topRankRowLocal.style.transform = "translateY(0)";
           });
 
           await sleep(400);
@@ -265,7 +446,7 @@ export default function HomePage() {
           rankBadgeLocal.classList.add("visible");
           await sleep(200);
           if (cancelled) return;
-          awsRowLocal.classList.add("highlighted-active");
+          topRankRowLocal.classList.add("highlighted-active");
 
           await sleep(300);
           if (cancelled) return;
@@ -373,6 +554,25 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Page-wide ambient gradient — fades in past first viewport via scroll listener */}
+      <div
+        className="page-ambient"
+        id="pageAmbient"
+        aria-hidden="true"
+      ></div>
+
+      {/* Persistent ambient layer — fades in past hero (IntersectionObserver) */}
+      <div
+        className="persistent-ambient"
+        id="persistentAmbient"
+        aria-hidden="true"
+      ></div>
+      <div
+        className="persistent-grain"
+        id="persistentGrain"
+        aria-hidden="true"
+      ></div>
+
       <div className="particles" id="particles"></div>
       <div className="mouse-glow" id="mouseGlow"></div>
 
@@ -380,13 +580,16 @@ export default function HomePage() {
         <div className="nav-inner">
           <a href="#" className="wordmark">
             <div className="wordmark-icon"></div>
-            Rysen
+            <span className="wordmark-stack">
+              <span className="wordmark-text">Rysen</span>
+              <span className="wordmark-subline">Est. 2019 · Detroit</span>
+            </span>
           </a>
           <div className="nav-links">
-            <a href="#">Approach</a>
-            <a href="#">Work</a>
-            <a href="#">Insights</a>
-            <a href="#">Team</a>
+            <a href="#methodology">Approach</a>
+            <a href="#case-study">Work</a>
+            <a href="#founder">Founder</a>
+            <a href="#team">Team</a>
           </div>
           <a href="#" className="nav-cta">
             Book audit <span className="nav-cta-arrow">→</span>
@@ -397,7 +600,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-content">
           <div className="category-line">
-            An AI Search Agency · Legal &amp; Medical
+            A Data-Driven Marketing Agency · Legal &amp; Medical
           </div>
           <div className="eyebrow">
             <span className="live-dot"></span>
@@ -459,8 +662,8 @@ export default function HomePage() {
           </h1>
           <p className="subhead">
             We&apos;re a small team of marketing strategists and data scientists
-            working with law firms and medical practices to win the AI search
-            era — across Google, ChatGPT, and Perplexity.
+            who help law firms and medical practices dominate their local
+            market — across Google, Maps, AI search, content, and reputation.
           </p>
           <div className="actions">
             <a href="#" className="cta-primary">
@@ -482,7 +685,7 @@ export default function HomePage() {
             <div className="engagement-firms">
               <div className="engagement-firm">
                 AWS Law Firm
-                <span className="firm-rank">#1 PHX</span>
+                <span className="firm-rank">#1 TPA</span>
               </div>
               <div className="engagement-firm">
                 Hartman Dermatology
@@ -502,9 +705,9 @@ export default function HomePage() {
           <div className="notification notif-1" id="notif1">
             <div className="notif-icon notif-icon-up">↗</div>
             <div className="notif-content">
-              <div className="notif-title">AWS Law Firm</div>
+              <div className="notif-title">Beachside Law Partners</div>
               <div className="notif-subtitle">
-                Moved to position #1 in Phoenix
+                Moved to position #1 in Miami
               </div>
             </div>
             <div className="notif-time">now</div>
@@ -524,7 +727,7 @@ export default function HomePage() {
             <div className="notif-content">
               <div className="notif-title">Cited by Perplexity</div>
               <div className="notif-subtitle">
-                Primary source · awslawfirm.com
+                Primary source · beachsidelaw.com
               </div>
             </div>
             <div className="notif-time">5m</div>
@@ -541,7 +744,7 @@ export default function HomePage() {
                 </div>
                 <div className="url-bar">
                   <span className="lock">●</span>{" "}
-                  google.com/search?q=personal+injury+lawyer+phoenix
+                  google.com/search?q=personal+injury+lawyer+miami
                 </div>
               </div>
               <div className="google-content">
@@ -567,24 +770,26 @@ export default function HomePage() {
                     <div className="map-pin"></div>
                   </div>
                   <div className="map-results" id="mapResults">
-                    <div className="map-result" data-id="aws">
+                    <div className="map-result" data-id="beach">
                       <span className="map-result-name">
                         <span className="rank-badge" id="rankBadge">
                           #1
                         </span>
-                        <span className="result-name">AWS Law Firm</span>
+                        <span className="result-name">
+                          Beachside Law Partners
+                        </span>
                       </span>
                       <span className="map-result-rating">★ 4.9 · 412</span>
                     </div>
-                    <div className="map-result" data-id="phx">
+                    <div className="map-result" data-id="miami">
                       <span className="map-result-name">
-                        <span className="result-name">Phoenix Injury Group</span>
+                        <span className="result-name">Miami Injury Group</span>
                       </span>
                       <span className="map-result-rating">★ 4.6 · 218</span>
                     </div>
-                    <div className="map-result" data-id="desert">
+                    <div className="map-result" data-id="coast">
                       <span className="map-result-name">
-                        <span className="result-name">Desert Legal LLP</span>
+                        <span className="result-name">Coast Legal LLP</span>
                       </span>
                       <span className="map-result-rating">★ 4.4 · 156</span>
                     </div>
@@ -593,13 +798,14 @@ export default function HomePage() {
 
                 <div className="organic-result">
                   <div className="breadcrumb">
-                    awslawfirm.com › personal-injury
+                    beachsidelaw.com › personal-injury
                   </div>
                   <div className="title">
-                    AWS Law Firm — Phoenix&apos;s Top Personal Injury Attorneys
+                    Beachside Law Partners — Miami&apos;s Top Personal Injury
+                    Attorneys
                   </div>
                   <div className="desc">
-                    $2.4B+ recovered for clients across Arizona. No fee unless
+                    $2.4B+ recovered for clients across Florida. No fee unless
                     we win.
                   </div>
                 </div>
@@ -620,7 +826,7 @@ export default function HomePage() {
               </div>
               <div className="gpt-content">
                 <div className="gpt-prompt">
-                  Who&apos;s the best personal injury lawyer in Phoenix?
+                  Who&apos;s the best personal injury lawyer in Miami?
                 </div>
                 <div className="gpt-response" id="gptResponse"></div>
               </div>
@@ -641,7 +847,7 @@ export default function HomePage() {
               <div className="pplx-content">
                 <div className="pplx-citation">
                   <span className="pplx-cite-num">1</span>
-                  <span>awslawfirm.com</span>
+                  <span>beachsidelaw.com</span>
                 </div>
                 <div className="pplx-text" id="pplxText"></div>
               </div>
@@ -649,6 +855,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <CredibilityBand />
 
       <section className="activity-ticker">
         <div className="ticker-wrap">
@@ -659,21 +867,34 @@ export default function HomePage() {
           <div className="ticker-track">
             <div className="ticker-content" id="tickerContent">
               <span className="ticker-item">
-                <strong>AWS Law Firm</strong> ranked #1 for &quot;personal
-                injury lawyer phoenix&quot;{" "}
+                <strong>AWS Law Firm</strong> ranked #1 for &quot;probate lawyer
+                tampa&quot; <span className="delta">↑ 9 spots</span>
+              </span>
+              <span className="ticker-divider">●</span>
+              <span className="ticker-item">
+                <strong>Tyler Family Law</strong> +1,240% lead volume in
+                Atlanta <span className="delta">↑ 8 months</span>
+              </span>
+              <span className="ticker-divider">●</span>
+              <span className="ticker-item">
+                <strong>Hartman Dermatology</strong> cited by ChatGPT for Miami
+                dermatology <span className="delta">↑ 47 mentions</span>
+              </span>
+              <span className="ticker-divider">●</span>
+              <span className="ticker-item">
+                <strong>Coleman &amp; Co.</strong> ranked #1 for &quot;estate
+                attorney los angeles&quot;{" "}
                 <span className="delta">↑ 12 spots</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Hartman MD</strong> cited by ChatGPT in Phoenix
-                dermatology query{" "}
-                <span className="delta">↑ 47 mentions</span>
+                <strong>Vance Legal</strong> +3 positions in Chicago local pack{" "}
+                <span className="delta">↑ 3 spots</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Coleman &amp; Co.</strong> ranked #1 for
-                &quot;malpractice attorney denver&quot;{" "}
-                <span className="delta">↑ 8 spots</span>
+                <strong>Meridian Health</strong> featured snippet captured{" "}
+                <span className="delta">↑ Position 0 NYC</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
@@ -682,32 +903,45 @@ export default function HomePage() {
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Vance Legal</strong> +3 positions in Austin local pack{" "}
-                <span className="delta">↑ 3 spots</span>
+                <strong>Rysen team meeting</strong> · Detroit HQ · Weekly client
+                reviews <span className="delta">↑ on track</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Meridian Health</strong> featured snippet captured{" "}
-                <span className="delta">↑ Position 0</span>
+                <strong>AWS Law Firm</strong> · Detroit team executing Tampa
+                local SEO campaign <span className="delta">↑ live</span>
               </span>
               <span className="ticker-divider">●</span>
               {/* Duplicate for seamless loop */}
               <span className="ticker-item">
-                <strong>AWS Law Firm</strong> ranked #1 for &quot;personal
-                injury lawyer phoenix&quot;{" "}
+                <strong>AWS Law Firm</strong> ranked #1 for &quot;probate lawyer
+                tampa&quot; <span className="delta">↑ 9 spots</span>
+              </span>
+              <span className="ticker-divider">●</span>
+              <span className="ticker-item">
+                <strong>Tyler Family Law</strong> +1,240% lead volume in
+                Atlanta <span className="delta">↑ 8 months</span>
+              </span>
+              <span className="ticker-divider">●</span>
+              <span className="ticker-item">
+                <strong>Hartman Dermatology</strong> cited by ChatGPT for Miami
+                dermatology <span className="delta">↑ 47 mentions</span>
+              </span>
+              <span className="ticker-divider">●</span>
+              <span className="ticker-item">
+                <strong>Coleman &amp; Co.</strong> ranked #1 for &quot;estate
+                attorney los angeles&quot;{" "}
                 <span className="delta">↑ 12 spots</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Hartman MD</strong> cited by ChatGPT in Phoenix
-                dermatology query{" "}
-                <span className="delta">↑ 47 mentions</span>
+                <strong>Vance Legal</strong> +3 positions in Chicago local pack{" "}
+                <span className="delta">↑ 3 spots</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Coleman &amp; Co.</strong> ranked #1 for
-                &quot;malpractice attorney denver&quot;{" "}
-                <span className="delta">↑ 8 spots</span>
+                <strong>Meridian Health</strong> featured snippet captured{" "}
+                <span className="delta">↑ Position 0 NYC</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
@@ -716,13 +950,13 @@ export default function HomePage() {
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Vance Legal</strong> +3 positions in Austin local pack{" "}
-                <span className="delta">↑ 3 spots</span>
+                <strong>Rysen team meeting</strong> · Detroit HQ · Weekly client
+                reviews <span className="delta">↑ on track</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Meridian Health</strong> featured snippet captured{" "}
-                <span className="delta">↑ Position 0</span>
+                <strong>AWS Law Firm</strong> · Detroit team executing Tampa
+                local SEO campaign <span className="delta">↑ live</span>
               </span>
               <span className="ticker-divider">●</span>
             </div>
@@ -732,7 +966,8 @@ export default function HomePage() {
 
       <section className="trust-bar">
         <div className="trust-label">
-          Trusted by law firms and medical practices across 18 markets
+          Trusted by law firms and medical practices across Florida, California,
+          Illinois, and New York
         </div>
         <div className="trust-logos">
           <span>AWS Law</span>
@@ -743,17 +978,372 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-2">
-        <div className="section-2-eyebrow">The shift</div>
-        <h2 className="section-2-h2">
-          SEO is no longer just <span className="accent-text">SEO.</span>
-        </h2>
+      {/* === EDITORIAL BEAT (V4 — noise vs live revenue feed) === */}
+      <EditorialBeat />
+
+      {/* === THE SHIFT (then / now comparison) === */}
+      <section className="section-2 section-2-comparison">
+        <div className="section-2-framing">
+          <div className="section-2-eyebrow">The shift</div>
+          <h2 className="section-2-h2">
+            SEO is no longer just <span className="accent-text">SEO.</span>
+          </h2>
+        </div>
+
+        <div className="shift-grid">
+          {/* LEFT — BEFORE */}
+          <div className="shift-col shift-col-before">
+            <div className="shift-eyebrow shift-eyebrow-before">Before</div>
+            <div className="shift-browser">
+              <div className="shift-browser-header">
+                <span className="shift-browser-traffic">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+                <span className="shift-browser-url">google.com</span>
+              </div>
+              <div className="shift-browser-body">
+                <div className="shift-search-bar">
+                  <span className="shift-search-icon" aria-hidden="true">
+                    ⌕
+                  </span>
+                  <span className="shift-search-query">
+                    best probate lawyer tampa
+                  </span>
+                </div>
+                <div className="shift-result-line"></div>
+                <div className="shift-result-line shift-result-line-2"></div>
+                <div className="shift-result-line shift-result-line-3"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* MID divider */}
+          <div className="shift-divider" aria-hidden="true"></div>
+
+          {/* RIGHT — NOW */}
+          <div className="shift-col shift-col-now">
+            <div className="shift-eyebrow shift-eyebrow-now">Now</div>
+            <div className="shift-surfaces">
+              <div className="shift-surface shift-surface-1">
+                <div className="shift-surface-label">ChatGPT</div>
+                <div className="shift-surface-snippet">
+                  …<strong>AWS Law Firm</strong> stands out as the top probate
+                  practice in Tampa…
+                </div>
+              </div>
+              <div className="shift-surface shift-surface-2">
+                <div className="shift-surface-label">Perplexity</div>
+                <div className="shift-surface-snippet">
+                  <strong>AWS Law Firm</strong> is widely regarded as Tampa&apos;s
+                  leading probate practice
+                  <sup>[1]</sup>
+                </div>
+              </div>
+              <div className="shift-surface shift-surface-3">
+                <div className="shift-surface-label">Google AIO</div>
+                <div className="shift-surface-snippet">
+                  Tampa&apos;s leading probate firm, often cited:{" "}
+                  <strong>AWS Law Firm</strong>.
+                </div>
+              </div>
+              <div className="shift-surface shift-surface-4">
+                <div className="shift-surface-label">Maps</div>
+                <div className="shift-surface-snippet">
+                  <span className="shift-surface-rank">#1</span>{" "}
+                  <strong>AWS Law Firm</strong> · ★ 4.9 · 412
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <p className="section-2-subhead">
           Your future clients aren&apos;t just Googling. They&apos;re asking
-          ChatGPT, Perplexity, and Google AI Overviews which firm to call. We
-          make sure the answer is yours.
+          ChatGPT, Perplexity, and Google AI Overviews which firm to call.
+          They&apos;re checking your reviews on Google Maps. They&apos;re
+          scrolling the local 3-pack. We make sure the answer is yours —
+          across every surface that matters.
         </p>
       </section>
+
+      {/* === STATS SECTION (interactive) === */}
+      <InteractiveStats />
+
+      {/* === SERVICES SECTION (tabbed) === */}
+      <TabbedServices />
+
+      {/* === METHODOLOGY (FIRST POSITION) — accordion explorer === */}
+      <MethodologyExplorer />
+
+      {/* === PROCESS SECTION (scroll-driven timeline) === */}
+      <ProcessTimeline />
+
+      {/* === CASE STUDY SECTION === */}
+      <section className="case-study-section" id="case-study">
+        <div className="case-study-inner">
+          <div className="case-study-content">
+            <div className="section-2-eyebrow">Case study</div>
+            <h2 className="case-study-h2">
+              AWS Law Firm: Tampa&apos;s{" "}
+              <span className="accent-text">leading probate practice.</span>
+            </h2>
+            <div className="case-study-prose">
+              <p>
+                When AWS Law Firm came to us in early 2024, they were a
+                respected Tampa probate and estate planning practice — but
+                invisible online. They were buried on page two of Google for
+                their primary keywords. Zero mentions in ChatGPT when prospects
+                asked who the best probate lawyer in Tampa was.
+              </p>
+              <p>
+                Our audit surfaced the gaps quickly. No schema markup. Thin
+                practice-area pages. No active citation strategy. Strong
+                content existed, but it wasn&apos;t structured for AI
+                consumption. The competitive landscape was dominated by
+                national legal directory sites with deeper budgets but weaker
+                local authority.
+              </p>
+              <p>
+                We rebuilt their site architecture for AI search. We produced
+                fifteen long-form authority pieces on probate, estate planning,
+                trust administration, and inheritance law — each designed to
+                be cited by AI models. We executed a citation campaign across
+                200+ legal industry platforms. We optimized their Google
+                Business Profile and built specialty landing pages for every
+                service area.
+              </p>
+              <p>
+                Twenty-two months later: ranked #1 for &quot;probate lawyer
+                tampa&quot; and &quot;estate planning attorney tampa.&quot; 240%
+                increase in qualified consultation requests. Cited in 52% of
+                relevant ChatGPT queries about Tampa probate and estate
+                matters. The firm now operates a 6-week waitlist for new estate
+                planning consultations.
+              </p>
+            </div>
+            <a
+              href="/case-studies/aws-law-firm"
+              className="case-study-link"
+            >
+              Read full case study <span className="arrow">→</span>
+            </a>
+          </div>
+
+          <div className="case-study-stats">
+            <div
+              className="case-stat case-stat-1"
+              data-reveal
+              data-reveal-delay="0"
+            >
+              <div className="case-stat-num">#1</div>
+              <div className="case-stat-label">Ranked</div>
+              <div className="case-stat-sub">
+                for &quot;probate lawyer tampa&quot;
+              </div>
+            </div>
+            <div
+              className="case-stat case-stat-2"
+              data-reveal
+              data-reveal-delay="200"
+            >
+              <div className="case-stat-num">+240%</div>
+              <div className="case-stat-label">Increase</div>
+              <div className="case-stat-sub">in qualified consultations</div>
+            </div>
+            <div
+              className="case-stat case-stat-3"
+              data-reveal
+              data-reveal-delay="400"
+            >
+              <div className="case-stat-num">52%</div>
+              <div className="case-stat-label">AI citations</div>
+              <div className="case-stat-sub">in relevant ChatGPT queries</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Before/after slider — visual moment for AWS case study */}
+        <div className="case-study-slider-wrap">
+          <CaseStudySlider />
+        </div>
+      </section>
+
+      {/* === CASE STUDY (TYLER FAMILY LAW) === */}
+      <section
+        className="case-study-section case-study-secondary"
+        id="case-study-tyler"
+      >
+        <div className="case-study-inner case-study-inner-flipped">
+          <div className="case-study-stats case-study-stats-flipped">
+            <div
+              className="case-stat-flip-1-chart"
+              data-reveal
+              data-reveal-delay="0"
+            >
+              <GrowthChart />
+            </div>
+            <div
+              className="case-stat case-stat-flip-2"
+              data-reveal
+              data-reveal-delay="200"
+            >
+              <div className="case-stat-num">8 months</div>
+              <div className="case-stat-label">Time</div>
+              <div className="case-stat-sub">from start to results</div>
+            </div>
+            <div
+              className="case-stat case-stat-flip-3"
+              data-reveal
+              data-reveal-delay="400"
+            >
+              <div className="case-stat-num">#1</div>
+              <div className="case-stat-label">Ranked</div>
+              <div className="case-stat-sub">
+                for &quot;divorce attorney atlanta&quot;
+              </div>
+            </div>
+          </div>
+
+          <div className="case-study-content">
+            <div className="section-2-eyebrow">Case study</div>
+            <h2 className="case-study-h2">
+              Tyler Family Law: Atlanta&apos;s{" "}
+              <span className="accent-text">#1 divorce attorney.</span>
+            </h2>
+            <div className="case-study-prose">
+              <p>
+                Tyler Family Law is a divorce and family law practice in
+                Atlanta. When they came to us, they were a respected firm
+                with deep trial experience but limited online visibility.
+                They were ranking on page two for their primary keywords and
+                getting most of their cases through referrals — a great
+                problem to have until referrals dry up.
+              </p>
+              <p>
+                The Atlanta divorce attorney market is intensely competitive.
+                National brands, lawyer-mill aggregators, and well-funded
+                local firms all fighting for the same searches. Most agencies
+                told them ranking was impossible without a six-figure annual
+                budget. We disagreed.
+              </p>
+              <p>
+                We ran the First Position playbook. Hyperlocal focus on
+                Atlanta proper — not Georgia, not the suburbs first, just
+                Atlanta. We rebuilt their site for AI consumption. We
+                produced authority content on every divorce subtopic that
+                mattered (custody, asset division, prenups, post-decree
+                modifications). We optimized their GMB to a level most local
+                firms haven&apos;t seen. We executed citation-stacking across
+                legal and local-business platforms. Weekly meetings,
+                transparent reporting.
+              </p>
+              <p>
+                Eight months later: ranked #1 for &quot;divorce attorney
+                atlanta&quot; and a dozen related queries. Lead volume
+                increased by 1,240%. The firm now operates a four-week
+                intake waitlist and has expanded their consultation team.
+              </p>
+            </div>
+            <a
+              href="/case-studies/tyler-family-law"
+              className="case-study-link"
+            >
+              Read full case study <span className="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* === FOUNDER SECTION (Detroit-anchored, with career timeline) === */}
+      <FounderSection />
+
+      {/* === BRANDS THE FOUNDER BUILT (3D parallax cards) === */}
+      <BrandsParallax />
+
+      {/* === TEAM SECTION (filterable) === */}
+      <TeamFilter />
+
+      {/* === INSIDE THE STUDIO (Detroit HQ illustrated scene) === */}
+      <InsideStudio />
+
+      {/* === TESTIMONIALS SECTION (carousel) === */}
+      <TestimonialCarousel />
+
+      {/* === FINAL CTA SECTION === */}
+      <section className="final-cta-section">
+        <div className="final-cta-atmosphere" aria-hidden="true"></div>
+        <div className="final-cta-grain" aria-hidden="true"></div>
+        <div className="final-cta-inner">
+          <div className="section-2-eyebrow final-cta-eyebrow">
+            Ready to begin?
+          </div>
+          <h2 className="final-cta-h2">
+            <span className="reveal-word" data-reveal data-reveal-delay="0">
+              We
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="60">
+              don&apos;t
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="120">
+              take
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="180">
+              every
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="240">
+              firm.
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="300">
+              Let&apos;s
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="360">
+              see
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="420">
+              if
+            </span>{" "}
+            <span className="reveal-word" data-reveal data-reveal-delay="480">
+              we
+            </span>{" "}
+            <span
+              className="reveal-word accent-text"
+              data-reveal
+              data-reveal-delay="540"
+            >
+              should
+            </span>{" "}
+            <span
+              className="reveal-word accent-text"
+              data-reveal
+              data-reveal-delay="600"
+            >
+              take
+            </span>{" "}
+            <span
+              className="reveal-word accent-text"
+              data-reveal
+              data-reveal-delay="660"
+            >
+              yours.
+            </span>
+          </h2>
+          <p className="final-cta-subhead">
+            We work with a small number of firms each year. Apply for a free
+            audit to learn whether we&apos;re the right fit for your practice.
+          </p>
+          <div className="final-cta-form-wrap">
+            <AuditForm />
+          </div>
+        </div>
+      </section>
+
+      {/* Floating Book Audit CTA — always visible */}
+      <a href="#" className="floating-cta" aria-label="Book audit">
+        Book audit
+        <span className="floating-cta-arrow">→</span>
+      </a>
     </>
   );
 }

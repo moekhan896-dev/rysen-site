@@ -3,36 +3,32 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { NavServicesMenu } from "./NavServicesMenu";
+import { NavTopRibbon } from "./NavTopRibbon";
 
-interface NavLinkItem {
-  readonly label: string;
-  readonly href: string;
-  readonly children?: ReadonlyArray<{ readonly label: string; readonly href: string }>;
-}
-
-const NAV_LINKS: ReadonlyArray<NavLinkItem> = [
-  {
-    label: "Services",
-    href: "/services",
-    children: [
-      { label: "Overview", href: "/services" },
-      { label: "AI Search", href: "/services/ai-search" },
-      { label: "Local SEO", href: "/services/local-seo" },
-      { label: "Content & Reputation", href: "/services/content" },
-    ],
-  },
+const NAV_LINKS: ReadonlyArray<{ label: string; href: string; hasDropdown?: boolean }> = [
+  { label: "Services", href: "/services", hasDropdown: true },
   { label: "Work", href: "/case-studies" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+];
+
+const SERVICE_HREFS: ReadonlyArray<string> = [
+  "/services",
+  "/services/ai-search",
+  "/services/local-seo",
+  "/services/content",
 ];
 
 export function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Scroll detection — rAF-throttled
   useEffect(() => {
     let ticking = false;
     let lastY = 0;
@@ -40,7 +36,7 @@ export function Nav() {
       lastY = window.scrollY;
       if (!ticking) {
         requestAnimationFrame(() => {
-          setScrolled(lastY > 20);
+          setScrolled(lastY > 80);
           ticking = false;
         });
         ticking = true;
@@ -50,160 +46,253 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
-    setOpenDropdown(null);
+    setServicesOpen(false);
   }, [pathname]);
 
-  // Close dropdown on outside click
+  // ESC closes services menu
   useEffect(() => {
-    if (!openDropdown) return;
-    const onClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest(".nav-dropdown") && !target.closest(".nav-link-with-dropdown")) {
-        setOpenDropdown(null);
-      }
+    if (!servicesOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setServicesOpen(false);
     };
-    document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
-  }, [openDropdown]);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [servicesOpen]);
 
-  const handleDropdownEnter = (label: string) => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-    setOpenDropdown(label);
+  // Lock body scroll when mobile menu open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [mobileOpen]);
+
+  const handleServicesEnter = () => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+    hoverTimer.current = setTimeout(() => setServicesOpen(true), 100);
   };
 
-  const handleDropdownLeave = () => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-    dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 160);
+  const handleServicesLeave = () => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+    hoverTimer.current = setTimeout(() => setServicesOpen(false), 150);
   };
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/services") {
+      return SERVICE_HREFS.some((h) => pathname === h);
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
-    <nav id="nav" className={scrolled ? "scrolled" : undefined}>
-      <div className="nav-inner">
-        <Link href="/" className="wordmark" aria-label="Rysen home">
-          <div className="wordmark-icon" aria-hidden="true"></div>
-          <span className="wordmark-stack">
-            <span className="wordmark-text">Rysen</span>
-            <span className="wordmark-subline">Est. 2019 · Detroit</span>
-          </span>
-        </Link>
+    <header
+      id="nav"
+      className={`site-nav${scrolled ? " is-scrolled" : ""}${
+        servicesOpen ? " is-mega-open" : ""
+      }`}
+    >
+      <NavTopRibbon />
 
-        <div className="nav-links" role="menubar">
-          {NAV_LINKS.map((item) =>
-            item.children ? (
-              <div
-                key={item.label}
-                className="nav-link-with-dropdown"
-                onMouseEnter={() => handleDropdownEnter(item.label)}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  type="button"
-                  className={`nav-link-button${
-                    isActive(item.href) ? " is-active" : ""
-                  }`}
-                  aria-expanded={openDropdown === item.label}
-                  aria-haspopup="true"
-                  onClick={() =>
-                    setOpenDropdown(openDropdown === item.label ? null : item.label)
-                  }
+      <div className="nav-main">
+        <div className="nav-noise" aria-hidden="true" />
+        <div className="nav-inner">
+          {/* LEFT — Logo block */}
+          <Link href="/" className="nav-logo" aria-label="Rysen home">
+            <span className="nav-logo-dot" aria-hidden="true" />
+            <span className="nav-logo-stack">
+              <span className="nav-logo-wordmark">Rysen</span>
+              <span className="nav-logo-subline">Est. 2019 · Detroit</span>
+            </span>
+          </Link>
+
+          {/* CENTER — Nav links */}
+          <nav className="nav-links" aria-label="Primary">
+            {NAV_LINKS.map((item) =>
+              item.hasDropdown ? (
+                <div
+                  key={item.label}
+                  className="nav-link-wrap"
+                  onMouseEnter={handleServicesEnter}
+                  onMouseLeave={handleServicesLeave}
                 >
-                  {item.label}
-                  <span className="nav-link-chevron" aria-hidden="true">
-                    ▾
-                  </span>
-                </button>
-                {openDropdown === item.label && (
-                  <div
-                    className="nav-dropdown"
-                    onMouseEnter={() => handleDropdownEnter(item.label)}
-                    onMouseLeave={handleDropdownLeave}
+                  <button
+                    type="button"
+                    className={`nav-link nav-link-button${
+                      isActive(item.href) ? " is-active" : ""
+                    }${servicesOpen ? " is-open" : ""}`}
+                    aria-expanded={servicesOpen}
+                    aria-haspopup="true"
+                    onClick={() => setServicesOpen((v) => !v)}
                   >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="nav-dropdown-link"
-                        onClick={() => setOpenDropdown(null)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={isActive(item.href) ? "is-active" : undefined}
+                    <span className="nav-link-text">{item.label}</span>
+                    <span className="nav-link-chevron" aria-hidden="true">
+                      ▾
+                    </span>
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`nav-link${isActive(item.href) ? " is-active" : ""}`}
+                >
+                  <span className="nav-link-text">{item.label}</span>
+                </Link>
+              )
+            )}
+          </nav>
+
+          {/* RIGHT — Status pill + CTA + mobile toggle */}
+          <div className="nav-right">
+            <div className="nav-status-pill" aria-hidden="true">
+              <span className="nav-status-dot" />
+              <span className="nav-status-text">47 touchpoints this week</span>
+            </div>
+
+            <Link href="/audit" className="nav-cta">
+              <span className="nav-cta-text">Book audit</span>
+              <span className="nav-cta-sheen" aria-hidden="true" />
+            </Link>
+
+            <button
+              type="button"
+              className="nav-mobile-toggle"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              <span
+                className={`nav-mobile-icon${mobileOpen ? " is-open" : ""}`}
+                aria-hidden="true"
               >
-                {item.label}
-              </Link>
-            )
-          )}
+                <span />
+                <span />
+                <span />
+              </span>
+            </button>
+          </div>
         </div>
 
-        <Link href="/audit" className="nav-cta">
-          Book audit <span className="nav-cta-arrow">→</span>
-        </Link>
-
-        <button
-          type="button"
-          className="nav-mobile-toggle"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          <span className={`nav-mobile-icon${mobileOpen ? " is-open" : ""}`} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
-        </button>
+        <div className="nav-hairline" aria-hidden="true">
+          <span className="nav-hairline-pulse" />
+        </div>
       </div>
 
-      {mobileOpen && (
-        <div className="nav-mobile-panel" role="menu">
-          {NAV_LINKS.map((item) => (
-            <div key={item.label} className="nav-mobile-group">
+      {/* Services mega-menu */}
+      <div
+        onMouseEnter={handleServicesEnter}
+        onMouseLeave={handleServicesLeave}
+      >
+        <NavServicesMenu
+          open={servicesOpen}
+          onClose={() => setServicesOpen(false)}
+        />
+      </div>
+
+      {/* Mobile slide-in panel */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="nav-mobile-panel"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            role="dialog"
+            aria-label="Mobile navigation"
+          >
+            <div className="nav-mobile-panel-inner">
+              <div className="nav-mobile-group">
+                <div className="nav-mobile-group-head">Services</div>
+                <Link
+                  href="/services"
+                  className="nav-mobile-sublink"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Overview
+                </Link>
+                <Link
+                  href="/services/ai-search"
+                  className="nav-mobile-sublink"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  AI Search
+                </Link>
+                <Link
+                  href="/services/local-seo"
+                  className="nav-mobile-sublink"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Local SEO
+                </Link>
+                <Link
+                  href="/services/content"
+                  className="nav-mobile-sublink"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Content &amp; Reputation
+                </Link>
+              </div>
+
               <Link
-                href={item.href}
-                className={`nav-mobile-link${isActive(item.href) ? " is-active" : ""}`}
+                href="/case-studies"
+                className="nav-mobile-link"
                 onClick={() => setMobileOpen(false)}
               >
-                {item.label}
+                Work
               </Link>
-              {item.children && (
-                <div className="nav-mobile-sublinks">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="nav-mobile-sublink"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
+              <Link
+                href="/about"
+                className="nav-mobile-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="nav-mobile-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                Contact
+              </Link>
+
+              <Link
+                href="/audit"
+                className="nav-mobile-cta"
+                onClick={() => setMobileOpen(false)}
+              >
+                Book audit →
+              </Link>
+
+              <div className="nav-mobile-footer">
+                <div className="nav-mobile-footer-line">Rysen Growth</div>
+                <div className="nav-mobile-footer-line">
+                  1 Campus Martius, Suite 200
                 </div>
-              )}
+                <div className="nav-mobile-footer-line">Detroit, MI 48226</div>
+                <a
+                  href="tel:+12484066223"
+                  className="nav-mobile-footer-line nav-mobile-footer-contact"
+                >
+                  (248) 406-6223
+                </a>
+                <a
+                  href="mailto:marketing@rysengrowth.com"
+                  className="nav-mobile-footer-line nav-mobile-footer-contact"
+                >
+                  marketing@rysengrowth.com
+                </a>
+              </div>
             </div>
-          ))}
-          <Link
-            href="/audit"
-            className="nav-mobile-cta"
-            onClick={() => setMobileOpen(false)}
-          >
-            Book audit →
-          </Link>
-        </div>
-      )}
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

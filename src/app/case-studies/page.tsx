@@ -35,12 +35,30 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
       "Three other agencies called Atlanta unwinnable against the national lawyer mills. Eight months later, Tyler ranked #1 and now operates a four-week intake waitlist.",
     href: "/case-studies/tyler-family-law",
   },
-];
-
-const COMING_SOON: ReadonlyArray<{ name: string; badge: string }> = [
-  { name: "Hartman Dermatology", badge: "MEDICAL · DERMATOLOGY · MIAMI" },
-  { name: "Coleman & Co.", badge: "LEGAL · ESTATE · LOS ANGELES" },
-  { name: "Ridge Dental", badge: "MEDICAL · DENTAL · CHICAGO" },
+  {
+    badge: "MEDICAL · DERMATOLOGY · MIAMI, FL",
+    headline: "Hartman Dermatology: Miami&rsquo;s go-to for cosmetic consultations.",
+    stats: ["+78% consultations", "#1 ranked", "142% review velocity"],
+    preview:
+      "From clinically excellent but online invisible to #1 across Miami cosmetic dermatology queries — and cited by AI surfaces in 38% of relevant local queries.",
+    href: "/case-studies/hartman-dermatology",
+  },
+  {
+    badge: "LEGAL · ESTATE · LOS ANGELES, CA",
+    headline: "Coleman &amp; Co.: Now Los Angeles&rsquo;s #1 estate attorney.",
+    stats: ["+320% qualified leads", "#1 ranked", "9 months"],
+    preview:
+      "An HNW estate boutique that was almost entirely referral-driven. Nine months later, organic accounts for 67% of new business — and the firm ranks #1 across the priority LA estate queries.",
+    href: "/case-studies/coleman-co",
+  },
+  {
+    badge: "MEDICAL · DENTAL · CHICAGO, IL",
+    headline: "Ridge Dental: Dominating Chicago&rsquo;s 3-pack across 5 neighborhoods.",
+    stats: ["+186% new patient calls", "#1 in 5 neighborhoods", "4 months"],
+    preview:
+      "Multi-location dental network treated all 5 GBPs as a coordinated system, not parallel competitors. Four months later, #1 in Maps Pack across every Chicago neighborhood it serves.",
+    href: "/case-studies/ridge-dental",
+  },
 ];
 
 export default function CaseStudiesPage() {
@@ -54,7 +72,7 @@ export default function CaseStudiesPage() {
             <span className="accent-italic">Real numbers.</span>
           </>
         }
-        subtitle="A selection of recent engagements. Stats verified, names used with permission."
+        subtitle="Five case studies. Stats verified, names used with permission."
       />
 
       <PageSection eyebrow="CASE STUDIES" title="Published case studies.">
@@ -80,17 +98,6 @@ export default function CaseStudiesPage() {
             </Link>
           ))}
 
-          {COMING_SOON.map((c) => (
-            <div key={c.name} className="case-card case-card-coming">
-              <div className="case-card-badge">{c.badge}</div>
-              <h3 className="case-card-headline">{c.name}</h3>
-              <div className="case-card-coming-tag">Coming soon</div>
-              <p className="case-card-preview">
-                Engagement currently in progress. Case study publishing once
-                final results are verified and client approval is in.
-              </p>
-            </div>
-          ))}
         </div>
       </PageSection>
 

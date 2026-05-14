@@ -6,6 +6,10 @@ import { BrandsParallax } from "@/components/sections/BrandsParallax";
 import { CaseStudySlider } from "@/components/sections/CaseStudySlider";
 import { CredibilityBand } from "@/components/sections/CredibilityBand";
 import { EditorialBeat } from "@/components/sections/EditorialBeat";
+import { PressRecognition } from "@/components/sections/PressRecognition";
+import { RevenueClaim } from "@/components/sections/RevenueClaim";
+import { SignatureOpening } from "@/components/sections/SignatureOpening";
+import { ThoughtLeadership } from "@/components/sections/ThoughtLeadership";
 import { FounderSection } from "@/components/sections/FounderSection";
 import { GrowthChart } from "@/components/sections/GrowthChart";
 import { InsideStudio } from "@/components/sections/InsideStudio";
@@ -546,6 +550,7 @@ export default function HomePage() {
 
   return (
     <>
+      <SignatureOpening />
       {/* Page-wide ambient gradient — fades in past first viewport via scroll listener */}
       <div
         className="page-ambient"
@@ -1043,6 +1048,9 @@ export default function HomePage() {
       {/* === STATS SECTION (interactive) === */}
       <InteractiveStats />
 
+      {/* === REVENUE CLAIM ($47M+ counter) === */}
+      <RevenueClaim />
+
       {/* === SERVICES SECTION (tabbed) === */}
       <TabbedServices />
 
@@ -1231,6 +1239,9 @@ export default function HomePage() {
       {/* === FOUNDER SECTION (Detroit-anchored, with career timeline) === */}
       <FounderSection />
 
+      {/* === THOUGHT LEADERSHIP (published thinking) === */}
+      <ThoughtLeadership />
+
       {/* === BRANDS THE FOUNDER BUILT (3D parallax cards) === */}
       <BrandsParallax />
 
@@ -1242,6 +1253,9 @@ export default function HomePage() {
 
       {/* === TESTIMONIALS SECTION (carousel) === */}
       <TestimonialCarousel />
+
+      {/* === PRESS & RECOGNITION === */}
+      <PressRecognition />
 
       {/* === FINAL CTA SECTION === */}
       <section className="final-cta-section">

@@ -7,7 +7,7 @@ import { CareerTimeline } from "./CareerTimeline";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const PARA_1 =
-  "I started Rysen because every marketing agency I worked with — and I worked with several at Salesforce, Roku, and across multiple personal ventures — had the same problem. They could tell you what they did. They could tell you how many impressions you got. But none of them could tell you, with any certainty, whether the marketing actually generated revenue.";
+  "I started Rysen because I watched marketing agencies bill millions and deliver impressions. I was inside Salesforce and Roku — companies that knew exactly how to attribute revenue to channel — and then I'd talk to agency partners who couldn't tell me whether their campaigns generated a single dollar. That gap stopped making sense to me.";
 
 const CURRENTLY_STATUSES: ReadonlyArray<string> = [
   "Reviewing Tyler Family Law Q4 strategy",
@@ -211,11 +211,21 @@ export function FounderSection() {
               )}
             </p>
             <p>
-              That&apos;s not a small problem. That&apos;s the problem. Every
-              dollar a law firm or medical practice spends on marketing is a
-              dollar that didn&apos;t go to a paralegal, a hire, an office
-              expansion, a clinical investment. If you can&apos;t prove ROI in
-              dollars, you can&apos;t justify the spend.
+              Most marketing firms sell tactics. We sell outcomes. Most firms
+              report on what they did. We report on what it generated. When
+              you engage Rysen, every dollar of work we do gets tracked to a
+              specific client outcome — a ranking gained, a citation earned,
+              a phone call attributed, a revenue figure produced. If we
+              can&apos;t show you the math, we don&apos;t bill you.
+            </p>
+            <p>
+              That sounds obvious. It isn&apos;t. Most agencies actively avoid
+              attribution because attribution exposes which tactics actually
+              work. Ours doesn&apos;t, because we built the firm around the
+              discipline of measuring what matters. We&apos;ve turned away
+              dozens of engagements from firms wanting templated services or
+              quarterly reports — we work weekly, we work hyperlocally, and we
+              work with the clients we know we can win for.
             </p>
 
             <aside className="founder-pullquote founder-pullquote-v4" aria-hidden="false">
@@ -237,32 +247,25 @@ export function FounderSection() {
             </aside>
 
             <p>
-              So we built Rysen around three commitments. First: we attribute
-              every client we bring you to a specific source, channel, and
-              dollar amount. Second: we run a hyperlocal strategy — we make
-              you #1 in your metro before we expand anywhere else. Third: if
-              we don&apos;t think we can win for you, we&apos;ll tell you
-              upfront. We&apos;ve turned down good budgets from saturated
-              markets because we&apos;d rather lose a deal than lose our
-              reputation.
+              We&apos;re based in Detroit because Detroit produces operators
+              who do the work. We&apos;re founder-led because every client
+              gets my attention. We&apos;re 18 people because 18 is the size
+              we&apos;ve proven we can run with discipline. We&apos;ve grown
+              carefully since 2019, and we&apos;ll keep growing carefully —
+              because the alternative is the agency model we started Rysen to
+              avoid.
             </p>
             <p>
-              Before Rysen, I founded three brands across automotive customs,
-              plumbing, and home cleaning. Each one became the fastest-growing
-              brand in its category in the Midwest. The same playbook that
-              built those brands — hyperlocal focus, data-obsessed reporting,
-              compounding visibility across every channel — is what we run
-              for every client.
-            </p>
-            <p>
-              If you&apos;re reading this, you&apos;re probably evaluating us
-              against four or five other agencies. That&apos;s the right
-              thing to do. The only thing I&apos;d ask: don&apos;t pick the
-              agency with the loudest pitch. Pick the one that can show you
-              the math. We&apos;ll show you the math.
+              If you&apos;re a law firm or medical practice and you want to be
+              the first answer when a client asks who they should call — not
+              the eleventh result, not the impression-counted ad — let&apos;s
+              talk. We&apos;ll audit your visibility for free. If we can win
+              for you, we&apos;ll tell you exactly how, exactly when, and
+              exactly what it will cost. If we can&apos;t, we&apos;ll tell
+              you that too.
             </p>
           </div>
-          <div className="founder-signature">— Art, Detroit</div>
+          <div className="founder-signature">— Art</div>
           <a href="#brands-built" className="founder-link">
             See Art&apos;s brands <span className="arrow">→</span>
           </a>

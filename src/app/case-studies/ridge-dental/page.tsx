@@ -113,7 +113,7 @@ export default function RidgeCaseStudyPage() {
           </div>
           <div className="page-hero-eyebrow">CASE STUDY</div>
           <h1 className="case-page-hero-title">
-            Ridge Dental: Dominating Chicago&rsquo;s 3-pack across{" "}
+            Ridge Dental: Dominating Chicago’s 3-pack across{" "}
             <span className="accent-italic">5 neighborhoods.</span>
           </h1>
           <CaseStats
@@ -151,16 +151,16 @@ export default function RidgeCaseStudyPage() {
       >
         <div className="case-prose">
           <p>
-            Ridge ranked decently for &ldquo;Chicago dentist&rdquo; generically
+            Ridge ranked decently for “Chicago dentist” generically
             but was losing the neighborhood-level fights. When someone in
-            Wicker Park searched &ldquo;dentist near me,&rdquo; they saw
+            Wicker Park searched “dentist near me,” they saw
             competitors in the 3-pack. Same problem in Lincoln Park, Lakeview,
             West Loop, and Logan Square.
           </p>
           <p>
-            Each location was a separate GBP but they weren&rsquo;t optimized
+            Each location was a separate GBP but they weren’t optimized
             as a network — they competed independently against well-established
-            neighborhood incumbents and against each other. The fix wasn&rsquo;t
+            neighborhood incumbents and against each other. The fix wasn’t
             harder generic ranking work; it was treating the 5 locations as a
             coordinated system.
           </p>
@@ -223,7 +223,7 @@ export default function RidgeCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your practice&rsquo;s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your practice’s visibility — same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

@@ -48,10 +48,10 @@ export default function AboutPage() {
             not fine in legal and medical, where every marketing dollar is a dollar
             that did not go to a paralegal hire, an office expansion, or a clinical
             investment. Owners and managing partners need to know which dollars
-            generated which cases. Most agencies still can&rsquo;t answer that.
+            generated which cases. Most agencies still can’t answer that.
           </p>
           <p>
-            Rysen was built around the answer. We rebuild our clients&rsquo;
+            Rysen was built around the answer. We rebuild our clients’
             visibility — across Google, AI search, Maps, and content — and we tie
             every change back to a source, a channel, and a dollar. Clients see the
             math every week. Engagements range from six months to three-plus years.
@@ -59,15 +59,15 @@ export default function AboutPage() {
           </p>
 
           <aside className="about-pullquote">
-            <span className="about-pullquote-mark">&ldquo;</span>
+            <span className="about-pullquote-mark">“</span>
             <span className="about-pullquote-text">
               Pick the agency that can show you the math.
             </span>
-            <span className="about-pullquote-mark">&rdquo;</span>
+            <span className="about-pullquote-mark">”</span>
           </aside>
 
           <p>
-            We&rsquo;re headquartered in downtown Detroit because we wanted a city
+            We’re headquartered in downtown Detroit because we wanted a city
             that takes work seriously. Fourteen of us are here in person. Four work
             remote on specialized lanes. We stay boutique on purpose — every account
             has a senior strategist as the day-one contact, and we cap engagements so
@@ -121,7 +121,7 @@ export default function AboutPage() {
           <div className="about-founder-body">
             <div className="about-founder-name">Art Khan</div>
             <div className="about-founder-role">
-              Founder &amp; Managing Partner
+              Founder & Managing Partner
             </div>
             <div className="about-founder-chips">
               <span className="founder-chip">ROSS BBA</span>
@@ -149,7 +149,7 @@ export default function AboutPage() {
 
       <CTABanner
         title="Ready to see the math?"
-        subtitle="Get a free audit of your firm&rsquo;s visibility — 48-hour turnaround, no sales call."
+        subtitle="Get a free audit of your firm’s visibility — 48-hour turnaround, no sales call."
         primaryText="Book a free audit"
         primaryHref="/audit"
         secondaryText="See our work"

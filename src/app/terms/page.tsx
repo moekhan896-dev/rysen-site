@@ -23,9 +23,9 @@ export default function TermsPage() {
         <section>
           <h2>Acceptance of Terms</h2>
           <p>
-            These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use
-            of the rysengrowth.com website (the &ldquo;Site&rdquo;), operated by Rysen
-            Growth (&ldquo;Rysen,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;). By
+            These Terms of Service (“Terms”) govern your access to and use
+            of the rysengrowth.com website (the “Site”), operated by Rysen
+            Growth (“Rysen,” “we,” or “us”). By
             accessing or using the Site, you agree to these Terms. If you do not
             agree, do not use the Site.
           </p>
@@ -35,7 +35,7 @@ export default function TermsPage() {
           <h2>Use of the Site</h2>
           <p>
             You agree to use the Site only for lawful purposes and in a way that does
-            not infringe the rights of, restrict, or inhibit anyone else&rsquo;s use
+            not infringe the rights of, restrict, or inhibit anyone else’s use
             of the Site. You agree not to attempt to gain unauthorized access to any
             portion of the Site, to interfere with its operation, or to use automated
             means to scrape or harvest data from it.
@@ -81,7 +81,7 @@ export default function TermsPage() {
         <section>
           <h2>Disclaimers</h2>
           <p>
-            The Site and its content are provided &ldquo;as is&rdquo; without
+            The Site and its content are provided “as is” without
             warranties of any kind, express or implied, including warranties of
             merchantability, fitness for a particular purpose, and non-infringement.
             Content on the Site is for informational purposes only and does not
@@ -108,7 +108,7 @@ export default function TermsPage() {
           <p>
             You agree to indemnify and hold harmless Rysen Growth and its
             representatives from any claim, loss, or expense (including reasonable
-            attorneys&rsquo; fees) arising out of your use of the Site or violation of
+            attorneys’ fees) arising out of your use of the Site or violation of
             these Terms.
           </p>
         </section>
@@ -128,7 +128,7 @@ export default function TermsPage() {
           <h2>Changes to These Terms</h2>
           <p>
             We may update these Terms from time to time. When we do, we will revise
-            the &ldquo;Last updated&rdquo; date at the top of this page. Your
+            the “Last updated” date at the top of this page. Your
             continued use of the Site after changes are posted constitutes acceptance
             of the revised Terms.
           </p>

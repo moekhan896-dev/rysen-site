@@ -23,11 +23,11 @@ export default function PrivacyPage() {
         <section>
           <h2>Introduction</h2>
           <p>
-            Rysen Growth (&ldquo;Rysen,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
-            &ldquo;our&rdquo;) is a marketing services firm headquartered at 1 Campus
+            Rysen Growth (“Rysen,” “we,” “us,” or
+            “our”) is a marketing services firm headquartered at 1 Campus
             Martius, Suite 200, Detroit, MI 48226. This Privacy Policy explains how we
             collect, use, share, and protect information when you visit rysengrowth.com
-            (the &ldquo;Site&rdquo;) or engage us as a client.
+            (the “Site”) or engage us as a client.
           </p>
           <p>
             Questions about this policy or your data can be sent to{" "}
@@ -145,7 +145,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2>Children&rsquo;s Privacy</h2>
+          <h2>Children’s Privacy</h2>
           <p>
             The Site is not directed to children under 13, and we do not knowingly
             collect personal information from children under 13. If you believe we
@@ -157,7 +157,7 @@ export default function PrivacyPage() {
           <h2>Changes to This Policy</h2>
           <p>
             We may update this policy from time to time. When we do, we will revise
-            the &ldquo;Last updated&rdquo; date at the top of this page. Material
+            the “Last updated” date at the top of this page. Material
             changes will be communicated through the Site or by email where
             appropriate.
           </p>

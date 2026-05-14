@@ -12,14 +12,14 @@ import {
 export const metadata: Metadata = {
   title: "Coleman & Co. Case Study — LA Estate Attorney, +320% Qualified Leads",
   description:
-    "How Rysen took Coleman & Co. from referral-dependent boutique to Los Angeles&rsquo;s #1 ranked estate attorney across HNW estate planning queries.",
+    "How Rysen took Coleman & Co. from referral-dependent boutique to Los Angeles’s #1 ranked estate attorney across HNW estate planning queries.",
 };
 
 const PHASES = [
   {
     window: "MONTH 1–2",
     title: "Hyperlocal LA neighborhood targeting",
-    desc: "Forget &ldquo;Los Angeles&rdquo; in general — we built the strategy around Beverly Hills, Pacific Palisades, Brentwood, and Bel Air specifically.",
+    desc: "Forget “Los Angeles” in general — we built the strategy around Beverly Hills, Pacific Palisades, Brentwood, and Bel Air specifically.",
     tactics: [
       "Neighborhood-level location pages with intent-aligned content",
       "GMB optimization tuned for HNW estate intent",
@@ -39,7 +39,7 @@ const PHASES = [
   {
     window: "MONTH 6–7",
     title: "Strategic referral partner content",
-    desc: "Reciprocal authority content with CPAs and wealth managers — turns the firm&rsquo;s referral network into an indirect SEO signal.",
+    desc: "Reciprocal authority content with CPAs and wealth managers — turns the firm’s referral network into an indirect SEO signal.",
     tactics: [
       "Co-authored content with allied CPAs and RIAs",
       "Reciprocal citation and link strategy",
@@ -69,7 +69,7 @@ const TACTICS = [
   },
   {
     title: "HNW case study format",
-    desc: "Anonymized HNW case studies that proved the firm&rsquo;s depth without disclosing client identity or assets.",
+    desc: "Anonymized HNW case studies that proved the firm’s depth without disclosing client identity or assets.",
   },
   {
     title: "CPA + wealth-manager content",
@@ -113,7 +113,7 @@ export default function ColemanCaseStudyPage() {
           </div>
           <div className="page-hero-eyebrow">CASE STUDY</div>
           <h1 className="case-page-hero-title">
-            Coleman &amp; Co.: Now Los Angeles&rsquo;s{" "}
+            Coleman & Co.: Now Los Angeles’s{" "}
             <span className="accent-italic">#1 estate attorney.</span>
           </h1>
           <CaseStats
@@ -133,7 +133,7 @@ export default function ColemanCaseStudyPage() {
         maxWidth="780px"
       >
         <p className="case-prose">
-          Coleman &amp; Co. is a boutique estate planning and trust
+          Coleman & Co. is a boutique estate planning and trust
           administration firm in West Los Angeles, founded by attorney Marcus
           Coleman in 2011. They specialize in high-net-worth estate planning,
           generational wealth structuring, and complex trust administration.
@@ -153,16 +153,16 @@ export default function ColemanCaseStudyPage() {
       >
         <div className="case-prose">
           <p>
-            Despite serving HNW clients with $5M+ estates, Coleman &amp; Co.
+            Despite serving HNW clients with $5M+ estates, Coleman & Co.
             was invisible compared to mega-firms. They ranked #6–8 for
-            &ldquo;estate attorney Los Angeles&rdquo; and were buried for
-            &ldquo;trust attorney LA&rdquo; and &ldquo;estate planning Beverly
-            Hills.&rdquo;
+            “estate attorney Los Angeles” and were buried for
+            “trust attorney LA” and “estate planning Beverly
+            Hills.”
           </p>
           <p>
             Practice was almost entirely referral-driven from CPAs and wealth
             managers — a network that had served them well for over a decade
-            but was now plateauing. The partners knew if they didn&rsquo;t
+            but was now plateauing. The partners knew if they didn’t
             build inbound visibility before the network turned over, the firm
             would face a slow capacity decline.
           </p>
@@ -225,7 +225,7 @@ export default function ColemanCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your firm&rsquo;s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your firm’s visibility — same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

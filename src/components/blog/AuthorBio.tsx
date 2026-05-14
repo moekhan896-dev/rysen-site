@@ -7,7 +7,7 @@ export function AuthorBio() {
       <div className="author-bio-body">
         <div className="author-bio-name">Written by Art Khan</div>
         <div className="author-bio-role">
-          Founder &amp; Managing Partner, Rysen Growth
+          Founder & Managing Partner, Rysen Growth
         </div>
         <p className="author-bio-text">
           Art founded Rysen in 2019 after running growth programs at Salesforce

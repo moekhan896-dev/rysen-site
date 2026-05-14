@@ -111,7 +111,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
       <CTABanner
         title="Want this kind of thinking applied to your firm?"
-        subtitle="Get a free audit of your firm&rsquo;s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your firm’s visibility — same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See our work"

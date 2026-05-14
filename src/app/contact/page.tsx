@@ -42,7 +42,7 @@ export default function ContactPage() {
         eyebrow="CONTACT"
         title={
           <>
-            Let&rsquo;s talk about{" "}
+            Let’s talk about{" "}
             <span className="accent-italic">your firm.</span>
           </>
         }
@@ -75,8 +75,8 @@ export default function ContactPage() {
       </PageSection>
 
       <CTABanner
-        title="Prefer to see what we&rsquo;d do first?"
-        subtitle="Get a free audit of your firm&rsquo;s online visibility — 48-hour turnaround."
+        title="Prefer to see what we’d do first?"
+        subtitle="Get a free audit of your firm’s online visibility — 48-hour turnaround."
         primaryText="Get a free audit"
         primaryHref="/audit"
       />

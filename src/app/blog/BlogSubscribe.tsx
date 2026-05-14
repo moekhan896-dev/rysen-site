@@ -51,7 +51,7 @@ export function BlogSubscribe() {
         animate={{ opacity: 1 }}
       >
         <div className="form-success-mark">✓</div>
-        <h3>You&rsquo;re on the list.</h3>
+        <h3>You’re on the list.</h3>
         <p>
           Next note arrives in your inbox when it publishes. Nothing else.
         </p>

@@ -113,7 +113,7 @@ export default function HartmanCaseStudyPage() {
           </div>
           <div className="page-hero-eyebrow">CASE STUDY</div>
           <h1 className="case-page-hero-title">
-            Hartman Dermatology: Miami&rsquo;s go-to for{" "}
+            Hartman Dermatology: Miami’s go-to for{" "}
             <span className="accent-italic">cosmetic consultations.</span>
           </h1>
           <CaseStats
@@ -153,8 +153,8 @@ export default function HartmanCaseStudyPage() {
         <div className="case-prose">
           <p>
             Despite the credentials and patient outcomes, Hartman ranked on
-            page two for &ldquo;Botox Miami,&rdquo; &ldquo;cosmetic
-            dermatologist Miami,&rdquo; and &ldquo;laser treatments Miami.&rdquo;
+            page two for “Botox Miami,” “cosmetic
+            dermatologist Miami,” and “laser treatments Miami.”
             Zero meaningful AI search visibility — ChatGPT and Perplexity
             defaulted to national chains.
           </p>
@@ -162,7 +162,7 @@ export default function HartmanCaseStudyPage() {
             Review velocity was slow at 12–15 per month. The practice was still
             referral-heavy, but referral volume had plateaued and competitors
             with weaker clinical credentials were eating market share through
-            paid acquisition. We told them what we&rsquo;d do, what it would
+            paid acquisition. We told them what we’d do, what it would
             take, and what month-by-month progress would look like. They
             signed.
           </p>
@@ -225,7 +225,7 @@ export default function HartmanCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your practice&rsquo;s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your practice’s visibility — same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

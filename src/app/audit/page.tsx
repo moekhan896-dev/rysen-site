@@ -59,7 +59,7 @@ export default function AuditPage() {
         eyebrow="FREE AUDIT · 48-HOUR TURNAROUND"
         title={
           <>
-            We&rsquo;ll audit your firm&rsquo;s online visibility —{" "}
+            We’ll audit your firm’s online visibility —{" "}
             <span className="accent-italic">for free.</span>
           </>
         }
@@ -77,7 +77,7 @@ export default function AuditPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT&rsquo;S IN YOUR AUDIT"
+        eyebrow="WHAT’S IN YOUR AUDIT"
         title={
           <>
             12 pages. Real data.{" "}
@@ -97,7 +97,7 @@ export default function AuditPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHY IT&rsquo;S FREE"
+        eyebrow="WHY IT’S FREE"
         title={
           <>
             Because most firms have{" "}
@@ -112,11 +112,11 @@ export default function AuditPage() {
             We do free audits because most firms have no idea how invisible they
             actually are. They have a website, a Google Business Profile, a few
             stale blog posts — and they assume that means they show up when their
-            future clients search. They usually don&rsquo;t.
+            future clients search. They usually don’t.
           </p>
           <p>
-            The audit shows you the gap. If you want to close it, we&rsquo;ll quote
-            you. If you want to fix it yourself, we&rsquo;ll wish you luck. Either
+            The audit shows you the gap. If you want to close it, we’ll quote
+            you. If you want to fix it yourself, we’ll wish you luck. Either
             way, you walk away with the data.
           </p>
         </div>
@@ -124,28 +124,28 @@ export default function AuditPage() {
 
       <PageSection
         eyebrow="WHAT CLIENTS SAY"
-        title="A few words from firms who&rsquo;ve been where you are."
+        title="A few words from firms who’ve been where you are."
         background="tint"
       >
         <div className="audit-proof-row">
           <blockquote className="audit-proof">
             <p>
-              &ldquo;We went from invisible to inevitable. Rysen doesn&rsquo;t just
-              rank you — they make you the answer.&rdquo;
+              “We went from invisible to inevitable. Rysen doesn’t just
+              rank you — they make you the answer.”
             </p>
             <cite>Managing Partner, AWS Law Firm · Tampa</cite>
           </blockquote>
           <blockquote className="audit-proof">
             <p>
-              &ldquo;Three other agencies told us ranking in Atlanta was impossible.
-              Eight months in we&rsquo;re #1 with a four-week intake waitlist.&rdquo;
+              “Three other agencies told us ranking in Atlanta was impossible.
+              Eight months in we’re #1 with a four-week intake waitlist.”
             </p>
             <cite>Founder, Tyler Family Law · Atlanta</cite>
           </blockquote>
           <blockquote className="audit-proof">
             <p>
-              &ldquo;Their reporting is the cleanest I&rsquo;ve seen in fifteen years
-              of running this practice. Every dollar tied to a source.&rdquo;
+              “Their reporting is the cleanest I’ve seen in fifteen years
+              of running this practice. Every dollar tied to a source.”
             </p>
             <cite>Owner, Hartman Dermatology · Miami</cite>
           </blockquote>
@@ -162,7 +162,7 @@ export default function AuditPage() {
 
       <CTABanner
         title="Ready? It takes 30 seconds."
-        subtitle="Submit your firm&rsquo;s website and we&rsquo;ll send the audit within 48 hours."
+        subtitle="Submit your firm’s website and we’ll send the audit within 48 hours."
         primaryText="Submit my firm"
         primaryHref="#audit-form"
       />

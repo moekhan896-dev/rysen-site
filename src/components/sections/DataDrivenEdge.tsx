@@ -328,8 +328,8 @@ export function DataDrivenEdge() {
             <span className="dde-accent-italic">we measure.</span>
           </h2>
           <p className="dde-sub">
-            Data infrastructure that most agencies don&rsquo;t have — and most
-            clients don&rsquo;t realize they&rsquo;re missing. Every decision we
+            Data infrastructure that most agencies don’t have — and most
+            clients don’t realize they’re missing. Every decision we
             make is sourced from real numbers. Every dollar of work reports back
             to real revenue.
           </p>
@@ -370,7 +370,7 @@ export function DataDrivenEdge() {
             sourced from real numbers, not vibes.
           </p>
           <p>
-            This is what &ldquo;data-driven&rdquo; actually means. Not a slogan.
+            This is what “data-driven” actually means. Not a slogan.
             Not a sales line. Operational infrastructure that produces
             decisions you can defend in a partner meeting — because the data is
             right there, live, in your dashboard.

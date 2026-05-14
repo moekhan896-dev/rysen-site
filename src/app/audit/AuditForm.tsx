@@ -88,7 +88,7 @@ export function AuditForm() {
         <div className="form-success-mark">✓</div>
         <h3>Got it. Your audit is on the way.</h3>
         <p>
-          We&rsquo;ll send the 12-page PDF to{" "}
+          We’ll send the 12-page PDF to{" "}
           <strong>{state.email}</strong> within 48 hours. No sales call, no
           pressure. Email{" "}
           <a href="mailto:marketing@rysengrowth.com">

@@ -236,7 +236,7 @@ export function Nav() {
                   className="nav-mobile-sublink"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Content &amp; Reputation
+                  Content & Reputation
                 </Link>
               </div>
 

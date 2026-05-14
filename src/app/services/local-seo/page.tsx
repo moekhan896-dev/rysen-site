@@ -79,29 +79,29 @@ const PROCESS = [
 
 const FAQ = [
   {
-    question: "What&rsquo;s the difference between local SEO and regular SEO?",
+    question: "What’s the difference between local SEO and regular SEO?",
     answer:
-      "Local SEO targets intent that includes location — &ldquo;probate lawyer tampa,&rdquo; &ldquo;dermatologist near me.&rdquo; The signals are different: GMB completeness, review velocity, citation consistency, proximity, and category targeting matter more than backlinks alone.",
+      "Local SEO targets intent that includes location — “probate lawyer tampa,” “dermatologist near me.” The signals are different: GMB completeness, review velocity, citation consistency, proximity, and category targeting matter more than backlinks alone.",
   },
   {
-    question: "How long until I&rsquo;m in the 3-pack?",
+    question: "How long until I’m in the 3-pack?",
     answer:
       "First movement: 30–60 days. Consistent top-3 in priority neighborhoods: 90–120 days. Defensible position-one against active competitors: 6+ months. Pace depends on your starting position and the competitive landscape in your metro.",
   },
   {
     question: "Do you handle reviews for us?",
     answer:
-      "We build the system: automated requests, response templates, escalation playbook, and reporting. We don&rsquo;t write fake reviews, ever. We have audit trails to prove it.",
+      "We build the system: automated requests, response templates, escalation playbook, and reporting. We don’t write fake reviews, ever. We have audit trails to prove it.",
   },
   {
     question: "What about competitors gaming the 3-pack?",
     answer:
-      "We document and report it. If a competitor is using prohibited tactics (keyword-stuffed business names, fake reviews, virtual offices), we file with Google on your behalf. We win clean, but we don&rsquo;t lose to dirty.",
+      "We document and report it. If a competitor is using prohibited tactics (keyword-stuffed business names, fake reviews, virtual offices), we file with Google on your behalf. We win clean, but we don’t lose to dirty.",
   },
   {
     question: "Will this work in a saturated metro?",
     answer:
-      "Usually yes — but we&rsquo;ll tell you upfront if the math doesn&rsquo;t look winnable. We&rsquo;ve turned down engagements in markets where the incumbent moat was too deep to justify the spend. We&rsquo;d rather lose a deal than lose your retainer to a bad fit.",
+      "Usually yes — but we’ll tell you upfront if the math doesn’t look winnable. We’ve turned down engagements in markets where the incumbent moat was too deep to justify the spend. We’d rather lose a deal than lose your retainer to a bad fit.",
   },
 ];
 
@@ -138,8 +138,8 @@ export default function LocalSeoPage() {
         eyebrow="THE PROBLEM"
         title={
           <>
-            Local pack invisibility isn&rsquo;t a{" "}
-            <span className="accent-italic">ranking problem</span> — it&rsquo;s a
+            Local pack invisibility isn’t a{" "}
+            <span className="accent-italic">ranking problem</span> — it’s a
             revenue problem.
           </>
         }
@@ -150,18 +150,18 @@ export default function LocalSeoPage() {
           <p>
             For most legal and medical queries, eighty percent of intent is local.
             Probate lawyer Tampa. Dermatologist Miami. Family law attorney
-            Atlanta. The user wants a provider near them and they&rsquo;re going
+            Atlanta. The user wants a provider near them and they’re going
             to call one of the top three results — usually the first.
           </p>
           <p>
-            If you&rsquo;re on the second page of the local pack, you&rsquo;re
-            invisible. If you&rsquo;re on the second page of organic, you&rsquo;re
+            If you’re on the second page of the local pack, you’re
+            invisible. If you’re on the second page of organic, you’re
             even more invisible. Most firms compete here on instinct: their
             paralegal updated GMB once in 2021, they have eighteen four-star
             reviews, and they hope.
           </p>
           <p>
-            We don&rsquo;t hope. We engineer position-one across priority
+            We don’t hope. We engineer position-one across priority
             neighborhoods with systematic GMB optimization, citation work, review
             velocity, and hyperlocal content — and we track it every week.
           </p>
@@ -190,7 +190,7 @@ export default function LocalSeoPage() {
         <ServiceProofReference
           eyebrow="TYLER FAMILY LAW · ATLANTA"
           headline="+1,240% lead growth in eight months."
-          body="Tyler Family Law was told ranking in Atlanta was impossible against the national lawyer mills. Eight months later, they&rsquo;re ranked #1 for the priority divorce queries in Atlanta and operating a four-week intake waitlist."
+          body="Tyler Family Law was told ranking in Atlanta was impossible against the national lawyer mills. Eight months later, they’re ranked #1 for the priority divorce queries in Atlanta and operating a four-week intake waitlist."
           href="/case-studies/tyler-family-law"
         />
       </PageSection>

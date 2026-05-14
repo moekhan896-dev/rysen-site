@@ -114,7 +114,7 @@ export default function AwsCaseStudyPage() {
           </div>
           <div className="page-hero-eyebrow">CASE STUDY</div>
           <h1 className="case-page-hero-title">
-            AWS Law Firm: Tampa&rsquo;s leading{" "}
+            AWS Law Firm: Tampa’s leading{" "}
             <span className="accent-italic">probate practice.</span>
           </h1>
           <CaseStats
@@ -137,9 +137,9 @@ export default function AwsCaseStudyPage() {
           AWS Law Firm is a Tampa-based probate practice with two decades of
           trial experience and a strong referral base in the local bar. They had
           built their reputation case by case, and they had the results to back
-          it. What they didn&rsquo;t have was a meaningful online presence.
+          it. What they didn’t have was a meaningful online presence.
           Their website was a brochure. Their practice area pages were thin.
-          Their GMB hadn&rsquo;t been touched since 2021. And in a market where
+          Their GMB hadn’t been touched since 2021. And in a market where
           eighty percent of probate intent is local search, that was bleeding
           cases every week.
         </p>
@@ -168,7 +168,7 @@ export default function AwsCaseStudyPage() {
             structurally better foundations.
           </p>
           <p>
-            We told them what we&rsquo;d do, what it would take, and what
+            We told them what we’d do, what it would take, and what
             month-by-month progress would actually look like. They signed.
           </p>
         </div>
@@ -227,7 +227,7 @@ export default function AwsCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your firm&rsquo;s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your firm’s visibility — same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

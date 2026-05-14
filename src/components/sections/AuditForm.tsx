@@ -30,7 +30,7 @@ export function AuditForm() {
             <span className="audit-form-thanks-icon" aria-hidden="true">
               ✓
             </span>
-            Thanks. We&apos;ll review and respond within 24 hours.
+            Thanks. We'll review and respond within 24 hours.
           </motion.div>
         ) : (
           <motion.form

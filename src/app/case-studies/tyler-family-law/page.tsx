@@ -20,7 +20,7 @@ const PHASES = [
   {
     window: "MONTH 1–2",
     title: "Hyperlocal foundation",
-    desc: "Atlanta-only strategy from day one. We told other agencies&rsquo; recommended GA-wide approach was wrong for this firm.",
+    desc: "Atlanta-only strategy from day one. We told other agencies’ recommended GA-wide approach was wrong for this firm.",
     tactics: [
       "Atlanta-only keyword tree (no statewide dilution)",
       "Neighborhood-level GMB optimization",
@@ -114,7 +114,7 @@ export default function TylerCaseStudyPage() {
           </div>
           <div className="page-hero-eyebrow">CASE STUDY</div>
           <h1 className="case-page-hero-title">
-            Tyler Family Law: Atlanta&rsquo;s{" "}
+            Tyler Family Law: Atlanta’s{" "}
             <span className="accent-italic">#1 divorce attorney.</span>
           </h1>
           <CaseStats
@@ -135,7 +135,7 @@ export default function TylerCaseStudyPage() {
       >
         <p className="case-prose">
           Tyler Family Law is an Atlanta-based divorce and family law practice
-          with deep trial experience and a partner who&rsquo;s argued some of
+          with deep trial experience and a partner who’s argued some of
           the most cited custody cases in Georgia. The firm had been running on
           referral volume for over a decade — but referrals had plateaued, and
           the partner watching her son use ChatGPT to research his upcoming
@@ -155,7 +155,7 @@ export default function TylerCaseStudyPage() {
           <p>
             Tyler had spoken with three other agencies before us. All three told
             them the same thing: ranking in Atlanta against the national lawyer
-            mills was impossible. The math, they said, didn&rsquo;t work — the
+            mills was impossible. The math, they said, didn’t work — the
             national franchises had bigger budgets, more domain authority, and
             more historical link equity. The recommended path was to compete
             statewide. Get traffic from Augusta or Savannah and hope to convert
@@ -164,9 +164,9 @@ export default function TylerCaseStudyPage() {
           <p>
             That advice was wrong. Statewide content dilutes local pack signal.
             The Augusta query is a different query than the Atlanta query.
-            Augusta traffic doesn&rsquo;t convert because the firm is in
+            Augusta traffic doesn’t convert because the firm is in
             Atlanta. The right play was to go hyperlocal, win Atlanta, and
-            ignore everywhere else. That&rsquo;s what we did.
+            ignore everywhere else. That’s what we did.
           </p>
         </div>
       </PageSection>
@@ -227,7 +227,7 @@ export default function TylerCaseStudyPage() {
 
       <CTABanner
         title="Think your market is unwinnable?"
-        subtitle="Get a free audit. We&rsquo;ll tell you the truth — if it&rsquo;s winnable, here&rsquo;s how. If it isn&rsquo;t, we&rsquo;ll say so."
+        subtitle="Get a free audit. We’ll tell you the truth — if it’s winnable, here’s how. If it isn’t, we’ll say so."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

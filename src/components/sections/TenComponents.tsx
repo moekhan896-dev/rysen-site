@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
+  Camera,
   Code,
   FileText,
   Layout,
@@ -153,6 +154,21 @@ const CARDS: ReadonlyArray<ComponentCard> = [
     ],
     affects: ["website", "content", "reputation"],
   },
+  {
+    id: "social",
+    Icon: Camera,
+    title: "Social Media Growth",
+    subtitle: "Authority, presence, and proof at every surface",
+    description:
+      "Most law firms and medical practices ignore social media — or run it badly. We engineer presence on Instagram, TikTok, and YouTube Shorts that builds authority, captures attention from younger prospects, and turns short-form video into a real lead source. Backed by the same team that grew an AI influencer to 100M views in 60 days.",
+    capabilities: [
+      "Short-form video strategy & production direction",
+      "Platform-specific content calendars",
+      "Trend monitoring & rapid response content",
+      "Authority-building reels for legal/medical professionals",
+    ],
+    affects: ["content", "reputation", "email"],
+  },
 ];
 
 const ID_TO_TITLE: Record<string, string> = CARDS.reduce(
@@ -160,26 +176,26 @@ const ID_TO_TITLE: Record<string, string> = CARDS.reduce(
   {} as Record<string, string>
 );
 
-export function NineComponents() {
+export function TenComponents() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section className="nine-components" id="nine-components">
+    <section className="nine-components ten-components" id="ten-components">
       <div className="nine-inner">
         <div className="nine-header">
-          <div className="page-section-eyebrow">THE NINE COMPONENTS</div>
+          <div className="page-section-eyebrow">THE TEN COMPONENTS</div>
           <h2 className="nine-h2">
             Every part of the engine,{" "}
             <span className="accent-italic">engineered.</span>
           </h2>
           <p className="nine-sub">
-            Nine specialized services. One unified system. Each component has
+            Ten specialized services. One unified system. Each component has
             its own team, its own playbook, and its own data dashboard — all
             coordinated through First Position methodology.
           </p>
         </div>
 
-        <div className="nine-grid">
+        <div className="nine-grid ten-grid">
           {CARDS.map((c, i) => {
             const I = c.Icon;
             const isHovered = hovered === c.id;
@@ -229,7 +245,7 @@ export function NineComponents() {
         <div className="nine-footer">
           <p className="nine-footer-line">
             Most agencies sell three of these.{" "}
-            <span className="accent-italic">We run all nine — as one engine.</span>
+            <span className="accent-italic">We run all ten — as one engine.</span>
           </p>
           <Link href="/audit" className="nine-cta">
             See how your engine could be built <span className="arrow">→</span>

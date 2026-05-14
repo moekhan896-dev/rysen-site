@@ -220,10 +220,10 @@ export function CaseQuote({
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.5 }}
     >
-      <span className="case-quote-mark" aria-hidden="true">&ldquo;</span>
+      <span className="case-quote-mark" aria-hidden="true">“</span>
       <p className="case-quote-text">{quote}</p>
       <span className="case-quote-mark case-quote-mark-close" aria-hidden="true">
-        &rdquo;
+        ”
       </span>
       <cite className="case-quote-cite">{attribution}</cite>
     </motion.blockquote>

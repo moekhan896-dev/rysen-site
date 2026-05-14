@@ -24,7 +24,7 @@ const MENTIONS: ReadonlyArray<Mention> = [
     publication: "Modern Law Practice Magazine",
     type: "FEATURED",
     context:
-      "Featured agency profile — &ldquo;The Detroit firm rewriting legal marketing&rdquo;",
+      "Featured agency profile — “The Detroit firm rewriting legal marketing”",
     year: "2024",
     Icon: Newspaper,
   },
@@ -39,12 +39,12 @@ const MENTIONS: ReadonlyArray<Mention> = [
     publication: "Legal Marketing Association",
     type: "SPEAKER",
     context:
-      "Speaker, 2024 Annual Conference — &ldquo;AI Search &amp; The Future of Legal Visibility&rdquo;",
+      "Speaker, 2024 Annual Conference — “AI Search & The Future of Legal Visibility”",
     year: "2024",
     Icon: Mic,
   },
   {
-    publication: "Medical Marketing &amp; Media",
+    publication: "Medical Marketing & Media",
     type: "QUOTED",
     context: "Quoted on AI search disruption in healthcare marketing",
     year: "2024",
@@ -57,7 +57,7 @@ export function PressRecognition() {
     <section className="press-recognition">
       <div className="press-recognition-inner">
         <div className="press-recognition-header">
-          <div className="section-2-eyebrow">PRESS &amp; RECOGNITION</div>
+          <div className="section-2-eyebrow">PRESS & RECOGNITION</div>
           <h2 className="press-recognition-h2">
             Quoted, cited, and recognized.
           </h2>

@@ -19,8 +19,11 @@ import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { DataDrivenEdge } from "@/components/sections/DataDrivenEdge";
 import { LegalPlaybook } from "@/components/sections/LegalPlaybook";
 import { MedicalPlaybook } from "@/components/sections/MedicalPlaybook";
-import { NineComponents } from "@/components/sections/NineComponents";
+import { MadisonCredibility } from "@/components/sections/MadisonCredibility";
 import { OrganicGrowthEngine } from "@/components/sections/OrganicGrowthEngine";
+import { RealOperations } from "@/components/sections/RealOperations";
+import { TenComponents } from "@/components/sections/TenComponents";
+import { WhyUsClosing } from "@/components/sections/WhyUsClosing";
 import { TeamFilter } from "@/components/sections/TeamFilter";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 
@@ -581,14 +584,14 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-content">
           <div className="category-line">
-            A Data-Driven Marketing Agency · Legal &amp; Medical
+            US-BASED · DETROIT, MI · EST. 2019
           </div>
           <div className="eyebrow">
             <span className="live-dot"></span>
-            <span>Marketing strategists &amp; data scientists</span>
+            <span>SEO specialists for legal & medical</span>
             <span className="eyebrow-divider">·</span>
             <span className="eyebrow-counter">
-              Trusted by <strong id="liveCounter">18</strong> firms
+              Trusted by <strong id="liveCounter">30+</strong> firms
             </span>
           </div>
           <h1>
@@ -632,7 +635,7 @@ export default function HomePage() {
               className="word accent-text"
               style={{ animationDelay: "1.27s" }}
             >
-              &amp;
+              &
             </span>{" "}
             <span className="word" style={{ animationDelay: "1.35s" }}>
               medical
@@ -642,17 +645,40 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="subhead">
-            We&apos;re a small team of marketing strategists and data scientists
-            who help law firms and medical practices dominate their local
-            market — across Google, Maps, AI search, content, and reputation.
+            A US-based team of SEO specialists. Ten coordinated components.
+            Operational data infrastructure. The kind of marketing program
+            that wins #1 rankings in your metro and keeps them there for years.
           </p>
+
+          <div className="hero-proof-bar" aria-label="Credibility proof">
+            <span className="hero-proof-chip">
+              <span className="hero-proof-flag" aria-hidden="true">🇺🇸</span>
+              100% US-based
+            </span>
+            <span className="hero-proof-chip">
+              <span className="hero-proof-icon" aria-hidden="true">⚙</span>
+              10 components
+            </span>
+            <span className="hero-proof-chip">
+              <span className="hero-proof-icon" aria-hidden="true">📊</span>
+              Data-driven
+            </span>
+            <span className="hero-proof-chip">
+              <span className="hero-proof-icon" aria-hidden="true">🏆</span>
+              30+ engagements
+            </span>
+          </div>
+
           <div className="actions">
-            <a href="#" className="cta-primary">
+            <a href="/audit" className="cta-primary">
               Book audit
             </a>
-            <a href="#" className="cta-secondary">
-              See how it works <span className="arrow">→</span>
+            <a href="/case-studies" className="cta-secondary">
+              See case studies <span className="arrow">→</span>
             </a>
+          </div>
+          <div className="hero-states-line">
+            Working with 30+ law firms and medical practices across FL · CA · IL · NY
           </div>
         </div>
 
@@ -673,12 +699,12 @@ export default function HomePage() {
                 <span className="firm-rank">#1 SCO</span>
               </div>
               <div className="engagement-firm">
-                Coleman &amp; Co.
+                Coleman & Co.
                 <span className="firm-rank">#1 DEN</span>
               </div>
             </div>
             <div className="engagement-footer">
-              <strong>+ 15 more firms</strong> across legal &amp; medical
+              <strong>+ 15 more firms</strong> across legal & medical
             </div>
           </div>
 
@@ -782,7 +808,7 @@ export default function HomePage() {
                     beachsidelaw.com › personal-injury
                   </div>
                   <div className="title">
-                    Beachside Law Partners — Miami&apos;s Top Personal Injury
+                    Beachside Law Partners — Miami's Top Personal Injury
                     Attorneys
                   </div>
                   <div className="desc">
@@ -807,7 +833,7 @@ export default function HomePage() {
               </div>
               <div className="gpt-content">
                 <div className="gpt-prompt">
-                  Who&apos;s the best personal injury lawyer in Miami?
+                  Who's the best personal injury lawyer in Miami?
                 </div>
                 <div className="gpt-response" id="gptResponse"></div>
               </div>
@@ -848,8 +874,8 @@ export default function HomePage() {
           <div className="ticker-track">
             <div className="ticker-content" id="tickerContent">
               <span className="ticker-item">
-                <strong>AWS Law Firm</strong> ranked #1 for &quot;probate lawyer
-                tampa&quot; <span className="delta">↑ 9 spots</span>
+                <strong>AWS Law Firm</strong> ranked #1 for "probate lawyer
+                tampa" <span className="delta">↑ 9 spots</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
@@ -863,8 +889,8 @@ export default function HomePage() {
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Coleman &amp; Co.</strong> ranked #1 for &quot;estate
-                attorney los angeles&quot;{" "}
+                <strong>Coleman & Co.</strong> ranked #1 for "estate
+                attorney los angeles"{" "}
                 <span className="delta">↑ 12 spots</span>
               </span>
               <span className="ticker-divider">●</span>
@@ -895,8 +921,8 @@ export default function HomePage() {
               <span className="ticker-divider">●</span>
               {/* Duplicate for seamless loop */}
               <span className="ticker-item">
-                <strong>AWS Law Firm</strong> ranked #1 for &quot;probate lawyer
-                tampa&quot; <span className="delta">↑ 9 spots</span>
+                <strong>AWS Law Firm</strong> ranked #1 for "probate lawyer
+                tampa" <span className="delta">↑ 9 spots</span>
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
@@ -910,8 +936,8 @@ export default function HomePage() {
               </span>
               <span className="ticker-divider">●</span>
               <span className="ticker-item">
-                <strong>Coleman &amp; Co.</strong> ranked #1 for &quot;estate
-                attorney los angeles&quot;{" "}
+                <strong>Coleman & Co.</strong> ranked #1 for "estate
+                attorney los angeles"{" "}
                 <span className="delta">↑ 12 spots</span>
               </span>
               <span className="ticker-divider">●</span>
@@ -953,7 +979,7 @@ export default function HomePage() {
         <div className="trust-logos">
           <span>AWS Law</span>
           <span>Hartman MD</span>
-          <span>Coleman &amp; Co.</span>
+          <span>Coleman & Co.</span>
           <span>Ridge Dental</span>
           <span>Vance Legal</span>
         </div>
@@ -1017,7 +1043,7 @@ export default function HomePage() {
               <div className="shift-surface shift-surface-2">
                 <div className="shift-surface-label">Perplexity</div>
                 <div className="shift-surface-snippet">
-                  <strong>AWS Law Firm</strong> is widely regarded as Tampa&apos;s
+                  <strong>AWS Law Firm</strong> is widely regarded as Tampa's
                   leading probate practice
                   <sup>[1]</sup>
                 </div>
@@ -1025,7 +1051,7 @@ export default function HomePage() {
               <div className="shift-surface shift-surface-3">
                 <div className="shift-surface-label">Google AIO</div>
                 <div className="shift-surface-snippet">
-                  Tampa&apos;s leading probate firm, often cited:{" "}
+                  Tampa's leading probate firm, often cited:{" "}
                   <strong>AWS Law Firm</strong>.
                 </div>
               </div>
@@ -1041,9 +1067,9 @@ export default function HomePage() {
         </div>
 
         <p className="section-2-subhead">
-          Your future clients aren&apos;t just Googling. They&apos;re asking
+          Your future clients aren't just Googling. They're asking
           ChatGPT, Perplexity, and Google AI Overviews which firm to call.
-          They&apos;re checking your reviews on Google Maps. They&apos;re
+          They're checking your reviews on Google Maps. They're
           scrolling the local 3-pack. We make sure the answer is yours —
           across every surface that matters.
         </p>
@@ -1058,8 +1084,11 @@ export default function HomePage() {
       {/* === REVENUE CLAIM ($47M+ counter) === */}
       <RevenueClaim />
 
-      {/* === NINE COMPONENTS (replaces TabbedServices in Session 16) === */}
-      <NineComponents />
+      {/* === MADISON CLARK CREDIBILITY (Session 17) === */}
+      <MadisonCredibility />
+
+      {/* === TEN COMPONENTS (Session 17 — Social Media added as 10th) === */}
+      <TenComponents />
 
       {/* === DATA-DRIVEN EDGE (Session 16 — 7 live data systems) === */}
       <DataDrivenEdge />
@@ -1076,7 +1105,7 @@ export default function HomePage() {
           <div className="case-study-content">
             <div className="section-2-eyebrow">Case study</div>
             <h2 className="case-study-h2">
-              AWS Law Firm: Tampa&apos;s{" "}
+              AWS Law Firm: Tampa's{" "}
               <span className="accent-text">leading probate practice.</span>
             </h2>
             <div className="case-study-prose">
@@ -1090,7 +1119,7 @@ export default function HomePage() {
               <p>
                 Our audit surfaced the gaps quickly. No schema markup. Thin
                 practice-area pages. No active citation strategy. Strong
-                content existed, but it wasn&apos;t structured for AI
+                content existed, but it wasn't structured for AI
                 consumption. The competitive landscape was dominated by
                 national legal directory sites with deeper budgets but weaker
                 local authority.
@@ -1105,8 +1134,8 @@ export default function HomePage() {
                 service area.
               </p>
               <p>
-                Twenty-two months later: ranked #1 for &quot;probate lawyer
-                tampa&quot; and &quot;estate planning attorney tampa.&quot; 240%
+                Twenty-two months later: ranked #1 for "probate lawyer
+                tampa" and "estate planning attorney tampa." 240%
                 increase in qualified consultation requests. Cited in 52% of
                 relevant ChatGPT queries about Tampa probate and estate
                 matters. The firm now operates a 6-week waitlist for new estate
@@ -1130,7 +1159,7 @@ export default function HomePage() {
               <div className="case-stat-num">#1</div>
               <div className="case-stat-label">Ranked</div>
               <div className="case-stat-sub">
-                for &quot;probate lawyer tampa&quot;
+                for "probate lawyer tampa"
               </div>
             </div>
             <div
@@ -1191,7 +1220,7 @@ export default function HomePage() {
               <div className="case-stat-num">#1</div>
               <div className="case-stat-label">Ranked</div>
               <div className="case-stat-sub">
-                for &quot;divorce attorney atlanta&quot;
+                for "divorce attorney atlanta"
               </div>
             </div>
           </div>
@@ -1199,7 +1228,7 @@ export default function HomePage() {
           <div className="case-study-content">
             <div className="section-2-eyebrow">Case study</div>
             <h2 className="case-study-h2">
-              Tyler Family Law: Atlanta&apos;s{" "}
+              Tyler Family Law: Atlanta's{" "}
               <span className="accent-text">#1 divorce attorney.</span>
             </h2>
             <div className="case-study-prose">
@@ -1225,13 +1254,13 @@ export default function HomePage() {
                 produced authority content on every divorce subtopic that
                 mattered (custody, asset division, prenups, post-decree
                 modifications). We optimized their GMB to a level most local
-                firms haven&apos;t seen. We executed citation-stacking across
+                firms haven't seen. We executed citation-stacking across
                 legal and local-business platforms. Weekly meetings,
                 transparent reporting.
               </p>
               <p>
-                Eight months later: ranked #1 for &quot;divorce attorney
-                atlanta&quot; and a dozen related queries. Lead volume
+                Eight months later: ranked #1 for "divorce attorney
+                atlanta" and a dozen related queries. Lead volume
                 increased by 1,240%. The firm now operates a four-week
                 intake waitlist and has expanded their consultation team.
               </p>
@@ -1267,11 +1296,17 @@ export default function HomePage() {
       {/* === INSIDE THE STUDIO (Detroit HQ illustrated scene) === */}
       <InsideStudio />
 
+      {/* === REAL OPERATIONS (Session 17 — workspace + tool mockups + workflow) === */}
+      <RealOperations />
+
       {/* === TESTIMONIALS SECTION (carousel) === */}
       <TestimonialCarousel />
 
       {/* === PRESS & RECOGNITION === */}
       <PressRecognition />
+
+      {/* === WHY US CLOSING (Session 17 — the closer) === */}
+      <WhyUsClosing />
 
       {/* === FINAL CTA SECTION === */}
       <section className="final-cta-section">
@@ -1286,7 +1321,7 @@ export default function HomePage() {
               We
             </span>{" "}
             <span className="reveal-word" data-reveal data-reveal-delay="60">
-              don&apos;t
+              don't
             </span>{" "}
             <span className="reveal-word" data-reveal data-reveal-delay="120">
               take
@@ -1298,7 +1333,7 @@ export default function HomePage() {
               firm.
             </span>{" "}
             <span className="reveal-word" data-reveal data-reveal-delay="300">
-              Let&apos;s
+              Let's
             </span>{" "}
             <span className="reveal-word" data-reveal data-reveal-delay="360">
               see
@@ -1333,7 +1368,7 @@ export default function HomePage() {
           </h2>
           <p className="final-cta-subhead">
             We work with a small number of firms each year. Apply for a free
-            audit to learn whether we&apos;re the right fit for your practice.
+            audit to learn whether we're the right fit for your practice.
           </p>
           <div className="final-cta-form-wrap">
             <AuditForm />

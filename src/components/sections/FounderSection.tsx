@@ -146,7 +146,7 @@ export function FounderSection() {
             </div>
           </div>
           <div className="founder-name">Art Khan</div>
-          <div className="founder-role">Founder &amp; Managing Partner</div>
+          <div className="founder-role">Founder & Managing Partner</div>
 
           {/* Credibility chips with periodic cascade pulse */}
           <div
@@ -216,13 +216,13 @@ export function FounderSection() {
               you engage Rysen, every dollar of work we do gets tracked to a
               specific client outcome — a ranking gained, a citation earned,
               a phone call attributed, a revenue figure produced. If we
-              can&apos;t show you the math, we don&apos;t bill you.
+              can't show you the math, we don't bill you.
             </p>
             <p>
-              That sounds obvious. It isn&apos;t. Most agencies actively avoid
+              That sounds obvious. It isn't. Most agencies actively avoid
               attribution because attribution exposes which tactics actually
-              work. Ours doesn&apos;t, because we built the firm around the
-              discipline of measuring what matters. We&apos;ve turned away
+              work. Ours doesn't, because we built the firm around the
+              discipline of measuring what matters. We've turned away
               dozens of engagements from firms wanting templated services or
               quarterly reports — we work weekly, we work hyperlocally, and we
               work with the clients we know we can win for.
@@ -233,7 +233,7 @@ export function FounderSection() {
                 className="founder-pullquote-mark founder-pullquote-mark-open founder-pullquote-mark-rotate"
                 aria-hidden="true"
               >
-                &ldquo;
+                “
               </span>
               <span className="founder-pullquote-text founder-pullquote-text-glow">
                 Pick the agency that can show you the math.
@@ -242,32 +242,33 @@ export function FounderSection() {
                 className="founder-pullquote-mark founder-pullquote-mark-close founder-pullquote-mark-rotate"
                 aria-hidden="true"
               >
-                &rdquo;
+                ”
               </span>
             </aside>
 
             <p>
-              We&apos;re based in Detroit because Detroit produces operators
-              who do the work. We&apos;re founder-led because every client
-              gets my attention. We&apos;re 18 people because 18 is the size
-              we&apos;ve proven we can run with discipline. We&apos;ve grown
-              carefully since 2019, and we&apos;ll keep growing carefully —
-              because the alternative is the agency model we started Rysen to
-              avoid.
+              Founded in Detroit in 2019. Still based in Detroit. Still
+              hands-on with every major client account. We're based in
+              Detroit because Detroit produces operators who do the work.
+              We're founder-led because every client gets my attention.
+              We're 18 people because 18 is the size we've proven we can run
+              with discipline. We've grown carefully since 2019, and we'll
+              keep growing carefully — because the alternative is the agency
+              model we started Rysen to avoid.
             </p>
             <p>
-              If you&apos;re a law firm or medical practice and you want to be
+              If you're a law firm or medical practice and you want to be
               the first answer when a client asks who they should call — not
-              the eleventh result, not the impression-counted ad — let&apos;s
-              talk. We&apos;ll audit your visibility for free. If we can win
-              for you, we&apos;ll tell you exactly how, exactly when, and
-              exactly what it will cost. If we can&apos;t, we&apos;ll tell
+              the eleventh result, not the impression-counted ad — let's
+              talk. We'll audit your visibility for free. If we can win
+              for you, we'll tell you exactly how, exactly when, and
+              exactly what it will cost. If we can't, we'll tell
               you that too.
             </p>
           </div>
           <div className="founder-signature">— Art</div>
           <a href="#brands-built" className="founder-link">
-            See Art&apos;s brands <span className="arrow">→</span>
+            See Art's brands <span className="arrow">→</span>
           </a>
         </div>
       </div>

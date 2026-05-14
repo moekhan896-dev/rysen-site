@@ -76,7 +76,7 @@ export default function NotFound() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
         >
-          This page doesn&rsquo;t exist.
+          This page doesn’t exist.
         </motion.h1>
 
         <motion.p
@@ -85,7 +85,7 @@ export default function NotFound() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 }}
         >
-          But your firm&rsquo;s #1 ranking might. Let&rsquo;s find out.
+          But your firm’s #1 ranking might. Let’s find out.
         </motion.p>
 
         <motion.div

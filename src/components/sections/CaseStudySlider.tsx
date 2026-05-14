@@ -29,7 +29,7 @@ const BEFORE_RESULTS: ReadonlyArray<Result> = [
 ];
 
 const AFTER_RESULT: Result = {
-  title: "AWS Law Firm — Tampa's Top Probate &amp; Estate Planning Attorneys",
+  title: "AWS Law Firm — Tampa's Top Probate & Estate Planning Attorneys",
   url: "awslawfirm.com › probate",
   snippet:
     "Tampa's leading probate and estate practice. Cited in ChatGPT, Perplexity, and Google AI Overviews. Six-week consultation waitlist.",

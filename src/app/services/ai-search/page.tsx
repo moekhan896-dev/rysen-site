@@ -61,11 +61,11 @@ const CAPABILITIES = [
 const PROCESS = [
   {
     title: "Audit",
-    desc: "Where are you cited today? Where aren&rsquo;t you? What signals are missing?",
+    desc: "Where are you cited today? Where aren’t you? What signals are missing?",
   },
   {
     title: "Strategy",
-    desc: "Which AI surfaces matter most for your practice area and which queries we&rsquo;ll prioritize.",
+    desc: "Which AI surfaces matter most for your practice area and which queries we’ll prioritize.",
   },
   {
     title: "Execution",
@@ -95,7 +95,7 @@ const FAQ = [
       "Initial entity recognition: 30–60 days. Consistent citations in priority queries: 90–120 days. Compound authority that holds against competitor moves: 6+ months.",
   },
   {
-    question: "Can you guarantee I&rsquo;ll be cited?",
+    question: "Can you guarantee I’ll be cited?",
     answer:
       "No. Anyone who guarantees an AI citation is lying about how these systems work. We can show you, with data, why we believe we can move you into citation range — and we report progress weekly.",
   },
@@ -140,7 +140,7 @@ export default function AiSearchPage() {
         title={
           <>
             Your future clients{" "}
-            <span className="accent-italic">aren&rsquo;t just Googling</span>{" "}
+            <span className="accent-italic">aren’t just Googling</span>{" "}
             anymore.
           </>
         }
@@ -152,19 +152,19 @@ export default function AiSearchPage() {
             Roughly a third of consumer queries that used to start at Google now
             start at ChatGPT, Perplexity, or an AI overview. For legal and medical
             queries that share is climbing fast — users want a synthesized answer,
-            not ten blue links. They&rsquo;re asking AI which firm to call.
+            not ten blue links. They’re asking AI which firm to call.
           </p>
           <p>
-            Most firms aren&rsquo;t in the answer. Not because they&rsquo;re bad,
+            Most firms aren’t in the answer. Not because they’re bad,
             but because the entity signals AI models use to recommend providers
-            don&rsquo;t exist for them yet. They have a website. They don&rsquo;t
+            don’t exist for them yet. They have a website. They don’t
             have a defensible AI footprint.
           </p>
           <p>
             <strong>
-              If you&rsquo;re not in the AI answer, you don&rsquo;t exist.
+              If you’re not in the AI answer, you don’t exist.
             </strong>{" "}
-            That&rsquo;s the gap we close.
+            That’s the gap we close.
           </p>
         </div>
       </PageSection>
@@ -224,7 +224,7 @@ export default function AiSearchPage() {
 
       <CTABanner
         title="Want to know where you stand?"
-        subtitle="A free audit shows you exactly which AI surfaces cite you, which don&rsquo;t, and what it would take to move the needle."
+        subtitle="A free audit shows you exactly which AI surfaces cite you, which don’t, and what it would take to move the needle."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See all services"

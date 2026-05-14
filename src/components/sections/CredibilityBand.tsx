@@ -222,7 +222,9 @@ export function CredibilityBand() {
           <div className="credibility-tile-visual">
             <TeamVisual />
           </div>
-          <div className="credibility-tile-value">18</div>
+          <div className="credibility-tile-value">
+            18 <span className="credibility-tile-us-flag">(100% US)</span>
+          </div>
           <div className="credibility-tile-label">
             Operators across 4 disciplines
           </div>

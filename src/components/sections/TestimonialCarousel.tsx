@@ -61,7 +61,7 @@ export function TestimonialCarousel() {
         <div className="section-2-eyebrow">What clients say</div>
         <h2 className="section-2-h2">
           Trusted by firms that{" "}
-          <span className="accent-text">don&apos;t compromise on craft.</span>
+          <span className="accent-text">don't compromise on craft.</span>
         </h2>
 
         <div

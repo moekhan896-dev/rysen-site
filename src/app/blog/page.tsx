@@ -59,7 +59,7 @@ export default function BlogIndexPage() {
 
       <CTABanner
         title="Need an actual audit, not just published thinking?"
-        subtitle="We&rsquo;ll audit your firm&rsquo;s visibility for free. 48-hour turnaround."
+        subtitle="We’ll audit your firm’s visibility for free. 48-hour turnaround."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See our work"

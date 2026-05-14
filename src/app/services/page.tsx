@@ -104,7 +104,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="service-card-right">
                     <div className="service-capabilities-label">
-                      What&rsquo;s included
+                      What’s included
                     </div>
                     <ul className="service-capabilities">
                       {s.capabilities.map((c) => (
@@ -134,7 +134,7 @@ export default function ServicesPage() {
         eyebrow="THE PHILOSOPHY"
         title={
           <>
-            We don&rsquo;t sell tactics — we sell{" "}
+            We don’t sell tactics — we sell{" "}
             <span className="accent-italic">compound visibility.</span>
           </>
         }
@@ -146,14 +146,14 @@ export default function ServicesPage() {
           <p>
             Rankings drive trust. Trust drives reviews. Reviews drive AI citations.
             AI citations drive more rankings. Each lever amplifies the others, but
-            only if they&rsquo;re run together by a team that understands how the
+            only if they’re run together by a team that understands how the
             entire system compounds.
           </p>
           <p>
-            That&rsquo;s why we don&rsquo;t do single-tactic engagements. Local SEO
+            That’s why we don’t do single-tactic engagements. Local SEO
             without authority content stalls. AI search optimization without strong
             entity signals fails. Reputation work without ranking work goes nowhere.
-            We sell the whole loop because that&rsquo;s the only thing that actually
+            We sell the whole loop because that’s the only thing that actually
             moves revenue.
           </p>
         </div>
@@ -161,7 +161,7 @@ export default function ServicesPage() {
 
       <CTABanner
         title="Want a free audit of all three?"
-        subtitle="We&rsquo;ll show you exactly where you stand on Google, AI search, and Maps — and what it would take to win."
+        subtitle="We’ll show you exactly where you stand on Google, AI search, and Maps — and what it would take to win."
         primaryText="Get my audit"
         primaryHref="/audit"
         secondaryText="See our work"

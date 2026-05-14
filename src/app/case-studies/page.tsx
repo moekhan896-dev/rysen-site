@@ -21,7 +21,7 @@ interface CaseCard {
 const PUBLISHED: ReadonlyArray<CaseCard> = [
   {
     badge: "LEGAL · PROBATE · TAMPA, FL",
-    headline: "AWS Law Firm: Tampa&rsquo;s leading probate practice.",
+    headline: "AWS Law Firm: Tampa’s leading probate practice.",
     stats: ["+240% consultations", "52% AI citations", "#1 ranked"],
     preview:
       "From page two of Google with zero AI citations to position one for every priority probate query in Tampa — and the dominant cited source on ChatGPT and Perplexity.",
@@ -29,7 +29,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
   },
   {
     badge: "LEGAL · FAMILY · ATLANTA, GA",
-    headline: "Tyler Family Law: Atlanta&rsquo;s #1 divorce attorney.",
+    headline: "Tyler Family Law: Atlanta’s #1 divorce attorney.",
     stats: ["+1,240% leads", "8 months", "#1 ranked"],
     preview:
       "Three other agencies called Atlanta unwinnable against the national lawyer mills. Eight months later, Tyler ranked #1 and now operates a four-week intake waitlist.",
@@ -37,7 +37,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
   },
   {
     badge: "MEDICAL · DERMATOLOGY · MIAMI, FL",
-    headline: "Hartman Dermatology: Miami&rsquo;s go-to for cosmetic consultations.",
+    headline: "Hartman Dermatology: Miami’s go-to for cosmetic consultations.",
     stats: ["+78% consultations", "#1 ranked", "142% review velocity"],
     preview:
       "From clinically excellent but online invisible to #1 across Miami cosmetic dermatology queries — and cited by AI surfaces in 38% of relevant local queries.",
@@ -45,7 +45,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
   },
   {
     badge: "LEGAL · ESTATE · LOS ANGELES, CA",
-    headline: "Coleman &amp; Co.: Now Los Angeles&rsquo;s #1 estate attorney.",
+    headline: "Coleman & Co.: Now Los Angeles’s #1 estate attorney.",
     stats: ["+320% qualified leads", "#1 ranked", "9 months"],
     preview:
       "An HNW estate boutique that was almost entirely referral-driven. Nine months later, organic accounts for 67% of new business — and the firm ranks #1 across the priority LA estate queries.",
@@ -53,7 +53,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
   },
   {
     badge: "MEDICAL · DENTAL · CHICAGO, IL",
-    headline: "Ridge Dental: Dominating Chicago&rsquo;s 3-pack across 5 neighborhoods.",
+    headline: "Ridge Dental: Dominating Chicago’s 3-pack across 5 neighborhoods.",
     stats: ["+186% new patient calls", "#1 in 5 neighborhoods", "4 months"],
     preview:
       "Multi-location dental network treated all 5 GBPs as a coordinated system, not parallel competitors. Four months later, #1 in Maps Pack across every Chicago neighborhood it serves.",
@@ -103,7 +103,7 @@ export default function CaseStudiesPage() {
 
       <CTABanner
         title="Want to be the next one on this page?"
-        subtitle="Start with a free audit. We&rsquo;ll show you what&rsquo;s possible for your firm before any commitment."
+        subtitle="Start with a free audit. We’ll show you what’s possible for your firm before any commitment."
         primaryText="Get a free audit"
         primaryHref="/audit"
       />

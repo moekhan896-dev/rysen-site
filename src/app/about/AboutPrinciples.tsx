@@ -29,7 +29,7 @@ export function AboutPrinciples() {
         <div className="about-principles-header">
           <div className="page-section-eyebrow">OUR PRINCIPLES</div>
           <h2 className="page-section-title">
-            What we sell. <span className="accent-italic">What we don&rsquo;t.</span>
+            What we sell. <span className="accent-italic">What we don’t.</span>
           </h2>
         </div>
 
@@ -59,7 +59,7 @@ export function AboutPrinciples() {
           <div className="about-principles-divider" aria-hidden="true" />
 
           <div className="about-principles-col about-principles-dont">
-            <div className="about-principles-col-head">What we don&rsquo;t</div>
+            <div className="about-principles-col-head">What we don’t</div>
             <ul>
               {DONT.map((item, i) => (
                 <motion.li

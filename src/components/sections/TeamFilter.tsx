@@ -207,6 +207,13 @@ export function TeamFilter() {
           not spread across many.
         </p>
 
+        <div className="team-us-badge" aria-label="Team origin">
+          <span className="team-us-flag" aria-hidden="true">🇺🇸</span>
+          <span className="team-us-text">
+            100% US-based · Most in Detroit · No outsourced roles
+          </span>
+        </div>
+
         <div className="team-filters" role="tablist">
           {filters.map((f) => (
             <button

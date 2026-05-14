@@ -12,7 +12,7 @@ export function ThoughtLeadership() {
           <div className="section-2-eyebrow">PUBLISHED THINKING</div>
           <h2 className="thought-leadership-h2">
             Where we stand on{" "}
-            <span className="accent-italic">what&rsquo;s changing.</span>
+            <span className="accent-italic">what’s changing.</span>
           </h2>
           <p className="thought-leadership-sub">
             Selected writing on AI search, attribution, and the future of

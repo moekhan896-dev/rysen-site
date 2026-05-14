@@ -96,7 +96,7 @@ export function ContactForm() {
         transition={{ duration: 0.4 }}
       >
         <div className="form-success-mark">✓</div>
-        <h3>Thanks. We&rsquo;ll respond within 24 hours.</h3>
+        <h3>Thanks. We’ll respond within 24 hours.</h3>
         <p>
           A confirmation will land in your inbox shortly. Email us anytime at{" "}
           <a href="mailto:marketing@rysengrowth.com">marketing@rysengrowth.com</a>.
@@ -189,7 +189,7 @@ export function ContactForm() {
       </div>
 
       <TextAreaField
-        label="What&rsquo;s your biggest challenge right now?"
+        label="What’s your biggest challenge right now?"
         name="message"
         required
         value={state.message}

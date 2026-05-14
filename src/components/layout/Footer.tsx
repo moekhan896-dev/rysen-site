@@ -12,7 +12,7 @@ export function Footer() {
               Rysen
             </Link>
             <p className="footer-tagline">
-              Data-driven marketing · Legal &amp; Medical
+              Data-driven marketing · Legal & Medical
             </p>
 
             <address className="footer-address">
@@ -41,7 +41,7 @@ export function Footer() {
             <ul className="footer-links">
               <li><Link href="/services/ai-search">AI Search</Link></li>
               <li><Link href="/services/local-seo">Local SEO</Link></li>
-              <li><Link href="/services/content">Content &amp; Reputation</Link></li>
+              <li><Link href="/services/content">Content & Reputation</Link></li>
               <li><Link href="/services">All Services</Link></li>
             </ul>
           </div>
@@ -66,6 +66,10 @@ export function Footer() {
               <li><Link href="/terms">Terms of Service</Link></li>
             </ul>
           </div>
+        </div>
+
+        <div className="footer-wedge-line">
+          Detroit, MI · 100% US-based team · Specialized in legal and medical · Est. 2019
         </div>
 
         <div className="footer-bottom">

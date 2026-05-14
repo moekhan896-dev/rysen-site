@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  Camera,
   Code,
   FileText,
   Layout,
@@ -155,9 +156,23 @@ const COMPONENTS: ReadonlyArray<Component> = [
     amplifies: ["website", "content", "reputation"],
     Icon: Mail,
   },
+  {
+    id: "social",
+    name: "Social Media",
+    short: "Authority, presence, proof",
+    description:
+      "Short-form video presence on Instagram, TikTok, and YouTube Shorts. Authority-building reels for legal and medical professionals. Backed by the same team that grew an AI influencer to 100M views in 60 days.",
+    examples: [
+      "Short-form video strategy & production direction",
+      "Platform-specific content calendars",
+      "Trend monitoring & rapid response content",
+    ],
+    amplifies: ["content", "reputation", "email"],
+    Icon: Camera,
+  },
 ];
 
-// Layout: 9 nodes evenly spaced on a circle, hub at center
+// Layout: 10 nodes evenly spaced on a circle (36° apart), hub at center
 const CENTER = { x: 360, y: 360 };
 const RADIUS = 240;
 
@@ -218,7 +233,7 @@ export function OrganicGrowthEngine() {
     if (!active || reducedMotion || view !== "diagram") return;
     const id = setInterval(() => {
       setPulseIdx((i) => (i + 1) % COMPONENTS.length);
-    }, 1500);
+    }, 1300);
     return () => clearInterval(id);
   }, [active, reducedMotion, view]);
 
@@ -503,9 +518,9 @@ export function OrganicGrowthEngine() {
         {/* Editorial */}
         <div className="oge-editorial">
           <p>
-            Most agencies sell components. They&rsquo;ll sell you SEO. Or LSA
+            Most agencies sell components. They’ll sell you SEO. Or LSA
             management. Or content. Each as a separate service, with separate
-            reports, separate teams, separate tactics. The components don&rsquo;t
+            reports, separate teams, separate tactics. The components don’t
             talk to each other. The result is a Frankenstein marketing program
             that costs a fortune and underperforms a coordinated system.
           </p>
@@ -521,8 +536,8 @@ export function OrganicGrowthEngine() {
             Rysen builds the engine. We architect, deploy, and operate all nine
             components as a coordinated system — with weekly accountability,
             data-attributed reporting, and the operational discipline to
-            maintain it for years. The result isn&rsquo;t &ldquo;good SEO.&rdquo;
-            It&rsquo;s a market-dominance machine purpose-built for your firm.
+            maintain it for years. The result isn’t “good SEO.”
+            It’s a market-dominance machine purpose-built for your firm.
           </p>
         </div>
 

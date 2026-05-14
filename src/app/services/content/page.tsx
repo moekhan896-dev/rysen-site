@@ -61,7 +61,7 @@ const CAPABILITIES = [
 const PROCESS = [
   {
     title: "Audit",
-    desc: "What content exists today, what&rsquo;s missing, what reputation gaps need closing, what conversion paths leak.",
+    desc: "What content exists today, what’s missing, what reputation gaps need closing, what conversion paths leak.",
   },
   {
     title: "Strategy",
@@ -81,15 +81,15 @@ const FAQ = [
   {
     question: "Do you write the content yourselves or use freelancers?",
     answer:
-      "Our senior content strategist runs the editorial direction; we use a small bench of vetted writers (most former agency or in-house) for production, all overseen and edited in-house. We don&rsquo;t use generic content mills.",
+      "Our senior content strategist runs the editorial direction; we use a small bench of vetted writers (most former agency or in-house) for production, all overseen and edited in-house. We don’t use generic content mills.",
   },
   {
     question: "How long are your articles?",
     answer:
-      "Usually 1,500–3,500 words for authority content. Length follows the topic. We don&rsquo;t inflate articles to hit word counts — long-form has to earn the length.",
+      "Usually 1,500–3,500 words for authority content. Length follows the topic. We don’t inflate articles to hit word counts — long-form has to earn the length.",
   },
   {
-    question: "Will you write under our attorneys&rsquo; bylines?",
+    question: "Will you write under our attorneys’ bylines?",
     answer:
       "Yes, with their review and approval. Your attorneys or physicians remain the authoritative voice; we handle the production. Most clients give us a standing review window each week.",
   },
@@ -101,7 +101,7 @@ const FAQ = [
   {
     question: "What does this look like as part of a bigger engagement?",
     answer:
-      "Most clients combine this service with Local SEO or AI Search. The content fuels both. The web work fuels conversion. The reviews fuel local pack ranking. The newsletter compounds owned audience. It&rsquo;s one integrated program with one team.",
+      "Most clients combine this service with Local SEO or AI Search. The content fuels both. The web work fuels conversion. The reviews fuel local pack ranking. The newsletter compounds owned audience. It’s one integrated program with one team.",
   },
 ];
 
@@ -139,7 +139,7 @@ export default function ContentPage() {
         title={
           <>
             Single-tactic engagements{" "}
-            <span className="accent-italic">don&rsquo;t compound.</span>
+            <span className="accent-italic">don’t compound.</span>
           </>
         }
         titleAlignment="left"
@@ -148,19 +148,19 @@ export default function ContentPage() {
         <div className="service-problem">
           <p>
             Most agencies want to sell you one service. Just content. Or just
-            reviews. Or just web. It&rsquo;s easier to sell, easier to staff,
-            easier to bill. But it doesn&rsquo;t work — because the levers
-            you&rsquo;re trying to move all depend on each other.
+            reviews. Or just web. It’s easier to sell, easier to staff,
+            easier to bill. But it doesn’t work — because the levers
+            you’re trying to move all depend on each other.
           </p>
           <p>
-            Content alone doesn&rsquo;t rank without authority. Authority
-            doesn&rsquo;t build without content. Reviews don&rsquo;t convert
-            without a website that captures the lead. The website doesn&rsquo;t
-            convert without trust signals. Email doesn&rsquo;t nurture if the
-            audience isn&rsquo;t being built.
+            Content alone doesn’t rank without authority. Authority
+            doesn’t build without content. Reviews don’t convert
+            without a website that captures the lead. The website doesn’t
+            convert without trust signals. Email doesn’t nurture if the
+            audience isn’t being built.
           </p>
           <p>
-            We run all of it. From one Detroit team. Because that&rsquo;s the
+            We run all of it. From one Detroit team. Because that’s the
             only way it actually works.
           </p>
         </div>
@@ -188,7 +188,7 @@ export default function ContentPage() {
         <ServiceProofReference
           eyebrow="ACROSS 30+ ENGAGEMENTS"
           headline="The content + reputation + conversion stack runs under every engagement we sell."
-          body="From AWS Law Firm&rsquo;s probate authority library to Tyler Family Law&rsquo;s Atlanta-neighborhood content system, the integrated approach is what makes every Rysen engagement compound. See it in action across our case studies."
+          body="From AWS Law Firm’s probate authority library to Tyler Family Law’s Atlanta-neighborhood content system, the integrated approach is what makes every Rysen engagement compound. See it in action across our case studies."
           href="/case-studies"
         />
       </PageSection>

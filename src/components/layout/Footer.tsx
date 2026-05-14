@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="site-footer">
@@ -5,19 +7,24 @@ export function Footer() {
         <div className="footer-grid">
           {/* Column 1 — wordmark + tagline + Detroit address */}
           <div className="footer-col footer-col-brand">
-            <a href="/" className="footer-wordmark">
+            <Link href="/" className="footer-wordmark">
               <span className="footer-wordmark-icon" aria-hidden="true"></span>
               Rysen
-            </a>
+            </Link>
             <p className="footer-tagline">
-              AI Search Agency · Legal &amp; Medical
+              Data-driven marketing · Legal &amp; Medical
             </p>
 
             <address className="footer-address">
               <span className="footer-address-line">Rysen Growth</span>
               <span className="footer-address-line">1 Campus Martius, Suite 200</span>
               <span className="footer-address-line">Detroit, MI 48226</span>
-              <span className="footer-address-line">(248) 406-6223</span>
+              <span className="footer-address-line">
+                <a href="tel:+12484066223">(248) 406-6223</a>
+              </span>
+              <span className="footer-address-line">
+                <a href="mailto:marketing@rysengrowth.com">marketing@rysengrowth.com</a>
+              </span>
             </address>
 
             <div className="footer-est-row">
@@ -32,18 +39,10 @@ export function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-links">
-              <li>
-                <a href="/services/ai-search-seo">AI Search SEO</a>
-              </li>
-              <li>
-                <a href="/services/seo">Traditional SEO</a>
-              </li>
-              <li>
-                <a href="/services/content-authority">Content &amp; Authority</a>
-              </li>
-              <li>
-                <a href="/audit">Free Audit</a>
-              </li>
+              <li><Link href="/services/ai-search">AI Search</Link></li>
+              <li><Link href="/services/local-seo">Local SEO</Link></li>
+              <li><Link href="/services/content">Content &amp; Reputation</Link></li>
+              <li><Link href="/services">All Services</Link></li>
             </ul>
           </div>
 
@@ -51,35 +50,21 @@ export function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">Company</h4>
             <ul className="footer-links">
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
-              <li>
-                <a href="/locations">Locations</a>
-              </li>
-              <li>
-                <a href="/blog">Blog</a>
-              </li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/case-studies">Work</Link></li>
+              <li><Link href="/#team">Team</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/audit">Free Audit</Link></li>
             </ul>
           </div>
 
-          {/* Column 4 — Get in touch */}
+          {/* Column 4 — Legal */}
           <div className="footer-col">
-            <h4 className="footer-heading">Get in touch</h4>
+            <h4 className="footer-heading">Legal</h4>
             <ul className="footer-links">
-              <li>
-                <a href="mailto:hello@rysengrowth.com">hello@rysengrowth.com</a>
-              </li>
-              <li>
-                <a href="tel:+12484066223">(248) 406-6223</a>
-              </li>
+              <li><Link href="/privacy">Privacy Policy</Link></li>
+              <li><Link href="/terms">Terms of Service</Link></li>
             </ul>
-            <a href="#" className="footer-cta">
-              Book a call <span className="arrow">→</span>
-            </a>
           </div>
         </div>
 
@@ -88,8 +73,8 @@ export function Footer() {
             © 2026 Rysen Growth · Detroit · All rights reserved
           </div>
           <div className="footer-legal-links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms &amp; Conditions</a>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
           </div>
         </div>
       </div>
@@ -97,10 +82,6 @@ export function Footer() {
   );
 }
 
-/**
- * Stylized circular Detroit stamp/seal — vector-only, no photo.
- * Sits next to the Est. mark in the brand column.
- */
 function DetroitStamp() {
   return (
     <svg
@@ -111,63 +92,22 @@ function DetroitStamp() {
       aria-hidden="true"
     >
       <defs>
-        <path
-          id="detroit-stamp-arc-top"
-          d="M 6,28 a 22,22 0 0 1 44,0"
-          fill="none"
-        />
-        <path
-          id="detroit-stamp-arc-bot"
-          d="M 6,28 a 22,22 0 0 0 44,0"
-          fill="none"
-        />
+        <path id="detroit-stamp-arc-top" d="M 6,28 a 22,22 0 0 1 44,0" fill="none" />
+        <path id="detroit-stamp-arc-bot" d="M 6,28 a 22,22 0 0 0 44,0" fill="none" />
       </defs>
-      <circle
-        cx="28"
-        cy="28"
-        r="25"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="0.5"
-      />
-      <circle
-        cx="28"
-        cy="28"
-        r="21"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="0.5"
-      />
-      <text
-        fontSize="5"
-        fontFamily="JetBrains Mono, monospace"
-        letterSpacing="1.5"
-        fill="currentColor"
-      >
+      <circle cx="28" cy="28" r="25" fill="none" stroke="currentColor" strokeWidth="0.5" />
+      <circle cx="28" cy="28" r="21" fill="none" stroke="currentColor" strokeWidth="0.5" />
+      <text fontSize="5" fontFamily="JetBrains Mono, monospace" letterSpacing="1.5" fill="currentColor">
         <textPath href="#detroit-stamp-arc-top" startOffset="50%" textAnchor="middle">
           DETROIT · MI
         </textPath>
       </text>
-      <text
-        fontSize="5"
-        fontFamily="JetBrains Mono, monospace"
-        letterSpacing="1.5"
-        fill="currentColor"
-      >
+      <text fontSize="5" fontFamily="JetBrains Mono, monospace" letterSpacing="1.5" fill="currentColor">
         <textPath href="#detroit-stamp-arc-bot" startOffset="50%" textAnchor="middle">
           EST. 2019
         </textPath>
       </text>
-      {/* center mark */}
-      <text
-        x="28"
-        y="32"
-        fontSize="14"
-        fontFamily="Geist, sans-serif"
-        fontWeight="500"
-        fill="currentColor"
-        textAnchor="middle"
-      >
+      <text x="28" y="32" fontSize="14" fontFamily="Geist, sans-serif" fontWeight="500" fill="currentColor" textAnchor="middle">
         R
       </text>
     </svg>

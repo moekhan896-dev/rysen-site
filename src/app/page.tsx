@@ -30,10 +30,9 @@ export default function HomePage() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // === NAV SCROLL + PAGE AMBIENT (rAF-throttled, shared listener) ===
-    const nav = document.getElementById("nav");
+    // === PAGE AMBIENT (rAF-throttled). Nav scroll state is handled by Nav.tsx. ===
     const pageAmbient = document.getElementById("pageAmbient");
-    if (nav || pageAmbient) {
+    if (pageAmbient) {
       let lastScrollY = 0;
       let scrollTicking = false;
       let ambientVisible = false;
@@ -41,20 +40,13 @@ export default function HomePage() {
         lastScrollY = window.scrollY;
         if (!scrollTicking) {
           requestAnimationFrame(() => {
-            if (nav) {
-              if (lastScrollY > 20) nav.classList.add("scrolled");
-              else nav.classList.remove("scrolled");
-            }
-            if (pageAmbient) {
-              const vh = window.innerHeight;
-              // Hysteresis: fade in past 0.5vh, fade out below 0.3vh
-              if (!ambientVisible && lastScrollY > vh * 0.5) {
-                pageAmbient.style.opacity = "1";
-                ambientVisible = true;
-              } else if (ambientVisible && lastScrollY < vh * 0.3) {
-                pageAmbient.style.opacity = "0";
-                ambientVisible = false;
-              }
+            const vh = window.innerHeight;
+            if (!ambientVisible && lastScrollY > vh * 0.5) {
+              pageAmbient.style.opacity = "1";
+              ambientVisible = true;
+            } else if (ambientVisible && lastScrollY < vh * 0.3) {
+              pageAmbient.style.opacity = "0";
+              ambientVisible = false;
             }
             scrollTicking = false;
           });
@@ -576,26 +568,6 @@ export default function HomePage() {
       <div className="particles" id="particles"></div>
       <div className="mouse-glow" id="mouseGlow"></div>
 
-      <nav id="nav">
-        <div className="nav-inner">
-          <a href="#" className="wordmark">
-            <div className="wordmark-icon"></div>
-            <span className="wordmark-stack">
-              <span className="wordmark-text">Rysen</span>
-              <span className="wordmark-subline">Est. 2019 · Detroit</span>
-            </span>
-          </a>
-          <div className="nav-links">
-            <a href="#methodology">Approach</a>
-            <a href="#case-study">Work</a>
-            <a href="#founder">Founder</a>
-            <a href="#team">Team</a>
-          </div>
-          <a href="#" className="nav-cta">
-            Book audit <span className="nav-cta-arrow">→</span>
-          </a>
-        </div>
-      </nav>
 
       <section className="hero">
         <div className="hero-content">
@@ -1339,11 +1311,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Floating Book Audit CTA — always visible */}
-      <a href="#" className="floating-cta" aria-label="Book audit">
-        Book audit
-        <span className="floating-cta-arrow">→</span>
-      </a>
     </>
   );
 }

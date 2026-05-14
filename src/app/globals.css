@@ -10207,5 +10207,1090 @@
     .author-bio-mono { width: 64px; height: 64px; font-size: 22px; }
   }
 
+  /* ============================================================
+     === SESSION 16 — POSITIONING LIFT ===
+     ============================================================ */
+
+  /* ========== ORGANIC GROWTH ENGINE ========== */
+  .oge-section {
+    position: relative;
+    padding: 120px 32px;
+    background: var(--bg);
+  }
+  .oge-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .oge-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  .oge-h2 {
+    margin-top: 16px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .oge-sub {
+    margin-top: 18px;
+    font-family: 'Geist', sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+
+  .oge-toggle {
+    display: inline-flex;
+    gap: 4px;
+    margin: 0 auto 36px;
+    padding: 4px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+  }
+  .oge-section .oge-toggle {
+    display: flex;
+    justify-content: center;
+    max-width: max-content;
+  }
+  .oge-toggle-btn {
+    appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .oge-toggle-btn:hover { color: var(--text); }
+  .oge-toggle-btn.is-active {
+    background: var(--accent);
+    color: white;
+  }
+
+  .oge-diagram-wrap {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .oge-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .oge-line {
+    stroke: var(--line-strong);
+    stroke-width: 1;
+    opacity: 0.4;
+    transition: stroke 0.3s ease, opacity 0.3s ease, stroke-width 0.3s ease;
+  }
+  .oge-line-spoke.is-bright {
+    stroke: var(--accent);
+    opacity: 1;
+    stroke-width: 1.5;
+  }
+  .oge-line-amplify {
+    stroke: var(--accent);
+    opacity: 0.5;
+    stroke-width: 1;
+    stroke-dasharray: 4 4;
+  }
+  .oge-line-compound {
+    stroke: var(--accent);
+    opacity: 0.15;
+    stroke-width: 0.5;
+    animation: ogeCompoundPulse 6s ease-in-out infinite;
+  }
+  @keyframes ogeCompoundPulse {
+    0%, 100% { opacity: 0.08; }
+    50%      { opacity: 0.2; }
+  }
+
+  .oge-pulse-traveler {
+    fill: var(--accent);
+    filter: drop-shadow(0 0 8px rgba(29, 78, 216, 0.6));
+    transition: cx 1.2s cubic-bezier(0.4, 0, 0.2, 1), cy 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .oge-hub-ring {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 0.5;
+    opacity: 0.3;
+    animation: ogeHubPulse 4s ease-in-out infinite;
+  }
+  .oge-hub {
+    fill: var(--bg-card);
+    stroke: var(--accent);
+    stroke-width: 1;
+  }
+  @keyframes ogeHubPulse {
+    0%, 100% { r: 98; opacity: 0.3; }
+    50%      { r: 104; opacity: 0.15; }
+  }
+  .oge-hub-eyebrow {
+    fill: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+  .oge-hub-title {
+    fill: var(--text);
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .oge-hub-num {
+    fill: var(--accent);
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .oge-node {
+    transition: transform 0.25s ease;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  .oge-node.is-hovered { transform: scale(1.1); }
+  .oge-node-bg {
+    fill: var(--bg-card);
+    stroke: var(--line);
+    stroke-width: 0.5;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.06));
+    transition: stroke 0.25s ease;
+  }
+  .oge-node.is-hovered .oge-node-bg,
+  .oge-node.is-pulsing .oge-node-bg {
+    stroke: var(--accent);
+    stroke-width: 1.2;
+  }
+  .oge-node-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+  }
+  .oge-node-label {
+    fill: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  .oge-node.is-hovered .oge-node-label,
+  .oge-node.is-pulsing .oge-node-label {
+    fill: var(--text);
+  }
+
+  .oge-detail-card {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    max-width: 280px;
+    padding: 18px 22px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    pointer-events: none;
+    z-index: 5;
+  }
+  .oge-detail-name {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .oge-detail-desc {
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+  .oge-detail-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    color: var(--text-faint);
+  }
+  .oge-detail-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .oge-detail-section li {
+    font-family: 'Geist', sans-serif;
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.45;
+    padding-left: 10px;
+    position: relative;
+  }
+  .oge-detail-section li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .oge-detail-affects {
+    font-family: 'Geist', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Components view (accordion list) */
+  .oge-components-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .oge-comp-item {
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .oge-comp-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 30px 22px 1fr auto;
+    gap: 14px;
+    align-items: center;
+  }
+  .oge-comp-item summary::-webkit-details-marker { display: none; }
+  .oge-comp-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+  }
+  .oge-comp-icon {
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .oge-comp-name {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .oge-comp-short {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .oge-comp-body {
+    padding: 0 20px 18px 64px;
+  }
+  .oge-comp-body p {
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 10px;
+  }
+  .oge-comp-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .oge-comp-body li {
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    padding-left: 12px;
+    position: relative;
+  }
+  .oge-comp-body li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .oge-comp-amplifies {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .oge-editorial {
+    max-width: 760px;
+    margin: 56px auto 0;
+    font-family: 'Geist', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+  .oge-editorial p { margin: 0 0 18px; }
+  .oge-footer-mark {
+    margin-top: 32px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .oge-section { padding: 80px 20px; }
+    .oge-detail-card { display: none; }
+  }
+
+  /* ========== NINE COMPONENTS ========== */
+  .nine-components {
+    padding: 120px 32px;
+    background: var(--bg);
+  }
+  .nine-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .nine-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 56px;
+  }
+  .nine-h2 {
+    margin-top: 16px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4.2vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .nine-sub {
+    margin-top: 18px;
+    font-family: 'Geist', sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+  .nine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .nine-card {
+    position: relative;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  }
+  .nine-card.is-hovered {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(29, 78, 216, 0.18);
+  }
+  .nine-card.is-affected {
+    border-color: rgba(29, 78, 216, 0.4);
+    box-shadow: 0 6px 16px -4px rgba(29, 78, 216, 0.18);
+  }
+  .nine-card-num {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.5px;
+  }
+  .nine-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .nine-card.is-hovered .nine-card-icon {
+    transform: scale(1.05);
+  }
+  .nine-card-title {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text);
+    margin: 0 0 6px;
+    transition: color 0.25s ease;
+  }
+  .nine-card.is-hovered .nine-card-title { color: var(--accent); }
+  .nine-card-subtitle {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  .nine-card-desc {
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+  }
+  .nine-card-caps {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .nine-card-caps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .nine-card-cap-mark {
+    color: var(--accent);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+  .nine-card-affects {
+    padding-top: 14px;
+    border-top: 0.5px solid var(--line);
+    font-family: 'Geist', sans-serif;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .nine-card-affects-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 1.2px;
+    color: var(--accent);
+  }
+  .nine-footer {
+    margin-top: 56px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+  }
+  .nine-footer-line {
+    font-family: 'Geist', sans-serif;
+    font-size: 17px;
+    color: var(--text);
+    margin: 0;
+  }
+  .nine-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    background: var(--text);
+    color: white;
+    border-radius: 999px;
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .nine-cta:hover {
+    transform: translateY(-1px);
+    background: var(--accent);
+  }
+  .nine-cta .arrow { transition: transform 0.2s ease; }
+  .nine-cta:hover .arrow { transform: translateX(3px); }
+
+  @media (max-width: 1024px) {
+    .nine-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .nine-components { padding: 80px 20px; }
+    .nine-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========== DATA-DRIVEN EDGE ========== */
+  .dde-section {
+    --dde-accent: #6b8eff;
+    padding: 120px 32px;
+    background: #1a1a1f;
+    color: white;
+  }
+  .dde-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .dde-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 48px;
+  }
+  .dde-eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--dde-accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .dde-h2 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: white;
+    margin: 0;
+  }
+  .dde-accent-italic {
+    font-style: italic;
+    color: var(--dde-accent);
+  }
+  .dde-sub {
+    margin-top: 18px;
+    font-family: 'Geist', sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: #b8b8c0;
+  }
+
+  .dde-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .dde-card {
+    padding: 22px;
+    background: #22222a;
+    border: 0.5px solid #404048;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .dde-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--dde-accent);
+  }
+  .dde-mock {
+    height: 120px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    background: #1a1a22;
+    border: 0.5px solid #2c2c34;
+    padding: 8px;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    overflow: hidden;
+  }
+  .dde-mock-svg {
+    width: 100%;
+    height: 100%;
+  }
+  .dde-card-title {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    margin: 0 0 4px;
+  }
+  .dde-card-subtitle {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--dde-accent);
+    margin: 0 0 10px;
+  }
+  .dde-card-detail {
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #b8b8c0;
+    margin: 0 0 14px;
+  }
+  .dde-card-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    color: var(--dde-accent);
+    text-transform: uppercase;
+  }
+  .dde-card-livedot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #2da567;
+    animation: navRibbonPulse 1.8s ease-in-out infinite;
+  }
+
+  /* Mockup-specific styles */
+  .dde-call-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  .dde-call-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8px;
+    background: #1f1f27;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+  }
+  .dde-call-source { color: var(--dde-accent); }
+  .dde-call-time { color: #b8b8c0; }
+
+  .dde-funnel {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    padding: 4px 0;
+  }
+  .dde-funnel-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    gap: 8px;
+    align-items: center;
+  }
+  .dde-funnel-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #b8b8c0;
+    text-transform: uppercase;
+  }
+  .dde-funnel-bar {
+    height: 8px;
+    background: linear-gradient(90deg, var(--dde-accent) 0%, #4f6dd6 100%);
+    border-radius: 2px;
+    transition: width 1.2s ease;
+  }
+  .dde-funnel-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: white;
+    text-align: right;
+  }
+
+  .dde-ab {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 4px 0;
+  }
+  .dde-ab-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 42px;
+    gap: 8px;
+    align-items: center;
+  }
+  .dde-ab-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #b8b8c0;
+  }
+  .dde-ab-bar-wrap {
+    height: 8px;
+    background: #2c2c34;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .dde-ab-bar {
+    height: 100%;
+    background: #4f6dd6;
+    transition: width 1.2s ease;
+  }
+  .dde-ab-bar-b { background: var(--dde-accent); }
+  .dde-ab-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: white;
+    text-align: right;
+  }
+  .dde-ab-winner {
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #2da567;
+    text-align: right;
+  }
+
+  .dde-cohort {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+  }
+  .dde-cohort-cell {
+    background: var(--dde-accent);
+    border-radius: 3px;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+  }
+  .dde-cohort-cell.is-hot {
+    opacity: 1 !important;
+    transform: scale(1.06);
+    box-shadow: 0 0 10px rgba(107, 142, 255, 0.5);
+  }
+
+  .dde-editorial {
+    max-width: 760px;
+    margin: 56px auto 0;
+    font-family: 'Geist', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #b8b8c0;
+  }
+  .dde-editorial p { margin: 0 0 18px; }
+  .dde-editorial-final {
+    margin-top: 24px;
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .dde-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .dde-section { padding: 80px 20px; }
+    .dde-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========== LEGAL & MEDICAL PLAYBOOKS ========== */
+  .playbook {
+    padding: 120px 32px;
+    background: var(--bg);
+  }
+  .playbook-medical {
+    background: linear-gradient(180deg, var(--bg) 0%, #f1ede1 100%);
+  }
+  .playbook-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .playbook-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 48px;
+  }
+  .playbook-h2 {
+    margin-top: 16px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .playbook-sub {
+    margin-top: 18px;
+    font-family: 'Geist', sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+
+  .playbook-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 80px;
+  }
+  .playbook-col-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .playbook-challenges {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .playbook-challenge {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .playbook-challenge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(29, 78, 216, 0.15);
+  }
+  .playbook-challenge-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    padding-top: 2px;
+  }
+  .playbook-challenge-title {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .playbook-challenge-desc {
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .playbook-challenge-tactics {
+    margin: 8px 0 0 16px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .playbook-challenge-tactics li {
+    font-family: 'Geist', sans-serif;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.4;
+    position: relative;
+    padding-left: 12px;
+  }
+  .playbook-challenge-tactics li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .playbook-practice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .playbook-practice-badge {
+    padding: 16px 12px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--line);
+    border-radius: 10px;
+    text-align: center;
+    cursor: default;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .playbook-practice-badge:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+  .playbook-practice-badge.is-pulsing {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-soft);
+  }
+  .playbook-practice-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .playbook-practice-name {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .playbook-practice-metric {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--text-faint);
+    letter-spacing: 0.4px;
+  }
+  .playbook-practice-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.6px;
+  }
+
+  /* Engine configuration */
+  .playbook-config {
+    border-top: 0.5px solid var(--line);
+    padding-top: 48px;
+  }
+  .playbook-config-head {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .playbook-config-title {
+    margin-top: 14px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(24px, 2.8vw, 36px);
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .playbook-weights {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 12px;
+    align-items: end;
+    justify-items: center;
+    margin-bottom: 24px;
+  }
+  .playbook-weight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .playbook-weight-node {
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, #4f6dd6 100%);
+    box-shadow: 0 4px 12px -2px rgba(29, 78, 216, 0.3);
+    transition: transform 0.25s ease;
+  }
+  .playbook-weight:hover .playbook-weight-node {
+    transform: scale(1.05);
+  }
+  .playbook-weight-name {
+    font-family: 'Geist', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.2;
+  }
+  .playbook-weight-comp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--text-faint);
+    letter-spacing: 0.4px;
+  }
+  .playbook-config-footer {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+  }
+
+  .playbook-cta-row {
+    margin-top: 56px;
+    text-align: center;
+  }
+  .playbook-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    background: var(--text);
+    color: white;
+    border-radius: 999px;
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .playbook-cta:hover {
+    transform: translateY(-1px);
+    background: var(--accent);
+  }
+  .playbook-cta .arrow { transition: transform 0.2s ease; }
+  .playbook-cta:hover .arrow { transform: translateX(3px); }
+
+  @media (max-width: 1024px) {
+    .playbook-grid { grid-template-columns: 1fr; gap: 56px; }
+    .playbook-weights { grid-template-columns: repeat(5, 1fr); row-gap: 28px; }
+  }
+  @media (max-width: 640px) {
+    .playbook { padding: 80px 20px; }
+    .playbook-weights { grid-template-columns: repeat(3, 1fr); }
+    .playbook-practice-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Reduced motion (Session 16) */
+  @media (prefers-reduced-motion: reduce) {
+    .oge-pulse-traveler,
+    .oge-hub-ring,
+    .oge-line-compound,
+    .dde-card-livedot,
+    .playbook-practice-badge {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
 
 

@@ -16,7 +16,11 @@ import { InsideStudio } from "@/components/sections/InsideStudio";
 import { InteractiveStats } from "@/components/sections/InteractiveStats";
 import { MethodologyExplorer } from "@/components/sections/MethodologyExplorer";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { TabbedServices } from "@/components/sections/TabbedServices";
+import { DataDrivenEdge } from "@/components/sections/DataDrivenEdge";
+import { LegalPlaybook } from "@/components/sections/LegalPlaybook";
+import { MedicalPlaybook } from "@/components/sections/MedicalPlaybook";
+import { NineComponents } from "@/components/sections/NineComponents";
+import { OrganicGrowthEngine } from "@/components/sections/OrganicGrowthEngine";
 import { TeamFilter } from "@/components/sections/TeamFilter";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 
@@ -1048,11 +1052,17 @@ export default function HomePage() {
       {/* === STATS SECTION (interactive) === */}
       <InteractiveStats />
 
+      {/* === ORGANIC GROWTH ENGINE (Session 16 — proprietary system definition) === */}
+      <OrganicGrowthEngine />
+
       {/* === REVENUE CLAIM ($47M+ counter) === */}
       <RevenueClaim />
 
-      {/* === SERVICES SECTION (tabbed) === */}
-      <TabbedServices />
+      {/* === NINE COMPONENTS (replaces TabbedServices in Session 16) === */}
+      <NineComponents />
+
+      {/* === DATA-DRIVEN EDGE (Session 16 — 7 live data systems) === */}
+      <DataDrivenEdge />
 
       {/* === METHODOLOGY (FIRST POSITION) — accordion explorer === */}
       <MethodologyExplorer />
@@ -1235,6 +1245,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* === LEGAL PLAYBOOK (Session 16) === */}
+      <LegalPlaybook />
+
+      {/* === MEDICAL PLAYBOOK (Session 16) === */}
+      <MedicalPlaybook />
 
       {/* === FOUNDER SECTION (Detroit-anchored, with career timeline) === */}
       <FounderSection />

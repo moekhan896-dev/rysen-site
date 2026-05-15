@@ -56,6 +56,7 @@ export default function AuditPage() {
       />
 
       <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Audit" }]}
         eyebrow="Free audit · 48-hour turnaround"
         title={
           <>

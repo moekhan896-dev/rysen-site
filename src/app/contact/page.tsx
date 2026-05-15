@@ -39,6 +39,7 @@ export default function ContactPage() {
   return (
     <main className="contact-page">
       <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         eyebrow="Contact"
         title={
           <>

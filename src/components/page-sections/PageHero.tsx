@@ -2,6 +2,12 @@
 
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
+
+interface Crumb {
+  readonly label: string;
+  readonly href?: string;
+}
 
 interface PageHeroProps {
   readonly eyebrow: string;
@@ -9,6 +15,7 @@ interface PageHeroProps {
   readonly subtitle?: ReactNode;
   readonly variant?: "default" | "compact";
   readonly showAmbient?: boolean;
+  readonly breadcrumbs?: ReadonlyArray<Crumb>;
 }
 
 export function PageHero({
@@ -17,6 +24,7 @@ export function PageHero({
   subtitle,
   variant = "default",
   showAmbient = true,
+  breadcrumbs,
 }: PageHeroProps) {
   return (
     <section
@@ -29,6 +37,9 @@ export function PageHero({
         </div>
       )}
       <div className="page-hero-inner">
+        {breadcrumbs && breadcrumbs.length > 0 && (
+          <Breadcrumbs trail={breadcrumbs} />
+        )}
         <motion.div
           className="page-hero-eyebrow"
           initial={{ opacity: 0, y: 8 }}

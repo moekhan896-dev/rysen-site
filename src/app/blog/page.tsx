@@ -25,6 +25,7 @@ export default function BlogIndexPage() {
   return (
     <main className="blog-index">
       <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
         eyebrow="Rysen notes"
         title={
           <>

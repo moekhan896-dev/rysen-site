@@ -124,6 +124,11 @@ export default function ContentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <PageHero
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Content & reputation" },
+        ]}
         eyebrow="Service — content & reputation"
         title={
           <>

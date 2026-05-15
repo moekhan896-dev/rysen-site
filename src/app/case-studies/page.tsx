@@ -1,112 +1,161 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CTABanner } from "@/components/page-sections/CTABanner";
 import { PageHero } from "@/components/page-sections/PageHero";
-import { PageSection } from "@/components/page-sections/PageSection";
+import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { CaseStudyFilters, type CaseStudyRecord } from "./CaseStudyFilters";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Real Firms, Real Numbers",
+  title: "Case Studies — Selected engagements",
   description:
-    "Real engagement results from Rysen Growth. AWS Law Firm (Tampa probate), Tyler Family Law (Atlanta divorce), and more.",
+    "Real revenue, attributed to source. Selected engagements across legal and medical from active client work.",
 };
 
-interface CaseCard {
-  readonly badge: string;
-  readonly headline: string;
-  readonly stats: ReadonlyArray<string>;
-  readonly preview: string;
-  readonly href: string;
-}
-
-const PUBLISHED: ReadonlyArray<CaseCard> = [
+const CASES: ReadonlyArray<CaseStudyRecord> = [
   {
-    badge: "Legal · Probate · Tampa, FL",
-    headline: "AWS Law Firm: Tampa’s leading probate practice.",
-    stats: ["+240% consultations", "52% AI citations", "#1 ranked"],
-    preview:
-      "From page two of Google with zero AI citations to position one for every priority probate query in Tampa — and the dominant cited source on ChatGPT and Perplexity.",
     href: "/case-studies/aws-law-firm",
+    firm: "AWS Law Firm",
+    vertical: "Legal",
+    practiceArea: "Probate",
+    resultType: ["Revenue", "Ranking", "Volume"],
+    badge: "Legal · Probate · Tampa, FL",
+    challenge: "Tampa probate firm with two decades of experience but no online presence. From page two to position one across priority queries in 8 months.",
+    stats: [
+      { value: "+240%", label: "consultations" },
+      { value: "#1", label: "priority queries" },
+      { value: "52%", label: "AI citation rate" },
+    ],
   },
   {
-    badge: "Legal · Family · Atlanta, GA",
-    headline: "Tyler Family Law: Atlanta’s #1 divorce attorney.",
-    stats: ["+1,240% leads", "8 months", "#1 ranked"],
-    preview:
-      "Three other agencies called Atlanta unwinnable against the national lawyer mills. Eight months later, Tyler ranked #1 and now operates a four-week intake waitlist.",
     href: "/case-studies/tyler-family-law",
+    firm: "Tyler Family Law",
+    vertical: "Legal",
+    practiceArea: "Family & Divorce",
+    resultType: ["Volume", "Ranking", "Velocity"],
+    badge: "Legal · Divorce · Atlanta, GA",
+    challenge: "Three other agencies said ranking against national divorce-firm chains was impossible. Eight months later, #1 with a 4-week intake waitlist.",
+    stats: [
+      { value: "+1,240%", label: "lead growth" },
+      { value: "#1", label: "priority queries" },
+      { value: "4-wk", label: "intake waitlist" },
+    ],
   },
   {
-    badge: "Medical · Dermatology · Miami, FL",
-    headline: "Hartman Dermatology: Miami’s go-to for cosmetic consultations.",
-    stats: ["+78% consultations", "#1 ranked", "142% review velocity"],
-    preview:
-      "From clinically excellent but online invisible to #1 across Miami cosmetic dermatology queries — and cited by AI surfaces in 38% of relevant local queries.",
     href: "/case-studies/hartman-dermatology",
+    firm: "Hartman Dermatology",
+    vertical: "Medical",
+    practiceArea: "Dermatology",
+    resultType: ["Volume", "Ranking", "Revenue"],
+    badge: "Medical · Dermatology · Miami, FL",
+    challenge: "Miami cosmetic dermatology practice with strong clinical reputation but page-two visibility. Now Miami's go-to for cosmetic consultations.",
+    stats: [
+      { value: "+78%", label: "consultations" },
+      { value: "#1", label: "Miami queries" },
+      { value: "38%", label: "AI citation rate" },
+    ],
   },
   {
-    badge: "Legal · Estate · Los Angeles, CA",
-    headline: "Coleman & Co.: Now Los Angeles’s #1 estate attorney.",
-    stats: ["+320% qualified leads", "#1 ranked", "9 months"],
-    preview:
-      "An HNW estate boutique that was almost entirely referral-driven. Nine months later, organic accounts for 67% of new business — and the firm ranks #1 across the priority LA estate queries.",
     href: "/case-studies/coleman-co",
+    firm: "Coleman & Co.",
+    vertical: "Legal",
+    practiceArea: "Estate Planning",
+    resultType: ["Revenue", "Ranking", "Reputation"],
+    badge: "Legal · Estate · Los Angeles, CA",
+    challenge: "Quietly the best HNW estate firm in LA, but invisible online. Nine months later, #1 ranked with 67% organic share of new business.",
+    stats: [
+      { value: "+320%", label: "qualified leads" },
+      { value: "#1", label: "LA estate queries" },
+      { value: "67%", label: "organic share" },
+    ],
   },
   {
-    badge: "Medical · Dental · Chicago, IL",
-    headline: "Ridge Dental: Dominating Chicago’s 3-pack across 5 neighborhoods.",
-    stats: ["+186% new patient calls", "#1 in 5 neighborhoods", "4 months"],
-    preview:
-      "Multi-location dental network treated all 5 GBPs as a coordinated system, not parallel competitors. Four months later, #1 in Maps Pack across every Chicago neighborhood it serves.",
     href: "/case-studies/ridge-dental",
+    firm: "Ridge Dental",
+    vertical: "Medical",
+    practiceArea: "Dental",
+    resultType: ["Volume", "Ranking", "Reputation"],
+    badge: "Medical · Dental · Chicago, IL",
+    challenge: "Five-location Chicago dental network losing neighborhood-level fights. Treated as a coordinated system, not five independent profiles.",
+    stats: [
+      { value: "+186%", label: "patient calls" },
+      { value: "5/5", label: "neighborhoods #1" },
+      { value: "4.9★", label: "network average" },
+    ],
   },
+  {
+    href: "/case-studies/madison-clark",
+    firm: "Madison Clark",
+    vertical: "Special",
+    practiceArea: "Growth capability",
+    resultType: ["Volume"],
+    badge: "Special · AI persona · 2024",
+    challenge: "AI persona built from scratch. 100M views in 60 days. Same team, same data discipline, applied to a completely different surface.",
+    stats: [
+      { value: "100M+", label: "views" },
+      { value: "850K", label: "followers" },
+      { value: "$0", label: "ad spend" },
+    ],
+  },
+];
+
+const FEATURED = [
+  "/case-studies/aws-law-firm",
+  "/case-studies/tyler-family-law",
+  "/case-studies/hartman-dermatology",
+  "/case-studies/madison-clark",
 ];
 
 export default function CaseStudiesPage() {
   return (
-    <main className="case-studies-hub">
+    <main>
       <PageHero
-        eyebrow="Our work"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Case studies" }]}
+        eyebrow="Selected engagements"
         title={
           <>
-            Real firms.{" "}
-            <span className="accent-italic">Real numbers.</span>
+            Real revenue,{" "}
+            <span className="accent-italic">attributed to source.</span>
           </>
         }
-        subtitle="Five case studies. Stats verified, names used with permission."
+        subtitle="Selected engagements from active client work. Each represents a specific challenge, a specific approach, and a specific measurable result reported in dollars rather than impressions."
       />
 
-      <PageSection eyebrow="Case studies" title="Published case studies.">
-        <div className="case-cards">
-          {PUBLISHED.map((c) => (
-            <Link key={c.href} href={c.href} className="case-card">
-              <div className="case-card-badge">{c.badge}</div>
-              <h3
-                className="case-card-headline"
-                dangerouslySetInnerHTML={{ __html: c.headline }}
-              />
-              <div className="case-card-stats">
-                {c.stats.map((s) => (
-                  <span key={s} className="case-card-stat">
-                    {s}
-                  </span>
-                ))}
-              </div>
-              <p className="case-card-preview">{c.preview}</p>
-              <span className="case-card-link">
-                Read the full case study <span className="arrow">→</span>
-              </span>
-            </Link>
-          ))}
+      <CaseStudyFilters cases={CASES} featured={FEATURED} />
 
-        </div>
-      </PageSection>
-
-      <CTABanner
-        title="Want to be the next one on this page?"
-        subtitle="Start with a free audit. We’ll show you what’s possible for your firm before any commitment."
-        primaryText="Get a free audit"
-        primaryHref="/audit"
+      <RelatedContent
+        items={[
+          {
+            href: "/methodology",
+            eyebrow: "Framework",
+            title: "The First Position methodology",
+            description: "The pillars that underpin every engagement above.",
+          },
+          {
+            href: "/services",
+            eyebrow: "Components",
+            title: "The ten components",
+            description: "What we deploy in every engagement, in detail.",
+          },
+          {
+            href: "/how-we-measure",
+            eyebrow: "Data infrastructure",
+            title: "How we measure",
+            description: "The systems that produce the numbers reported above.",
+          },
+        ]}
       />
+
+      <section className="deep-page-cta">
+        <div className="deep-page-cta-eyebrow">Like what you see?</div>
+        <h2 className="deep-page-cta-heading">Request an audit.</h2>
+        <p className="deep-page-cta-sub">
+          Audit calls walk through the methodology that produced each of the
+          engagements above and what it would look like for your firm.
+        </p>
+        <Link href="/audit" className="deep-page-cta-button">
+          Request an audit
+        </Link>
+        <p className="deep-page-cta-note">Average response time: 1 business day.</p>
+      </section>
     </main>
   );
 }

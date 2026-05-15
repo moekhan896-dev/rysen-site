@@ -12,6 +12,7 @@ export default function TermsPage() {
   return (
     <main className="legal-page">
       <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms" }]}
         variant="compact"
         eyebrow="Legal"
         title="Terms of Service"

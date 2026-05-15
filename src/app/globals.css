@@ -15234,3 +15234,1362 @@ path.oge-connection {
   color: var(--ink-faint);
 }
 
+/* ============================================================
+   === SESSION 26 PHASE 2 — HOMEPAGE PREVIEW SECTIONS ===
+   ============================================================ */
+
+.preview-section {
+  position: relative;
+  padding: 100px 64px 80px;
+  overflow: hidden;
+}
+
+.preview-section--paper {
+  background: var(--paper);
+  color: var(--ink-text);
+}
+
+.preview-section--ink {
+  background: var(--ink);
+  color: var(--paper-text);
+}
+
+.preview-section--final-cta {
+  text-align: center;
+  padding: 120px 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.preview-section .section-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.preview-section-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.preview-section-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  margin: 16px 0 24px 0;
+  max-width: 20ch;
+  text-wrap: balance;
+  color: inherit;
+}
+
+.preview-section-intro {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 720px;
+  margin: 0 0 32px 0;
+}
+
+.preview-section--paper .preview-section-intro {
+  color: var(--ink-muted);
+}
+
+.preview-section--ink .preview-section-intro {
+  color: var(--paper-muted);
+}
+
+@media (max-width: 1024px) {
+  .preview-section {
+    padding: 80px 32px 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .preview-section {
+    padding: 64px 20px 48px;
+  }
+}
+
+/* ----- 5. OGE preview ----- */
+
+.oge-preview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .oge-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ----- 6. Ten components list ----- */
+
+.ten-components-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 48px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.ten-components-item {
+  display: grid;
+  grid-template-columns: 56px 1fr 24px;
+  gap: 20px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background var(--dur-base) var(--ease-settle);
+}
+
+.ten-components-item:nth-child(odd) {
+  border-right: 1px solid var(--rule);
+  padding-right: 32px;
+}
+
+.ten-components-item:nth-child(even) {
+  padding-left: 32px;
+}
+
+.ten-components-item:hover {
+  background: var(--paper-elevated);
+}
+
+.ten-components-number {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--ink-faint);
+  line-height: 1;
+}
+
+.ten-components-body {
+  min-width: 0;
+}
+
+.ten-components-name {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink-text);
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.ten-components-desc {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ten-components-mark {
+  margin-top: 4px;
+  opacity: 0.6;
+  transition: transform var(--dur-base) var(--ease-settle), opacity var(--dur-base) var(--ease-settle);
+}
+
+.ten-components-item:hover .ten-components-mark {
+  transform: rotate(45deg);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .ten-components-list {
+    grid-template-columns: 1fr;
+  }
+  .ten-components-item:nth-child(odd) {
+    border-right: none;
+    padding-right: 0;
+  }
+  .ten-components-item:nth-child(even) {
+    padding-left: 0;
+  }
+}
+
+/* ----- 7. Featured case study cards ----- */
+
+.featured-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.featured-case-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-0);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--dur-base) var(--ease-settle),
+    transform var(--dur-base) var(--ease-settle);
+}
+
+.featured-case-card:hover {
+  border-color: rgba(245, 197, 24, 0.4);
+  transform: translateY(-2px);
+}
+
+.featured-case-corner {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  opacity: 0.6;
+  transition: transform var(--dur-base) var(--ease-settle);
+}
+
+.featured-case-card:hover .featured-case-corner {
+  transform: rotate(45deg);
+}
+
+.featured-case-badge {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--signal);
+  margin-bottom: 12px;
+  padding-right: 32px;
+}
+
+.featured-case-firm {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink-text);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.featured-case-challenge {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+.featured-case-stats {
+  display: flex;
+  gap: 16px;
+  margin: auto 0 16px 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.featured-case-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.featured-case-stat-value {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink-text);
+}
+
+.featured-case-stat-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.featured-case-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--signal);
+  margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .featured-cases-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- 8. Data tiles ----- */
+
+.data-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.data-tile {
+  background: var(--ink-elevated);
+  border: 0.5px solid var(--rule-ink);
+  border-radius: var(--radius-0);
+  padding: 20px;
+  transition: border-color var(--dur-base) var(--ease-settle);
+}
+
+.data-tile:hover {
+  border-color: rgba(245, 197, 24, 0.4);
+}
+
+.data-tile-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--paper-text);
+  margin: 0 0 6px 0;
+}
+
+.data-tile-desc {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--paper-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 1024px) {
+  .data-tiles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .data-tiles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- 9. Verticals grid ----- */
+
+.verticals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 0;
+}
+
+.vertical-card {
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-0);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color var(--dur-base) var(--ease-settle);
+}
+
+.vertical-card:hover {
+  border-color: rgba(245, 197, 24, 0.4);
+}
+
+.vertical-card-art {
+  margin-bottom: 16px;
+  max-height: 160px;
+  overflow: hidden;
+}
+
+.vertical-card-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--ink-text);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.vertical-card-bullets li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.vertical-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--signal);
+  text-decoration: none;
+}
+
+.vertical-card-cta .signal-triangle {
+  transition: transform var(--dur-base) var(--ease-settle);
+}
+
+.vertical-card:hover .vertical-card-cta .signal-triangle {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .verticals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- 10. Madison preview metrics ----- */
+
+.madison-preview-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule-ink);
+}
+
+.madison-preview-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.madison-preview-value {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  color: var(--paper-text);
+  letter-spacing: -0.02em;
+}
+
+.madison-preview-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--signal);
+}
+
+@media (max-width: 768px) {
+  .madison-preview-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- 11. How we work compact ----- */
+
+.how-we-work-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.how-we-work-preview-card {
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-0);
+  padding: 20px;
+}
+
+.how-we-work-preview-eyebrow {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--signal);
+  margin-bottom: 8px;
+}
+
+.how-we-work-preview-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink-text);
+  margin-bottom: 6px;
+}
+
+.how-we-work-preview-desc {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .how-we-work-preview-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .how-we-work-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   === SESSION 26 PHASE 2 — /about REBUILD ===
+   ============================================================ */
+
+.about-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.about-reason {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+
+.about-reason-number {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--signal);
+}
+
+.about-reason-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink-text);
+  margin: 0 0 8px 0;
+}
+
+.about-reason-desc {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: 640px;
+}
+
+@media (max-width: 768px) {
+  .about-reason {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .about-reason-number {
+    font-size: 36px;
+  }
+}
+
+/* Leadership cards */
+
+.about-leadership-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.about-leader-card {
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-0);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color var(--dur-base) var(--ease-settle);
+}
+
+.about-leader-card:hover {
+  border-color: rgba(245, 197, 24, 0.4);
+}
+
+.about-leader-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.about-leader-name {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink-text);
+  line-height: 1.1;
+}
+
+.about-leader-title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+.about-leader-location {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--signal);
+  margin-top: 2px;
+}
+
+.about-leader-bio {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.about-leader-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.about-leader-chip {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 10px;
+  color: var(--ink-muted);
+  background: var(--paper);
+  border: 0.5px solid var(--rule);
+  padding: 3px 8px;
+  border-radius: var(--radius-1);
+}
+
+@media (max-width: 1024px) {
+  .about-leadership-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Brands list */
+
+.brands-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+
+.brands-list-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+}
+
+.brands-list-row--link {
+  transition: background var(--dur-base) var(--ease-settle);
+}
+
+.brands-list-row--link:hover {
+  background: var(--paper-elevated);
+}
+
+.brands-list-name {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--ink-text);
+  min-width: 240px;
+  flex-shrink: 0;
+}
+
+.brands-list-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--ink-muted);
+  flex: 1;
+}
+
+.brands-list-status {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-1);
+  margin-left: auto;
+  color: var(--ink-faint);
+}
+
+.brands-list-status.is-active {
+  background: var(--signal-soft);
+  border-color: var(--signal);
+  color: var(--ink-text);
+}
+
+@media (max-width: 768px) {
+  .brands-list-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .brands-list-name {
+    min-width: 0;
+  }
+}
+
+/* Press list */
+
+.press-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+
+.press-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 80px;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.press-outlet {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink-text);
+}
+
+.press-title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--ink-muted);
+}
+
+.press-year {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--signal);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .press-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .press-year {
+    text-align: left;
+  }
+}
+
+/* Office grid */
+
+.office-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.office-address {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ink-text);
+  margin: 0 0 24px 0;
+}
+
+.office-contact {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.office-hours {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .office-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   === SESSION 26 PHASE 2 — /services EXPANSION ===
+   ============================================================ */
+
+.services-engine-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.services-engine-text p {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  margin: 0 0 16px 0;
+}
+
+@media (max-width: 1024px) {
+  .services-engine-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.services-detail-block {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.services-detail-num {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--signal);
+}
+
+.services-detail-name {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--ink-text);
+  margin: 0 0 8px 0;
+}
+
+.services-detail-oneliner {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--signal);
+  margin: 0 0 24px 0;
+}
+
+.services-detail-paragraphs p {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin: 0 0 16px 0;
+  max-width: 720px;
+}
+
+.services-detail-deliverables {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--paper);
+  border: 0.5px solid var(--rule);
+  border-left: 2px solid var(--signal);
+}
+
+.services-detail-deliverables-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--signal);
+  margin-bottom: 12px;
+}
+
+.services-detail-deliverables .signal-list li {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.services-detail-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+.services-detail-case-ref,
+.services-detail-sub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--signal);
+  text-decoration: none;
+}
+
+.services-detail-case-ref:hover,
+.services-detail-sub-link:hover {
+  color: var(--ink-text);
+}
+
+@media (max-width: 768px) {
+  .services-detail-block {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 40px 0;
+  }
+  .services-detail-num {
+    font-size: 48px;
+  }
+}
+
+.services-compound-text p {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin: 0 0 16px 0;
+}
+
+/* ============================================================
+   === SESSION 26 PHASE 2 — /case-studies HUB FILTERS ===
+   ============================================================ */
+
+.case-studies-hub {
+  background: var(--paper);
+}
+
+.case-studies-section {
+  padding: 80px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.case-studies-section-h2 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: var(--ink-text);
+  margin: 0 0 48px 0;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.case-studies-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 24px;
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-0);
+  position: relative;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-group-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--signal);
+  min-width: 110px;
+}
+
+.filter-group-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  background: var(--paper);
+  border: 0.5px solid var(--rule);
+  color: var(--ink-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-1);
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-settle);
+}
+
+.filter-chip:hover {
+  border-color: var(--signal);
+  color: var(--ink-text);
+}
+
+.filter-chip.is-active {
+  background: var(--signal);
+  color: var(--ink);
+  border-color: var(--signal);
+}
+
+.case-studies-filters-reset {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--ink-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--signal);
+  text-underline-offset: 3px;
+}
+
+.case-studies-filters-reset:hover {
+  color: var(--signal);
+}
+
+.case-studies-filters-count {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-bottom: 24px;
+}
+
+.case-studies-empty {
+  padding: 48px 24px;
+  text-align: center;
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--ink-muted);
+  font-size: 15px;
+}
+
+.case-studies-empty-reset {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: none;
+  border: none;
+  color: var(--signal);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0;
+}
+
+.case-studies-index {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+
+.case-index-row {
+  display: grid;
+  grid-template-columns: 280px 1fr 120px 16px;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--dur-base) var(--ease-settle);
+}
+
+.case-index-row:hover {
+  background: var(--paper-elevated);
+}
+
+.case-index-firm {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--ink-text);
+}
+
+.case-index-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.case-index-vertical {
+  color: var(--signal);
+  font-weight: 500;
+  font-size: 12px;
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+}
+
+.case-index-stat {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink-text);
+  text-align: right;
+}
+
+.case-index-row:hover .signal-triangle {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1024px) {
+  .case-studies-section {
+    padding: 60px 32px;
+  }
+  .case-index-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 16px 0;
+  }
+  .case-index-stat {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .case-studies-section {
+    padding: 48px 20px;
+  }
+  .filter-group {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .case-studies-filters-reset {
+    position: static;
+    margin-top: 8px;
+    text-align: left;
+  }
+}
+
+/* ============================================================
+   === SESSION 26 PHASE 2 — METHODOLOGY PILLAR REVEAL ===
+   ============================================================ */
+
+.pillar-reveal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 48px;
+  align-items: start;
+}
+
+.pillar-reveal-track {
+  min-width: 0;
+}
+
+.pillar-reveal-block {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: var(--space-7);
+  padding: var(--space-11) var(--space-7) var(--space-11) var(--space-7);
+  border-bottom: 1px solid var(--rule);
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition: border-left-color var(--dur-base) var(--ease-settle),
+              background var(--dur-base) var(--ease-settle);
+}
+
+.pillar-reveal-block.is-active {
+  border-left-color: var(--signal);
+  background: linear-gradient(
+    to right,
+    rgba(245, 197, 24, 0.04) 0%,
+    transparent 30%
+  );
+}
+
+.pillar-reveal-block .pillar-number,
+.pillar-reveal-block .pillar-content h3,
+.pillar-reveal-block .pillar-content p {
+  /* Inherit existing pillar-block styles */
+}
+
+.pillar-indicator {
+  position: sticky;
+  top: 140px;
+  align-self: start;
+  padding: 24px;
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-0);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pillar-indicator-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0;
+}
+
+.pillar-indicator-num {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  color: var(--signal);
+  font-weight: 500;
+}
+
+.pillar-indicator-ticks {
+  display: flex;
+  gap: 4px;
+}
+
+.pillar-indicator-tick {
+  flex: 1;
+  height: 3px;
+  background: var(--rule);
+  transition: background var(--dur-base) var(--ease-settle);
+}
+
+.pillar-indicator-tick.is-active {
+  background: var(--signal);
+}
+
+.pillar-indicator-current {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--ink-text);
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .pillar-reveal {
+    grid-template-columns: 1fr;
+  }
+  .pillar-indicator {
+    position: relative;
+    top: auto;
+    order: -1;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pillar-reveal-block {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* ============================================================
+   === SESSION 26 PHASE 2 — PAGE TRANSITIONS ===
+   Next.js template.tsx wraps children in .page-transition.
+   On every route change template re-mounts, so the entrance
+   animation runs fresh.
+   ============================================================ */
+
+.page-transition {
+  animation: page-transition-fade-in 400ms var(--ease-settle) both;
+}
+
+.page-transition::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--signal);
+  z-index: 999;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: page-transition-wipe 700ms var(--ease-editorial) both;
+  pointer-events: none;
+}
+
+@keyframes page-transition-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-transition-wipe {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  60% {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+  61% {
+    transform-origin: right center;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .page-transition::before {
+    animation: none !important;
+  }
+}
+

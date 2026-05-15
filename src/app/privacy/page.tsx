@@ -12,6 +12,7 @@ export default function PrivacyPage() {
   return (
     <main className="legal-page">
       <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Privacy" }]}
         variant="compact"
         eyebrow="Legal"
         title="Privacy Policy"

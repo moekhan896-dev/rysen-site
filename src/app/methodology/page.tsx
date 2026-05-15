@@ -7,6 +7,7 @@ import { EngineArchitecture } from "@/components/illustrations/EngineArchitectur
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { BlueprintPullQuote } from "@/components/primitives/BlueprintPullQuote";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { PillarReveal } from "./PillarReveal";
 
 export const metadata: Metadata = {
   title: "Methodology — The First Position framework",
@@ -122,20 +123,7 @@ export default function MethodologyPage() {
         </p>
 
         <div style={{ marginTop: 48 }}>
-          {PILLARS.map((p) => (
-            <div key={p.n} className="pillar-block">
-              <div className="pillar-number">{p.n}</div>
-              <div className="pillar-content">
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <ul className="signal-list">
-                  {p.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+          <PillarReveal pillars={PILLARS} />
         </div>
       </section>
 

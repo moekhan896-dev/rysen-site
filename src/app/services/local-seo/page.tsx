@@ -124,6 +124,11 @@ export default function LocalSeoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <PageHero
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Local SEO" },
+        ]}
         eyebrow="Service — local SEO"
         title={
           <>

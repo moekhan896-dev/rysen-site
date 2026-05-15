@@ -27,7 +27,7 @@ export function AboutPrinciples() {
     <section className="about-principles">
       <div className="about-principles-inner">
         <div className="about-principles-header">
-          <div className="page-section-eyebrow">OUR PRINCIPLES</div>
+          <div className="page-section-eyebrow">Our principles</div>
           <h2 className="page-section-title">
             What we sell. <span className="accent-italic">What we don’t.</span>
           </h2>

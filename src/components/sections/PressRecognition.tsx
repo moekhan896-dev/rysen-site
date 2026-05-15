@@ -57,7 +57,7 @@ export function PressRecognition() {
     <section className="press-recognition">
       <div className="press-recognition-inner">
         <div className="press-recognition-header">
-          <div className="section-2-eyebrow">PRESS & RECOGNITION</div>
+          <div className="section-2-eyebrow">Press & recognition</div>
           <h2 className="press-recognition-h2">
             Quoted, cited, and recognized.
           </h2>

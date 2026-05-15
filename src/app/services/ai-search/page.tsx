@@ -125,7 +125,7 @@ export default function AiSearchPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <PageHero
-        eyebrow="SERVICE · AI SEARCH"
+        eyebrow="Service — AI search"
         title={
           <>
             When AI answers a question, your firm is{" "}
@@ -136,7 +136,7 @@ export default function AiSearchPage() {
       />
 
       <PageSection
-        eyebrow="THE PROBLEM"
+        eyebrow="The problem"
         title={
           <>
             Your future clients{" "}
@@ -170,26 +170,26 @@ export default function AiSearchPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DO"
+        eyebrow="What we do"
         title="Six capabilities, one outcome."
         background="tint"
       >
         <ServiceCapabilitiesGrid capabilities={CAPABILITIES} />
       </PageSection>
 
-      <PageSection eyebrow="HOW WE DO IT" title="Four phases. Weekly cadence.">
+      <PageSection eyebrow="How we do it" title="Four phases. Weekly cadence.">
         <ServiceProcessSteps steps={PROCESS} />
       </PageSection>
 
       <PageSection
-        eyebrow="PROOF"
+        eyebrow="Proof"
         title="Real numbers from a real firm."
         titleAlignment="left"
         maxWidth="900px"
         background="tint"
       >
         <ServiceProofReference
-          eyebrow="AWS LAW FIRM · TAMPA"
+          eyebrow="AWS Law Firm · Tampa"
           headline="52% AI citation rate across priority probate queries."
           body="Eight months into our engagement, AWS Law Firm is cited by ChatGPT in over half of priority probate queries in their Tampa market — and ranks #1 organically for the same terms."
           href="/case-studies/aws-law-firm"
@@ -197,7 +197,7 @@ export default function AiSearchPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="DELIVERABLES"
+        eyebrow="Deliverables"
         title="What you get every month."
         titleAlignment="left"
         maxWidth="780px"
@@ -214,7 +214,7 @@ export default function AiSearchPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="FAQ"
+        eyebrow="Frequently asked"
         title="Common questions."
         maxWidth="780px"
         background="tint"

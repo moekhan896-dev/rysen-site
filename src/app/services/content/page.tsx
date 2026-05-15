@@ -124,7 +124,7 @@ export default function ContentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <PageHero
-        eyebrow="SERVICE · CONTENT & REPUTATION"
+        eyebrow="Service — content & reputation"
         title={
           <>
             Full-stack growth, not{" "}
@@ -135,7 +135,7 @@ export default function ContentPage() {
       />
 
       <PageSection
-        eyebrow="THE PROBLEM"
+        eyebrow="The problem"
         title={
           <>
             Single-tactic engagements{" "}
@@ -167,26 +167,26 @@ export default function ContentPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DO"
+        eyebrow="What we do"
         title="Six capabilities, one outcome."
         background="tint"
       >
         <ServiceCapabilitiesGrid capabilities={CAPABILITIES} />
       </PageSection>
 
-      <PageSection eyebrow="HOW WE DO IT" title="Four phases. Weekly cadence.">
+      <PageSection eyebrow="How we do it" title="Four phases. Weekly cadence.">
         <ServiceProcessSteps steps={PROCESS} />
       </PageSection>
 
       <PageSection
-        eyebrow="PROOF"
+        eyebrow="Proof"
         title="Across the portfolio."
         titleAlignment="left"
         maxWidth="900px"
         background="tint"
       >
         <ServiceProofReference
-          eyebrow="ACROSS 30+ ENGAGEMENTS"
+          eyebrow="Across 30+ engagements"
           headline="The content + reputation + conversion stack runs under every engagement we sell."
           body="From AWS Law Firm’s probate authority library to Tyler Family Law’s Atlanta-neighborhood content system, the integrated approach is what makes every Rysen engagement compound. See it in action across our case studies."
           href="/case-studies"
@@ -194,7 +194,7 @@ export default function ContentPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="DELIVERABLES"
+        eyebrow="Deliverables"
         title="What you get every month."
         titleAlignment="left"
         maxWidth="780px"
@@ -212,7 +212,7 @@ export default function ContentPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="FAQ"
+        eyebrow="Frequently asked"
         title="Common questions."
         maxWidth="780px"
         background="tint"

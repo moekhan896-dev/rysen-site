@@ -150,7 +150,7 @@ export function PlaybookSection({
         {/* Engine Configuration */}
         <div className="playbook-config">
           <div className="playbook-config-head">
-            <div className="page-section-eyebrow">ENGINE CONFIGURATION</div>
+            <div className="page-section-eyebrow">Engine configuration</div>
             <h3 className="playbook-config-title">
               Same engine.{" "}
               <span className="accent-italic">

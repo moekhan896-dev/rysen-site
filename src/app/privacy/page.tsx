@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <main className="legal-page">
       <PageHero
         variant="compact"
-        eyebrow="LEGAL"
+        eyebrow="Legal"
         title="Privacy Policy"
         subtitle="Last updated: November 2024"
         showAmbient={false}

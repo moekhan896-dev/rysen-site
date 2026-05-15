@@ -403,7 +403,7 @@ export function RealOperations() {
     <section className="real-ops" ref={sectionRef} id="real-operations">
       <div className="real-ops-inner">
         <div className="real-ops-header">
-          <div className="page-section-eyebrow">BEHIND THE WORK</div>
+          <div className="page-section-eyebrow">Behind the work</div>
           <h2 className="real-ops-h2">
             This is what{" "}
             <span className="accent-italic">real operations</span> looks like.
@@ -448,7 +448,7 @@ export function RealOperations() {
                       <span className="real-ops-flow-dot" aria-hidden="true" />
                       {d.day}
                       {isToday && (
-                        <span className="real-ops-flow-today">TODAY</span>
+                        <span className="real-ops-flow-today">Today</span>
                       )}
                     </div>
                     <div className="real-ops-flow-title">{d.title}</div>
@@ -478,7 +478,7 @@ export function RealOperations() {
         </div>
 
         <div className="real-ops-foot-mark">
-          DETROIT, MI · 5-DAY OPERATIONAL RHYTHM · WEEKLY SINCE 2019
+          Detroit, MI. 5-day operational rhythm. Weekly since 2019.
         </div>
       </div>
     </section>

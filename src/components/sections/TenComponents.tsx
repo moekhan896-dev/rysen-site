@@ -183,7 +183,7 @@ export function TenComponents() {
     <section className="nine-components ten-components" id="ten-components">
       <div className="nine-inner">
         <div className="nine-header">
-          <div className="page-section-eyebrow">THE TEN COMPONENTS</div>
+          <div className="page-section-eyebrow">The components</div>
           <h2 className="nine-h2">
             Every part of the engine,{" "}
             <span className="accent-italic">engineered.</span>
@@ -234,7 +234,7 @@ export function TenComponents() {
                   ))}
                 </ul>
                 <div className="nine-card-affects">
-                  <span className="nine-card-affects-label">AFFECTS</span>{" "}
+                  <span className="nine-card-affects-label">Affects</span>{" "}
                   {c.affects.map((id) => ID_TO_TITLE[id]).join(" · ")}
                 </div>
               </motion.article>

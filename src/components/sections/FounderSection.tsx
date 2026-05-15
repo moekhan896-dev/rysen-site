@@ -170,7 +170,7 @@ export function FounderSection() {
           <div className="founder-currently" aria-live="polite">
             <div className="founder-currently-head">
               <span className="founder-currently-dot" aria-hidden="true" />
-              <span className="founder-currently-label">CURRENTLY</span>
+              <span className="founder-currently-label">Currently</span>
             </div>
             <AnimatePresence mode="wait">
               <motion.div

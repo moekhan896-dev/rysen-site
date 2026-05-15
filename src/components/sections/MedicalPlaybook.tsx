@@ -63,7 +63,7 @@ export function MedicalPlaybook() {
   return (
     <PlaybookSection
       variant="medical"
-      eyebrow="VERTICAL · MEDICAL"
+      eyebrow="Vertical — medical"
       title={
         <>
           The <span className="accent-italic">Medical</span> Playbook.

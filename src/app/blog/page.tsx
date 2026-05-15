@@ -25,7 +25,7 @@ export default function BlogIndexPage() {
   return (
     <main className="blog-index">
       <PageHero
-        eyebrow="RYSEN NOTES"
+        eyebrow="Rysen notes"
         title={
           <>
             <span className="accent-italic">Published thinking</span> on
@@ -35,7 +35,7 @@ export default function BlogIndexPage() {
         subtitle="Long-form writing on AI search, attribution, local SEO, and the operational discipline of professional services marketing."
       />
 
-      <PageSection eyebrow="ALL NOTES" title="Latest writing." titleAlignment="left" maxWidth="1100px">
+      <PageSection eyebrow="Latest writing" title="Latest writing." titleAlignment="left" maxWidth="1100px">
         <div className="blog-grid">
           {articles.map((article, i) => (
             <ArticleCard
@@ -48,7 +48,7 @@ export default function BlogIndexPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="STAY POSTED"
+        eyebrow="Stay posted"
         title="Get future notes in your inbox."
         subtitle="One email when a new article publishes. No marketing, no nurturing — just the writing."
         background="tint"

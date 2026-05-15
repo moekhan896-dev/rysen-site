@@ -39,7 +39,7 @@ export default function ContactPage() {
   return (
     <main className="contact-page">
       <PageHero
-        eyebrow="CONTACT"
+        eyebrow="Contact"
         title={
           <>
             Let’s talk about{" "}
@@ -50,7 +50,7 @@ export default function ContactPage() {
       />
 
       <PageSection
-        eyebrow="SEND US A MESSAGE"
+        eyebrow="Send us a message"
         title="Tell us about your practice."
         maxWidth="780px"
         titleAlignment="left"
@@ -59,7 +59,7 @@ export default function ContactPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="OTHER WAYS TO REACH US"
+        eyebrow="Other ways to reach us"
         title="Three doors. Same team."
         background="tint"
       >
@@ -67,7 +67,7 @@ export default function ContactPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="FAQ"
+        eyebrow="Frequently asked"
         title="Common questions before you reach out."
         maxWidth="780px"
       >

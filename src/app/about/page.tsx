@@ -18,7 +18,7 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <PageHero
-        eyebrow="ABOUT RYSEN"
+        eyebrow="About Rysen"
         title={
           <>
             A Detroit firm built on one principle: marketing should report in{" "}
@@ -30,7 +30,7 @@ export default function AboutPage() {
 
       {/* THE STORY */}
       <PageSection
-        eyebrow="THE STORY"
+        eyebrow="The story"
         title="Why Rysen exists."
         titleAlignment="left"
         maxWidth="780px"
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
       {/* TEAM BREAKDOWN */}
       <PageSection
-        eyebrow="OUR TEAM"
+        eyebrow="Our team"
         title={
           <>
             18 operators, 4 disciplines,{" "}
@@ -95,7 +95,7 @@ export default function AboutPage() {
 
       {/* WHERE WE WORK */}
       <PageSection
-        eyebrow="WHERE WE WORK"
+        eyebrow="Where we work"
         title={
           <>
             Detroit HQ.{" "}
@@ -111,7 +111,7 @@ export default function AboutPage() {
 
       {/* FOUNDER REFERENCE */}
       <PageSection
-        eyebrow="FOUNDER"
+        eyebrow="Founder"
         title="A note from the founder."
         titleAlignment="left"
         maxWidth="900px"
@@ -127,7 +127,7 @@ export default function AboutPage() {
               <span className="founder-chip">ROSS BBA</span>
               <span className="founder-chip">ex-SALESFORCE</span>
               <span className="founder-chip">ex-ROKU</span>
-              <span className="founder-chip">DETROIT, MI</span>
+              <span className="founder-chip">Detroit, MI</span>
             </div>
             <p>
               Before Rysen, Art ran growth programs at Salesforce and Roku and

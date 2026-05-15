@@ -9,7 +9,7 @@ export function ThoughtLeadership() {
     <section className="thought-leadership">
       <div className="thought-leadership-inner">
         <div className="thought-leadership-header">
-          <div className="section-2-eyebrow">PUBLISHED THINKING</div>
+          <div className="section-2-eyebrow">Published thinking</div>
           <h2 className="thought-leadership-h2">
             Where we stand on{" "}
             <span className="accent-italic">what’s changing.</span>

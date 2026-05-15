@@ -67,7 +67,7 @@ export default function ServicesPage() {
   return (
     <main className="services-hub">
       <PageHero
-        eyebrow="WHAT WE DO"
+        eyebrow="What we do"
         title={
           <>
             Three services. One outcome: your firm is the{" "}
@@ -78,7 +78,7 @@ export default function ServicesPage() {
       />
 
       <PageSection
-        eyebrow="THE THREE SERVICES"
+        eyebrow="The three services"
         title="Specialized, but integrated."
         subtitle="Each lever amplifies the others. We run all three from one Detroit team."
       >
@@ -131,7 +131,7 @@ export default function ServicesPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="THE PHILOSOPHY"
+        eyebrow="The philosophy"
         title={
           <>
             We don’t sell tactics — we sell{" "}

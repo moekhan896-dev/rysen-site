@@ -8,7 +8,7 @@ export function RelatedArticles({ slug, count = 2 }: { slug: string; count?: num
   return (
     <section className="related-articles">
       <div className="related-articles-inner">
-        <div className="related-articles-eyebrow">CONTINUE READING</div>
+        <div className="related-articles-eyebrow">Continue reading</div>
         <h2 className="related-articles-h2">Related notes.</h2>
         <div className="related-articles-grid">
           {related.map((a, i) => (

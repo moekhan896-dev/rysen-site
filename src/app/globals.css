@@ -305,9 +305,8 @@
     font-size: 12px;
     font-weight: 500;
     color: var(--text-muted);
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
+    letter-spacing: 0;
+margin-bottom: 18px;
     display: inline-flex;
     align-items: center;
     gap: 12px;
@@ -935,8 +934,7 @@
     color: var(--text-muted);
     margin-bottom: 28px;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
-    display: inline-flex;
+display: inline-flex;
     align-items: center;
     gap: 10px;
   }
@@ -989,9 +987,8 @@
     font-family: 'Geist', sans-serif;
     font-size: 11px;
     color: var(--text-faint);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 28px;
+    letter-spacing: 0;
+margin-bottom: 28px;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
@@ -1072,9 +1069,8 @@
     font-size: 10px;
     font-weight: 500;
     color: var(--text-muted);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    letter-spacing: 0;
+margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 0.5px solid var(--line);
   }
@@ -1225,8 +1221,7 @@
     font-size: 10px;
     font-weight: 500;
     color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+letter-spacing: 0;
     box-shadow: 0 0 12px rgba(22, 163, 74, 0.3);
   }
 
@@ -1467,7 +1462,7 @@
     .section-2 { padding: 80px 20px; }
     .trust-logos { gap: 24px; font-size: 14px; }
     .eyebrow { font-size: 11px; flex-wrap: wrap; }
-    .category-line { font-size: 11px; letter-spacing: 1.5px; }
+    .category-line { font-size: 11px; letter-spacing: 0; }
   }
 
   @media (max-width: 480px) {
@@ -1823,8 +1818,7 @@
     padding: 4px 10px;
     border-radius: 100px;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
+}
 
   .process-desc {
     font-family: 'Geist', sans-serif;
@@ -2211,8 +2205,7 @@
     font-weight: 400;
     color: var(--text-muted);
     letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin: 0;
+margin: 0;
   }
 
   .footer-heading {
@@ -2220,8 +2213,7 @@
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+letter-spacing: 0.5px;
     margin: 0 0 20px;
   }
 
@@ -2889,8 +2881,7 @@
     font-weight: 400;
     font-size: 11px;
     color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+letter-spacing: 0.5px;
     flex-shrink: 0;
     white-space: nowrap;
     padding-top: 1px;
@@ -2920,7 +2911,7 @@
     font-size: 10px;
     padding: 4px 8px;
     border-radius: 100px;
-    letter-spacing: 1px;
+    letter-spacing: 0;
   }
 
   .brand-status-active {
@@ -3834,9 +3825,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+    letter-spacing: 0;
+}
   .shift-eyebrow-before { color: var(--text-faint); }
   .shift-eyebrow-now { color: var(--accent); }
 
@@ -3924,9 +3914,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--accent);
+    letter-spacing: 0;
+color: var(--accent);
     margin-bottom: 6px;
   }
   .shift-surface-snippet {
@@ -4369,8 +4358,7 @@
     background: var(--accent-soft);
     padding: 3px 7px;
     border-radius: 4px;
-    text-transform: uppercase;
-  }
+}
   .content-card-badge-2 {
     color: #6366f1;
     background: rgba(99, 102, 241, 0.1);
@@ -4582,7 +4570,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     color: var(--text-muted);
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
@@ -4766,9 +4754,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 4px 8px;
+    letter-spacing: 0;
+padding: 4px 8px;
     border-radius: 4px;
     pointer-events: none;
   }
@@ -4786,9 +4773,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 24px 0 0;
+    letter-spacing: 0;
+margin: 24px 0 0;
   }
 
   /* === GROWTH CHART (Tyler) === */
@@ -4810,9 +4796,8 @@
   .growth-chart-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     margin-bottom: 8px;
   }
   .growth-chart-svg {
@@ -4914,8 +4899,7 @@
   .brand-meta-row:last-child { border-bottom: none; }
   .brand-meta-label {
     font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+letter-spacing: 0.5px;
     color: rgba(255, 255, 255, 0.45);
   }
   .brand-meta-value {
@@ -5273,8 +5257,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+letter-spacing: 0;
     font-weight: 400;
   }
 
@@ -5447,8 +5430,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+letter-spacing: 0.5px;
     line-height: 1;
     z-index: 2;
   }
@@ -5465,8 +5447,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+letter-spacing: 0.5px;
   }
   .team-stat-bar {
     margin-top: 32px;
@@ -5669,9 +5650,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-  }
+    letter-spacing: 0;
+}
   .detroit-stamp {
     color: var(--text-faint);
     flex-shrink: 0;
@@ -5684,7 +5664,7 @@
     .is-captions { grid-template-columns: 1fr; }
   }
   @media (max-width: 768px) {
-    .wordmark-subline { font-size: 9px; letter-spacing: 1.2px; }
+    .wordmark-subline { font-size: 9px; letter-spacing: 0; }
     .inside-studio-section { padding: 80px 20px; }
     .is-h2 { font-size: clamp(28px, 7vw, 42px); }
     .footer-est-row { flex-wrap: wrap; }
@@ -5757,8 +5737,7 @@
     z-index: 2;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
+letter-spacing: 0;
     color: var(--text-faint);
     margin-bottom: 18px;
   }
@@ -5778,8 +5757,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+letter-spacing: 0;
     margin-bottom: 4px;
   }
   .eb-noise-bignum {
@@ -5947,7 +5925,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
     color: var(--success, #2da567);
-    letter-spacing: 1px;
+    letter-spacing: 0;
     background: rgba(45, 165, 103, 0.1);
     padding: 2px 6px;
     border-radius: 4px;
@@ -6026,8 +6004,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+letter-spacing: 0;
   }
   .eb-rev-total-num {
     font-family: 'Geist', sans-serif;
@@ -6144,7 +6121,7 @@
   .stats-activity-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
-    letter-spacing: 1.2px;
+    letter-spacing: 0;
     color: var(--text-muted);
   }
   .stats-activity-list {
@@ -6313,9 +6290,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-  }
+    letter-spacing: 0;
+}
   .founder-currently-text {
     font-family: 'Geist', sans-serif;
     font-size: 13px;
@@ -6519,10 +6495,9 @@
     text-align: center;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
+    letter-spacing: 0;
     color: var(--text-faint);
-    text-transform: uppercase;
-  }
+}
 
   /* --- Tile 1: Founded — underline pulse --- */
   .cb-founded-underline {
@@ -6843,9 +6818,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
+    letter-spacing: 0;
+margin-bottom: 24px;
   }
   .page-hero-title {
     font-family: 'Geist', sans-serif;
@@ -6906,9 +6880,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
+    letter-spacing: 0;
+margin-bottom: 16px;
   }
   .page-section-title {
     font-family: 'Geist', sans-serif;
@@ -7305,9 +7278,8 @@
   .about-principles-col-head {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     margin-bottom: 20px;
   }
   .about-principles-col ul {
@@ -7420,9 +7392,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+    letter-spacing: 0;
+}
 
   .about-usmap-wrap {
     max-width: 1000px;
@@ -7558,9 +7529,8 @@
   .form-field-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     display: flex;
     align-items: baseline;
     gap: 6px;
@@ -7730,9 +7700,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
+    letter-spacing: 0;
+margin-bottom: 8px;
   }
   .contact-card-primary {
     font-family: 'Geist', sans-serif;
@@ -7864,9 +7833,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+    letter-spacing: 0;
+margin-bottom: 10px;
   }
   .audit-step-desc {
     font-family: 'Geist', sans-serif;
@@ -7912,9 +7880,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10.5px;
     color: var(--text-muted);
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    font-style: normal;
+    letter-spacing: 0;
+font-style: normal;
   }
   @media (max-width: 768px) {
     .audit-proof-row { grid-template-columns: 1fr; }
@@ -7939,9 +7906,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
+    letter-spacing: 0;
+margin-bottom: 16px;
   }
   .service-card-grid {
     display: grid;
@@ -7997,9 +7963,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    letter-spacing: 0;
+margin-bottom: 12px;
   }
   .service-capabilities {
     list-style: none;
@@ -8144,9 +8109,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--accent);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    letter-spacing: 0;
+margin-bottom: 12px;
   }
   .service-proof-headline {
     font-family: 'Geist', sans-serif;
@@ -8235,9 +8199,8 @@
     color: var(--accent);
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 100px;
+    letter-spacing: 0;
+border-radius: 100px;
     margin-bottom: 16px;
   }
   .case-card-coming .case-card-badge {
@@ -8270,9 +8233,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    letter-spacing: 0;
+margin-bottom: 12px;
   }
   .case-card-preview {
     font-family: 'Geist', sans-serif;
@@ -8316,9 +8278,8 @@
     color: var(--accent);
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 100px;
+    letter-spacing: 0;
+border-radius: 100px;
     margin-bottom: 20px;
   }
   .case-page-hero-title {
@@ -8353,9 +8314,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+    letter-spacing: 0;
+}
   @media (max-width: 768px) {
     .case-hero-stats {
       grid-template-columns: 1fr;
@@ -8414,9 +8374,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
+    letter-spacing: 0;
+margin-bottom: 6px;
   }
   .case-phase-title {
     font-family: 'Geist', sans-serif;
@@ -8470,7 +8429,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--accent);
-    letter-spacing: 1px;
+    letter-spacing: 0;
     margin-bottom: 10px;
   }
   .case-tactic-title {
@@ -8514,9 +8473,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+    letter-spacing: 0;
+}
   .case-chart-accent {
     font-family: 'Geist', sans-serif;
     font-weight: 500;
@@ -8565,9 +8523,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    font-style: normal;
+    letter-spacing: 0;
+font-style: normal;
   }
 
   /* ---------- Density adjustments for sub-pages ---------- */
@@ -8653,7 +8610,7 @@
     flex-shrink: 0;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
+    letter-spacing: 0;
     color: var(--text-faint);
   }
   .nav-top-ribbon-livedot {
@@ -8669,7 +8626,7 @@
     0%, 100% { box-shadow: 0 0 0 0 rgba(45, 165, 103, 0.45); }
     50%      { box-shadow: 0 0 0 5px rgba(45, 165, 103, 0); }
   }
-  .nav-top-ribbon-live-label { letter-spacing: 1.5px; }
+  .nav-top-ribbon-live-label { letter-spacing: 0; }
   .nav-top-ribbon-marquee {
     flex: 1;
     overflow: hidden;
@@ -8688,18 +8645,16 @@
   .nav-top-ribbon-text {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.5px;
+    letter-spacing: 0;
     color: var(--text-faint);
-    text-transform: uppercase;
-  }
+}
   .nav-top-ribbon-clock {
     flex-shrink: 0;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
+    letter-spacing: 0;
     color: var(--text-faint);
-    text-transform: uppercase;
-  }
+}
 
   /* MAIN NAV BAR */
   .nav-main {
@@ -8783,9 +8738,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    overflow: hidden;
+    letter-spacing: 0;
+overflow: hidden;
     max-height: 14px;
     opacity: 1;
     transition: max-height 300ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -8886,9 +8840,8 @@
     -webkit-backdrop-filter: blur(10px);
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     transition: font-size 300ms cubic-bezier(0.16, 1, 0.3, 1);
   }
   #nav.site-nav.is-scrolled .nav-status-pill { font-size: 9px; }
@@ -9101,9 +9054,8 @@
     margin-top: auto;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--accent);
+    letter-spacing: 0;
+color: var(--accent);
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -9124,9 +9076,8 @@
   .nav-mega-footer-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
   }
   .nav-mega-footer-link {
     font-family: 'Geist', sans-serif;
@@ -9168,9 +9119,8 @@
   .nav-mobile-group-head {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-faint);
+    letter-spacing: 0;
+color: var(--text-faint);
     margin-bottom: 6px;
   }
   .nav-mobile-sublink {
@@ -9250,9 +9200,8 @@
   .revenue-claim-eyebrow {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     margin-bottom: 16px;
   }
   .revenue-claim-number {
@@ -9280,9 +9229,8 @@
     gap: 8px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
   }
   .revenue-claim-livedot {
     width: 6px;
@@ -9359,9 +9307,8 @@
     color: var(--accent);
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    border-radius: 999px;
+    letter-spacing: 0;
+border-radius: 999px;
     margin-bottom: 16px;
     align-self: flex-start;
   }
@@ -9405,9 +9352,8 @@
     right: 22px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--accent);
+    letter-spacing: 0;
+color: var(--accent);
     opacity: 0;
     transform: translateX(-6px);
     transition: opacity 0.25s ease, transform 0.25s ease;
@@ -9492,9 +9438,8 @@
   .press-card-type {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     margin-bottom: 8px;
   }
   .press-card-context {
@@ -9633,9 +9578,8 @@
   .sig-line {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
   }
   .sig-skip {
     position: absolute;
@@ -9647,9 +9591,8 @@
     cursor: pointer;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
+    letter-spacing: 0;
+color: var(--accent);
     opacity: 0.7;
     transition: opacity 0.2s ease;
   }
@@ -9753,9 +9696,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 12px;
     color: var(--accent);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    text-decoration: none;
+    letter-spacing: 0;
+text-decoration: none;
   }
   .thought-leadership-link .arrow { transition: transform 0.2s ease; }
   .thought-leadership-link:hover .arrow { transform: translateX(4px); }
@@ -9780,9 +9722,8 @@
     color: var(--accent);
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 999px;
+    letter-spacing: 0;
+border-radius: 999px;
     margin-bottom: 24px;
   }
   .article-hero-title {
@@ -9869,9 +9810,8 @@
   .article-rail-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--text-faint);
+    letter-spacing: 0;
+color: var(--text-faint);
     margin-bottom: 12px;
   }
 
@@ -9883,9 +9823,8 @@
   .article-toc-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--text-faint);
+    letter-spacing: 0;
+color: var(--text-faint);
     margin-bottom: 16px;
   }
   .article-toc ul {
@@ -10159,9 +10098,8 @@
   .related-articles-eyebrow {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     text-align: center;
     margin-bottom: 14px;
   }
@@ -10267,9 +10205,8 @@
     border-radius: 999px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     transition: background 0.25s ease, color 0.25s ease;
   }
   .oge-toggle-btn:hover { color: var(--text); }
@@ -10342,7 +10279,7 @@
     fill: var(--text-muted);
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
-    letter-spacing: 1.5px;
+    letter-spacing: 0;
   }
   .oge-hub-title {
     fill: var(--text);
@@ -10389,7 +10326,7 @@
     fill: var(--text-muted);
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
-    letter-spacing: 1px;
+    letter-spacing: 0;
   }
   .oge-node.is-hovered .oge-node-label,
   .oge-node.is-pulsing .oge-node-label {
@@ -10427,7 +10364,7 @@
   .oge-detail-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
-    letter-spacing: 1.2px;
+    letter-spacing: 0;
     color: var(--text-faint);
   }
   .oge-detail-section ul {
@@ -10542,8 +10479,7 @@
     font-size: 10px;
     letter-spacing: 0.5px;
     color: var(--text-muted);
-    text-transform: uppercase;
-  }
+}
 
   .oge-editorial {
     max-width: 760px;
@@ -10559,10 +10495,9 @@
     text-align: center;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
+    letter-spacing: 0;
     color: var(--text-faint);
-    text-transform: uppercase;
-  }
+}
 
   @media (max-width: 768px) {
     .oge-section { padding: 80px 20px; }
@@ -10702,7 +10637,7 @@
   .nine-card-affects-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9.5px;
-    letter-spacing: 1.2px;
+    letter-spacing: 0;
     color: var(--accent);
   }
   .nine-footer {
@@ -10769,9 +10704,8 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--dde-accent);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
+    letter-spacing: 0;
+margin-bottom: 18px;
   }
   .dde-h2 {
     font-family: 'Geist', sans-serif;
@@ -10853,10 +10787,9 @@
     gap: 6px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 0.6px;
+    letter-spacing: 0;
     color: var(--dde-accent);
-    text-transform: uppercase;
-  }
+}
   .dde-card-livedot {
     display: inline-block;
     width: 5px;
@@ -10905,8 +10838,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
     color: #b8b8c0;
-    text-transform: uppercase;
-  }
+}
   .dde-funnel-bar {
     height: 8px;
     background: linear-gradient(90deg, var(--dde-accent) 0%, #4f6dd6 100%);
@@ -11052,9 +10984,8 @@
   .playbook-col-head {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     margin-bottom: 24px;
   }
   .playbook-challenges {
@@ -11179,7 +11110,7 @@
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
-    letter-spacing: 0.6px;
+    letter-spacing: 0;
   }
 
   /* Engine configuration */
@@ -11313,9 +11244,8 @@
     border-radius: 999px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text);
+    letter-spacing: 0;
+color: var(--text);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
   }
   .hero-proof-flag,
@@ -11329,7 +11259,7 @@
     margin-top: 18px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 0.8px;
+    letter-spacing: 0;
     color: var(--text-faint);
   }
 
@@ -11339,10 +11269,9 @@
     margin-left: 6px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 0.8px;
+    letter-spacing: 0;
     color: var(--accent);
-    text-transform: uppercase;
-    font-weight: 500;
+font-weight: 500;
   }
 
   /* ----- Team US badge ----- */
@@ -11363,9 +11292,8 @@
   .team-us-text {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--accent);
+    letter-spacing: 0;
+color: var(--accent);
   }
 
   /* ----- Footer wedge line ----- */
@@ -11376,9 +11304,8 @@
     text-align: center;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
   }
 
   /* ============ MADISON CREDIBILITY ============ */
@@ -11447,9 +11374,8 @@
   .madison-metric-label {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 12px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--text-faint);
+    letter-spacing: 0;
+color: var(--text-faint);
   }
   .madison-metric-foot {
     margin-top: 20px;
@@ -11496,7 +11422,7 @@
     margin-top: 8px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
-    letter-spacing: 0.8px;
+    letter-spacing: 0;
     color: var(--text-faint);
     text-align: center;
   }
@@ -11534,10 +11460,9 @@
   .madison-reel-meta {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 9px;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     color: var(--text-faint);
-    text-transform: uppercase;
-    margin-bottom: 4px;
+margin-bottom: 4px;
   }
   .madison-reel-views {
     font-family: 'Geist', sans-serif;
@@ -11588,9 +11513,8 @@
     text-align: center;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-faint);
+    letter-spacing: 0;
+color: var(--text-faint);
   }
 
   @media (max-width: 1024px) {
@@ -11654,9 +11578,8 @@
   .real-ops-col-head {
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 0;
+color: var(--text-muted);
     margin-bottom: 18px;
   }
 
@@ -11679,7 +11602,7 @@
     margin-top: 12px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 10px;
-    letter-spacing: 0.6px;
+    letter-spacing: 0;
     color: var(--text-faint);
     text-align: center;
   }
@@ -11881,7 +11804,7 @@
     gap: 6px;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.2px;
+    letter-spacing: 0;
     color: var(--accent);
     margin-bottom: 4px;
   }
@@ -11902,7 +11825,7 @@
     color: white;
     border-radius: 4px;
     font-size: 9px;
-    letter-spacing: 0.8px;
+    letter-spacing: 0;
   }
   .real-ops-flow-title {
     font-family: 'Geist', sans-serif;
@@ -11932,9 +11855,8 @@
     text-align: center;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-faint);
+    letter-spacing: 0;
+color: var(--text-faint);
   }
 
   @media (max-width: 1024px) {
@@ -12197,42 +12119,49 @@
   }
 
   /* ============================================================
-     === SESSION 20 — EDITORIAL SANS ACCENT (NO MORE MONO) ===
+     === SESSION 21 — EDITORIAL ACCENT (SENTENCE CASE) ===
      ============================================================ */
 
-  /* Universal accent label — replaces all former mono-accent usage with
-     tracked-out uppercase Geist. */
-  .text-accent-label {
+  .editorial-eyebrow {
+    font-family: 'Geist', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+  .editorial-label {
+    font-family: 'Geist', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .editorial-meta {
     font-family: 'Geist', system-ui, sans-serif;
     font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-feature-settings: 'ss01' on, 'cv01' on;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-faint);
+    line-height: 1.4;
   }
-  .text-accent-label-xs { font-size: 10px; letter-spacing: 0.2em; }
-  .text-accent-label-sm { font-size: 11px; letter-spacing: 0.18em; }
-  .text-accent-label-base { font-size: 12px; letter-spacing: 0.16em; }
-  .text-accent-label-md { font-size: 13px; letter-spacing: 0.14em; }
 
-  /* Widen letter-spacing on every former mono-accent selector. Geist sans is
-     visually denser than Geist Mono at small sizes, so we bump tracking to
-     restore the "tracked-out uppercase" editorial feel. */
-  .wordmark-subline { letter-spacing: 2px; }
-  .footer-est-mark { letter-spacing: 1.6px; }
-  .credibility-tile-us-flag { letter-spacing: 1.5px; }
+  /* Defensive override: pin every legacy "eyebrow / label / meta" selector to
+     sentence case + zero tracking, so any rule we missed in the bulk strip
+     doesn't slip an UPPERCASE pattern through. */
   .page-section-eyebrow,
-  .article-toc-label,
-  .article-rail-label,
-  .footer-wedge-line,
+  .section-2-eyebrow,
+  .is-eyebrow,
+  .nav-mobile-group-head,
   .nav-top-ribbon-text,
-  .edge-section-label-text { letter-spacing: 2.2px; }
-  .hero-states-line,
-  .hero-proof-chip,
-  .edge-status-marker-text,
-  .dde-card-live,
-  .editorial-beat-stamp { letter-spacing: 1.6px; }
-  .nav-top-ribbon-clock,
   .nav-top-ribbon-live-label,
+  .nav-top-ribbon-clock,
+  .edge-section-label-text,
+  .edge-status-marker-text,
   .oge-toggle-btn,
   .oge-comp-amplifies,
   .oge-detail-label,
@@ -12240,19 +12169,8 @@
   .oge-hub-eyebrow,
   .oge-node-label,
   .oge-footer-mark,
-  .madison-metric-label,
-  .madison-footer-mark,
-  .madison-chart-caption,
-  .madison-reel-meta,
-  .real-ops-col-head,
-  .real-ops-foot-mark,
-  .nav-mobile-group-head,
-  .about-principles-col-head,
-  .stats-activity-label,
-  .contact-card-title { letter-spacing: 2px; }
   .dde-eyebrow,
-  .revenue-claim-eyebrow,
-  .revenue-claim-live { letter-spacing: 2.2px; }
+  .dde-card-live,
   .nine-card-num,
   .nine-card-affects,
   .nine-card-affects-label,
@@ -12262,10 +12180,29 @@
   .playbook-practice-footer,
   .playbook-col-head,
   .playbook-challenge-num,
+  .madison-metric-label,
+  .madison-footer-mark,
+  .madison-chart-caption,
+  .madison-reel-meta,
+  .real-ops-col-head,
+  .real-ops-foot-mark,
+  .real-ops-flow-day,
+  .real-ops-flow-today,
+  .ops-workspace-caption,
+  .ops-mock-title,
+  .ops-attr-foot,
+  .ops-slack-from,
   .why-us-num,
-  .about-donut-anchor,
-  .about-donut-legend-count,
-  .about-map-stats,
+  .why-us-proof,
+  .press-card-type,
+  .press-card-year,
+  .press-footer,
+  .revenue-claim-eyebrow,
+  .revenue-claim-live,
+  .editorial-beat-stamp,
+  .tl-card-badge,
+  .tl-card-meta,
+  .tl-card-read,
   .article-hero-date,
   .article-hero-read,
   .article-meta-date,
@@ -12284,13 +12221,11 @@
   .eb-rev-live-label,
   .eb-rev-total-label,
   .eb-rev-stamp,
-  .eb-panel-eyebrow { letter-spacing: 1.6px; }
-  .tl-card-badge,
-  .tl-card-meta,
-  .tl-card-read,
-  .press-card-type,
-  .press-card-year,
-  .press-footer,
+  .eb-panel-eyebrow,
+  .about-principles-col-head,
+  .about-donut-anchor,
+  .about-donut-legend-count,
+  .about-map-stats,
   .service-capabilities-label,
   .service-card-eyebrow,
   .service-proof-eyebrow,
@@ -12298,25 +12233,29 @@
   .audit-step-num,
   .audit-step-duration,
   .audit-proof cite,
-  .audit-card-icon { letter-spacing: 1.8px; }
-  .real-ops-flow-day,
-  .real-ops-flow-today,
-  .ops-workspace-caption,
-  .ops-mock-title,
-  .ops-attr-foot,
-  .ops-slack-from,
-  .why-us-proof,
+  .audit-card-icon,
+  .contact-card-title,
   .team-loc-badge,
   .team-specialty,
   .team-stat-bar,
+  .ct-card-year,
+  .ct-year,
+  .stats-activity-label,
+  .stats-activity-time,
   .form-field-label,
   .form-field-hint,
   .form-field-error,
-  .stats-activity-time,
-  .ct-card-year,
-  .ct-year,
-  .madison-reel-stat-val { letter-spacing: 1.3px; }
+  .footer-est-mark,
+  .footer-wedge-line,
+  .credibility-tile-us-flag,
+  .hero-proof-chip,
+  .hero-states-line,
+  .wordmark-subline,
+  .category-line,
+  .credibility-band-footer {
+    text-transform: none;
+    letter-spacing: 0;
+  }
 
 
-
-
+  

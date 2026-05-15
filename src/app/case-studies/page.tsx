@@ -20,7 +20,7 @@ interface CaseCard {
 
 const PUBLISHED: ReadonlyArray<CaseCard> = [
   {
-    badge: "LEGAL · PROBATE · TAMPA, FL",
+    badge: "Legal · Probate · Tampa, FL",
     headline: "AWS Law Firm: Tampa’s leading probate practice.",
     stats: ["+240% consultations", "52% AI citations", "#1 ranked"],
     preview:
@@ -28,7 +28,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
     href: "/case-studies/aws-law-firm",
   },
   {
-    badge: "LEGAL · FAMILY · ATLANTA, GA",
+    badge: "Legal · Family · Atlanta, GA",
     headline: "Tyler Family Law: Atlanta’s #1 divorce attorney.",
     stats: ["+1,240% leads", "8 months", "#1 ranked"],
     preview:
@@ -36,7 +36,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
     href: "/case-studies/tyler-family-law",
   },
   {
-    badge: "MEDICAL · DERMATOLOGY · MIAMI, FL",
+    badge: "Medical · Dermatology · Miami, FL",
     headline: "Hartman Dermatology: Miami’s go-to for cosmetic consultations.",
     stats: ["+78% consultations", "#1 ranked", "142% review velocity"],
     preview:
@@ -44,7 +44,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
     href: "/case-studies/hartman-dermatology",
   },
   {
-    badge: "LEGAL · ESTATE · LOS ANGELES, CA",
+    badge: "Legal · Estate · Los Angeles, CA",
     headline: "Coleman & Co.: Now Los Angeles’s #1 estate attorney.",
     stats: ["+320% qualified leads", "#1 ranked", "9 months"],
     preview:
@@ -52,7 +52,7 @@ const PUBLISHED: ReadonlyArray<CaseCard> = [
     href: "/case-studies/coleman-co",
   },
   {
-    badge: "MEDICAL · DENTAL · CHICAGO, IL",
+    badge: "Medical · Dental · Chicago, IL",
     headline: "Ridge Dental: Dominating Chicago’s 3-pack across 5 neighborhoods.",
     stats: ["+186% new patient calls", "#1 in 5 neighborhoods", "4 months"],
     preview:
@@ -65,7 +65,7 @@ export default function CaseStudiesPage() {
   return (
     <main className="case-studies-hub">
       <PageHero
-        eyebrow="OUR WORK"
+        eyebrow="Our work"
         title={
           <>
             Real firms.{" "}
@@ -75,7 +75,7 @@ export default function CaseStudiesPage() {
         subtitle="Five case studies. Stats verified, names used with permission."
       />
 
-      <PageSection eyebrow="CASE STUDIES" title="Published case studies.">
+      <PageSection eyebrow="Case studies" title="Published case studies.">
         <div className="case-cards">
           {PUBLISHED.map((c) => (
             <Link key={c.href} href={c.href} className="case-card">

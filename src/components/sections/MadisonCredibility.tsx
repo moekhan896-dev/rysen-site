@@ -11,10 +11,10 @@ interface Metric {
 }
 
 const METRICS: ReadonlyArray<Metric> = [
-  { target: 100, suffix: "M+", label: "TOTAL VIEWS · 60 DAYS" },
-  { target: 850, suffix: "K", label: "FOLLOWERS · 60 DAYS" },
-  { target: 0, suffix: "", label: "AD SPEND · ORGANIC ONLY" },
-  { target: 100, suffix: "%", label: "AI-GENERATED · NO HUMAN" },
+  { target: 100, suffix: "M+", label: "Total views, 60 days" },
+  { target: 850, suffix: "K", label: "Followers, 60 days" },
+  { target: 0, suffix: "", label: "Ad spend, organic only" },
+  { target: 100, suffix: "%", label: "AI-generated, no human" },
 ];
 
 function CountUp({ target, suffix, active }: { target: number; suffix: string; active: boolean }) {
@@ -63,7 +63,7 @@ export function MadisonCredibility() {
     <section className="madison-credibility" ref={sectionRef} id="madison-credibility">
       <div className="madison-inner">
         <div className="madison-header">
-          <div className="page-section-eyebrow">GROWTH CAPABILITY · PROOF</div>
+          <div className="page-section-eyebrow">Growth capability</div>
           <h2 className="madison-h2">
             We grew an AI persona to{" "}
             <span className="accent-italic">100 million views</span> in 60 days.
@@ -125,7 +125,7 @@ export function MadisonCredibility() {
         </div>
 
         <div className="madison-footer-mark">
-          SAME TEAM · SAME DATA DISCIPLINE · APPLIED TO YOUR FIRM
+          Same team. Same data discipline. Applied to your firm.
         </div>
       </div>
     </section>
@@ -159,7 +159,7 @@ function MadisonGrowthChart({
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <div className="madison-reel-livedot" aria-hidden="true" />
-        <div className="madison-reel-meta">LATEST REEL</div>
+        <div className="madison-reel-meta">Latest reel</div>
         <div className="madison-reel-views">4.2M views</div>
         <div className="madison-reel-row">
           <span className="madison-reel-stat-label">Engagement</span>
@@ -229,7 +229,7 @@ function MadisonGrowthChart({
       </svg>
 
       <div className="madison-chart-caption">
-        GROWTH CURVE · @ITSMADISONCLARKK · MAR–MAY 2026
+        Growth curve · @itsmadisonclarkk · Mar–May 2026
       </div>
     </div>
   );

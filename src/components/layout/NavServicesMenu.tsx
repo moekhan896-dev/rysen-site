@@ -89,7 +89,7 @@ export function NavServicesMenu({ open, onClose }: MegaMenuProps) {
               <div className="nav-mega-divider" aria-hidden="true" />
 
               <div className="nav-mega-footer">
-                <span className="nav-mega-footer-label">ALL SERVICES</span>
+                <span className="nav-mega-footer-label">All services</span>
                 <Link
                   href="/services"
                   className="nav-mega-footer-link"

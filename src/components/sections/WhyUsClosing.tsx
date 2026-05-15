@@ -13,27 +13,27 @@ interface Row {
 
 const ROWS: ReadonlyArray<Row> = [
   {
-    title: "US-BASED. ALL OF US.",
+    title: "US-based. All of us.",
     body: "Every team member is based in the United States. Most are in Detroit. No outsourced content, no overseas link builders, no time zone gaps in operations.",
     proof: "100% US team · 0 outsourced roles",
   },
   {
-    title: "WE ONLY DO LEGAL AND MEDICAL.",
+    title: "We only do legal and medical.",
     body: "Other agencies serve dentists, real estate, e-commerce, restaurants. We don't. Every playbook, every dashboard, every team member is specialized for law firms and medical practices.",
     proof: "30+ legal/medical clients · 0 outside the verticals",
   },
   {
-    title: "WE'RE DATA-OBSESSED, NOT JUST DATA-CLAIMING.",
+    title: "We're data-obsessed, not just data-claiming.",
     body: "Most agencies say 'data-driven' and send PDF reports. We build live attribution dashboards, run weekly internal data reviews, and tie every dollar of marketing to closed cases/patients via CRM integration.",
     proof: "7 internal data systems · Weekly review cadence",
   },
   {
-    title: "WE BUILT THE INFRASTRUCTURE OURSELVES.",
+    title: "We built the infrastructure ourselves.",
     body: "Custom rank tracking software. Custom attribution dashboards. Custom AI search monitoring tools. We didn't buy a SaaS stack and rebadge it — we built the operational layer ourselves so it actually fits what we do.",
     proof: "5+ proprietary tools · Built in-house",
   },
   {
-    title: "WE TURN DOWN MORE WORK THAN WE TAKE.",
+    title: "We turn down more work than we take.",
     body: "We don't onboard every firm that asks. We screen for fit — local market dominance opportunity, partner-level commitment, willingness to invest 6-12 months minimum. If you're not the right fit, we'll tell you in the audit call.",
     proof: "~32% acceptance rate · Audit-first onboarding",
   },
@@ -55,7 +55,7 @@ export function WhyUsClosing() {
     <section className="why-us-closing" id="why-us">
       <div className="why-us-inner">
         <div className="why-us-header">
-          <div className="page-section-eyebrow">THE CASE FOR RYSEN</div>
+          <div className="page-section-eyebrow">Why us</div>
           <h2 className="why-us-h2">
             Here&apos;s why firms pick us over the{" "}
             <span className="accent-italic">other 47 agencies</span> pitching

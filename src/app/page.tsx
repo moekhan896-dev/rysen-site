@@ -626,7 +626,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-content">
           <div className="category-line">
-            US-BASED · DETROIT, MI · EST. 2019
+            Detroit, MI · Founded 2019
           </div>
           <div className="eyebrow">
             <span className="live-dot"></span>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const PHASES = [
   {
-    window: "MONTH 1–2",
+    window: "Month 1–2",
     title: "Foundation rebuild",
     desc: "Audit, schema, technical SEO, and practice-area page architecture before any content shipped.",
     tactics: [
@@ -27,7 +27,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 3–4",
+    window: "Month 3–4",
     title: "Authority construction",
     desc: "Long-form probate authority content, citation acquisition, GMB rebuild, and review velocity systems.",
     tactics: [
@@ -38,7 +38,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 5–6",
+    window: "Month 5–6",
     title: "AI search optimization",
     desc: "Entity strengthening and LLM-ready content engineered for AI citation across ChatGPT, Perplexity, and Google AIO.",
     tactics: [
@@ -48,7 +48,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 7+",
+    window: "Month 7+",
     title: "Compound growth",
     desc: "Rankings, reviews, and citations now compounding. Engagement focus shifts to defense and adjacent practice areas.",
     tactics: [
@@ -110,9 +110,9 @@ export default function AwsCaseStudyPage() {
         </div>
         <div className="case-page-hero-inner">
           <div className="case-page-hero-badge">
-            LEGAL · PROBATE · TAMPA, FL
+            Legal · Probate · Tampa, FL
           </div>
-          <div className="page-hero-eyebrow">CASE STUDY</div>
+          <div className="page-hero-eyebrow">Case study</div>
           <h1 className="case-page-hero-title">
             AWS Law Firm: Tampa’s leading{" "}
             <span className="accent-italic">probate practice.</span>
@@ -128,7 +128,7 @@ export default function AwsCaseStudyPage() {
       </section>
 
       <PageSection
-        eyebrow="WHO THEY ARE"
+        eyebrow="Who they are"
         title="A respected Tampa probate firm, invisible online."
         titleAlignment="left"
         maxWidth="780px"
@@ -146,7 +146,7 @@ export default function AwsCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHERE THEY WERE"
+        eyebrow="Where they were"
         title="The starting position."
         titleAlignment="left"
         maxWidth="780px"
@@ -175,21 +175,21 @@ export default function AwsCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DID"
+        eyebrow="What we did"
         title="Four phases. Eight months. One playbook."
       >
         <CasePhases phases={PHASES} />
       </PageSection>
 
       <PageSection
-        eyebrow="HOW WE EXECUTED"
+        eyebrow="How we executed"
         title="The six tactics, in detail."
         background="tint"
       >
         <CaseTacticsGrid tactics={TACTICS} />
       </PageSection>
 
-      <PageSection eyebrow="WHAT HAPPENED" title="The numbers, month by month.">
+      <PageSection eyebrow="What happened" title="The numbers, month by month.">
         <div className="case-results-charts">
           <CaseResultChart
             label="Rankings (position for priority probate query)"
@@ -213,7 +213,7 @@ export default function AwsCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="IN THEIR WORDS"
+        eyebrow="In their words"
         title="What the client said."
         titleAlignment="left"
         maxWidth="780px"

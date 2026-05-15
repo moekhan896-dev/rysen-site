@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const PHASES = [
   {
-    window: "MONTH 1",
+    window: "Month 1",
     title: "Network-level GMB strategy",
     desc: "We treated all 5 locations as a coordinated system, not 5 independent profiles competing in parallel.",
     tactics: [
@@ -27,7 +27,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 2",
+    window: "Month 2",
     title: "Neighborhood-specific content",
     desc: "Every location got real, distinct content — not duplicate pages with neighborhood names swapped.",
     tactics: [
@@ -37,7 +37,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 3",
+    window: "Month 3",
     title: "Review velocity coordination",
     desc: "Patient review request flow timed across all 5 locations — built the network into the local pack as a coordinated push.",
     tactics: [
@@ -47,7 +47,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 4",
+    window: "Month 4",
     title: "Hyperlocal citation building",
     desc: "Neighborhood-level citation work — local chambers, community sites, and verified directory placements per location.",
     tactics: [
@@ -109,9 +109,9 @@ export default function RidgeCaseStudyPage() {
         </div>
         <div className="case-page-hero-inner">
           <div className="case-page-hero-badge">
-            MEDICAL · DENTAL · CHICAGO, IL
+            Medical · Dental · Chicago, IL
           </div>
-          <div className="page-hero-eyebrow">CASE STUDY</div>
+          <div className="page-hero-eyebrow">Case study</div>
           <h1 className="case-page-hero-title">
             Ridge Dental: Dominating Chicago’s 3-pack across{" "}
             <span className="accent-italic">5 neighborhoods.</span>
@@ -127,7 +127,7 @@ export default function RidgeCaseStudyPage() {
       </section>
 
       <PageSection
-        eyebrow="WHO THEY ARE"
+        eyebrow="Who they are"
         title="A multi-location Chicago dental practice."
         titleAlignment="left"
         maxWidth="780px"
@@ -143,7 +143,7 @@ export default function RidgeCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHERE THEY WERE"
+        eyebrow="Where they were"
         title="Five locations, five separate fights, five plateaus."
         titleAlignment="left"
         maxWidth="780px"
@@ -168,14 +168,14 @@ export default function RidgeCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DID"
+        eyebrow="What we did"
         title="Four phases. Four months. Five wins."
       >
         <CasePhases phases={PHASES} />
       </PageSection>
 
       <PageSection
-        eyebrow="HOW WE EXECUTED"
+        eyebrow="How we executed"
         title="The six tactics, run as a network."
         background="tint"
       >
@@ -183,7 +183,7 @@ export default function RidgeCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT HAPPENED"
+        eyebrow="What happened"
         title="The numbers, location by location."
       >
         <div className="case-results-charts">
@@ -209,7 +209,7 @@ export default function RidgeCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="IN THEIR WORDS"
+        eyebrow="In their words"
         title="What the client said."
         titleAlignment="left"
         maxWidth="780px"

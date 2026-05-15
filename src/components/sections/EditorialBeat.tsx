@@ -399,7 +399,7 @@ export function EditorialBeat() {
             <div className="eb-rev-client">
               <span className="eb-rev-livedot" aria-hidden="true" />
               <span className="eb-rev-client-name">AWS Law Firm (Tampa)</span>
-              <span className="eb-rev-live-label">LIVE</span>
+              <span className="eb-rev-live-label">Live</span>
             </div>
             <div className="eb-panel-eyebrow eb-panel-eyebrow-right">
               What we show you

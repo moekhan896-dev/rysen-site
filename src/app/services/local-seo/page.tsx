@@ -124,7 +124,7 @@ export default function LocalSeoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <PageHero
-        eyebrow="SERVICE · LOCAL SEO"
+        eyebrow="Service — local SEO"
         title={
           <>
             Own your metro.{" "}
@@ -135,7 +135,7 @@ export default function LocalSeoPage() {
       />
 
       <PageSection
-        eyebrow="THE PROBLEM"
+        eyebrow="The problem"
         title={
           <>
             Local pack invisibility isn’t a{" "}
@@ -169,26 +169,26 @@ export default function LocalSeoPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DO"
+        eyebrow="What we do"
         title="Six capabilities, one outcome."
         background="tint"
       >
         <ServiceCapabilitiesGrid capabilities={CAPABILITIES} />
       </PageSection>
 
-      <PageSection eyebrow="HOW WE DO IT" title="Four phases. Weekly cadence.">
+      <PageSection eyebrow="How we do it" title="Four phases. Weekly cadence.">
         <ServiceProcessSteps steps={PROCESS} />
       </PageSection>
 
       <PageSection
-        eyebrow="PROOF"
+        eyebrow="Proof"
         title="Real numbers from a real firm."
         titleAlignment="left"
         maxWidth="900px"
         background="tint"
       >
         <ServiceProofReference
-          eyebrow="TYLER FAMILY LAW · ATLANTA"
+          eyebrow="Tyler Family Law · Atlanta"
           headline="+1,240% lead growth in eight months."
           body="Tyler Family Law was told ranking in Atlanta was impossible against the national lawyer mills. Eight months later, they’re ranked #1 for the priority divorce queries in Atlanta and operating a four-week intake waitlist."
           href="/case-studies/tyler-family-law"
@@ -196,7 +196,7 @@ export default function LocalSeoPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="DELIVERABLES"
+        eyebrow="Deliverables"
         title="What you get every month."
         titleAlignment="left"
         maxWidth="780px"
@@ -213,7 +213,7 @@ export default function LocalSeoPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="FAQ"
+        eyebrow="Frequently asked"
         title="Common questions."
         maxWidth="780px"
         background="tint"

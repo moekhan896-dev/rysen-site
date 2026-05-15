@@ -458,7 +458,7 @@ export function InteractiveStats() {
             <div className="stats-activity-head">
               <span className="stats-activity-dot" aria-hidden="true" />
               <Activity size={11} strokeWidth={2} aria-hidden="true" />
-              <span className="stats-activity-label">LIVE ACTIVITY</span>
+              <span className="stats-activity-label">Live activity</span>
             </div>
             <ul className="stats-activity-list" aria-live="polite">
               <AnimatePresence initial={false}>

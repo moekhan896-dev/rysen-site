@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const PHASES = [
   {
-    window: "MONTH 1–2",
+    window: "Month 1–2",
     title: "Hyperlocal foundation",
     desc: "Atlanta-only strategy from day one. We told other agencies’ recommended GA-wide approach was wrong for this firm.",
     tactics: [
@@ -28,7 +28,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 3–4",
+    window: "Month 3–4",
     title: "Authority + AI consumption",
     desc: "Long-form authority content covering divorce subtopics, engineered for both ranking and AI citation.",
     tactics: [
@@ -38,7 +38,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 5–6",
+    window: "Month 5–6",
     title: "Review velocity + neighborhood content",
     desc: "Systematic review acquisition program and neighborhood-specific landing pages across priority Atlanta zones.",
     tactics: [
@@ -48,7 +48,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 7–8",
+    window: "Month 7–8",
     title: "Position-one capture",
     desc: "Crossed into position one across priority queries. Engagement focus shifted to defense and capacity.",
     tactics: [
@@ -110,9 +110,9 @@ export default function TylerCaseStudyPage() {
         </div>
         <div className="case-page-hero-inner">
           <div className="case-page-hero-badge">
-            LEGAL · FAMILY · ATLANTA, GA
+            Legal · Family · Atlanta, GA
           </div>
-          <div className="page-hero-eyebrow">CASE STUDY</div>
+          <div className="page-hero-eyebrow">Case study</div>
           <h1 className="case-page-hero-title">
             Tyler Family Law: Atlanta’s{" "}
             <span className="accent-italic">#1 divorce attorney.</span>
@@ -128,7 +128,7 @@ export default function TylerCaseStudyPage() {
       </section>
 
       <PageSection
-        eyebrow="WHO THEY ARE"
+        eyebrow="Who they are"
         title="A respected Atlanta family law practice, referral-dependent."
         titleAlignment="left"
         maxWidth="780px"
@@ -145,7 +145,7 @@ export default function TylerCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHERE THEY WERE"
+        eyebrow="Where they were"
         title="Three other agencies told them ranking was impossible."
         titleAlignment="left"
         maxWidth="780px"
@@ -172,14 +172,14 @@ export default function TylerCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DID"
+        eyebrow="What we did"
         title="Four phases. Eight months. Atlanta only."
       >
         <CasePhases phases={PHASES} />
       </PageSection>
 
       <PageSection
-        eyebrow="HOW WE EXECUTED"
+        eyebrow="How we executed"
         title="The six tactics, applied hyperlocal."
         background="tint"
       >
@@ -187,7 +187,7 @@ export default function TylerCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT HAPPENED"
+        eyebrow="What happened"
         title="The numbers, month by month."
       >
         <div className="case-results-charts">
@@ -213,7 +213,7 @@ export default function TylerCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="IN THEIR WORDS"
+        eyebrow="In their words"
         title="What the client said."
         titleAlignment="left"
         maxWidth="780px"

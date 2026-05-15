@@ -62,7 +62,7 @@ export function BlogSubscribe() {
   return (
     <form className="blog-subscribe" onSubmit={onSubmit} noValidate>
       <label className="blog-subscribe-field">
-        <span className="form-field-label">EMAIL</span>
+        <span className="form-field-label">Email</span>
         <input
           type="email"
           value={email}

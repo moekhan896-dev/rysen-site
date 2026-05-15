@@ -13,7 +13,7 @@ export default function TermsPage() {
     <main className="legal-page">
       <PageHero
         variant="compact"
-        eyebrow="LEGAL"
+        eyebrow="Legal"
         title="Terms of Service"
         subtitle="Last updated: November 2024"
         showAmbient={false}

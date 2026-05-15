@@ -259,7 +259,7 @@ const MODULES: ReadonlyArray<Module> = [
     subtitle: "Per-client, live, source-attributed",
     detail:
       "Every client gets a live dashboard tracking revenue by source. Updated weekly. Reviewed in standing meetings. No more “we got you impressions” reports.",
-    live: "LIVE · UPDATED 4M AGO",
+    live: "Live, updated 4m ago",
     Mock: MockAttribution,
   },
   {
@@ -267,7 +267,7 @@ const MODULES: ReadonlyArray<Module> = [
     subtitle: "Across Google, Maps, AI surfaces",
     detail:
       "Daily rank tracking across Google organic, Google Maps, ChatGPT citations, Perplexity citations, and Google AI Overviews. Most agencies track one surface. We track five.",
-    live: "TRACKING · 1,847 QUERIES",
+    live: "Tracking 1,847 queries",
     Mock: MockRankTracking,
   },
   {
@@ -275,7 +275,7 @@ const MODULES: ReadonlyArray<Module> = [
     subtitle: "Every call traced to its origin",
     detail:
       "Every phone call into your firm is tracked to its originating source via CallRail integration. You don't just see leads — you see which marketing channel produced each one.",
-    live: "47 CALLS TODAY · 8 SOURCES",
+    live: "47 calls today, 8 sources",
     Mock: MockCallTracking,
   },
   {
@@ -283,7 +283,7 @@ const MODULES: ReadonlyArray<Module> = [
     subtitle: "Closed cases mapped back to source",
     detail:
       "We integrate with your CRM so closed cases and revenue flow back into your attribution dashboard. You see exactly which marketing dollars produced which client revenue — by source, by query, by channel.",
-    live: "$34,800 ATTRIBUTED THIS MONTH",
+    live: "$34,800 attributed this month",
     Mock: MockRevenueFunnel,
   },
   {
@@ -291,7 +291,7 @@ const MODULES: ReadonlyArray<Module> = [
     subtitle: "Optimize what converts",
     detail:
       "Continuous A/B tests on landing pages — headlines, CTAs, form layouts, social proof placement. Conversion rates compound over time as we identify what works for your specific audience.",
-    live: "12 ACTIVE TESTS",
+    live: "12 active tests",
     Mock: MockABTest,
   },
   {
@@ -299,7 +299,7 @@ const MODULES: ReadonlyArray<Module> = [
     subtitle: "Which sources produce real clients",
     detail:
       "Not all leads are equal. We track which channels produce leads that actually become paying clients. If your GMB leads close at 35% but your paid search leads close at 8%, we know where to invest.",
-    live: "ANALYZING 28 COHORTS",
+    live: "Analyzing 28 cohorts",
     Mock: MockCohort,
   },
   {
@@ -307,7 +307,7 @@ const MODULES: ReadonlyArray<Module> = [
     subtitle: "Which markets are worth investing in next",
     detail:
       "We model expected ROI for new keywords, new neighborhoods, new content topics — so you invest in what will compound 6-12 months from now, not what feels obvious today.",
-    live: "12 OPPORTUNITIES MODELED",
+    live: "12 opportunities modeled",
     Mock: MockPredictive,
   },
 ];
@@ -322,7 +322,7 @@ export function DataDrivenEdge() {
     <section className="dde-section" ref={ref} id="data-driven-edge">
       <div className="dde-inner">
         <div className="dde-header">
-          <div className="dde-eyebrow">OUR EDGE</div>
+          <div className="dde-eyebrow">Our edge</div>
           <h2 className="dde-h2">
             Where most agencies guess,{" "}
             <span className="dde-accent-italic">we measure.</span>

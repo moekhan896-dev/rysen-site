@@ -14,7 +14,7 @@ const TICKER_PHRASES = [
 function buildTickerText(): string {
   // Two passes so the marquee loops cleanly
   const single = TICKER_PHRASES.join(" · ");
-  return `NOW OPTIMIZING FOR — ${single} · ${single}`;
+  return `Now optimizing — ${single} · ${single}`;
 }
 
 function useDetroitTime(): string {
@@ -30,9 +30,9 @@ function useDetroitTime(): string {
           minute: "2-digit",
           hour12: true,
         });
-        setLabel(`DETROIT · ${t} EST`);
+        setLabel(`Detroit · ${t}`);
       } catch {
-        setLabel("DETROIT");
+        setLabel("Detroit");
       }
     };
     tick();
@@ -52,7 +52,7 @@ export function NavTopRibbon() {
       <div className="nav-top-ribbon-inner">
         <div className="nav-top-ribbon-live">
           <span className="nav-top-ribbon-livedot" />
-          <span className="nav-top-ribbon-live-label">LIVE</span>
+          <span className="nav-top-ribbon-live-label">Live</span>
         </div>
 
         <div className="nav-top-ribbon-marquee">

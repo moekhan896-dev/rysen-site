@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const PHASES = [
   {
-    window: "MONTH 1–2",
+    window: "Month 1–2",
     title: "Hyperlocal LA neighborhood targeting",
     desc: "Forget “Los Angeles” in general — we built the strategy around Beverly Hills, Pacific Palisades, Brentwood, and Bel Air specifically.",
     tactics: [
@@ -27,7 +27,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 3–5",
+    window: "Month 3–5",
     title: "Trust-specific and HNW authority content",
     desc: "Authority library covering trust types, estate tax strategies, and succession planning — written for HNW intent, not generic estate planning.",
     tactics: [
@@ -37,7 +37,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 6–7",
+    window: "Month 6–7",
     title: "Strategic referral partner content",
     desc: "Reciprocal authority content with CPAs and wealth managers — turns the firm’s referral network into an indirect SEO signal.",
     tactics: [
@@ -47,7 +47,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 8–9",
+    window: "Month 8–9",
     title: "AI search positioning",
     desc: "Entity strengthening tuned for Perplexity and Claude — the AI surfaces HNW prospects use most for legal research.",
     tactics: [
@@ -109,9 +109,9 @@ export default function ColemanCaseStudyPage() {
         </div>
         <div className="case-page-hero-inner">
           <div className="case-page-hero-badge">
-            LEGAL · ESTATE · LOS ANGELES, CA
+            Legal · Estate · Los Angeles, CA
           </div>
-          <div className="page-hero-eyebrow">CASE STUDY</div>
+          <div className="page-hero-eyebrow">Case study</div>
           <h1 className="case-page-hero-title">
             Coleman & Co.: Now Los Angeles’s{" "}
             <span className="accent-italic">#1 estate attorney.</span>
@@ -127,7 +127,7 @@ export default function ColemanCaseStudyPage() {
       </section>
 
       <PageSection
-        eyebrow="WHO THEY ARE"
+        eyebrow="Who they are"
         title="A boutique LA estate firm, quietly excellent."
         titleAlignment="left"
         maxWidth="780px"
@@ -145,7 +145,7 @@ export default function ColemanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHERE THEY WERE"
+        eyebrow="Where they were"
         title="Quietly the best — and quietly invisible online."
         titleAlignment="left"
         maxWidth="780px"
@@ -170,14 +170,14 @@ export default function ColemanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DID"
+        eyebrow="What we did"
         title="Four phases. Nine months. Built for HNW intent."
       >
         <CasePhases phases={PHASES} />
       </PageSection>
 
       <PageSection
-        eyebrow="HOW WE EXECUTED"
+        eyebrow="How we executed"
         title="The six tactics, applied to HNW estate."
         background="tint"
       >
@@ -185,7 +185,7 @@ export default function ColemanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT HAPPENED"
+        eyebrow="What happened"
         title="The numbers, over nine months."
       >
         <div className="case-results-charts">
@@ -211,7 +211,7 @@ export default function ColemanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="IN THEIR WORDS"
+        eyebrow="In their words"
         title="What the client said."
         titleAlignment="left"
         maxWidth="780px"

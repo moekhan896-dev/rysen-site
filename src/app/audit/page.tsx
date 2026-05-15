@@ -56,7 +56,7 @@ export default function AuditPage() {
       />
 
       <PageHero
-        eyebrow="FREE AUDIT · 48-HOUR TURNAROUND"
+        eyebrow="Free audit · 48-hour turnaround"
         title={
           <>
             We’ll audit your firm’s online visibility —{" "}
@@ -67,7 +67,7 @@ export default function AuditPage() {
       />
 
       <PageSection
-        eyebrow="START YOUR AUDIT"
+        eyebrow="Start your audit"
         title="Submit your firm — get the PDF in 48 hours."
         maxWidth="720px"
         id="audit-form"
@@ -90,7 +90,7 @@ export default function AuditPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="HOW IT WORKS"
+        eyebrow="How it works"
         title="Three steps. Two days."
       >
         <AuditHowItWorks />
@@ -123,7 +123,7 @@ export default function AuditPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT CLIENTS SAY"
+        eyebrow="What clients say"
         title="A few words from firms who’ve been where you are."
         background="tint"
       >
@@ -153,7 +153,7 @@ export default function AuditPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="FAQ"
+        eyebrow="Frequently asked"
         title="Quick answers before you submit."
         maxWidth="780px"
       >

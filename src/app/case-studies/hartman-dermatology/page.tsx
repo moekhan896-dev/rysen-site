@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const PHASES = [
   {
-    window: "MONTH 1",
+    window: "Month 1",
     title: "Schema and entity rebuild",
     desc: "Medical practice entity work first — schema, structured data, and physician disambiguation across both Miami locations.",
     tactics: [
@@ -27,7 +27,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 2–3",
+    window: "Month 2–3",
     title: "Treatment-specific authority content",
     desc: "Eighteen long-form authority articles in 90 days — every priority cosmetic treatment got a real publication.",
     tactics: [
@@ -37,7 +37,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 4",
+    window: "Month 4",
     title: "GMB + review velocity",
     desc: "Coordinated GMB optimization across both locations plus a systematic review acquisition program.",
     tactics: [
@@ -47,7 +47,7 @@ const PHASES = [
     ],
   },
   {
-    window: "MONTH 5–6",
+    window: "Month 5–6",
     title: "AI search positioning",
     desc: "Entity signals tuned for AI search consumption — the firm started showing up as a cited source in cosmetic dermatology queries.",
     tactics: [
@@ -109,9 +109,9 @@ export default function HartmanCaseStudyPage() {
         </div>
         <div className="case-page-hero-inner">
           <div className="case-page-hero-badge">
-            MEDICAL · DERMATOLOGY · MIAMI, FL
+            Medical · Dermatology · Miami, FL
           </div>
-          <div className="page-hero-eyebrow">CASE STUDY</div>
+          <div className="page-hero-eyebrow">Case study</div>
           <h1 className="case-page-hero-title">
             Hartman Dermatology: Miami’s go-to for{" "}
             <span className="accent-italic">cosmetic consultations.</span>
@@ -127,7 +127,7 @@ export default function HartmanCaseStudyPage() {
       </section>
 
       <PageSection
-        eyebrow="WHO THEY ARE"
+        eyebrow="Who they are"
         title="A clinically excellent Miami dermatology practice."
         titleAlignment="left"
         maxWidth="780px"
@@ -144,7 +144,7 @@ export default function HartmanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHERE THEY WERE"
+        eyebrow="Where they were"
         title="Clinically excellent, online invisible."
         titleAlignment="left"
         maxWidth="780px"
@@ -170,14 +170,14 @@ export default function HartmanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT WE DID"
+        eyebrow="What we did"
         title="Four phases. Six months. Medical-grade execution."
       >
         <CasePhases phases={PHASES} />
       </PageSection>
 
       <PageSection
-        eyebrow="HOW WE EXECUTED"
+        eyebrow="How we executed"
         title="The six tactics, in detail."
         background="tint"
       >
@@ -185,7 +185,7 @@ export default function HartmanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="WHAT HAPPENED"
+        eyebrow="What happened"
         title="The numbers, month by month."
       >
         <div className="case-results-charts">
@@ -211,7 +211,7 @@ export default function HartmanCaseStudyPage() {
       </PageSection>
 
       <PageSection
-        eyebrow="IN THEIR WORDS"
+        eyebrow="In their words"
         title="What the client said."
         titleAlignment="left"
         maxWidth="780px"

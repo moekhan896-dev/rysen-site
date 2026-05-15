@@ -247,7 +247,7 @@ export function OrganicGrowthEngine() {
     <section className="oge-section" ref={sectionRef} id="organic-growth-engine">
       <div className="oge-inner">
         <div className="oge-header">
-          <div className="page-section-eyebrow">WHAT WE BUILD</div>
+          <div className="page-section-eyebrow">What we build</div>
           <h2 className="oge-h2">
             We build{" "}
             <span className="accent-italic">Organic Growth Engines.</span>
@@ -492,7 +492,7 @@ export function OrganicGrowthEngine() {
                       {hoveredComponent.description}
                     </p>
                     <div className="oge-detail-section">
-                      <span className="oge-detail-label">SPECIFICALLY</span>
+                      <span className="oge-detail-label">Specifically</span>
                       <ul>
                         {hoveredComponent.examples.map((e) => (
                           <li key={e}>{e}</li>
@@ -500,7 +500,7 @@ export function OrganicGrowthEngine() {
                       </ul>
                     </div>
                     <div className="oge-detail-affects">
-                      <span className="oge-detail-label">AFFECTS</span>{" "}
+                      <span className="oge-detail-label">Affects</span>{" "}
                       {hoveredComponent.amplifies
                         .map(
                           (id) =>
@@ -542,7 +542,7 @@ export function OrganicGrowthEngine() {
         </div>
 
         <div className="oge-footer-mark">
-          9 COMPONENTS · 1 SYSTEM · ENGINEERED FOR COMPOUND GROWTH
+          Ten components, one system. Engineered for compound growth.
         </div>
       </div>
     </section>

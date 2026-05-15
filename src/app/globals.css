@@ -12125,5 +12125,76 @@
     }
   }
 
+  /* ============================================================
+     === SESSION 18 — HERO REFINEMENT ===
+     ============================================================ */
+
+  /* Per-word spans driven by framer-motion stagger. Replaces .word CSS reveal
+     for the new hero markup. Each word is inline-block so y-transform works
+     without disrupting line flow. */
+  h1 .hero-word {
+    display: inline-block;
+    margin-right: 0.25em;
+    /* Override the legacy h1 .word rule when both classes are present */
+    opacity: initial;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+
+  /* Italic phrase: gradient-in-text sweep that travels right→left once per
+     ~60s. The static italic accent stays solid by default; the gradient
+     overlays during the sweep window. */
+  h1 .hero-word.hero-highlight {
+    font-family: 'Geist', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.038em;
+    /* Override the legacy "yellow highlighter" background-image */
+    background-image: linear-gradient(
+      90deg,
+      var(--accent) 0%,
+      var(--accent) 25%,
+      #3b6cff 50%,
+      var(--accent) 75%,
+      var(--accent) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: heroItalicSweep 60s ease-in-out infinite;
+  }
+
+  @keyframes heroItalicSweep {
+    0%, 90%, 100% { background-position: 100% 0; }
+    45%, 55%      { background-position: 0% 0; }
+  }
+
+  /* Hero proof bar lucide icons — accent color, aligned with mono text */
+  .hero-proof-bar .hero-proof-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    color: var(--accent);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* Reduced motion: skip the gradient sweep, fall back to solid accent italic */
+  @media (prefers-reduced-motion: reduce) {
+    h1 .hero-word.hero-highlight {
+      animation: none;
+      background: none;
+      background-image: none;
+      background-clip: initial;
+      -webkit-background-clip: initial;
+      color: var(--accent);
+      -webkit-text-fill-color: var(--accent);
+    }
+  }
+
 
 

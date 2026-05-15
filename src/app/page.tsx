@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { Award, BarChart3, Cog, MapPin } from "lucide-react";
 import { AuditForm } from "@/components/sections/AuditForm";
 import { BrandsParallax } from "@/components/sections/BrandsParallax";
 import { CaseStudySlider } from "@/components/sections/CaseStudySlider";
@@ -27,7 +29,47 @@ import { WhyUsClosing } from "@/components/sections/WhyUsClosing";
 import { TeamFilter } from "@/components/sections/TeamFilter";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 
+/**
+ * Headline words for the hero. The italic phrase "organic growth engines" is
+ * rendered with .hero-highlight (italic accent + subtle gradient sweep).
+ */
+const HERO_WORDS: ReadonlyArray<{ text: string; italic?: boolean }> = [
+  { text: "We" },
+  { text: "build" },
+  { text: "organic", italic: true },
+  { text: "growth", italic: true },
+  { text: "engines", italic: true },
+  { text: "to" },
+  { text: "scale" },
+  { text: "law" },
+  { text: "firms" },
+  { text: "&" },
+  { text: "medical" },
+  { text: "practices." },
+];
+
 export default function HomePage() {
+  const shouldReduceMotion = useReducedMotion();
+
+  const heroContainerVariants: Variants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.06, delayChildren: 0.2 },
+    },
+  };
+
+  const heroWordVariants: Variants = {
+    hidden: { opacity: 0, y: 8 },
+    visible: shouldReduceMotion
+      ? { opacity: 1, y: 0, transition: { duration: 0 } }
+      : {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+        },
+  };
+
   useEffect(() => {
     // Track all timers, rAF, injected styles, and event listeners for cleanup
     const intervals: ReturnType<typeof setInterval>[] = [];
@@ -594,56 +636,21 @@ export default function HomePage() {
               Trusted by <strong id="liveCounter">30+</strong> firms
             </span>
           </div>
-          <h1>
-            <span className="word" style={{ animationDelay: "0.55s" }}>
-              We
-            </span>{" "}
-            <span className="word" style={{ animationDelay: "0.62s" }}>
-              build
-            </span>{" "}
-            <span
-              className="word hero-highlight"
-              style={{ animationDelay: "0.70s" }}
-            >
-              organic
-            </span>{" "}
-            <span
-              className="word hero-highlight"
-              style={{ animationDelay: "0.78s" }}
-            >
-              growth
-            </span>{" "}
-            <span
-              className="word hero-highlight"
-              style={{ animationDelay: "0.86s" }}
-            >
-              engines
-            </span>{" "}
-            <span className="word" style={{ animationDelay: "0.97s" }}>
-              to
-            </span>{" "}
-            <span className="word" style={{ animationDelay: "1.04s" }}>
-              scale
-            </span>{" "}
-            <span className="word" style={{ animationDelay: "1.11s" }}>
-              law
-            </span>{" "}
-            <span className="word" style={{ animationDelay: "1.18s" }}>
-              firms
-            </span>{" "}
-            <span
-              className="word accent-text"
-              style={{ animationDelay: "1.27s" }}
-            >
-              &
-            </span>{" "}
-            <span className="word" style={{ animationDelay: "1.35s" }}>
-              medical
-            </span>{" "}
-            <span className="word" style={{ animationDelay: "1.43s" }}>
-              practices.
-            </span>
-          </h1>
+          <motion.h1
+            variants={heroContainerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {HERO_WORDS.map((w, i) => (
+              <motion.span
+                key={`${w.text}-${i}`}
+                variants={heroWordVariants}
+                className={`hero-word${w.italic ? " hero-highlight" : ""}`}
+              >
+                {w.text}
+              </motion.span>
+            ))}
+          </motion.h1>
           <p className="subhead">
             A US-based team of SEO specialists. Ten coordinated components.
             Operational data infrastructure. The kind of marketing program
@@ -652,19 +659,39 @@ export default function HomePage() {
 
           <div className="hero-proof-bar" aria-label="Credibility proof">
             <span className="hero-proof-chip">
-              <span className="hero-proof-flag" aria-hidden="true">🇺🇸</span>
+              <MapPin
+                className="hero-proof-icon"
+                size={14}
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
               100% US-based
             </span>
             <span className="hero-proof-chip">
-              <span className="hero-proof-icon" aria-hidden="true">⚙</span>
+              <Cog
+                className="hero-proof-icon"
+                size={14}
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
               10 components
             </span>
             <span className="hero-proof-chip">
-              <span className="hero-proof-icon" aria-hidden="true">📊</span>
+              <BarChart3
+                className="hero-proof-icon"
+                size={14}
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
               Data-driven
             </span>
             <span className="hero-proof-chip">
-              <span className="hero-proof-icon" aria-hidden="true">🏆</span>
+              <Award
+                className="hero-proof-icon"
+                size={14}
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
               30+ engagements
             </span>
           </div>

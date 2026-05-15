@@ -8,6 +8,7 @@ import {
   CaseStats,
   CaseTacticsGrid,
 } from "@/components/page-sections/CaseStudyParts";
+import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
   title: "Hartman Dermatology Case Study — Miami Cosmetic Dermatology",
@@ -222,6 +223,11 @@ export default function HartmanCaseStudyPage() {
           attribution="Dr. Elena Hartman, Founder"
         />
       </PageSection>
+
+      <CaseStudyNav
+        previous={{ href: "/case-studies/coleman-co", label: "Coleman & Co." }}
+        next={{ href: "/case-studies/ridge-dental", label: "Ridge Dental" }}
+      />
 
       <CTABanner
         title="Want results like these?"

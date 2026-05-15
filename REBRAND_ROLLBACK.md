@@ -25,3 +25,11 @@ git checkout v1.0-pre-rebrand
 (view the files in this state — when finished, return with: `git checkout main`)
 
 The tagged release `v1.0-pre-rebrand` and branch `backup-pre-rebrand-2026-may` both contain the complete pre-rebrand site.
+
+## Option 4: Rollback to v2.1-pre-architecture (pre-Session-26)
+```
+git checkout v2.1-pre-architecture
+git checkout -b restore-from-pre-architecture
+git push origin restore-from-pre-architecture
+```
+Points at commit `059f271` — the state immediately after Sessions 23–25 finished but before the Session 26 architecture restructure (new deep pages, blueprint illustrations, content redistribution).

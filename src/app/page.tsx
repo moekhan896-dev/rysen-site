@@ -5,10 +5,12 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
 import { DividerWithMark } from "@/components/brand/DividerWithMark";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
+import { ContinueReading } from "@/components/primitives/ContinueReading";
 import { AuditForm } from "@/components/sections/AuditForm";
 import { BrandsParallax } from "@/components/sections/BrandsParallax";
 import { FirmAtAGlance } from "@/components/sections/FirmAtAGlance";
 import { HeroSearchAnimation } from "@/components/sections/HeroSearchAnimation";
+import { WhatThisMeans } from "@/components/sections/WhatThisMeans";
 import { CaseStudySlider } from "@/components/sections/CaseStudySlider";
 import { CredibilityBand } from "@/components/sections/CredibilityBand";
 import { EditorialBeat } from "@/components/sections/EditorialBeat";
@@ -711,7 +713,13 @@ export default function HomePage() {
 
       <FounderSection />
 
+      <WhatThisMeans />
+
       <RealOperations />
+
+      <div style={{ background: "var(--paper)", padding: "0 64px 32px", maxWidth: 1200, margin: "0 auto" }}>
+        <ContinueReading href="/how-we-work" label="Read about our operations" context="paper" />
+      </div>
 
       <DividerWithMark context="paper" />
 
@@ -938,17 +946,41 @@ export default function HomePage() {
       {/* === ORGANIC GROWTH ENGINE (Session 16 — proprietary system definition) === */}
       <OrganicGrowthEngine />
 
+      <div style={{ background: "var(--ink)", padding: "0 64px 48px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <ContinueReading href="/methodology" label="Read the full methodology" context="ink" />
+        </div>
+      </div>
+
       {/* === REVENUE CLAIM ($47M+ counter) === */}
       <RevenueClaim />
 
       {/* === MADISON CLARK CREDIBILITY (Session 17) === */}
       <MadisonCredibility />
 
+      <div style={{ background: "var(--paper)", padding: "0 64px 48px", margin: "0 auto" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <ContinueReading href="/case-studies/madison-clark" label="Read the Madison Clark case study" context="paper" />
+        </div>
+      </div>
+
       {/* === TEN COMPONENTS (Session 17 — Social Media added as 10th) === */}
       <TenComponents />
 
+      <div style={{ background: "var(--paper)", padding: "0 64px 48px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <ContinueReading href="/services" label="Explore all ten components" context="paper" />
+        </div>
+      </div>
+
       {/* === DATA-DRIVEN EDGE (Session 16 — 7 live data systems) === */}
       <DataDrivenEdge />
+
+      <div style={{ background: "var(--ink)", padding: "0 64px 48px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <ContinueReading href="/how-we-measure" label="Read how we measure" context="ink" />
+        </div>
+      </div>
 
       {/* === METHODOLOGY (FIRST POSITION) — accordion explorer === */}
       <MethodologyExplorer />
@@ -1135,8 +1167,20 @@ export default function HomePage() {
       {/* === LEGAL PLAYBOOK (Session 16) === */}
       <LegalPlaybook />
 
+      <div style={{ background: "var(--paper)", padding: "0 64px 48px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <ContinueReading href="/legal" label="Read the Legal Playbook" context="paper" />
+        </div>
+      </div>
+
       {/* === MEDICAL PLAYBOOK (Session 16) === */}
       <MedicalPlaybook />
+
+      <div style={{ background: "var(--paper)", padding: "0 64px 48px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <ContinueReading href="/medical" label="Read the Medical Playbook" context="paper" />
+        </div>
+      </div>
 
       {/* FounderSection moved to top of page (Session 25 legitimacy front-load) */}
 

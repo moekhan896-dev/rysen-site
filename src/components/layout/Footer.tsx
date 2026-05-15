@@ -13,17 +13,19 @@ const SITEMAP: ReadonlyArray<{
   {
     head: "Practice",
     items: [
+      { kind: "link", label: "Methodology", href: "/methodology" },
       { kind: "link", label: "Services", href: "/services" },
+      { kind: "link", label: "How we measure", href: "/how-we-measure" },
+      { kind: "link", label: "How we work", href: "/how-we-work" },
       { kind: "link", label: "Case studies", href: "/case-studies" },
-      { kind: "link", label: "Methodology", href: "/services" },
       { kind: "link", label: "Audit", href: "/audit" },
     ],
   },
   {
     head: "Verticals",
     items: [
-      { kind: "link", label: "Legal", href: "/services" },
-      { kind: "link", label: "Medical", href: "/services" },
+      { kind: "link", label: "Legal", href: "/legal" },
+      { kind: "link", label: "Medical", href: "/medical" },
     ],
   },
   {

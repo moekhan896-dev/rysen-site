@@ -8,6 +8,7 @@ import { RysenLogo } from "@/components/brand/RysenLogo";
 import { NavServicesMenu } from "./NavServicesMenu";
 
 const NAV_LINKS: ReadonlyArray<{ label: string; href: string; hasDropdown?: boolean }> = [
+  { label: "Methodology", href: "/methodology" },
   { label: "Services", href: "/services", hasDropdown: true },
   { label: "Work", href: "/case-studies" },
   { label: "About", href: "/about" },
@@ -236,6 +237,41 @@ export function Nav() {
                 </Link>
               </div>
 
+              <Link
+                href="/methodology"
+                className="nav-mobile-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                Methodology
+              </Link>
+              <Link
+                href="/how-we-measure"
+                className="nav-mobile-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                How we measure
+              </Link>
+              <Link
+                href="/how-we-work"
+                className="nav-mobile-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                How we work
+              </Link>
+              <Link
+                href="/legal"
+                className="nav-mobile-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                Legal
+              </Link>
+              <Link
+                href="/medical"
+                className="nav-mobile-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                Medical
+              </Link>
               <Link
                 href="/case-studies"
                 className="nav-mobile-link"

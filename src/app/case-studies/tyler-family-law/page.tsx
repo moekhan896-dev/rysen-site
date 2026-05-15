@@ -8,6 +8,7 @@ import {
   CaseStats,
   CaseTacticsGrid,
 } from "@/components/page-sections/CaseStudyParts";
+import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
   title:
@@ -224,6 +225,11 @@ export default function TylerCaseStudyPage() {
           attribution="Founder, Tyler Family Law"
         />
       </PageSection>
+
+      <CaseStudyNav
+        previous={{ href: "/case-studies/aws-law-firm", label: "AWS Law Firm" }}
+        next={{ href: "/case-studies/coleman-co", label: "Coleman & Co." }}
+      />
 
       <CTABanner
         title="Think your market is unwinnable?"

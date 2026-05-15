@@ -8,6 +8,7 @@ import {
   CaseStats,
   CaseTacticsGrid,
 } from "@/components/page-sections/CaseStudyParts";
+import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
   title: "AWS Law Firm Case Study — Tampa Probate, +240% Consultations",
@@ -224,6 +225,11 @@ export default function AwsCaseStudyPage() {
           attribution="Managing Partner, AWS Law Firm"
         />
       </PageSection>
+
+      <CaseStudyNav
+        previous={{ href: "/case-studies/madison-clark", label: "Madison Clark" }}
+        next={{ href: "/case-studies/tyler-family-law", label: "Tyler Family Law" }}
+      />
 
       <CTABanner
         title="Want results like these?"

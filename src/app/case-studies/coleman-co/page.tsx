@@ -8,6 +8,7 @@ import {
   CaseStats,
   CaseTacticsGrid,
 } from "@/components/page-sections/CaseStudyParts";
+import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
   title: "Coleman & Co. Case Study — LA Estate Attorney, +320% Qualified Leads",
@@ -222,6 +223,11 @@ export default function ColemanCaseStudyPage() {
           attribution="Marcus Coleman, Founding Partner"
         />
       </PageSection>
+
+      <CaseStudyNav
+        previous={{ href: "/case-studies/tyler-family-law", label: "Tyler Family Law" }}
+        next={{ href: "/case-studies/hartman-dermatology", label: "Hartman Dermatology" }}
+      />
 
       <CTABanner
         title="Want results like these?"

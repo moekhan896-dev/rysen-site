@@ -8,6 +8,7 @@ import {
   CaseStats,
   CaseTacticsGrid,
 } from "@/components/page-sections/CaseStudyParts";
+import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
   title: "Ridge Dental Case Study — Chicago Multi-Location, +186% Calls",
@@ -220,6 +221,11 @@ export default function RidgeCaseStudyPage() {
           attribution="Dr. Sarah Ridge, Founder"
         />
       </PageSection>
+
+      <CaseStudyNav
+        previous={{ href: "/case-studies/hartman-dermatology", label: "Hartman Dermatology" }}
+        next={{ href: "/case-studies/madison-clark", label: "Madison Clark" }}
+      />
 
       <CTABanner
         title="Want results like these?"

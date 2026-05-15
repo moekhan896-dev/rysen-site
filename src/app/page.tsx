@@ -30,22 +30,25 @@ import { TeamFilter } from "@/components/sections/TeamFilter";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 
 /**
- * Headline words for the hero. The italic phrase "organic growth engines" is
- * rendered with .hero-highlight (italic accent + subtle gradient sweep).
+ * Headline items for the hero. The italic phrase "organic growth engines"
+ * is rendered as a single grouped item so it can host an absolutely-positioned
+ * underline-draw animation (.italic-underline).
  */
-const HERO_WORDS: ReadonlyArray<{ text: string; italic?: boolean }> = [
-  { text: "We" },
-  { text: "build" },
-  { text: "organic", italic: true },
-  { text: "growth", italic: true },
-  { text: "engines", italic: true },
-  { text: "to" },
-  { text: "scale" },
-  { text: "law" },
-  { text: "firms" },
-  { text: "&" },
-  { text: "medical" },
-  { text: "practices." },
+type HeroItem =
+  | { type: "word"; text: string }
+  | { type: "italic-phrase"; text: string };
+
+const HERO_ITEMS: ReadonlyArray<HeroItem> = [
+  { type: "word", text: "We" },
+  { type: "word", text: "build" },
+  { type: "italic-phrase", text: "organic growth engines" },
+  { type: "word", text: "to" },
+  { type: "word", text: "scale" },
+  { type: "word", text: "law" },
+  { type: "word", text: "firms" },
+  { type: "word", text: "&" },
+  { type: "word", text: "medical" },
+  { type: "word", text: "practices." },
 ];
 
 export default function HomePage() {
@@ -641,15 +644,26 @@ export default function HomePage() {
             initial="hidden"
             animate="visible"
           >
-            {HERO_WORDS.map((w, i) => (
-              <motion.span
-                key={`${w.text}-${i}`}
-                variants={heroWordVariants}
-                className={`hero-word${w.italic ? " hero-highlight" : ""}`}
-              >
-                {w.text}
-              </motion.span>
-            ))}
+            {HERO_ITEMS.map((item, i) =>
+              item.type === "italic-phrase" ? (
+                <motion.span
+                  key={`${item.text}-${i}`}
+                  variants={heroWordVariants}
+                  className="hero-word italic-phrase-container"
+                >
+                  {item.text}
+                  <span className="italic-underline" aria-hidden="true" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key={`${item.text}-${i}`}
+                  variants={heroWordVariants}
+                  className="hero-word"
+                >
+                  {item.text}
+                </motion.span>
+              )
+            )}
           </motion.h1>
           <p className="subhead">
             A US-based team of SEO specialists. Ten coordinated components.

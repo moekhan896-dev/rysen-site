@@ -25,24 +25,178 @@
 /* ============ EVERYTHING BELOW IS PORTED VERBATIM FROM v17's <style> BLOCK ============ */
 
   :root {
-    --bg: #f7f5ee;
-    --bg-card: #ffffff;
-    --text: #1a1a1f;
-    --text-muted: #595964;
-    --text-faint: #9a9aa3;
-    --accent: #1d4ed8;
-    --accent-hover: #1e40af;
-    --accent-soft: rgba(29, 78, 216, 0.07);
-    --line: rgba(0, 0, 0, 0.06);
-    --line-strong: rgba(0, 0, 0, 0.1);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
-    --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px -2px rgba(0, 0, 0, 0.06);
-    --shadow-lg:
-      0 1px 1px rgba(0, 0, 0, 0.02),
-      0 2px 4px rgba(0, 0, 0, 0.03),
-      0 8px 16px -4px rgba(0, 0, 0, 0.06),
-      0 24px 40px -12px rgba(0, 0, 0, 0.1),
-      0 60px 80px -30px rgba(0, 0, 0, 0.14);
+    /* ============================================================
+       REBRAND 2.0 — PRIMARY SURFACES
+       ============================================================ */
+    --ink: #0a0a0a;
+    --ink-elevated: #131313;
+    --ink-deep: #050505;
+    --paper: #f4f1e8;
+    --paper-elevated: #ebe6d8;
+    --paper-warm: #faf6ec;
+
+    /* ============================================================
+       SIGNAL — Rysen yellow
+       ============================================================ */
+    --signal: #f5c518;
+    --signal-deep: #d4a90c;
+    --signal-soft: #fdf3c4;
+    --signal-glow: #f5c51833;
+
+    /* ============================================================
+       TEXT — on paper
+       ============================================================ */
+    --ink-text: #0a0a0a;
+    --ink-muted: #44423d;
+    --ink-faint: #8b8779;
+    --ink-whisper: #b8b3a3;
+
+    /* ============================================================
+       TEXT — on ink
+       ============================================================ */
+    --paper-text: #f4f1e8;
+    --paper-muted: #b5b1a3;
+    --paper-faint: #6e6a5d;
+    --paper-whisper: #4a473e;
+
+    /* ============================================================
+       RULES
+       ============================================================ */
+    --rule: rgba(10, 10, 10, 0.12);
+    --rule-strong: rgba(10, 10, 10, 0.24);
+    --rule-ink: rgba(244, 241, 232, 0.15);
+    --rule-ink-strong: rgba(244, 241, 232, 0.30);
+
+    /* ============================================================
+       SEMANTIC
+       ============================================================ */
+    --positive: #4a7c59;
+    --positive-soft: #e8f0ea;
+    --negative: #8b3a3a;
+    --negative-soft: #f0e5e5;
+
+    /* ============================================================
+       INTERACTIVE STATES
+       ============================================================ */
+    --hover-on-paper: rgba(10, 10, 10, 0.04);
+    --hover-on-ink: rgba(244, 241, 232, 0.06);
+    --pressed-on-paper: rgba(10, 10, 10, 0.08);
+    --pressed-on-ink: rgba(244, 241, 232, 0.10);
+    --focus-ring: rgba(245, 197, 24, 0.40);
+
+    /* ============================================================
+       SHADOWS
+       ============================================================ */
+    --shadow-paper-1: 0 1px 2px rgba(10, 10, 10, 0.06);
+    --shadow-paper-2: 0 1px 3px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
+    --shadow-paper-3: 0 2px 6px rgba(10, 10, 10, 0.10), 0 12px 32px rgba(10, 10, 10, 0.06);
+    --shadow-ink-1: 0 0 0 0.5px rgba(244, 241, 232, 0.06) inset;
+    --shadow-ink-2: 0 0 0 0.5px rgba(244, 241, 232, 0.10) inset, 0 4px 16px rgba(0, 0, 0, 0.25);
+    --shadow-signal-glow: 0 0 16px rgba(245, 197, 24, 0.20);
+
+    /* ============================================================
+       SPACING
+       ============================================================ */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+    --space-8: 40px;
+    --space-9: 48px;
+    --space-10: 56px;
+    --space-11: 64px;
+    --space-12: 80px;
+    --space-13: 96px;
+    --space-14: 120px;
+    --space-15: 160px;
+    --space-16: 200px;
+
+    /* ============================================================
+       RADIUS
+       ============================================================ */
+    --radius-0: 0;
+    --radius-1: 2px;
+    --radius-2: 4px;
+    --radius-3: 8px;
+    --radius-pill: 999px;
+
+    /* ============================================================
+       BORDERS
+       ============================================================ */
+    --border-hairline: 0.5px;
+    --border-thin: 1px;
+    --border-medium: 2px;
+    --border-thick: 3px;
+
+    /* ============================================================
+       Z-INDEX
+       ============================================================ */
+    --z-base: 0;
+    --z-elevated: 10;
+    --z-overlay: 50;
+    --z-modal: 100;
+    --z-header: 200;
+    --z-tooltip: 300;
+
+    /* ============================================================
+       MOTION — easings
+       ============================================================ */
+    --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-deep-settle: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-quick: cubic-bezier(0.3, 0, 0, 1);
+    --ease-snappy: cubic-bezier(0.4, 0, 0.6, 1);
+    --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+    --ease-editorial: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-linear: linear;
+
+    /* ============================================================
+       MOTION — durations
+       ============================================================ */
+    --dur-instant: 0ms;
+    --dur-fast: 200ms;
+    --dur-base: 400ms;
+    --dur-medium: 600ms;
+    --dur-slow: 1000ms;
+    --dur-deep: 1400ms;
+    --dur-ambient-1: 8000ms;
+    --dur-ambient-2: 12000ms;
+    --dur-ambient-3: 20000ms;
+
+    /* ============================================================
+       LEGACY ALIASES — map old token names onto rebrand 2.0 palette
+       so existing CSS rules (12k+ lines) render in the new system
+       without per-rule rewriting. Indigo and warm cream are GONE.
+       ============================================================ */
+    --bg: var(--paper);
+    --bg-card: var(--paper-warm);
+    --text: var(--ink-text);
+    --text-muted: var(--ink-muted);
+    --text-faint: var(--ink-faint);
+    --accent: var(--ink-text);
+    --accent-hover: var(--ink-deep);
+    --accent-soft: var(--hover-on-paper);
+    --line: var(--rule);
+    --line-strong: var(--rule-strong);
+    --shadow-sm: var(--shadow-paper-1);
+    --shadow-md: var(--shadow-paper-2);
+    --shadow-lg: var(--shadow-paper-3);
+  }
+
+  /* ============================================================
+     REDUCED-MOTION CONTRACT (rebrand 2.0)
+     ============================================================ */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,7 +204,7 @@
   html, body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 400;
     overflow-x: hidden;
     min-height: 100vh;
@@ -173,7 +327,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     font-weight: 600;
     letter-spacing: -0.3px;
@@ -207,7 +361,7 @@
   }
 
   .nav-links a {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: -0.1px;
@@ -219,7 +373,7 @@
   .nav-links a:hover { opacity: 0.6; }
 
   .nav-cta {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: white;
@@ -301,7 +455,7 @@
 
   /* Category eyebrow â€” small uppercase line ABOVE the live pill */
   .category-line {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     font-weight: 500;
     color: var(--text-muted);
@@ -327,7 +481,7 @@ margin-bottom: 18px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12.5px;
     font-weight: 500;
     color: var(--text);
@@ -380,7 +534,7 @@ margin-bottom: 18px;
   }
 
   h1 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(44px, 5.6vw, 88px);
     line-height: 1;
@@ -406,14 +560,14 @@ margin-bottom: 18px;
   }
 
   h1 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
   }
 
   .subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: clamp(17px, 1.4vw, 21px);
     line-height: 1.5;
     color: var(--text-muted);
@@ -438,7 +592,7 @@ margin-bottom: 18px;
     color: white;
     padding: 13px 22px;
     border-radius: 100px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14.5px;
     font-weight: 500;
     text-decoration: none;
@@ -465,7 +619,7 @@ margin-bottom: 18px;
   }
 
   .cta-secondary {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--accent);
@@ -622,7 +776,7 @@ margin-bottom: 18px;
     border: 0.5px solid var(--line);
     border-radius: 100px;
     padding: 5px 12px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     overflow: hidden;
@@ -649,7 +803,7 @@ margin-bottom: 18px;
   .search-bar svg { flex-shrink: 0; color: var(--text-muted); }
 
   .search-bar .query {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: var(--text);
     font-weight: 400;
@@ -666,7 +820,7 @@ margin-bottom: 18px;
   @keyframes blink { 50% { opacity: 0; } }
 
   .result-meta {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     color: var(--text-faint);
     margin-bottom: 16px;
@@ -740,7 +894,7 @@ margin-bottom: 18px;
   }
 
   .map-result-rating {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
   }
@@ -757,7 +911,7 @@ margin-bottom: 18px;
   }
 
   .rank-badge {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: white;
     background: var(--accent);
@@ -788,7 +942,7 @@ margin-bottom: 18px;
   }
 
   .organic-result .title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--accent);
@@ -860,7 +1014,7 @@ margin-bottom: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     font-weight: 600;
   }
@@ -905,7 +1059,7 @@ margin-bottom: 18px;
   }
 
   .section-2-eyebrow {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--text-muted);
@@ -924,7 +1078,7 @@ display: inline-flex;
   }
 
   .section-2-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(40px, 5.5vw, 72px);
     line-height: 1.1;
@@ -935,14 +1089,14 @@ display: inline-flex;
   }
 
   .section-2-h2 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
   }
 
   .section-2-subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 18px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -961,7 +1115,7 @@ display: inline-flex;
   }
 
   .trust-label {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     letter-spacing: 0;
@@ -987,7 +1141,7 @@ margin-bottom: 28px;
     justify-content: center;
     gap: 56px;
     flex-wrap: wrap;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 18px;
     font-weight: 600;
     color: var(--text-faint);
@@ -1042,7 +1196,7 @@ margin-bottom: 28px;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     font-weight: 500;
     color: var(--text-muted);
@@ -1071,7 +1225,7 @@ margin-bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
@@ -1079,14 +1233,14 @@ margin-bottom: 12px;
   }
 
   .engagement-firm .firm-meta {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     font-weight: 400;
   }
 
   .engagement-firm .firm-rank {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
     font-weight: 600;
@@ -1099,7 +1253,7 @@ margin-bottom: 12px;
     margin-top: 12px;
     padding-top: 10px;
     border-top: 0.5px solid var(--line);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     font-weight: 400;
@@ -1117,7 +1271,7 @@ margin-bottom: 12px;
     align-items: center;
     gap: 6px;
     margin-top: 10px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: #22c55e;
     font-weight: 500;
@@ -1194,7 +1348,7 @@ margin-bottom: 12px;
     flex-shrink: 0;
     padding-right: 14px;
     border-right: 0.5px solid var(--line);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     font-weight: 500;
     color: var(--text-muted);
@@ -1243,7 +1397,7 @@ letter-spacing: 0;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     color: var(--text);
     font-weight: 400;
@@ -1255,7 +1409,7 @@ letter-spacing: 0;
   }
 
   .ticker-item .delta {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     font-weight: 600;
     color: #16a34a;
@@ -1340,7 +1494,7 @@ letter-spacing: 0;
   }
 
   .notif-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 600;
     color: var(--text);
@@ -1353,7 +1507,7 @@ letter-spacing: 0;
   }
 
   .notif-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     color: var(--text-muted);
     line-height: 1.3;
@@ -1361,7 +1515,7 @@ letter-spacing: 0;
   }
 
   .notif-time {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
     flex-shrink: 0;
@@ -1515,7 +1669,7 @@ letter-spacing: 0;
   }
 
   .stat-num {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(48px, 5vw, 84px);
     letter-spacing: -0.04em;
@@ -1532,7 +1686,7 @@ letter-spacing: 0;
   }
 
   .stat-label {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 400;
     line-height: 1.5;
@@ -1556,7 +1710,7 @@ letter-spacing: 0;
   }
 
   .services-subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 18px;
     line-height: 1.55;
     font-weight: 400;
@@ -1606,7 +1760,7 @@ letter-spacing: 0;
   }
 
   .service-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 20px;
     letter-spacing: -0.02em;
@@ -1617,7 +1771,7 @@ letter-spacing: 0;
   }
 
   .service-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 16px;
@@ -1627,7 +1781,7 @@ letter-spacing: 0;
   }
 
   .service-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 400;
     line-height: 1.55;
@@ -1638,7 +1792,7 @@ letter-spacing: 0;
   }
 
   .service-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--accent);
@@ -1690,7 +1844,7 @@ letter-spacing: 0;
   }
 
   .process-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(36px, 4.5vw, 60px);
     line-height: 1.05;
@@ -1702,14 +1856,14 @@ letter-spacing: 0;
   }
 
   .process-h2 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
   }
 
   .process-subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 18px;
     line-height: 1.55;
     font-weight: 400;
@@ -1750,7 +1904,7 @@ letter-spacing: 0;
   }
 
   .process-num {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 500;
     font-size: 64px;
     line-height: 1;
@@ -1777,7 +1931,7 @@ letter-spacing: 0;
   }
 
   .process-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     letter-spacing: -0.025em;
@@ -1787,7 +1941,7 @@ letter-spacing: 0;
   }
 
   .process-pill {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     font-weight: 600;
     color: var(--accent);
@@ -1798,7 +1952,7 @@ letter-spacing: 0;
 }
 
   .process-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
@@ -1828,7 +1982,7 @@ letter-spacing: 0;
   }
 
   .case-study-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(34px, 4vw, 54px);
     line-height: 1.08;
@@ -1839,7 +1993,7 @@ letter-spacing: 0;
   }
 
   .case-study-h2 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
@@ -1853,7 +2007,7 @@ letter-spacing: 0;
   }
 
   .case-study-prose p {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     font-weight: 400;
     line-height: 1.65;
@@ -1864,7 +2018,7 @@ letter-spacing: 0;
   }
 
   .case-study-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--accent);
@@ -1907,7 +2061,7 @@ letter-spacing: 0;
   .case-stat-3 { transform: rotate(-0.5deg); }
 
   .case-stat-num {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 48px;
     letter-spacing: -0.03em;
@@ -1918,7 +2072,7 @@ letter-spacing: 0;
   }
 
   .case-stat-label {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 13px;
     letter-spacing: -0.05px;
@@ -1926,7 +2080,7 @@ letter-spacing: 0;
   }
 
   .case-stat-sub {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: var(--text-muted);
@@ -1968,7 +2122,7 @@ letter-spacing: 0;
   }
 
   .testimonial-quote {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 17px;
@@ -1986,7 +2140,7 @@ letter-spacing: 0;
   }
 
   .testimonial-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
@@ -1994,7 +2148,7 @@ letter-spacing: 0;
   }
 
   .testimonial-role {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: var(--text-muted);
@@ -2028,7 +2182,7 @@ letter-spacing: 0;
   }
 
   .final-cta-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(40px, 5vw, 76px);
     line-height: 1.05;
@@ -2039,14 +2193,14 @@ letter-spacing: 0;
   }
 
   .final-cta-h2 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
   }
 
   .final-cta-subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 19px;
     font-weight: 400;
     line-height: 1.55;
@@ -2066,7 +2220,7 @@ letter-spacing: 0;
   }
 
   .cta-large-primary {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--text);
@@ -2093,7 +2247,7 @@ letter-spacing: 0;
   }
 
   .cta-large-secondary {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
@@ -2148,7 +2302,7 @@ letter-spacing: 0;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     font-weight: 600;
     letter-spacing: -0.3px;
@@ -2177,7 +2331,7 @@ letter-spacing: 0;
   }
 
   .footer-tagline {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: var(--text-muted);
@@ -2186,7 +2340,7 @@ margin: 0;
   }
 
   .footer-heading {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
@@ -2204,7 +2358,7 @@ letter-spacing: 0.5px;
   }
 
   .footer-links a {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: var(--text-muted);
@@ -2216,7 +2370,7 @@ letter-spacing: 0.5px;
   .footer-links a:hover { color: var(--text); }
 
   .footer-cta {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: white;
@@ -2254,7 +2408,7 @@ letter-spacing: 0.5px;
   }
 
   .footer-copyright {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: var(--text-faint);
@@ -2267,7 +2421,7 @@ letter-spacing: 0.5px;
   }
 
   .footer-legal-links a {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: var(--text-faint);
@@ -2410,7 +2564,7 @@ letter-spacing: 0.5px;
   }
 
   .methodology-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(48px, 6vw, 92px);
     line-height: 1;
@@ -2420,14 +2574,14 @@ letter-spacing: 0.5px;
   }
 
   .methodology-h2 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
   }
 
   .methodology-tagline {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: clamp(20px, 1.8vw, 26px);
     line-height: 1.3;
@@ -2438,7 +2592,7 @@ letter-spacing: 0.5px;
   }
 
   .methodology-subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.55;
@@ -2480,7 +2634,7 @@ letter-spacing: 0.5px;
   }
 
   .pillar-num {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 13px;
     color: var(--accent);
@@ -2490,7 +2644,7 @@ letter-spacing: 0.5px;
   }
 
   .pillar-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 17px;
     color: var(--text);
@@ -2500,7 +2654,7 @@ letter-spacing: 0.5px;
   }
 
   .pillar-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.55;
@@ -2575,7 +2729,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-monogram-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 96px;
     color: white;
@@ -2586,7 +2740,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     letter-spacing: -0.02em;
@@ -2595,7 +2749,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-role {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: var(--text-muted);
@@ -2611,7 +2765,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-chip {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 500;
     font-size: 11px;
     color: var(--text-muted);
@@ -2632,7 +2786,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(36px, 4.5vw, 60px);
     line-height: 1.05;
@@ -2642,7 +2796,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-h2 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
@@ -2656,7 +2810,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-prose p {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 17px;
     line-height: 1.7;
@@ -2667,7 +2821,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-signature {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 18px;
@@ -2678,7 +2832,7 @@ letter-spacing: 0.5px;
   }
 
   .founder-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--accent);
@@ -2727,7 +2881,7 @@ letter-spacing: 0.5px;
   }
 
   .brands-built-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(36px, 4.5vw, 60px);
     line-height: 1.05;
@@ -2738,14 +2892,14 @@ letter-spacing: 0.5px;
   }
 
   .brands-built-h2 .accent-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     color: var(--accent);
   }
 
   .brands-built-subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.55;
@@ -2783,7 +2937,7 @@ letter-spacing: 0.5px;
   }
 
   .brand-handle {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 500;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.8);
@@ -2798,7 +2952,7 @@ letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 600;
     font-size: 20px;
     color: white;
@@ -2820,7 +2974,7 @@ letter-spacing: 0.5px;
   }
 
   .brand-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: white;
@@ -2829,7 +2983,7 @@ letter-spacing: 0.5px;
   }
 
   .brand-category {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
@@ -2851,7 +3005,7 @@ letter-spacing: 0.5px;
     align-items: flex-start;
     gap: 16px;
     padding: 8px 0;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
   }
 
   .brand-stat-label {
@@ -2883,7 +3037,7 @@ letter-spacing: 0.5px;
   }
 
   .brand-status {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 600;
     font-size: 10px;
     padding: 4px 8px;
@@ -2902,7 +3056,7 @@ letter-spacing: 0.5px;
   }
 
   .brand-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 13px;
     color: white;
@@ -2925,7 +3079,7 @@ letter-spacing: 0.5px;
   }
 
   .brands-built-footnote {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
@@ -2957,7 +3111,7 @@ letter-spacing: 0.5px;
   }
 
   .team-subhead {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.55;
@@ -3005,7 +3159,7 @@ letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: white;
@@ -3034,7 +3188,7 @@ letter-spacing: 0.5px;
   }
 
   .team-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
@@ -3044,7 +3198,7 @@ letter-spacing: 0.5px;
   }
 
   .team-role {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 12px;
     color: var(--text-muted);
@@ -3061,7 +3215,7 @@ letter-spacing: 0.5px;
   }
 
   .team-bio {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 12px;
@@ -3221,7 +3375,7 @@ letter-spacing: 0.5px;
     padding: 14px 22px;
     background: var(--text);
     color: white;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -3616,7 +3770,7 @@ letter-spacing: 0.5px;
   }
 
   .editorial-beat-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(32px, 4.5vw, 56px);
     line-height: 1.25;
@@ -3799,7 +3953,7 @@ letter-spacing: 0.5px;
   }
 
   .shift-eyebrow {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0;
@@ -3832,7 +3986,7 @@ letter-spacing: 0.5px;
     background: #ddd;
   }
   .shift-browser-url {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
   }
@@ -3846,7 +4000,7 @@ letter-spacing: 0.5px;
     border: 0.5px solid var(--line);
     border-radius: 100px;
     margin-bottom: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
   }
   .shift-search-icon { color: var(--text-faint); font-size: 14px; }
@@ -3888,7 +4042,7 @@ letter-spacing: 0.5px;
     50%      { box-shadow: 0 0 0 1px rgba(29, 78, 216, 0.12), 0 4px 16px -4px rgba(29, 78, 216, 0.15); }
   }
   .shift-surface-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0;
@@ -3896,7 +4050,7 @@ color: var(--accent);
     margin-bottom: 6px;
   }
   .shift-surface-snippet {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     line-height: 1.45;
     color: var(--text-muted);
@@ -3914,7 +4068,7 @@ color: var(--accent);
     display: inline-block;
     background: var(--accent);
     color: white;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     font-weight: 600;
     padding: 1px 5px;
@@ -3978,14 +4132,14 @@ color: var(--accent);
     min-height: 4px;
   }
   .stat-expanded-client {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     font-weight: 500;
     color: var(--accent);
     letter-spacing: 0.3px;
   }
   .stat-expanded-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -3993,7 +4147,7 @@ color: var(--accent);
     margin: 0;
   }
   .stat-expanded-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: var(--accent);
@@ -4020,7 +4174,7 @@ color: var(--accent);
     border-radius: 100px;
   }
   .services-tab {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13.5px;
     font-weight: 500;
     color: var(--text-muted);
@@ -4052,7 +4206,7 @@ color: var(--accent);
   }
   .services-panel-text { max-width: 460px; }
   .services-panel-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(28px, 3vw, 40px);
     letter-spacing: -0.03em;
@@ -4061,14 +4215,14 @@ color: var(--accent);
     line-height: 1.15;
   }
   .services-panel-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 17px;
     color: var(--accent);
     margin-bottom: 20px;
   }
   .services-panel-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.65;
     color: var(--text-muted);
@@ -4086,7 +4240,7 @@ color: var(--accent);
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: var(--text);
     line-height: 1.45;
@@ -4097,7 +4251,7 @@ color: var(--accent);
     margin-top: 1px;
   }
   .services-panel-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--accent);
@@ -4148,7 +4302,7 @@ color: var(--accent);
     border-radius: 50%;
   }
   .service-demo-url {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
   }
@@ -4156,7 +4310,7 @@ color: var(--accent);
 
   /* AI Search chat demo */
   .chat-prompt {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: var(--text);
     background: var(--bg);
@@ -4176,7 +4330,7 @@ color: var(--accent);
     animation: blink 1s steps(2) infinite;
   }
   .chat-response {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13.5px;
     line-height: 1.55;
     color: var(--text);
@@ -4201,7 +4355,7 @@ color: var(--accent);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     color: var(--text);
     background: var(--bg);
@@ -4241,7 +4395,7 @@ color: var(--accent);
     flex-shrink: 0;
     background: var(--accent);
     color: white;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     font-weight: 600;
     padding: 2px 6px;
@@ -4253,7 +4407,7 @@ color: var(--accent);
     min-width: 0;
   }
   .maps-pack-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
@@ -4263,7 +4417,7 @@ color: var(--accent);
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
   }
@@ -4327,7 +4481,7 @@ color: var(--accent);
   .content-card-meta { margin-bottom: 10px; }
   .content-card-badge {
     display: inline-block;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -4341,7 +4495,7 @@ color: var(--accent);
     background: rgba(99, 102, 241, 0.1);
   }
   .content-card-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 13.5px;
     line-height: 1.35;
@@ -4350,7 +4504,7 @@ color: var(--accent);
     margin-bottom: 6px;
   }
   .content-card-date {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
   }
@@ -4396,7 +4550,7 @@ color: var(--accent);
     text-align: left;
   }
   .methodology-item-num {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: var(--accent);
@@ -4410,7 +4564,7 @@ color: var(--accent);
     gap: 4px;
   }
   .methodology-item-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 20px;
     letter-spacing: -0.02em;
@@ -4418,7 +4572,7 @@ color: var(--accent);
     line-height: 1.2;
   }
   .methodology-item-summary {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 14px;
     color: var(--text-muted);
@@ -4444,7 +4598,7 @@ color: var(--accent);
     padding: 0 28px 28px 70px;
   }
   .methodology-item-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15.5px;
     line-height: 1.65;
     color: var(--text-muted);
@@ -4463,7 +4617,7 @@ color: var(--accent);
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     line-height: 1.5;
     color: var(--text);
@@ -4520,7 +4674,7 @@ color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 500;
     font-size: 18px;
     background: var(--bg);
@@ -4544,7 +4698,7 @@ color: var(--accent);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0;
@@ -4616,13 +4770,13 @@ color: var(--accent);
   .cs-slider-traffic span:nth-child(3) { background: #28ca42; }
   .cs-slider-traffic span { width: 9px; height: 9px; border-radius: 50%; }
   .cs-slider-url {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
   }
   .cs-slider-body { padding: 18px 22px; text-align: left; }
   .cs-slider-meta {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     margin-bottom: 12px;
@@ -4632,13 +4786,13 @@ color: var(--accent);
     padding: 6px 0;
   }
   .cs-result-url {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     margin-bottom: 2px;
   }
   .cs-result-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13.5px;
     font-weight: 500;
     color: #1a55d8;
@@ -4649,7 +4803,7 @@ color: var(--accent);
     text-underline-offset: 2px;
   }
   .cs-result-snippet {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11.5px;
     line-height: 1.45;
     color: var(--text-muted);
@@ -4663,7 +4817,7 @@ color: var(--accent);
   }
   .cs-result-position {
     display: inline-block;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: #b91c1c;
     background: rgba(239, 68, 68, 0.12);
@@ -4685,7 +4839,7 @@ color: var(--accent);
     right: 8px;
     background: var(--accent);
     color: white;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     font-weight: 600;
     padding: 2px 7px;
@@ -4728,7 +4882,7 @@ color: var(--accent);
     position: absolute;
     top: 14px;
     z-index: 4;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0;
@@ -4747,7 +4901,7 @@ padding: 4px 8px;
     color: var(--accent);
   }
   .cs-slider-caption {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     letter-spacing: 0;
@@ -4771,7 +4925,7 @@ margin: 24px 0 0;
     transform: none;
   }
   .growth-chart-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -4871,7 +5025,7 @@ color: var(--text-muted);
     align-items: center;
     padding: 6px 0;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
   }
   .brand-meta-row:last-child { border-bottom: none; }
   .brand-meta-label {
@@ -4900,7 +5054,7 @@ letter-spacing: 0.5px;
     border-radius: 100px;
   }
   .team-filter-pill {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: var(--text-muted);
@@ -4934,7 +5088,7 @@ letter-spacing: 0.5px;
     position: absolute;
     top: -16px;
     left: 0;
-    font-family: 'Geist', serif;
+    font-family: var(--font-inter), serif;
     font-size: 120px;
     line-height: 1;
     color: var(--accent);
@@ -4951,7 +5105,7 @@ letter-spacing: 0.5px;
     flex-direction: column;
   }
   .testimonial-big-quote {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: clamp(24px, 2.5vw, 40px);
@@ -5020,7 +5174,7 @@ letter-spacing: 0.5px;
     background: transparent;
     border: none;
     outline: none;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     color: white;
     padding: 12px 18px;
@@ -5030,7 +5184,7 @@ letter-spacing: 0.5px;
     color: rgba(255, 255, 255, 0.5);
   }
   .audit-form-submit {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--text);
@@ -5064,7 +5218,7 @@ letter-spacing: 0.5px;
     border: 0.5px solid rgba(107, 142, 255, 0.3);
     border-radius: 100px;
     padding: 14px 22px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     color: white;
   }
@@ -5081,7 +5235,7 @@ letter-spacing: 0.5px;
     font-weight: 600;
   }
   .audit-form-secondary {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.65);
     text-decoration: none;
@@ -5107,7 +5261,7 @@ letter-spacing: 0.5px;
   }
   .founder-pullquote-mark {
     position: absolute;
-    font-family: 'Geist', serif;
+    font-family: var(--font-inter), serif;
     font-size: 80px;
     line-height: 1;
     color: var(--accent);
@@ -5124,7 +5278,7 @@ letter-spacing: 0.5px;
     right: 0;
   }
   .founder-pullquote-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: clamp(28px, 2.8vw, 42px);
@@ -5223,7 +5377,7 @@ letter-spacing: 0.5px;
     line-height: 1;
   }
   .wordmark-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     font-weight: 600;
     letter-spacing: -0.3px;
@@ -5231,7 +5385,7 @@ letter-spacing: 0.5px;
   }
   .wordmark-subline {
     margin-top: 2px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
 letter-spacing: 0;
@@ -5274,7 +5428,7 @@ letter-spacing: 0;
     border-radius: 100px;
     background: var(--accent-soft);
     color: var(--accent);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.2px;
@@ -5348,7 +5502,7 @@ letter-spacing: 0;
     box-shadow: 0 0 0 4px var(--accent-soft);
   }
   .ct-year {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--text-muted);
     letter-spacing: 0.3px;
@@ -5374,14 +5528,14 @@ letter-spacing: 0;
     display: flex;
     align-items: baseline;
     gap: 8px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
   }
   .ct-card-sep { color: var(--text-faint); }
   .ct-card-year {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--accent);
     letter-spacing: 0.3px;
@@ -5389,7 +5543,7 @@ letter-spacing: 0;
   .ct-card-company { color: var(--text); }
   .ct-card-desc {
     margin-top: 8px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13.5px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -5404,7 +5558,7 @@ letter-spacing: 0;
     right: 12px;
     padding: 4px 7px;
     border-radius: 4px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     font-weight: 500;
 letter-spacing: 0.5px;
@@ -5421,7 +5575,7 @@ letter-spacing: 0.5px;
   }
   .team-specialty {
     margin-top: 4px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
 letter-spacing: 0.5px;
@@ -5429,7 +5583,7 @@ letter-spacing: 0.5px;
   .team-stat-bar {
     margin-top: 32px;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--text-muted);
     letter-spacing: 0.2px;
@@ -5456,7 +5610,7 @@ letter-spacing: 0.5px;
   }
   .is-h2 {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(36px, 4.5vw, 60px);
     line-height: 1.05;
@@ -5469,7 +5623,7 @@ letter-spacing: 0.5px;
   }
   .is-subhead {
     margin-top: 20px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -5566,14 +5720,14 @@ letter-spacing: 0.5px;
   }
   .is-caption-text { line-height: 1.3; }
   .is-caption-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: var(--text);
   }
   .is-caption-desc {
     margin-top: 4px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12.5px;
     color: var(--text-muted);
     line-height: 1.45;
@@ -5585,7 +5739,7 @@ letter-spacing: 0.5px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     letter-spacing: 0.5px;
@@ -5612,7 +5766,7 @@ letter-spacing: 0.5px;
     flex-direction: column;
   }
   .footer-address-line {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -5624,7 +5778,7 @@ letter-spacing: 0.5px;
     margin-top: 24px;
   }
   .footer-est-mark {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     letter-spacing: 0;
@@ -5712,7 +5866,7 @@ letter-spacing: 0.5px;
   .eb-panel-eyebrow {
     position: relative;
     z-index: 2;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
 letter-spacing: 0;
     color: var(--text-faint);
@@ -5731,14 +5885,14 @@ letter-spacing: 0;
     margin-bottom: 20px;
   }
   .eb-noise-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
 letter-spacing: 0;
     margin-bottom: 4px;
   }
   .eb-noise-bignum {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 38px;
     color: #888;
@@ -5747,7 +5901,7 @@ letter-spacing: 0;
     font-variant-numeric: tabular-nums;
   }
   .eb-noise-num {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #888;
@@ -5779,7 +5933,7 @@ letter-spacing: 0;
     margin-top: 14px;
     padding: 10px 12px;
     border-top: 0.5px solid rgba(0, 0, 0, 0.08);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     display: flex;
@@ -5798,7 +5952,7 @@ letter-spacing: 0;
     position: relative;
     z-index: 2;
     margin-top: 12px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
     font-style: italic;
@@ -5893,13 +6047,13 @@ letter-spacing: 0;
     50%      { box-shadow: 0 0 0 8px rgba(45, 165, 103, 0); }
   }
   .eb-rev-client-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: var(--text);
   }
   .eb-rev-live-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: var(--success, #2da567);
     letter-spacing: 0;
@@ -5938,7 +6092,7 @@ letter-spacing: 0;
   }
   .eb-rev-body { min-width: 0; }
   .eb-rev-line {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     color: var(--text);
     line-height: 1.4;
@@ -5961,7 +6115,7 @@ letter-spacing: 0;
   }
   .eb-rev-sep { color: var(--text-faint); }
   .eb-rev-time {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
     letter-spacing: 0.3px;
@@ -5978,13 +6132,13 @@ letter-spacing: 0;
     align-items: center;
   }
   .eb-rev-total-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
 letter-spacing: 0;
   }
   .eb-rev-total-num {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: var(--accent);
@@ -5997,7 +6151,7 @@ letter-spacing: 0;
     align-items: center;
     gap: 8px;
     align-self: flex-end;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     letter-spacing: 0.5px;
@@ -6096,7 +6250,7 @@ letter-spacing: 0;
     animation: ebLivePulse 1.8s ease-in-out infinite;
   }
   .stats-activity-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0;
     color: var(--text-muted);
@@ -6114,7 +6268,7 @@ letter-spacing: 0;
     grid-template-columns: 14px 1fr auto;
     gap: 6px;
     align-items: start;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10.5px;
     color: var(--text-muted);
     line-height: 1.45;
@@ -6264,13 +6418,13 @@ letter-spacing: 0;
     animation: ebLivePulse 1.8s ease-in-out infinite;
   }
   .founder-currently-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     letter-spacing: 0;
 }
   .founder-currently-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text);
     line-height: 1.4;
@@ -6450,7 +6604,7 @@ letter-spacing: 0;
   }
 
   .credibility-tile-value {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     letter-spacing: -0.02em;
@@ -6459,7 +6613,7 @@ letter-spacing: 0;
   }
 
   .credibility-tile-label {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: 12px;
     color: var(--text-muted);
@@ -6470,7 +6624,7 @@ letter-spacing: 0;
     max-width: 1200px;
     margin: 32px auto 0;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -6590,7 +6744,7 @@ letter-spacing: 0;
     border: none;
     padding: 0;
     cursor: pointer;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: -0.1px;
@@ -6636,7 +6790,7 @@ letter-spacing: 0;
   .nav-dropdown-link {
     padding: 10px 14px;
     border-radius: 8px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text);
     text-decoration: none;
@@ -6692,7 +6846,7 @@ letter-spacing: 0;
     border-bottom: 0.5px solid var(--line);
   }
   .nav-mobile-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     font-weight: 500;
     color: var(--text);
@@ -6709,7 +6863,7 @@ letter-spacing: 0;
     border-left: 1px solid var(--line);
   }
   .nav-mobile-sublink {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text-muted);
     text-decoration: none;
@@ -6725,7 +6879,7 @@ letter-spacing: 0;
     background: var(--text);
     color: white;
     border-radius: 100px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     text-decoration: none;
@@ -6792,14 +6946,14 @@ letter-spacing: 0;
   }
   .page-hero-eyebrow {
     display: inline-block;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
 margin-bottom: 24px;
   }
   .page-hero-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(36px, 5vw, 64px);
     line-height: 1.05;
@@ -6811,7 +6965,7 @@ margin-bottom: 24px;
     font-size: clamp(32px, 4vw, 48px);
   }
   .page-hero-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -6854,14 +7008,14 @@ margin-bottom: 24px;
     text-align: left;
   }
   .page-section-eyebrow {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
 margin-bottom: 16px;
   }
   .page-section-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(28px, 3.5vw, 44px);
     line-height: 1.1;
@@ -6872,7 +7026,7 @@ margin-bottom: 16px;
   }
   .page-section-subtitle {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.5;
     color: var(--text-muted);
@@ -6915,7 +7069,7 @@ margin-bottom: 16px;
     text-align: center;
   }
   .cta-banner-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(28px, 4vw, 48px);
     line-height: 1.1;
@@ -6925,7 +7079,7 @@ margin-bottom: 16px;
   }
   .cta-banner-subtitle {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);
@@ -6948,7 +7102,7 @@ margin-bottom: 16px;
     background: var(--accent);
     color: white;
     border-radius: 100px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -6966,7 +7120,7 @@ margin-bottom: 16px;
     padding: 14px 24px;
     color: rgba(255, 255, 255, 0.85);
     border-radius: 100px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
@@ -7004,7 +7158,7 @@ margin-bottom: 16px;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     font-weight: 500;
     color: var(--text);
@@ -7026,7 +7180,7 @@ margin-bottom: 16px;
   }
   .faq-answer-text {
     padding: 0 24px 22px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14.5px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -7039,13 +7193,13 @@ margin-bottom: 16px;
     max-width: 720px;
     margin: 40px auto 0;
     padding: 0 32px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     color: var(--text);
     line-height: 1.7;
   }
   .legal-body section { margin-bottom: 48px; }
   .legal-body h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     letter-spacing: -0.02em;
@@ -7053,7 +7207,7 @@ margin-bottom: 16px;
     margin: 0 0 16px;
   }
   .legal-body h3 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: var(--text);
@@ -7144,7 +7298,7 @@ margin-bottom: 16px;
     100% { transform: rotate(360deg); }
   }
   .not-found-display {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     font-size: clamp(96px, 14vw, 180px);
@@ -7154,14 +7308,14 @@ margin-bottom: 16px;
     letter-spacing: -0.04em;
   }
   .not-found-h1 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(24px, 3vw, 36px);
     color: var(--text);
     margin: 0 0 12px;
   }
   .not-found-sub {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     color: var(--text-muted);
     margin: 0 0 32px;
@@ -7180,7 +7334,7 @@ margin-bottom: 16px;
     background: var(--text);
     color: white;
     border-radius: 100px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     font-weight: 500;
     text-decoration: none;
@@ -7196,7 +7350,7 @@ margin-bottom: 16px;
     gap: 8px;
     padding: 12px 22px;
     color: var(--text-muted);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -7205,7 +7359,7 @@ margin-bottom: 16px;
 
   /* ---------- ABOUT PAGE ---------- */
   .about-story {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-muted);
@@ -7215,7 +7369,7 @@ margin-bottom: 16px;
     margin: 36px 0;
     padding: 24px 32px;
     text-align: center;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: clamp(20px, 2.4vw, 30px);
     color: var(--accent);
@@ -7223,7 +7377,7 @@ margin-bottom: 16px;
     position: relative;
   }
   .about-pullquote-mark {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-fraunces), serif;
     font-size: 48px;
     color: var(--accent-soft);
     line-height: 0;
@@ -7253,7 +7407,7 @@ margin-bottom: 16px;
     background: var(--line);
   }
   .about-principles-col-head {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -7273,7 +7427,7 @@ color: var(--text-muted);
     gap: 12px;
   }
   .about-principles-bullet {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     color: var(--accent);
     font-weight: 500;
     flex-shrink: 0;
@@ -7281,7 +7435,7 @@ color: var(--text-muted);
   }
   .about-principles-bullet-x { color: var(--text-faint); }
   .about-principles-label {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: var(--text);
@@ -7303,7 +7457,7 @@ color: var(--text-muted);
   }
   .about-principles-desc {
     margin-top: 4px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text-muted);
     line-height: 1.5;
@@ -7345,18 +7499,18 @@ color: var(--text-muted);
     gap: 16px;
   }
   .about-donut-legend-label {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: var(--text);
   }
   .about-donut-legend-count {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--text-muted);
   }
   .about-donut-legend-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12.5px;
     color: var(--text-muted);
     line-height: 1.4;
@@ -7366,7 +7520,7 @@ color: var(--text-muted);
     grid-column: 1 / -1;
     text-align: center;
     margin-top: 24px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     letter-spacing: 0;
@@ -7410,7 +7564,7 @@ color: var(--text-muted);
   .about-map-stats {
     margin-top: 28px;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--text-muted);
     letter-spacing: 0.5px;
@@ -7435,21 +7589,21 @@ color: var(--text-muted);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 72px;
     color: white;
     letter-spacing: -0.04em;
   }
   .about-founder-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     color: var(--text);
   }
   .about-founder-role {
     margin-top: 2px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: var(--text-muted);
   }
@@ -7461,7 +7615,7 @@ color: var(--text-muted);
   }
   .about-founder-body p {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     line-height: 1.65;
     color: var(--text-muted);
@@ -7471,7 +7625,7 @@ color: var(--text-muted);
     align-items: center;
     gap: 6px;
     margin-top: 20px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--accent);
@@ -7504,7 +7658,7 @@ color: var(--text-muted);
     gap: 6px;
   }
   .form-field-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -7514,7 +7668,7 @@ color: var(--text-muted);
   }
   .form-field-required { color: var(--accent); }
   .form-field-hint {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     text-transform: none;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -7529,7 +7683,7 @@ color: var(--text-muted);
     border: 0.5px solid var(--line);
     border-radius: 10px;
     padding: 12px 14px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     color: var(--text);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -7547,7 +7701,7 @@ color: var(--text-muted);
     border-color: #d44;
   }
   .form-field-error {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: #d44;
     letter-spacing: 0.3px;
@@ -7570,7 +7724,7 @@ color: var(--text-muted);
     background: var(--text);
     color: white;
     border-radius: 100px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     transition: background 0.2s ease, transform 0.2s ease;
@@ -7588,7 +7742,7 @@ color: var(--text-muted);
     font-size: 15px;
   }
   .form-error-banner {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: #c33;
     line-height: 1.5;
@@ -7615,14 +7769,14 @@ color: var(--text-muted);
     margin-bottom: 16px;
   }
   .form-success h3 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     color: var(--text);
     margin: 0 0 12px;
   }
   .form-success p {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     color: var(--text-muted);
     line-height: 1.6;
@@ -7674,27 +7828,27 @@ color: var(--text-muted);
     margin-bottom: 14px;
   }
   .contact-card-title {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
 margin-bottom: 8px;
   }
   .contact-card-primary {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: var(--text);
     margin-bottom: 4px;
   }
   .contact-card-secondary {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: var(--text);
     margin-bottom: 6px;
   }
   .contact-card-detail {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12.5px;
     color: var(--text-muted);
     margin-top: 8px;
@@ -7732,14 +7886,14 @@ margin-bottom: 8px;
     margin-bottom: 14px;
   }
   .audit-card-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
     margin-bottom: 6px;
   }
   .audit-card-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.5;
     color: var(--text-muted);
@@ -7792,7 +7946,7 @@ margin-bottom: 8px;
     background: var(--bg-card);
     border: 1px solid var(--accent);
     color: var(--accent);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     font-weight: 500;
     margin-bottom: 20px;
@@ -7800,21 +7954,21 @@ margin-bottom: 8px;
     z-index: 1;
   }
   .audit-step-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: var(--text);
     margin-bottom: 6px;
   }
   .audit-step-duration {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
     letter-spacing: 0;
 margin-bottom: 10px;
   }
   .audit-step-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.5;
     color: var(--text-muted);
@@ -7826,7 +7980,7 @@ margin-bottom: 10px;
   }
 
   .audit-why-free {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-muted);
@@ -7846,7 +8000,7 @@ margin-bottom: 10px;
     margin: 0;
   }
   .audit-proof p {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14.5px;
     line-height: 1.55;
     color: var(--text);
@@ -7854,7 +8008,7 @@ margin-bottom: 10px;
     font-style: italic;
   }
   .audit-proof cite {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10.5px;
     color: var(--text-muted);
     letter-spacing: 0;
@@ -7880,7 +8034,7 @@ font-style: normal;
     overflow: hidden;
   }
   .service-card-eyebrow {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     letter-spacing: 0;
@@ -7903,7 +8057,7 @@ margin-bottom: 16px;
     margin-bottom: 16px;
   }
   .service-card-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 28px;
     line-height: 1.1;
@@ -7912,13 +8066,13 @@ margin-bottom: 16px;
     margin: 0 0 10px;
   }
   .service-card-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     color: var(--text-muted);
     margin: 0 0 16px;
   }
   .service-card-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -7928,7 +8082,7 @@ margin-bottom: 16px;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--accent);
@@ -7937,7 +8091,7 @@ margin-bottom: 16px;
   .service-card-link:hover .arrow { transform: translateX(3px); }
   .service-card-link .arrow { transition: transform 0.2s ease; }
   .service-capabilities-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
@@ -7955,7 +8109,7 @@ margin-bottom: 12px;
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: var(--text);
     line-height: 1.5;
@@ -7969,7 +8123,7 @@ margin-bottom: 12px;
     position: absolute;
     top: 24px;
     right: 32px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 80px;
     color: var(--line);
@@ -7982,7 +8136,7 @@ margin-bottom: 12px;
     .service-card-number { display: none; }
   }
   .services-philosophy {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-muted);
@@ -7991,7 +8145,7 @@ margin-bottom: 12px;
 
   /* ---------- SERVICE DETAIL ---------- */
   .service-problem {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-muted);
@@ -8021,14 +8175,14 @@ margin-bottom: 12px;
     margin-bottom: 14px;
   }
   .service-capability-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
     margin: 0 0 6px;
   }
   .service-capability-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -8054,21 +8208,21 @@ margin-bottom: 12px;
     align-items: start;
   }
   .service-process-num {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 16px;
     color: var(--accent);
     letter-spacing: 0.5px;
     padding-top: 2px;
   }
   .service-process-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: var(--text);
     margin-bottom: 6px;
   }
   .service-process-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14.5px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -8083,14 +8237,14 @@ margin-bottom: 12px;
     box-shadow: var(--shadow-md);
   }
   .service-proof-eyebrow {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--accent);
     letter-spacing: 0;
 margin-bottom: 12px;
   }
   .service-proof-headline {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     color: var(--text);
@@ -8098,7 +8252,7 @@ margin-bottom: 12px;
     line-height: 1.25;
   }
   .service-proof-body {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -8108,7 +8262,7 @@ margin-bottom: 12px;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--accent);
@@ -8128,7 +8282,7 @@ margin-bottom: 12px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     color: var(--text);
     line-height: 1.55;
@@ -8174,7 +8328,7 @@ margin-bottom: 12px;
     padding: 4px 10px;
     background: var(--accent-soft);
     color: var(--accent);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 border-radius: 100px;
@@ -8185,7 +8339,7 @@ border-radius: 100px;
     color: var(--text-muted);
   }
   .case-card-headline {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     line-height: 1.25;
@@ -8199,7 +8353,7 @@ border-radius: 100px;
     margin-bottom: 14px;
   }
   .case-card-stat {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--accent);
     padding: 4px 8px;
@@ -8207,14 +8361,14 @@ border-radius: 100px;
     border-radius: 6px;
   }
   .case-card-coming-tag {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
 margin-bottom: 12px;
   }
   .case-card-preview {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -8224,7 +8378,7 @@ margin-bottom: 12px;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--accent);
@@ -8253,14 +8407,14 @@ margin-bottom: 12px;
     padding: 6px 14px;
     background: var(--accent-soft);
     color: var(--accent);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 border-radius: 100px;
     margin-bottom: 20px;
   }
   .case-page-hero-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(36px, 5vw, 56px);
     line-height: 1.05;
@@ -8279,7 +8433,7 @@ border-radius: 100px;
     box-shadow: var(--shadow-md);
   }
   .case-hero-stat-value {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 32px;
     line-height: 1;
@@ -8288,7 +8442,7 @@ border-radius: 100px;
   }
   .case-hero-stat-label {
     margin-top: 6px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     letter-spacing: 0;
@@ -8301,7 +8455,7 @@ border-radius: 100px;
   }
 
   .case-prose {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.75;
     color: var(--text-muted);
@@ -8348,21 +8502,21 @@ border-radius: 100px;
     border: 2px solid var(--accent);
   }
   .case-phase-window {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
     letter-spacing: 0;
 margin-bottom: 6px;
   }
   .case-phase-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: var(--text);
     margin: 0 0 8px;
   }
   .case-phase-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14.5px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -8380,7 +8534,7 @@ margin-bottom: 6px;
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13.5px;
     color: var(--text);
     line-height: 1.5;
@@ -8403,21 +8557,21 @@ margin-bottom: 6px;
     position: relative;
   }
   .case-tactic-num {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--accent);
     letter-spacing: 0;
     margin-bottom: 10px;
   }
   .case-tactic-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
     margin: 0 0 6px;
   }
   .case-tactic-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -8447,13 +8601,13 @@ margin-bottom: 6px;
     margin-bottom: 16px;
   }
   .case-chart-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
 }
   .case-chart-accent {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: var(--accent);
@@ -8465,7 +8619,7 @@ margin-bottom: 6px;
     padding: 0 4px;
   }
   .case-chart-tick {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: var(--text-faint);
   }
@@ -8480,7 +8634,7 @@ margin-bottom: 6px;
     font-style: italic;
   }
   .case-quote-mark {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-fraunces), serif;
     font-size: 64px;
     color: var(--accent-soft);
     line-height: 0;
@@ -8489,7 +8643,7 @@ margin-bottom: 6px;
   }
   .case-quote-text {
     display: inline;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 18px;
     line-height: 1.6;
     color: var(--text);
@@ -8497,7 +8651,7 @@ margin-bottom: 6px;
   .case-quote-cite {
     display: block;
     margin-top: 20px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
@@ -8585,7 +8739,7 @@ font-style: normal;
     align-items: center;
     gap: 6px;
     flex-shrink: 0;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -8620,14 +8774,14 @@ font-style: normal;
     100% { transform: translateX(-50%); }
   }
   .nav-top-ribbon-text {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
     color: var(--text-faint);
 }
   .nav-top-ribbon-clock {
     flex-shrink: 0;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -8702,7 +8856,7 @@ font-style: normal;
     line-height: 1;
   }
   .nav-logo-wordmark {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 22px;
     font-weight: 500;
     letter-spacing: -0.02em;
@@ -8712,7 +8866,7 @@ font-style: normal;
   #nav.site-nav.is-scrolled .nav-logo-wordmark { font-size: 20px; }
   .nav-logo-subline {
     margin-top: 2px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-faint);
     letter-spacing: 0;
@@ -8745,7 +8899,7 @@ overflow: hidden;
     cursor: pointer;
     padding: 12px 16px;
     margin: 0 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 400;
     color: var(--text-muted);
@@ -8815,7 +8969,7 @@ overflow: hidden;
     border-radius: 6px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -8842,7 +8996,7 @@ color: var(--text-muted);
     border-radius: 999px;
     background: var(--text);
     color: white;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -9007,21 +9161,21 @@ color: var(--text-muted);
     margin-bottom: 16px;
   }
   .nav-mega-card-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: var(--text);
     margin-bottom: 6px;
   }
   .nav-mega-card-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 14px;
     color: var(--accent);
     margin-bottom: 10px;
   }
   .nav-mega-card-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -9029,7 +9183,7 @@ color: var(--text-muted);
   }
   .nav-mega-card-link {
     margin-top: auto;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--accent);
@@ -9051,13 +9205,13 @@ color: var(--accent);
     gap: 16px;
   }
   .nav-mega-footer-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
   }
   .nav-mega-footer-link {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     color: var(--text);
     text-decoration: none;
@@ -9094,7 +9248,7 @@ color: var(--text-muted);
     border-bottom: 0.5px solid var(--line);
   }
   .nav-mobile-group-head {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--text-faint);
@@ -9102,7 +9256,7 @@ color: var(--text-faint);
   }
   .nav-mobile-sublink {
     padding: 6px 0;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     color: var(--text);
     text-decoration: none;
@@ -9110,7 +9264,7 @@ color: var(--text-faint);
   .nav-mobile-sublink:hover { color: var(--accent); }
   .nav-mobile-link {
     padding: 10px 0;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 18px;
     font-weight: 500;
     color: var(--text);
@@ -9125,7 +9279,7 @@ color: var(--text-faint);
     background: var(--text);
     color: white;
     border-radius: 999px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -9139,7 +9293,7 @@ color: var(--text-faint);
     gap: 4px;
   }
   .nav-mobile-footer-line {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text-muted);
   }
@@ -9175,14 +9329,14 @@ color: var(--text-faint);
     text-align: center;
   }
   .revenue-claim-eyebrow {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
     margin-bottom: 16px;
   }
   .revenue-claim-number {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(64px, 8vw, 120px);
     letter-spacing: -0.03em;
@@ -9192,7 +9346,7 @@ color: var(--text-muted);
     margin-bottom: 14px;
   }
   .revenue-claim-sub {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: clamp(16px, 1.4vw, 22px);
     color: var(--text);
     margin: 0 auto;
@@ -9204,7 +9358,7 @@ color: var(--text-muted);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -9235,7 +9389,7 @@ color: var(--text-muted);
   }
   .thought-leadership-h2 {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(32px, 4vw, 52px);
     line-height: 1.05;
@@ -9244,7 +9398,7 @@ color: var(--text-muted);
   }
   .thought-leadership-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -9282,7 +9436,7 @@ color: var(--text-muted);
     padding: 4px 10px;
     background: var(--accent-soft);
     color: var(--accent);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 border-radius: 999px;
@@ -9290,7 +9444,7 @@ border-radius: 999px;
     align-self: flex-start;
   }
   .tl-card-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     line-height: 1.25;
@@ -9301,7 +9455,7 @@ border-radius: 999px;
   }
   .tl-card:hover .tl-card-title { color: var(--accent); }
   .tl-card-excerpt {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -9316,7 +9470,7 @@ border-radius: 999px;
     align-items: center;
     flex-wrap: wrap;
     gap: 6px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     letter-spacing: 0.3px;
@@ -9327,7 +9481,7 @@ border-radius: 999px;
     position: absolute;
     bottom: 18px;
     right: 22px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--accent);
@@ -9359,7 +9513,7 @@ color: var(--accent);
   }
   .press-recognition-h2 {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(28px, 3.4vw, 44px);
     line-height: 1.1;
@@ -9368,7 +9522,7 @@ color: var(--accent);
   }
   .press-recognition-sub {
     margin-top: 14px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: var(--text-muted);
@@ -9405,7 +9559,7 @@ color: var(--accent);
     margin-bottom: 14px;
   }
   .press-card-pub {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
@@ -9413,21 +9567,21 @@ color: var(--accent);
     line-height: 1.3;
   }
   .press-card-type {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--text-muted);
     margin-bottom: 8px;
   }
   .press-card-context {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.5;
     color: var(--text-muted);
     margin: 0 0 12px;
   }
   .press-card-year {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     letter-spacing: 0.5px;
@@ -9435,7 +9589,7 @@ color: var(--text-muted);
   .press-footer {
     margin-top: 32px;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-style: italic;
     font-size: 11px;
     color: var(--text-faint);
@@ -9539,7 +9693,7 @@ color: var(--text-muted);
     will-change: transform, opacity;
   }
   .sig-wordmark {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(48px, 8vw, 96px);
     letter-spacing: -0.03em;
@@ -9553,7 +9707,7 @@ color: var(--text-muted);
     justify-content: center;
   }
   .sig-line {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 14px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -9566,7 +9720,7 @@ color: var(--text-muted);
     background: none;
     border: none;
     cursor: pointer;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--accent);
@@ -9644,7 +9798,7 @@ color: var(--accent);
     border: 0.5px solid var(--line);
     border-radius: 10px;
     padding: 12px 14px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     color: var(--text);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -9670,7 +9824,7 @@ color: var(--accent);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--accent);
     letter-spacing: 0;
@@ -9697,14 +9851,14 @@ text-decoration: none;
     padding: 5px 11px;
     background: var(--accent-soft);
     color: var(--accent);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 border-radius: 999px;
     margin-bottom: 24px;
   }
   .article-hero-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(34px, 4.5vw, 56px);
     line-height: 1.1;
@@ -9713,7 +9867,7 @@ border-radius: 999px;
     margin: 0 0 20px;
   }
   .article-hero-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: clamp(17px, 1.6vw, 21px);
     line-height: 1.5;
     color: var(--text-muted);
@@ -9737,7 +9891,7 @@ border-radius: 999px;
     color: white;
     align-items: center;
     justify-content: center;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 13px;
     letter-spacing: -0.02em;
@@ -9748,20 +9902,20 @@ border-radius: 999px;
     gap: 2px;
   }
   .article-hero-author {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: var(--text);
   }
   .article-hero-role {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     color: var(--text-muted);
   }
   .article-hero-meta-sep { color: var(--text-faint); }
   .article-hero-date,
   .article-hero-read {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0.5px;
@@ -9785,7 +9939,7 @@ border-radius: 999px;
     top: 140px;
   }
   .article-rail-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--text-faint);
@@ -9798,7 +9952,7 @@ color: var(--text-faint);
     top: 140px;
   }
   .article-toc-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--text-faint);
@@ -9831,7 +9985,7 @@ color: var(--text-faint);
     transition: background 0.2s ease, width 0.2s ease;
   }
   .article-toc-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.4;
   }
@@ -9849,7 +10003,7 @@ color: var(--text-faint);
     margin-top: 0;
   }
   .article-prose p {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.7;
     color: var(--text);
@@ -9857,7 +10011,7 @@ color: var(--text-faint);
     max-width: 720px;
   }
   .article-prose h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 30px;
     line-height: 1.2;
@@ -9871,7 +10025,7 @@ color: var(--text-faint);
     text-decoration: none;
   }
   .article-prose h3 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 22px;
     line-height: 1.3;
@@ -9884,7 +10038,7 @@ color: var(--text-faint);
     margin: 0 0 24px 24px;
     padding: 0;
     color: var(--text);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.7;
   }
@@ -9910,7 +10064,7 @@ color: var(--text-faint);
     border-bottom-color: var(--accent);
   }
   .article-prose code {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 14.5px;
     background: var(--accent-soft);
     color: var(--accent);
@@ -9942,7 +10096,7 @@ color: var(--text-faint);
     width: 100%;
     border-collapse: collapse;
     margin: 24px 0;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14.5px;
   }
   .article-prose th,
@@ -9970,7 +10124,7 @@ color: var(--text-faint);
     border-bottom: 0.5px solid var(--line);
   }
   .article-published-line {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0.5px;
@@ -10026,26 +10180,26 @@ color: var(--text-faint);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 26px;
     letter-spacing: -0.02em;
   }
   .author-bio-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 17px;
     color: var(--text);
     margin-bottom: 2px;
   }
   .author-bio-role {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text-muted);
     margin-bottom: 12px;
   }
   .author-bio-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14.5px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -10055,7 +10209,7 @@ color: var(--text-faint);
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--accent);
@@ -10073,7 +10227,7 @@ color: var(--text-faint);
     margin: 0 auto;
   }
   .related-articles-eyebrow {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -10081,7 +10235,7 @@ color: var(--text-muted);
     margin-bottom: 14px;
   }
   .related-articles-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(28px, 3vw, 40px);
     letter-spacing: -0.02em;
@@ -10143,7 +10297,7 @@ color: var(--text-muted);
   }
   .oge-h2 {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(36px, 4.8vw, 60px);
     line-height: 1.05;
@@ -10152,7 +10306,7 @@ color: var(--text-muted);
   }
   .oge-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -10180,7 +10334,7 @@ color: var(--text-muted);
     cursor: pointer;
     padding: 8px 18px;
     border-radius: 999px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -10254,20 +10408,20 @@ color: var(--text-muted);
   }
   .oge-hub-eyebrow {
     fill: var(--text-muted);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0;
   }
   .oge-hub-title {
     fill: var(--text);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 18px;
     letter-spacing: -0.01em;
   }
   .oge-hub-num {
     fill: var(--accent);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 20px;
     letter-spacing: -0.02em;
@@ -10301,7 +10455,7 @@ color: var(--text-muted);
   }
   .oge-node-label {
     fill: var(--text-muted);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0;
   }
@@ -10325,21 +10479,21 @@ color: var(--text-muted);
     z-index: 5;
   }
   .oge-detail-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: var(--text);
     margin-bottom: 6px;
   }
   .oge-detail-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.5;
     color: var(--text-muted);
     margin: 0 0 12px;
   }
   .oge-detail-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -10353,7 +10507,7 @@ color: var(--text-muted);
     gap: 4px;
   }
   .oge-detail-section li {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     color: var(--text);
     line-height: 1.45;
@@ -10367,7 +10521,7 @@ color: var(--text-muted);
     color: var(--accent);
   }
   .oge-detail-affects {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     color: var(--text-muted);
   }
@@ -10397,7 +10551,7 @@ color: var(--text-muted);
   }
   .oge-comp-item summary::-webkit-details-marker { display: none; }
   .oge-comp-num {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--accent);
     letter-spacing: 0.5px;
@@ -10409,13 +10563,13 @@ color: var(--text-muted);
     justify-content: center;
   }
   .oge-comp-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
   }
   .oge-comp-short {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 13px;
     color: var(--text-muted);
@@ -10424,7 +10578,7 @@ color: var(--text-muted);
     padding: 0 20px 18px 64px;
   }
   .oge-comp-body p {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -10439,7 +10593,7 @@ color: var(--text-muted);
     gap: 4px;
   }
   .oge-comp-body li {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text);
     padding-left: 12px;
@@ -10452,7 +10606,7 @@ color: var(--text-muted);
     color: var(--accent);
   }
   .oge-comp-amplifies {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0.5px;
     color: var(--text-muted);
@@ -10461,7 +10615,7 @@ color: var(--text-muted);
   .oge-editorial {
     max-width: 760px;
     margin: 56px auto 0;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-muted);
@@ -10470,7 +10624,7 @@ color: var(--text-muted);
   .oge-footer-mark {
     margin-top: 32px;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -10497,7 +10651,7 @@ color: var(--text-muted);
   }
   .nine-h2 {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(32px, 4.2vw, 52px);
     line-height: 1.1;
@@ -10506,7 +10660,7 @@ color: var(--text-muted);
   }
   .nine-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -10538,7 +10692,7 @@ color: var(--text-muted);
     position: absolute;
     top: 20px;
     right: 24px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-faint);
     letter-spacing: 0.5px;
@@ -10559,7 +10713,7 @@ color: var(--text-muted);
     transform: scale(1.05);
   }
   .nine-card-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: var(--text);
@@ -10568,14 +10722,14 @@ color: var(--text-muted);
   }
   .nine-card.is-hovered .nine-card-title { color: var(--accent); }
   .nine-card-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 14px;
     color: var(--accent);
     margin: 0 0 14px;
   }
   .nine-card-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -10593,7 +10747,7 @@ color: var(--text-muted);
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     color: var(--text);
     line-height: 1.5;
@@ -10606,13 +10760,13 @@ color: var(--text-muted);
   .nine-card-affects {
     padding-top: 14px;
     border-top: 0.5px solid var(--line);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11.5px;
     color: var(--text-muted);
     line-height: 1.5;
   }
   .nine-card-affects-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0;
     color: var(--accent);
@@ -10626,7 +10780,7 @@ color: var(--text-muted);
     align-items: center;
   }
   .nine-footer-line {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     color: var(--text);
     margin: 0;
@@ -10639,7 +10793,7 @@ color: var(--text-muted);
     background: var(--text);
     color: white;
     border-radius: 999px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -10678,14 +10832,14 @@ color: var(--text-muted);
   }
   .dde-eyebrow {
     display: inline-block;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--dde-accent);
     letter-spacing: 0;
 margin-bottom: 18px;
   }
   .dde-h2 {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(34px, 4.5vw, 56px);
     line-height: 1.05;
@@ -10699,7 +10853,7 @@ margin-bottom: 18px;
   }
   .dde-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: #b8b8c0;
@@ -10738,21 +10892,21 @@ margin-bottom: 18px;
     height: 100%;
   }
   .dde-card-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: white;
     margin: 0 0 4px;
   }
   .dde-card-subtitle {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 13px;
     color: var(--dde-accent);
     margin: 0 0 10px;
   }
   .dde-card-detail {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 13px;
     line-height: 1.55;
     color: #b8b8c0;
@@ -10762,7 +10916,7 @@ margin-bottom: 18px;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
     color: var(--dde-accent);
@@ -10792,7 +10946,7 @@ margin-bottom: 18px;
     padding: 5px 8px;
     background: #1f1f27;
     border-radius: 4px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
   }
   .dde-call-source { color: var(--dde-accent); }
@@ -10812,7 +10966,7 @@ margin-bottom: 18px;
     align-items: center;
   }
   .dde-funnel-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: #b8b8c0;
 }
@@ -10823,7 +10977,7 @@ margin-bottom: 18px;
     transition: width 1.2s ease;
   }
   .dde-funnel-val {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: white;
     text-align: right;
@@ -10843,7 +10997,7 @@ margin-bottom: 18px;
     align-items: center;
   }
   .dde-ab-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: #b8b8c0;
   }
@@ -10860,14 +11014,14 @@ margin-bottom: 18px;
   }
   .dde-ab-bar-b { background: var(--dde-accent); }
   .dde-ab-val {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: white;
     text-align: right;
   }
   .dde-ab-winner {
     margin-top: 4px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: #2da567;
     text-align: right;
@@ -10896,7 +11050,7 @@ margin-bottom: 18px;
   .dde-editorial {
     max-width: 760px;
     margin: 56px auto 0;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: #b8b8c0;
@@ -10904,7 +11058,7 @@ margin-bottom: 18px;
   .dde-editorial p { margin: 0 0 18px; }
   .dde-editorial-final {
     margin-top: 24px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 18px;
     color: white;
@@ -10937,7 +11091,7 @@ margin-bottom: 18px;
   }
   .playbook-h2 {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(34px, 4.5vw, 56px);
     line-height: 1.05;
@@ -10946,7 +11100,7 @@ margin-bottom: 18px;
   }
   .playbook-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -10959,7 +11113,7 @@ margin-bottom: 18px;
     margin-bottom: 80px;
   }
   .playbook-col-head {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -10990,21 +11144,21 @@ color: var(--text-muted);
     border-color: rgba(29, 78, 216, 0.15);
   }
   .playbook-challenge-num {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 13px;
     color: var(--accent);
     letter-spacing: 0.5px;
     padding-top: 2px;
   }
   .playbook-challenge-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 17px;
     color: var(--text);
     margin-bottom: 4px;
   }
   .playbook-challenge-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -11019,7 +11173,7 @@ color: var(--text-muted);
     gap: 4px;
   }
   .playbook-challenge-tactics li {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12.5px;
     color: var(--text);
     line-height: 1.4;
@@ -11068,7 +11222,7 @@ color: var(--text-muted);
     margin-bottom: 8px;
   }
   .playbook-practice-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 12.5px;
     color: var(--text);
@@ -11076,7 +11230,7 @@ color: var(--text-muted);
     margin-bottom: 4px;
   }
   .playbook-practice-metric {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: var(--text-faint);
     letter-spacing: 0.4px;
@@ -11084,7 +11238,7 @@ color: var(--text-muted);
   .playbook-practice-footer {
     margin-top: 24px;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0;
@@ -11101,7 +11255,7 @@ color: var(--text-muted);
   }
   .playbook-config-title {
     margin-top: 14px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: clamp(24px, 2.8vw, 36px);
     color: var(--text);
@@ -11131,7 +11285,7 @@ color: var(--text-muted);
     transform: scale(1.05);
   }
   .playbook-weight-name {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12px;
     font-weight: 500;
     color: var(--text);
@@ -11139,14 +11293,14 @@ color: var(--text-muted);
     line-height: 1.2;
   }
   .playbook-weight-comp {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: var(--text-faint);
     letter-spacing: 0.4px;
   }
   .playbook-config-footer {
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-style: italic;
     font-size: 12px;
     color: var(--text-muted);
@@ -11165,7 +11319,7 @@ color: var(--text-muted);
     background: var(--text);
     color: white;
     border-radius: 999px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -11219,7 +11373,7 @@ color: var(--text-muted);
     background: var(--bg-card);
     border: 0.5px solid var(--line);
     border-radius: 999px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
 color: var(--text);
@@ -11234,7 +11388,7 @@ color: var(--text);
   }
   .hero-states-line {
     margin-top: 18px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -11244,7 +11398,7 @@ color: var(--text);
   .credibility-tile-us-flag {
     display: inline-block;
     margin-left: 6px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
     color: var(--accent);
@@ -11267,7 +11421,7 @@ font-weight: 500;
     line-height: 1;
   }
   .team-us-text {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--accent);
@@ -11279,7 +11433,7 @@ color: var(--accent);
     padding: 14px 0;
     border-top: 0.5px solid var(--line);
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -11302,7 +11456,7 @@ color: var(--text-muted);
   }
   .madison-h2 {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: clamp(34px, 4.5vw, 56px);
     line-height: 1.05;
@@ -11311,7 +11465,7 @@ color: var(--text-muted);
   }
   .madison-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -11334,7 +11488,7 @@ color: var(--text-muted);
     gap: 8px;
   }
   .madison-metric-num {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: clamp(48px, 6vw, 80px);
     letter-spacing: -0.03em;
@@ -11349,7 +11503,7 @@ color: var(--text-muted);
     border-radius: 1px;
   }
   .madison-metric-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     letter-spacing: 0;
 color: var(--text-faint);
@@ -11358,7 +11512,7 @@ color: var(--text-faint);
     margin-top: 20px;
     padding-top: 20px;
     border-top: 0.5px solid var(--line);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-size: 14px;
     color: var(--text-muted);
@@ -11397,7 +11551,7 @@ color: var(--text-faint);
   }
   .madison-chart-caption {
     margin-top: 8px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -11435,14 +11589,14 @@ color: var(--text-faint);
     right: 16px;
   }
   .madison-reel-meta {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0;
     color: var(--text-faint);
 margin-bottom: 4px;
   }
   .madison-reel-views {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: var(--text);
@@ -11456,12 +11610,12 @@ margin-bottom: 4px;
     margin-bottom: 6px;
   }
   .madison-reel-stat-label {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11px;
     color: var(--text-muted);
   }
   .madison-reel-stat-val {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 12px;
     color: var(--accent);
     font-weight: 500;
@@ -11470,14 +11624,14 @@ margin-bottom: 4px;
     margin-top: 6px;
     padding-top: 6px;
     border-top: 0.5px solid var(--line);
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 10.5px;
     color: var(--text-muted);
   }
   .madison-editorial {
     max-width: 820px;
     margin: 0 auto;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-muted);
@@ -11488,7 +11642,7 @@ margin-bottom: 4px;
   .madison-footer-mark {
     margin-top: 32px;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-faint);
@@ -11531,7 +11685,7 @@ color: var(--text-faint);
   }
   .real-ops-h2 {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: clamp(34px, 4.5vw, 56px);
     line-height: 1.05;
@@ -11540,7 +11694,7 @@ color: var(--text-faint);
   }
   .real-ops-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -11553,7 +11707,7 @@ color: var(--text-faint);
     margin-bottom: 56px;
   }
   .real-ops-col-head {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-muted);
@@ -11577,7 +11731,7 @@ color: var(--text-muted);
   }
   .ops-workspace-caption {
     margin-top: 12px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0;
     color: var(--text-faint);
@@ -11626,7 +11780,7 @@ color: var(--text-muted);
     border-bottom: 0.5px solid var(--line);
   }
   .ops-mock-title {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     letter-spacing: 0.4px;
@@ -11640,7 +11794,7 @@ color: var(--text-muted);
   }
   .ops-mock-body {
     padding: 10px 12px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11px;
     color: var(--text);
   }
@@ -11659,27 +11813,27 @@ color: var(--text-muted);
   .ops-rank-row:last-child { border-bottom: none; }
   .ops-rank-row.is-up { background: rgba(29, 78, 216, 0.04); }
   .ops-rank-domain {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     color: var(--text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
   .ops-rank-query {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     color: var(--text-muted);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
   .ops-rank-pos {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     color: var(--accent);
     text-align: right;
   }
   .ops-rank-delta {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     color: var(--success, #2da567);
     text-align: right;
   }
@@ -11693,7 +11847,7 @@ color: var(--text-muted);
     padding: 3px 0;
   }
   .ops-attr-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text-muted);
   }
@@ -11709,14 +11863,14 @@ color: var(--text-muted);
     transition: width 1.2s ease;
   }
   .ops-attr-val {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--text);
     text-align: right;
   }
   .ops-attr-foot {
     margin-top: 6px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 9px;
     color: var(--text-faint);
     text-align: right;
@@ -11737,13 +11891,13 @@ color: var(--text-muted);
     border-radius: 6px;
   }
   .ops-slack-from {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 10px;
     color: var(--accent);
     flex-shrink: 0;
   }
   .ops-slack-body-text {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 11px;
     color: var(--text);
     line-height: 1.4;
@@ -11779,7 +11933,7 @@ color: var(--text-muted);
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
     color: var(--accent);
@@ -11805,14 +11959,14 @@ color: var(--text-muted);
     letter-spacing: 0;
   }
   .real-ops-flow-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: var(--text);
     margin-bottom: 4px;
   }
   .real-ops-flow-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 12.5px;
     line-height: 1.45;
     color: var(--text-muted);
@@ -11821,7 +11975,7 @@ color: var(--text-muted);
   .real-ops-editorial {
     max-width: 820px;
     margin: 0 auto;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-muted);
@@ -11830,7 +11984,7 @@ color: var(--text-muted);
   .real-ops-foot-mark {
     margin-top: 32px;
     text-align: center;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0;
 color: var(--text-faint);
@@ -11862,7 +12016,7 @@ color: var(--text-faint);
   }
   .why-us-h2 {
     margin-top: 16px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: clamp(34px, 4.5vw, 56px);
     line-height: 1.05;
@@ -11871,7 +12025,7 @@ color: var(--text-faint);
   }
   .why-us-sub {
     margin-top: 18px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 17px;
     line-height: 1.55;
     color: var(--text-muted);
@@ -11900,7 +12054,7 @@ color: var(--text-faint);
     border-top: 0.5px solid var(--line);
   }
   .why-us-num {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 32px;
     font-weight: 400;
     color: var(--text-faint);
@@ -11914,7 +12068,7 @@ color: var(--text-faint);
   }
   .why-us-body { min-width: 0; }
   .why-us-row-title {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 400;
     font-size: clamp(20px, 2vw, 28px);
     letter-spacing: -0.01em;
@@ -11922,7 +12076,7 @@ color: var(--text-faint);
     margin: 0 0 8px;
   }
   .why-us-row-desc {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -11933,7 +12087,7 @@ color: var(--text-faint);
     background: var(--bg-card);
     border: 0.5px solid var(--line);
     border-radius: 8px;
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0.5px;
     color: var(--text);
@@ -11950,7 +12104,7 @@ color: var(--text-faint);
     margin-bottom: 32px;
   }
   .why-us-closing-text p {
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: clamp(20px, 2.2vw, 28px);
     line-height: 1.4;
     color: var(--text);
@@ -11967,7 +12121,7 @@ color: var(--text-faint);
     background: var(--text);
     color: white;
     border-radius: 999px;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -12047,7 +12201,7 @@ color: var(--text-faint);
      subtle underline-draw animation (see .italic-underline below). */
   h1 .hero-word.italic-phrase-container {
     position: relative;
-    font-family: 'Geist', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: italic;
     font-weight: 500;
     letter-spacing: -0.038em;
@@ -12106,7 +12260,7 @@ color: var(--text-faint);
      ============================================================ */
 
   .editorial-eyebrow {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0;
@@ -12115,7 +12269,7 @@ color: var(--text-faint);
     line-height: 1.4;
   }
   .editorial-label {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 500;
     font-size: 13px;
     letter-spacing: 0;
@@ -12124,7 +12278,7 @@ color: var(--text-faint);
     line-height: 1.4;
   }
   .editorial-meta {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 400;
     font-size: 12px;
     letter-spacing: 0;
@@ -12240,5 +12394,717 @@ color: var(--text-faint);
     letter-spacing: 0;
   }
 
+/* ============================================================
+   === SESSION 23 — REBRAND 2.0 (APOLLO × STRIPE PRESS × OPERATORS) ===
+   ============================================================ */
 
-  
+/* Global font baseline — Inter for body, Fraunces for headings */
+html, body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  font-feature-settings: 'ss01', 'ss02';
+}
+
+.tabular-num,
+.metric,
+.type-metric,
+.type-metric-large,
+.type-metric-display {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+/* ============================================================
+   TYPOGRAPHY HIERARCHY
+   ============================================================ */
+
+.type-display-1 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1.02;
+  letter-spacing: -0.024em;
+  font-variation-settings: 'opsz' 96;
+}
+
+.type-display-2 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'opsz' 72;
+}
+
+.type-heading-1 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  font-variation-settings: 'opsz' 56;
+}
+
+.type-heading-2 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(24px, 2.8vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  font-variation-settings: 'opsz' 36;
+}
+
+.type-heading-3 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
+  font-variation-settings: 'opsz' 24;
+}
+
+.type-title-1 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.008em;
+}
+
+.type-title-2 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.type-title-3 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: -0.003em;
+}
+
+.type-body-lead {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+
+.type-body-large {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: -0.003em;
+}
+
+.type-body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+.type-body-small {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+.type-label-large {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: -0.002em;
+}
+
+.type-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.type-label-small {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+}
+
+.type-meta {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.type-meta-small {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.type-metric-display {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.type-metric-large {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+.type-metric {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   SIGNAL TRIANGLE BASE
+   ============================================================ */
+
+.signal-triangle {
+  display: inline-block;
+  vertical-align: middle;
+  will-change: transform;
+  transition: transform var(--dur-base) var(--ease-settle);
+}
+
+/* ============================================================
+   SIGNAL LIST — bullets replaced with triangle marker
+   ============================================================ */
+
+.signal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.signal-list li {
+  position: relative;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.signal-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: var(--signal);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+/* ============================================================
+   SECTION EYEBROW PRIMITIVE
+   ============================================================ */
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+  color: var(--ink-muted);
+}
+
+.section-eyebrow.on-ink {
+  color: var(--paper-muted);
+}
+
+.eyebrow-rule {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.4;
+}
+
+.eyebrow-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0;
+  color: currentColor;
+}
+
+/* ============================================================
+   DIVIDER WITH SIGNAL TRIANGLE MARK
+   ============================================================ */
+
+.divider-with-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: var(--space-13) 0;
+  position: relative;
+  color: var(--ink-muted);
+}
+
+.divider-with-mark.on-ink {
+  color: var(--paper-muted);
+}
+
+.divider-with-mark::before,
+.divider-with-mark::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  max-width: 80px;
+}
+
+.divider-with-mark.on-ink::before,
+.divider-with-mark.on-ink::after {
+  background: var(--rule-ink);
+}
+
+.divider-with-mark::before { margin-right: var(--space-4); }
+.divider-with-mark::after { margin-left: var(--space-4); }
+
+/* ============================================================
+   FOOTER TRIANGLE PATTERN OVERLAY
+   ============================================================ */
+
+.footer-triangle-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 0 L0 16 L16 16 Z' fill='%23f5c518' /%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SKIP TO CONTENT (accessibility)
+   ============================================================ */
+
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  background: var(--ink);
+  color: var(--paper-text);
+  padding: 12px 20px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: var(--radius-1);
+}
+
+.skip-to-content:focus-visible {
+  left: 16px;
+  top: 16px;
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   FOCUS RINGS — keyboard-only via :focus-visible
+   ============================================================ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   REBRAND 2.0 — HERO SECTION (Section 12)
+   ============================================================ */
+
+.hero-rebrand {
+  position: relative;
+  background: var(--ink);
+  color: var(--paper-text);
+  padding: 160px 32px 120px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-rebrand {
+    padding: 100px 20px 80px;
+  }
+}
+
+.hero-rebrand-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-rebrand-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.hero-rebrand-masthead {
+  border-top: 1px solid var(--rule-ink);
+  padding-top: var(--space-4);
+  margin-bottom: var(--space-15);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .hero-rebrand-masthead {
+    margin-bottom: var(--space-11);
+  }
+}
+
+.hero-rebrand-masthead-item {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--paper-muted);
+  letter-spacing: 0;
+}
+
+.hero-rebrand-headline {
+  margin: 0 0 var(--space-9) 0;
+  color: var(--paper-text);
+}
+
+.hero-rebrand-headline-line {
+  display: block;
+}
+
+.hero-rebrand-subhead {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.55;
+  letter-spacing: -0.003em;
+  max-width: 640px;
+  color: var(--paper-muted);
+  margin: 0 0 var(--space-10) 0;
+}
+
+.hero-rebrand-cta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-14);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .hero-rebrand-cta-row {
+    margin-bottom: var(--space-12);
+  }
+}
+
+.hero-rebrand-cta-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--dur-base) var(--ease-settle),
+              box-shadow var(--dur-base) var(--ease-quick);
+}
+
+.hero-rebrand-cta-primary::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  background: var(--signal);
+  opacity: 0.7;
+}
+
+.hero-rebrand-cta-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-signal-glow), 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-rebrand-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--paper-text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 4px;
+  transition: opacity var(--dur-base) var(--ease-settle);
+}
+
+.hero-rebrand-cta-secondary .signal-triangle {
+  transition: transform var(--dur-base) var(--ease-settle);
+}
+
+.hero-rebrand-cta-secondary:hover .signal-triangle {
+  transform: rotate(45deg);
+}
+
+.hero-rebrand-cta-secondary:hover {
+  opacity: 0.8;
+}
+
+.hero-rebrand-proof-bar {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--rule-ink);
+}
+
+.hero-rebrand-proof-bar > * {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--paper-faint);
+  display: inline-flex;
+  align-items: center;
+  padding-right: var(--space-6);
+  border-right: 1px solid var(--rule-ink);
+}
+
+.hero-rebrand-proof-bar > *:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-rebrand-proof-bar {
+    gap: var(--space-3);
+  }
+  .hero-rebrand-proof-bar > * {
+    padding-right: 0;
+    border-right: none;
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   REBRAND 2.0 — HEADER OVERRIDES
+   ============================================================ */
+
+/* When the homepage is rendered, the Nav becomes a dark masthead. */
+.site-nav.on-ink .nav-main {
+  background: rgba(10, 10, 10, 0.78);
+}
+
+.site-nav.on-ink .nav-logo-wordmark,
+.site-nav.on-ink .nav-link,
+.site-nav.on-ink .nav-link-text {
+  color: var(--paper-text);
+}
+
+.site-nav.on-ink .nav-logo-subline,
+.site-nav.on-ink .nav-status-text {
+  color: var(--paper-muted);
+}
+
+/* Scroll-progress hairline becomes yellow */
+.nav-hairline-pulse,
+.scroll-progress,
+.scroll-progress-fill {
+  background: var(--signal) !important;
+}
+
+/* ============================================================
+   REBRAND 2.0 — FOOTER OVERRIDES (paint the new editorial footer)
+   ============================================================ */
+
+.rebrand-footer {
+  position: relative;
+  background: var(--ink-deep);
+  color: var(--paper-text);
+  padding: var(--space-15) 32px;
+  overflow: hidden;
+}
+
+.rebrand-footer-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.rebrand-footer-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.rebrand-footer-wordmark {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: var(--paper-text);
+  letter-spacing: -0.012em;
+  line-height: 1;
+}
+
+.rebrand-footer-tagline {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--paper-muted);
+  max-width: 520px;
+  margin: 0 0 var(--space-13) 0;
+}
+
+.rebrand-footer-divider {
+  height: 1px;
+  background: var(--rule-ink);
+  width: 100%;
+  margin: 0 0 var(--space-13) 0;
+}
+
+.rebrand-footer-divider-tight {
+  height: 1px;
+  background: var(--rule-ink);
+  width: 100%;
+  margin: var(--space-9) 0;
+}
+
+.rebrand-footer-sitemap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-9);
+}
+
+@media (max-width: 900px) {
+  .rebrand-footer-sitemap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-7);
+  }
+}
+
+@media (max-width: 540px) {
+  .rebrand-footer-sitemap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rebrand-footer-col-head {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--paper-text);
+  margin-bottom: var(--space-4);
+}
+
+.rebrand-footer-col a,
+.rebrand-footer-col-line {
+  display: block;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--paper-muted);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color var(--dur-base) var(--ease-quick);
+}
+
+.rebrand-footer-col a:hover {
+  color: var(--paper-text);
+}
+
+.rebrand-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.rebrand-footer-legal {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--paper-faint);
+}
+
+.rebrand-footer-legal-links {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--paper-faint);
+  display: inline-flex;
+  gap: var(--space-3);
+}
+
+.rebrand-footer-legal-links a {
+  color: var(--paper-faint);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-quick);
+}
+
+.rebrand-footer-legal-links a:hover {
+  color: var(--paper-text);
+}
+
+/* ============================================================
+   AMBIENT TRIANGLE — scroll-rotation transition
+   ============================================================ */
+
+.ambient-triangle {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 80ms linear;
+}

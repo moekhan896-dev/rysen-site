@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { RysenLogo } from "@/components/brand/RysenLogo";
 import { NavServicesMenu } from "./NavServicesMenu";
-import { NavTopRibbon } from "./NavTopRibbon";
 
 const NAV_LINKS: ReadonlyArray<{ label: string; href: string; hasDropdown?: boolean }> = [
   { label: "Services", href: "/services", hasDropdown: true },
@@ -90,21 +90,22 @@ export function Nav() {
     return pathname.startsWith(href);
   };
 
+  const isHomepage = pathname === "/";
+  const contextClass = isHomepage ? " on-ink" : " on-paper";
+
   return (
     <header
       id="nav"
       className={`site-nav${scrolled ? " is-scrolled" : ""}${
         servicesOpen ? " is-mega-open" : ""
-      }`}
+      }${contextClass}`}
     >
-      <NavTopRibbon />
-
       <div className="nav-main">
         <div className="nav-noise" aria-hidden="true" />
         <div className="nav-inner">
-          {/* LEFT — Logo block */}
+          {/* LEFT — Rysen mark + wordmark + subline */}
           <Link href="/" className="nav-logo" aria-label="Rysen home">
-            <span className="nav-logo-dot" aria-hidden="true" />
+            <RysenLogo size={28} variant={isHomepage ? "on-ink" : "on-paper"} />
             <span className="nav-logo-stack">
               <span className="nav-logo-wordmark">Rysen</span>
               <span className="nav-logo-subline">Est. 2019 · Detroit</span>
@@ -148,15 +149,10 @@ export function Nav() {
             )}
           </nav>
 
-          {/* RIGHT — Status pill + CTA + mobile toggle */}
+          {/* RIGHT — CTA + mobile toggle (status pill removed in Session 23) */}
           <div className="nav-right">
-            <div className="nav-status-pill" aria-hidden="true">
-              <span className="nav-status-dot" />
-              <span className="nav-status-text">47 touchpoints this week</span>
-            </div>
-
             <Link href="/audit" className="nav-cta">
-              <span className="nav-cta-text">Book audit</span>
+              <span className="nav-cta-text">Request audit</span>
               <span className="nav-cta-sheen" aria-hidden="true" />
             </Link>
 
@@ -267,7 +263,7 @@ export function Nav() {
                 className="nav-mobile-cta"
                 onClick={() => setMobileOpen(false)}
               >
-                Book audit →
+                Request audit →
               </Link>
 
               <div className="nav-mobile-footer">

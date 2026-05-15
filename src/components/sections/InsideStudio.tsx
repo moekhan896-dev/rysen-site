@@ -186,7 +186,7 @@ export function InsideStudio() {
                 x="266"
                 y="206"
                 fontSize="6"
-                fontFamily="Geist, system-ui, sans-serif"
+                fontFamily="var(--font-inter), system-ui, sans-serif"
                 fill="#1d4ed8"
               >
                 +12
@@ -257,7 +257,7 @@ export function InsideStudio() {
                   x="474"
                   y="152"
                   fontSize="8"
-                  fontFamily="Geist, sans-serif"
+                  fontFamily="var(--font-inter), sans-serif"
                   fill="#1a1a1f"
                 >
                   Q1 Goals
@@ -266,7 +266,7 @@ export function InsideStudio() {
                   x="474"
                   y="164"
                   fontSize="6"
-                  fontFamily="Geist, system-ui, sans-serif"
+                  fontFamily="var(--font-inter), system-ui, sans-serif"
                   fill="#595964"
                 >
                   3 metros · 6 firms
@@ -286,7 +286,7 @@ export function InsideStudio() {
                   x="566"
                   y="152"
                   fontSize="8"
-                  fontFamily="Geist, sans-serif"
+                  fontFamily="var(--font-inter), sans-serif"
                   fill="#1a1a1f"
                 >
                   Tampa Probate
@@ -295,7 +295,7 @@ export function InsideStudio() {
                   x="566"
                   y="164"
                   fontSize="6"
-                  fontFamily="Geist, system-ui, sans-serif"
+                  fontFamily="var(--font-inter), system-ui, sans-serif"
                   fill="#595964"
                 >
                   AWS · live
@@ -315,7 +315,7 @@ export function InsideStudio() {
                   x="658"
                   y="152"
                   fontSize="8"
-                  fontFamily="Geist, sans-serif"
+                  fontFamily="var(--font-inter), sans-serif"
                   fill="#1a1a1f"
                 >
                   Atlanta Family
@@ -324,7 +324,7 @@ export function InsideStudio() {
                   x="658"
                   y="164"
                   fontSize="6"
-                  fontFamily="Geist, system-ui, sans-serif"
+                  fontFamily="var(--font-inter), system-ui, sans-serif"
                   fill="#595964"
                 >
                   in progress
@@ -344,7 +344,7 @@ export function InsideStudio() {
                   x="474"
                   y="216"
                   fontSize="9"
-                  fontFamily="Geist, sans-serif"
+                  fontFamily="var(--font-inter), sans-serif"
                   fill="#1a1a1f"
                   fontWeight="500"
                 >
@@ -354,7 +354,7 @@ export function InsideStudio() {
                   x="474"
                   y="230"
                   fontSize="6"
-                  fontFamily="Geist, system-ui, sans-serif"
+                  fontFamily="var(--font-inter), system-ui, sans-serif"
                   fill="#595964"
                 >
                   priority active
@@ -467,7 +467,7 @@ export function InsideStudio() {
                 x="997"
                 y="266"
                 fontSize="14"
-                fontFamily="Geist, sans-serif"
+                fontFamily="var(--font-inter), sans-serif"
                 fontWeight="600"
                 fill="#1d4ed8"
               >

@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { Award, BarChart3, Cog, MapPin } from "lucide-react";
+import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
+import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { AuditForm } from "@/components/sections/AuditForm";
 import { BrandsParallax } from "@/components/sections/BrandsParallax";
 import { CaseStudySlider } from "@/components/sections/CaseStudySlider";
@@ -10,7 +11,6 @@ import { CredibilityBand } from "@/components/sections/CredibilityBand";
 import { EditorialBeat } from "@/components/sections/EditorialBeat";
 import { PressRecognition } from "@/components/sections/PressRecognition";
 import { RevenueClaim } from "@/components/sections/RevenueClaim";
-import { SignatureOpening } from "@/components/sections/SignatureOpening";
 import { ThoughtLeadership } from "@/components/sections/ThoughtLeadership";
 import { FounderSection } from "@/components/sections/FounderSection";
 import { GrowthChart } from "@/components/sections/GrowthChart";
@@ -29,48 +29,64 @@ import { WhyUsClosing } from "@/components/sections/WhyUsClosing";
 import { TeamFilter } from "@/components/sections/TeamFilter";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 
-/**
- * Headline items for the hero. The italic phrase "organic growth engines"
- * is rendered as a single grouped item so it can host an absolutely-positioned
- * underline-draw animation (.italic-underline).
- */
-type HeroItem =
-  | { type: "word"; text: string }
-  | { type: "italic-phrase"; text: string };
+const HEADLINE_LINES: ReadonlyArray<string> = [
+  "A boutique agency for law firms",
+  "and medical practices that intend",
+  "to organically dominate",
+  "their market.",
+];
 
-const HERO_ITEMS: ReadonlyArray<HeroItem> = [
-  { type: "word", text: "We" },
-  { type: "word", text: "build" },
-  { type: "italic-phrase", text: "organic growth engines" },
-  { type: "word", text: "to" },
-  { type: "word", text: "scale" },
-  { type: "word", text: "law" },
-  { type: "word", text: "firms" },
-  { type: "word", text: "&" },
-  { type: "word", text: "medical" },
-  { type: "word", text: "practices." },
+const HERO_PROOF: ReadonlyArray<string> = [
+  "Ten coordinated components",
+  "100% US team",
+  "30+ engaged firms",
+  "Operators who have built brands of their own",
 ];
 
 export default function HomePage() {
   const shouldReduceMotion = useReducedMotion();
 
-  const heroContainerVariants: Variants = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.06, delayChildren: 0.2 },
-    },
+  const heroBlockVariants: Variants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: shouldReduceMotion
+      ? { opacity: 1, y: 0, transition: { duration: 0 } }
+      : {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 1.4, delay: 0.2, ease: [0.19, 1, 0.22, 1] },
+        },
   };
 
-  const heroWordVariants: Variants = {
+  const subheadVariants: Variants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: shouldReduceMotion
+      ? { opacity: 1, y: 0, transition: { duration: 0 } }
+      : {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 1.4, delay: 0.6, ease: [0.19, 1, 0.22, 1] },
+        },
+  };
+
+  const proofVariants: Variants = {
     hidden: { opacity: 0, y: 8 },
     visible: shouldReduceMotion
       ? { opacity: 1, y: 0, transition: { duration: 0 } }
       : {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+          transition: {
+            duration: 1,
+            delay: 1,
+            ease: [0.16, 1, 0.3, 1],
+            staggerChildren: 0.2,
+          },
         },
+  };
+
+  const proofItemVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
   };
 
   useEffect(() => {
@@ -602,311 +618,82 @@ export default function HomePage() {
 
   return (
     <>
-      <SignatureOpening />
-      {/* Page-wide ambient gradient — fades in past first viewport via scroll listener */}
-      <div
-        className="page-ambient"
-        id="pageAmbient"
-        aria-hidden="true"
-      ></div>
-
-      {/* Persistent ambient layer — fades in past hero (IntersectionObserver) */}
-      <div
-        className="persistent-ambient"
-        id="persistentAmbient"
-        aria-hidden="true"
-      ></div>
-      <div
-        className="persistent-grain"
-        id="persistentGrain"
-        aria-hidden="true"
-      ></div>
-
+      {/* Page-wide ambient gradient — fades in past first viewport */}
+      <div className="page-ambient" id="pageAmbient" aria-hidden="true"></div>
+      <div className="persistent-ambient" id="persistentAmbient" aria-hidden="true"></div>
+      <div className="persistent-grain" id="persistentGrain" aria-hidden="true"></div>
       <div className="particles" id="particles"></div>
       <div className="mouse-glow" id="mouseGlow"></div>
 
-
-      <section className="hero">
-        <div className="hero-content">
-          <div className="category-line">
-            Detroit, MI · Founded 2019
-          </div>
-          <div className="eyebrow">
-            <span className="live-dot"></span>
-            <span>SEO specialists for legal & medical</span>
-            <span className="eyebrow-divider">·</span>
-            <span className="eyebrow-counter">
-              Trusted by <strong id="liveCounter">30+</strong> firms
+      {/* === HERO — Rebrand 2.0 (Section 12) === */}
+      <section className="hero-rebrand" aria-label="Hero">
+        <div className="hero-rebrand-corner-mark">
+          <AmbientTriangle size={16} />
+        </div>
+        <div className="hero-rebrand-inner">
+          <div className="hero-rebrand-masthead">
+            <span className="hero-rebrand-masthead-item">
+              Detroit, Michigan · Founded 2019
             </span>
+            <span className="hero-rebrand-masthead-item">An independent firm</span>
           </div>
+
           <motion.h1
-            variants={heroContainerVariants}
+            className="type-display-1 hero-rebrand-headline"
+            variants={heroBlockVariants}
             initial="hidden"
             animate="visible"
           >
-            {HERO_ITEMS.map((item, i) =>
-              item.type === "italic-phrase" ? (
-                <motion.span
-                  key={`${item.text}-${i}`}
-                  variants={heroWordVariants}
-                  className="hero-word italic-phrase-container"
-                >
-                  {item.text}
-                  <span className="italic-underline" aria-hidden="true" />
-                </motion.span>
-              ) : (
-                <motion.span
-                  key={`${item.text}-${i}`}
-                  variants={heroWordVariants}
-                  className="hero-word"
-                >
-                  {item.text}
-                </motion.span>
-              )
-            )}
+            {HEADLINE_LINES.map((line) => (
+              <span key={line} className="hero-rebrand-headline-line">
+                {line}
+              </span>
+            ))}
           </motion.h1>
-          <p className="subhead">
-            A US-based team of SEO specialists. Ten coordinated components.
-            Operational data infrastructure. The kind of marketing program
-            that wins #1 rankings in your metro and keeps them there for years.
-          </p>
 
-          <div className="hero-proof-bar" aria-label="Credibility proof">
-            <span className="hero-proof-chip">
-              <MapPin
-                className="hero-proof-icon"
-                size={14}
-                strokeWidth={1.75}
-                aria-hidden="true"
-              />
-              100% US-based
-            </span>
-            <span className="hero-proof-chip">
-              <Cog
-                className="hero-proof-icon"
-                size={14}
-                strokeWidth={1.75}
-                aria-hidden="true"
-              />
-              10 components
-            </span>
-            <span className="hero-proof-chip">
-              <BarChart3
-                className="hero-proof-icon"
-                size={14}
-                strokeWidth={1.75}
-                aria-hidden="true"
-              />
-              Data-driven
-            </span>
-            <span className="hero-proof-chip">
-              <Award
-                className="hero-proof-icon"
-                size={14}
-                strokeWidth={1.75}
-                aria-hidden="true"
-              />
-              30+ engagements
-            </span>
-          </div>
+          <motion.p
+            className="hero-rebrand-subhead"
+            variants={subheadVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            Run by people who have actually built brands of their own, supported
+            by a data science team that measures every dollar in revenue, not
+            impressions. A US-based firm that puts its methodology where its
+            money is.
+          </motion.p>
 
-          <div className="actions">
-            <a href="/audit" className="cta-primary">
-              Book audit
+          <div className="hero-rebrand-cta-row">
+            <a href="/audit" className="hero-rebrand-cta-primary">
+              Request audit
             </a>
-            <a href="/case-studies" className="cta-secondary">
-              See case studies <span className="arrow">→</span>
+            <a href="/case-studies" className="hero-rebrand-cta-secondary">
+              View case studies
+              <SignalTriangle size={10} decorative />
             </a>
           </div>
-          <div className="hero-states-line">
-            Working with 30+ law firms and medical practices across FL · CA · IL · NY
-          </div>
-        </div>
 
-        <div className="hero-visual">
-          {/* Agency engagement panel — currently engaged firms */}
-          <div className="big-stat">
-            <div className="engagement-header">
-              <span className="engagement-pulse"></span>
-              Currently Engaged
-            </div>
-            <div className="engagement-firms">
-              <div className="engagement-firm">
-                AWS Law Firm
-                <span className="firm-rank">#1 TPA</span>
-              </div>
-              <div className="engagement-firm">
-                Hartman Dermatology
-                <span className="firm-rank">#1 SCO</span>
-              </div>
-              <div className="engagement-firm">
-                Coleman & Co.
-                <span className="firm-rank">#1 DEN</span>
-              </div>
-            </div>
-            <div className="engagement-footer">
-              <strong>+ 15 more firms</strong> across legal & medical
-            </div>
-          </div>
-
-          {/* Floating notifications */}
-          <div className="notification notif-1" id="notif1">
-            <div className="notif-icon notif-icon-up">↗</div>
-            <div className="notif-content">
-              <div className="notif-title">Beachside Law Partners</div>
-              <div className="notif-subtitle">
-                Moved to position #1 in Miami
-              </div>
-            </div>
-            <div className="notif-time">now</div>
-          </div>
-
-          <div className="notification notif-2" id="notif2">
-            <div className="notif-icon notif-icon-chat">✦</div>
-            <div className="notif-content">
-              <div className="notif-title">Mentioned in ChatGPT</div>
-              <div className="notif-subtitle">47 conversations today</div>
-            </div>
-            <div className="notif-time">2m</div>
-          </div>
-
-          <div className="notification notif-3" id="notif3">
-            <div className="notif-icon notif-icon-cite">◆</div>
-            <div className="notif-content">
-              <div className="notif-title">Cited by Perplexity</div>
-              <div className="notif-subtitle">
-                Primary source · beachsidelaw.com
-              </div>
-            </div>
-            <div className="notif-time">5m</div>
-          </div>
-
-          <div className="card-group" id="cardGroup">
-            {/* Google card (centered, front) */}
-            <div className="search-card card-google">
-              <div className="card-header">
-                <div className="traffic-lights">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div className="url-bar">
-                  <span className="lock">●</span>{" "}
-                  google.com/search?q=personal+injury+lawyer+miami
-                </div>
-              </div>
-              <div className="google-content">
-                <div className="search-bar">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                  </svg>
-                  <span className="query" id="searchQuery"></span>
-                  <span className="cursor" id="searchCursor"></span>
-                </div>
-                <div className="result-meta">About 4,290,000 results</div>
-
-                <div className="map-pack">
-                  <div className="map-thumb">
-                    <div className="map-pin"></div>
-                  </div>
-                  <div className="map-results" id="mapResults">
-                    <div className="map-result" data-id="beach">
-                      <span className="map-result-name">
-                        <span className="rank-badge" id="rankBadge">
-                          #1
-                        </span>
-                        <span className="result-name">
-                          Beachside Law Partners
-                        </span>
-                      </span>
-                      <span className="map-result-rating">★ 4.9 · 412</span>
-                    </div>
-                    <div className="map-result" data-id="miami">
-                      <span className="map-result-name">
-                        <span className="result-name">Miami Injury Group</span>
-                      </span>
-                      <span className="map-result-rating">★ 4.6 · 218</span>
-                    </div>
-                    <div className="map-result" data-id="coast">
-                      <span className="map-result-name">
-                        <span className="result-name">Coast Legal LLP</span>
-                      </span>
-                      <span className="map-result-rating">★ 4.4 · 156</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="organic-result">
-                  <div className="breadcrumb">
-                    beachsidelaw.com › personal-injury
-                  </div>
-                  <div className="title">
-                    Beachside Law Partners — Miami's Top Personal Injury
-                    Attorneys
-                  </div>
-                  <div className="desc">
-                    $2.4B+ recovered for clients across Florida. No fee unless
-                    we win.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ChatGPT card (right) */}
-            <div className="search-card card-chatgpt">
-              <div className="card-header">
-                <div className="traffic-lights">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div className="url-bar">
-                  <span className="lock">●</span> chatgpt.com
-                </div>
-              </div>
-              <div className="gpt-content">
-                <div className="gpt-prompt">
-                  Who's the best personal injury lawyer in Miami?
-                </div>
-                <div className="gpt-response" id="gptResponse"></div>
-              </div>
-            </div>
-
-            {/* Perplexity card (left, behind) */}
-            <div className="search-card card-perplexity">
-              <div className="card-header">
-                <div className="traffic-lights">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div className="url-bar">
-                  <span className="lock">●</span> perplexity.ai
-                </div>
-              </div>
-              <div className="pplx-content">
-                <div className="pplx-citation">
-                  <span className="pplx-cite-num">1</span>
-                  <span>beachsidelaw.com</span>
-                </div>
-                <div className="pplx-text" id="pplxText"></div>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            className="hero-rebrand-proof-bar"
+            variants={proofVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {HERO_PROOF.map((fact) => (
+              <motion.span key={fact} variants={proofItemVariants}>
+                {fact}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
       </section>
 
+
       <CredibilityBand />
 
-      <section className="activity-ticker">
+      {/* Activity ticker removed in Session 23 rebrand */}
+      <section className="activity-ticker" hidden aria-hidden="true" style={{ display: "none" }}>
         <div className="ticker-wrap">
           <div className="ticker-label">
             <span className="ticker-pulse"></span>

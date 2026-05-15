@@ -78,7 +78,7 @@ export function AboutUsMap() {
                 x={city.cx}
                 y={city.cy - 22}
                 textAnchor="middle"
-                fontFamily="Geist, system-ui, sans-serif"
+                fontFamily="var(--font-inter), system-ui, sans-serif"
                 fontSize="10"
                 letterSpacing="0.8"
                 fill="var(--text)"
@@ -103,7 +103,7 @@ export function AboutUsMap() {
               <text
                 x={city.cx + 8}
                 y={city.cy + 4}
-                fontFamily="Geist, system-ui, sans-serif"
+                fontFamily="var(--font-inter), system-ui, sans-serif"
                 fontSize="9"
                 fill="var(--text-muted)"
               >

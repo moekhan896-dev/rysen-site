@@ -110,7 +110,7 @@ export function GrowthChart() {
             textAnchor="end"
             fontSize="9"
             fill="var(--text-faint)"
-            fontFamily="Geist, system-ui, sans-serif"
+            fontFamily="var(--font-inter), system-ui, sans-serif"
           >
             {y === 0 ? "0%" : `${y.toLocaleString()}%`}
           </text>
@@ -125,7 +125,7 @@ export function GrowthChart() {
             textAnchor="middle"
             fontSize="9"
             fill="var(--text-faint)"
-            fontFamily="Geist, system-ui, sans-serif"
+            fontFamily="var(--font-inter), system-ui, sans-serif"
           >
             {p.label}
           </text>
@@ -168,7 +168,7 @@ export function GrowthChart() {
           fontSize="11"
           fontWeight="600"
           fill="var(--accent)"
-          fontFamily="Geist, sans-serif"
+          fontFamily="var(--font-inter), sans-serif"
           className="growth-chart-final-label"
         >
           +1,240%

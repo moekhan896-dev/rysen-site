@@ -292,7 +292,7 @@ function WorkspaceScene({ clock }: { clock: string }) {
             x="22"
             y="26"
             textAnchor="middle"
-            fontFamily="Geist, system-ui, sans-serif"
+            fontFamily="var(--font-inter), system-ui, sans-serif"
             fontSize="8"
             fill="#1a1a1f"
           >
@@ -316,7 +316,7 @@ function WorkspaceScene({ clock }: { clock: string }) {
           fill="none"
         />
         <circle cx="236" cy="152" r="2.5" fill="#1d4ed8" />
-        <text x="92" y="164" fontFamily="Geist, system-ui, sans-serif" fontSize="6" fill="#1a1a1f">
+        <text x="92" y="164" fontFamily="var(--font-inter), system-ui, sans-serif" fontSize="6" fill="#1a1a1f">
           rank-tracker · live
         </text>
         {/* Stand */}

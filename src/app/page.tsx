@@ -6,6 +6,7 @@ import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { AuditForm } from "@/components/sections/AuditForm";
 import { BrandsParallax } from "@/components/sections/BrandsParallax";
+import { HeroSearchAnimation } from "@/components/sections/HeroSearchAnimation";
 import { CaseStudySlider } from "@/components/sections/CaseStudySlider";
 import { CredibilityBand } from "@/components/sections/CredibilityBand";
 import { EditorialBeat } from "@/components/sections/EditorialBeat";
@@ -36,11 +37,11 @@ const HEADLINE_LINES: ReadonlyArray<string> = [
   "their market.",
 ];
 
-const HERO_PROOF: ReadonlyArray<string> = [
-  "Ten coordinated components",
-  "100% US team",
-  "30+ engaged firms",
-  "Operators who have built brands of their own",
+const HERO_CLARITY: ReadonlyArray<{ label: string; value: string }> = [
+  { label: "What we build", value: "Organic Growth Engines" },
+  { label: "For", value: "Law firms & medical practices" },
+  { label: "How", value: "10 coordinated components, data-driven" },
+  { label: "Where", value: "Detroit, MI · 100% US team" },
 ];
 
 export default function HomePage() {
@@ -219,7 +220,7 @@ export default function HomePage() {
           p.style.top = `${100 + Math.random() * 20}vh`;
           p.style.background =
             Math.random() > 0.6
-              ? "rgba(29, 78, 216, 0.4)"
+              ? "rgba(245, 197, 24, 0.4)"
               : "rgba(180, 130, 60, 0.3)";
           const duration = 14 + Math.random() * 16;
           p.style.animation = `particleFloat ${duration}s linear forwards`;
@@ -625,67 +626,87 @@ export default function HomePage() {
       <div className="particles" id="particles"></div>
       <div className="mouse-glow" id="mouseGlow"></div>
 
-      {/* === HERO — Rebrand 2.0 (Section 12) === */}
+      {/* === HERO — Rebrand 2.0 (Session 24 — two-column + clarity block + search animation) === */}
       <section className="hero-rebrand" aria-label="Hero">
         <div className="hero-rebrand-corner-mark">
           <AmbientTriangle size={16} />
         </div>
-        <div className="hero-rebrand-inner">
-          <div className="hero-rebrand-masthead">
-            <span className="hero-rebrand-masthead-item">
-              Detroit, Michigan · Founded 2019
-            </span>
-            <span className="hero-rebrand-masthead-item">An independent firm</span>
+
+        <div className="hero-rebrand-grid">
+          <div className="hero-rebrand-content">
+            <div className="hero-rebrand-masthead">
+              <hr className="hero-rebrand-masthead-rule" aria-hidden="true" />
+              <div className="hero-rebrand-masthead-row">
+                <span className="hero-rebrand-masthead-item">
+                  Detroit, Michigan · Founded 2019
+                </span>
+                <span className="hero-rebrand-masthead-item">
+                  An independent firm
+                </span>
+              </div>
+            </div>
+
+            <motion.h1
+              className="hero-rebrand-headline"
+              variants={heroBlockVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {HEADLINE_LINES.map((line) => (
+                <span key={line} className="hero-rebrand-headline-line">
+                  {line}
+                </span>
+              ))}
+            </motion.h1>
+
+            <motion.p
+              className="hero-rebrand-subhead"
+              variants={subheadVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              Run by people who have actually built brands of their own,
+              supported by a data science team that measures every dollar in
+              revenue, not impressions. A US-based firm that puts its
+              methodology where its money is.
+            </motion.p>
+
+            <motion.div
+              className="hero-clarity-block"
+              variants={proofVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <hr className="hero-clarity-rule" aria-hidden="true" />
+              <div className="hero-clarity-grid">
+                {HERO_CLARITY.map((item) => (
+                  <motion.div
+                    key={item.label}
+                    className="clarity-item"
+                    variants={proofItemVariants}
+                  >
+                    <span className="clarity-label">{item.label}</span>
+                    <span className="clarity-value">{item.value}</span>
+                  </motion.div>
+                ))}
+              </div>
+              <hr className="hero-clarity-rule" aria-hidden="true" />
+            </motion.div>
+
+            <div className="hero-rebrand-cta-row">
+              <a href="/audit" className="hero-rebrand-cta-primary">
+                Request audit
+              </a>
+              <a href="/case-studies" className="hero-rebrand-cta-secondary">
+                View case studies
+                <SignalTriangle size={10} decorative />
+              </a>
+            </div>
           </div>
 
-          <motion.h1
-            className="type-display-1 hero-rebrand-headline"
-            variants={heroBlockVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {HEADLINE_LINES.map((line) => (
-              <span key={line} className="hero-rebrand-headline-line">
-                {line}
-              </span>
-            ))}
-          </motion.h1>
-
-          <motion.p
-            className="hero-rebrand-subhead"
-            variants={subheadVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            Run by people who have actually built brands of their own, supported
-            by a data science team that measures every dollar in revenue, not
-            impressions. A US-based firm that puts its methodology where its
-            money is.
-          </motion.p>
-
-          <div className="hero-rebrand-cta-row">
-            <a href="/audit" className="hero-rebrand-cta-primary">
-              Request audit
-            </a>
-            <a href="/case-studies" className="hero-rebrand-cta-secondary">
-              View case studies
-              <SignalTriangle size={10} decorative />
-            </a>
+          <div className="hero-rebrand-visual">
+            <HeroSearchAnimation />
           </div>
-
-          <motion.div
-            className="hero-rebrand-proof-bar"
-            variants={proofVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            {HERO_PROOF.map((fact) => (
-              <motion.span key={fact} variants={proofItemVariants}>
-                {fact}
-              </motion.span>
-            ))}
-          </motion.div>
         </div>
       </section>
 

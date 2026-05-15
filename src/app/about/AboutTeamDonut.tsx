@@ -11,7 +11,7 @@ interface Segment {
 }
 
 const SEGMENTS: ReadonlyArray<Segment> = [
-  { label: "Leadership", count: 2, color: "#1d4ed8", desc: "Strategy & client relationships" },
+  { label: "Leadership", count: 2, color: "#f5c518", desc: "Strategy & client relationships" },
   { label: "Data Science", count: 4, color: "#3b6ce0", desc: "Attribution & reporting" },
   { label: "SEO Strategists", count: 8, color: "#6189e8", desc: "Search & local" },
   { label: "Content & Account", count: 4, color: "#88a6ef", desc: "Production & cadence" },

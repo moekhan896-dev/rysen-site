@@ -185,7 +185,7 @@ function MadisonGrowthChart({
         <motion.path
           d={secPath2}
           fill="none"
-          stroke="rgba(29, 78, 216, 0.18)"
+          stroke="rgba(245, 197, 24, 0.18)"
           strokeWidth="1.5"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
@@ -195,7 +195,7 @@ function MadisonGrowthChart({
         <motion.path
           d={secPath1}
           fill="none"
-          stroke="rgba(29, 78, 216, 0.35)"
+          stroke="rgba(245, 197, 24, 0.35)"
           strokeWidth="1.5"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}

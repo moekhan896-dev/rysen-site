@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
-import { FloatingCTA } from "@/components/layout/FloatingCTA";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 import "./globals.css";
@@ -96,7 +95,6 @@ export default function RootLayout({
         <a href="#main" className="skip-to-content">Skip to content</a>
         <Nav />
         <main id="main">{children}</main>
-        <FloatingCTA />
         <Footer />
       </body>
     </html>

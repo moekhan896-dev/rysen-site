@@ -2,22 +2,15 @@ import type { FC } from "react";
 
 interface RysenLogoProps {
   size?: number;
-  variant?: "on-ink" | "on-paper";
   className?: string;
 }
 
 /**
- * RysenLogo — the brand mark. A square with a yellow right triangle filling
- * the bottom-left half along the diagonal. The remaining top-right half stays
- * as the surface color (ink on light backgrounds, paper on dark backgrounds).
+ * RysenLogo — the brand mark. The yellow right triangle alone, no square
+ * wrapper. The hypotenuse runs from top-left to bottom-right; right angle
+ * is at the bottom-left corner.
  */
-export const RysenLogo: FC<RysenLogoProps> = ({
-  size = 32,
-  variant = "on-paper",
-  className = "",
-}) => {
-  const squareColor = variant === "on-ink" ? "var(--paper-text)" : "var(--ink-text)";
-
+export const RysenLogo: FC<RysenLogoProps> = ({ size = 32, className = "" }) => {
   return (
     <svg
       width={size}
@@ -27,7 +20,6 @@ export const RysenLogo: FC<RysenLogoProps> = ({
       role="img"
       aria-label="Rysen"
     >
-      <rect x="0" y="0" width={size} height={size} fill={squareColor} />
       <path
         d={`M 0 0 L 0 ${size} L ${size} ${size} Z`}
         fill="var(--signal)"

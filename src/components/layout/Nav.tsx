@@ -105,7 +105,7 @@ export function Nav() {
         <div className="nav-inner">
           {/* LEFT — Rysen mark + wordmark + subline */}
           <Link href="/" className="nav-logo" aria-label="Rysen home">
-            <RysenLogo size={28} variant={isHomepage ? "on-ink" : "on-paper"} />
+            <RysenLogo size={28} />
             <span className="nav-logo-stack">
               <span className="nav-logo-wordmark">Rysen</span>
               <span className="nav-logo-subline">Est. 2019 · Detroit</span>

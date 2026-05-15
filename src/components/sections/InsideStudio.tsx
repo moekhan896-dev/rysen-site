@@ -93,7 +93,7 @@ export function InsideStudio() {
                 cx="200"
                 cy="120"
                 r="2"
-                fill="rgba(29, 78, 216, 0.45)"
+                fill="rgba(245, 197, 24, 0.45)"
               />
               <circle
                 className="is-particle is-p2"
@@ -107,7 +107,7 @@ export function InsideStudio() {
                 cx="820"
                 cy="150"
                 r="2"
-                fill="rgba(29, 78, 216, 0.35)"
+                fill="rgba(245, 197, 24, 0.35)"
               />
               <circle
                 className="is-particle is-p4"
@@ -138,14 +138,14 @@ export function InsideStudio() {
               <rect x="126" y="196" width="60" height="6" rx="1" fill="#1a1a1f" />
               <rect x="190" y="196" width="30" height="6" rx="1" fill="#9a9aa3" />
               <g className={refreshing ? "is-dash-refresh" : ""}>
-                <rect x="126" y="212" width="80" height="6" rx="1" fill="#1d4ed8" />
+                <rect x="126" y="212" width="80" height="6" rx="1" fill="#f5c518" />
                 <rect
                   x="126"
                   y="222"
                   width="120"
                   height="6"
                   rx="1"
-                  fill="#1d4ed8"
+                  fill="#f5c518"
                   opacity="0.55"
                 />
                 <rect
@@ -154,7 +154,7 @@ export function InsideStudio() {
                   width="60"
                   height="6"
                   rx="1"
-                  fill="#1d4ed8"
+                  fill="#f5c518"
                   opacity="0.35"
                 />
                 <rect
@@ -163,13 +163,13 @@ export function InsideStudio() {
                   width="100"
                   height="6"
                   rx="1"
-                  fill="#1d4ed8"
+                  fill="#f5c518"
                   opacity="0.7"
                 />
               </g>
               <polyline
                 points="126,290 150,280 174,285 198,265 222,272 246,255 270,260 294,245 314,250"
-                stroke="#1d4ed8"
+                stroke="#f5c518"
                 strokeWidth="1.5"
                 fill="none"
               />
@@ -187,7 +187,7 @@ export function InsideStudio() {
                 y="206"
                 fontSize="6"
                 fontFamily="var(--font-inter), system-ui, sans-serif"
-                fill="#1d4ed8"
+                fill="#f5c518"
               >
                 +12
               </text>
@@ -364,7 +364,7 @@ export function InsideStudio() {
                   cx="578"
                   cy="208"
                   r="3"
-                  fill="#1d4ed8"
+                  fill="#f5c518"
                 />
               </g>
 
@@ -450,9 +450,9 @@ export function InsideStudio() {
               <rect x="842" y="232" width="116" height="60" rx="2" fill="#dde7d8" />
               <line x1="842" y1="252" x2="958" y2="252" stroke="#fff" strokeWidth="2" />
               <line x1="900" y1="232" x2="900" y2="292" stroke="#fff" strokeWidth="2" />
-              <circle cx="876" cy="256" r="3" fill="#1d4ed8" />
-              <circle cx="920" cy="244" r="3" fill="#1d4ed8" />
-              <circle cx="940" cy="272" r="3" fill="#1d4ed8" />
+              <circle cx="876" cy="256" r="3" fill="#f5c518" />
+              <circle cx="920" cy="244" r="3" fill="#f5c518" />
+              <circle cx="940" cy="272" r="3" fill="#f5c518" />
               <rect x="842" y="298" width="80" height="4" rx="1" fill="#1a1a1f" />
               <rect x="842" y="306" width="100" height="3" rx="1" fill="#9a9aa3" />
               <rect x="842" y="314" width="70" height="3" rx="1" fill="#9a9aa3" />
@@ -469,13 +469,13 @@ export function InsideStudio() {
                 fontSize="14"
                 fontFamily="var(--font-inter), sans-serif"
                 fontWeight="600"
-                fill="#1d4ed8"
+                fill="#f5c518"
               >
                 $2.4M
               </text>
               <polyline
                 points="997,310 1010,302 1023,305 1036,290 1049,294 1062,280 1075,284 1088,272 1101,275 1114,260"
-                stroke="#1d4ed8"
+                stroke="#f5c518"
                 strokeWidth="1.5"
                 fill="none"
               />

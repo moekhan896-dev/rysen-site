@@ -311,11 +311,11 @@ function WorkspaceScene({ clock }: { clock: string }) {
         {/* mini lines climbing */}
         <polyline
           points="92,224 110,210 128,212 146,194 164,196 182,178 200,180 220,162 236,152"
-          stroke="#1d4ed8"
+          stroke="#f5c518"
           strokeWidth="1.5"
           fill="none"
         />
-        <circle cx="236" cy="152" r="2.5" fill="#1d4ed8" />
+        <circle cx="236" cy="152" r="2.5" fill="#f5c518" />
         <text x="92" y="164" fontFamily="var(--font-inter), system-ui, sans-serif" fontSize="6" fill="#1a1a1f">
           rank-tracker · live
         </text>
@@ -327,11 +327,11 @@ function WorkspaceScene({ clock }: { clock: string }) {
         <rect x="264" y="152" width="140" height="80" rx="2" fill="#fafaf6" />
         <rect x="268" y="158" width="60" height="4" rx="1" fill="#1a1a1f" />
         {/* Chat bubbles */}
-        <rect x="268" y="170" width="40" height="4" rx="1" fill="#1d4ed8" opacity="0.7" />
+        <rect x="268" y="170" width="40" height="4" rx="1" fill="#f5c518" opacity="0.7" />
         <rect x="268" y="178" width="120" height="3" rx="1" fill="#9a9aa3" />
-        <rect x="268" y="186" width="32" height="4" rx="1" fill="#1d4ed8" opacity="0.7" />
+        <rect x="268" y="186" width="32" height="4" rx="1" fill="#f5c518" opacity="0.7" />
         <rect x="268" y="194" width="100" height="3" rx="1" fill="#9a9aa3" />
-        <rect x="268" y="202" width="44" height="4" rx="1" fill="#1d4ed8" opacity="0.7" />
+        <rect x="268" y="202" width="44" height="4" rx="1" fill="#f5c518" opacity="0.7" />
         <rect className="ops-slack-newline" x="268" y="210" width="90" height="3" rx="1" fill="#9a9aa3" />
         {/* Stand */}
         <rect x="318" y="240" width="32" height="6" fill="#2a2520" />
@@ -371,7 +371,7 @@ function WorkspaceScene({ clock }: { clock: string }) {
           <line x1="2" y1="6" x2="18" y2="6" stroke="#9a9aa3" strokeWidth="0.3" />
           <line x1="2" y1="10" x2="14" y2="10" stroke="#9a9aa3" strokeWidth="0.3" />
           <line x1="2" y1="14" x2="16" y2="14" stroke="#9a9aa3" strokeWidth="0.3" />
-          <line className="ops-pen" x1="2" y1="18" x2="6" y2="18" stroke="#1d4ed8" strokeWidth="0.5" />
+          <line className="ops-pen" x1="2" y1="18" x2="6" y2="18" stroke="#f5c518" strokeWidth="0.5" />
         </g>
 
         {/* Lamp / desk plant */}

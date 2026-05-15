@@ -101,12 +101,12 @@ function DetroitStamp() {
       </defs>
       <circle cx="28" cy="28" r="25" fill="none" stroke="currentColor" strokeWidth="0.5" />
       <circle cx="28" cy="28" r="21" fill="none" stroke="currentColor" strokeWidth="0.5" />
-      <text fontSize="5" fontFamily="JetBrains Mono, monospace" letterSpacing="1.5" fill="currentColor">
+      <text fontSize="5" fontFamily="Geist Mono, monospace" letterSpacing="1.5" fill="currentColor">
         <textPath href="#detroit-stamp-arc-top" startOffset="50%" textAnchor="middle">
           DETROIT · MI
         </textPath>
       </text>
-      <text fontSize="5" fontFamily="JetBrains Mono, monospace" letterSpacing="1.5" fill="currentColor">
+      <text fontSize="5" fontFamily="Geist Mono, monospace" letterSpacing="1.5" fill="currentColor">
         <textPath href="#detroit-stamp-arc-bot" startOffset="50%" textAnchor="middle">
           EST. 2019
         </textPath>

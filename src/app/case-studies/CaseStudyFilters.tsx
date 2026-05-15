@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
+import { TechDocCard } from "@/components/cards/TechDocCard";
 
 export interface CaseStudyRecord {
   href: string;
@@ -63,28 +64,18 @@ export function CaseStudyFilters({ cases, featured }: Props) {
           <span className="eyebrow-text">Featured engagements</span>
         </div>
         <h2 className="case-studies-section-h2">Four engagements worth a longer read.</h2>
-        <div className="featured-cases-grid">
-          {featuredCases.map((c) => (
-            <Link key={c.href} href={c.href} className="featured-case-card">
-              <div className="featured-case-corner">
-                <SignalTriangle size={14} decorative />
-              </div>
-              <div className="featured-case-badge">{c.badge}</div>
-              <h3 className="featured-case-firm">{c.firm}</h3>
-              <p className="featured-case-challenge">{c.challenge}</p>
-              <div className="featured-case-stats">
-                {c.stats.map((s) => (
-                  <div key={s.label} className="featured-case-stat">
-                    <span className="featured-case-stat-value">{s.value}</span>
-                    <span className="featured-case-stat-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-              <span className="featured-case-cta">
-                Read case study
-                <SignalTriangle size={9} decorative />
-              </span>
-            </Link>
+        <div className="selected-cases-grid">
+          {featuredCases.map((c, i) => (
+            <TechDocCard
+              key={c.href}
+              specId={`CS-${String(i + 1).padStart(3, "0")}`}
+              category={c.badge}
+              title={c.firm}
+              description={c.challenge}
+              metrics={c.stats}
+              href={c.href}
+              linkLabel="Read full case study"
+            />
           ))}
         </div>
       </section>

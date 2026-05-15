@@ -6,6 +6,7 @@ import { OperatorJourney } from "@/components/illustrations/OperatorJourney";
 import { BlueprintPullQuote } from "@/components/primitives/BlueprintPullQuote";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
+import { IndexCard } from "@/components/cards/IndexCard";
 import { AboutPrinciples } from "./AboutPrinciples";
 import { AboutUsMap } from "./AboutUsMap";
 
@@ -256,17 +257,17 @@ export default function AboutPage() {
           fourteen specialists, each running their own discipline within the
           Organic Growth Engine.
         </p>
-        <div className="team-rebrand-grid">
+        <div className="team-index-grid">
           {TEAM_EXTRAS.map((m) => (
-            <article key={m.name} className="team-card">
-              <div className="team-card-monogram" aria-hidden="true">
-                {m.monogram}
-              </div>
-              <p className="team-card-name">{m.name}</p>
-              <p className="team-card-title">{m.title}</p>
-              <p className="team-card-location">{m.location}</p>
-              <p className="team-card-specialty">{m.specialty}</p>
-            </article>
+            <IndexCard
+              key={m.name}
+              category="Senior operator"
+              monogram={m.monogram}
+              name={m.name}
+              title={m.title}
+              location={m.location}
+              specialty={m.specialty}
+            />
           ))}
         </div>
         <div className="team-rebrand-statsbar" style={{ marginTop: 48 }}>

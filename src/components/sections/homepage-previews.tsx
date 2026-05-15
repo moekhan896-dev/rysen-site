@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
+import { TechDocCard } from "@/components/cards/TechDocCard";
+import { DataRow } from "@/components/cards/DataRow";
 import { EngineArchitecture } from "@/components/illustrations/EngineArchitecture";
 import { ScalesOfJustice } from "@/components/illustrations/ScalesOfJustice";
 import { MedicalCaduceus } from "@/components/illustrations/MedicalCaduceus";
@@ -10,16 +12,27 @@ import { ContinueReading } from "@/components/primitives/ContinueReading";
    3. WHO RUNS RYSEN PREVIEW (ink)
    ============================================================ */
 
-const CREDENTIALS = [
+const CREDENTIALS: ReadonlyArray<{
+  specId: string;
+  category: string;
+  title: string;
+  desc: string;
+}> = [
   {
+    specId: "OPS-01",
+    category: "Founders",
     title: "Brand operators",
     desc: "Senior team founded Quattro Labs, The Honest Plumbers, and grew Madison Clark — an AI persona — to 100M+ views in 60 days.",
   },
   {
+    specId: "OPS-02",
+    category: "Backgrounds",
     title: "Senior pedigrees",
     desc: "Strategists with Salesforce, Roku, big-agency operator backgrounds. Ross School of Business. NASA recognition.",
   },
   {
+    specId: "OPS-03",
+    category: "In-house",
     title: "Data science team",
     desc: "An in-house team builds custom attribution dashboards, runs cohort analysis, develops predictive models per client.",
   },
@@ -27,7 +40,11 @@ const CREDENTIALS = [
 
 export function WhoRunsRysenPreview() {
   return (
-    <section className="preview-section preview-section--ink" aria-label="Who runs Rysen">
+    <section
+      className="preview-section preview-section--ink"
+      aria-label="Who runs Rysen"
+      data-context="ink"
+    >
       <div className="section-corner-mark">
         <AmbientTriangle size={16} />
       </div>
@@ -44,17 +61,22 @@ export function WhoRunsRysenPreview() {
           Most marketing agencies are run by people who have never built a
           brand. Rysen is different. Our senior team has founded and operated
           brands of their own — and brings that operator perspective to every
-          client engagement, backed by an in-house data science team.
+          client engagement, backed by an{" "}
+          <Link href="/how-we-measure" className="text-link">
+            in-house data science team
+          </Link>
+          .
         </p>
-        <div className="founder-operator-cards" style={{ marginTop: 32 }}>
+        <div className="who-runs-grid">
           {CREDENTIALS.map((c) => (
-            <article key={c.title} className="founder-operator-card">
-              <div className="founder-operator-card-mark">
-                <SignalTriangle size={14} decorative />
-              </div>
-              <h3 className="founder-operator-card-title">{c.title}</h3>
-              <p className="founder-operator-card-desc">{c.desc}</p>
-            </article>
+            <TechDocCard
+              key={c.specId}
+              specId={c.specId}
+              category={c.category}
+              title={c.title}
+              description={c.desc}
+              context="ink"
+            />
           ))}
         </div>
         <ContinueReading href="/about" label="Read about the leadership" context="ink" />
@@ -120,7 +142,11 @@ const TEN_COMPONENTS: ReadonlyArray<{ name: string; desc: string }> = [
 
 export function TenComponentsPreview() {
   return (
-    <section className="preview-section preview-section--paper" aria-label="The ten components">
+    <section
+      className="preview-section preview-section--paper"
+      aria-label="The ten components"
+      data-context="paper"
+    >
       <div className="section-corner-mark">
         <AmbientTriangle size={16} />
       </div>
@@ -137,20 +163,16 @@ export function TenComponentsPreview() {
           Each component has its own playbook, its own team, and its own data
           dashboard. They run together as a system. Here&apos;s the index.
         </p>
-        <ol className="ten-components-list" start={1}>
+        <div className="ten-components-rows">
           {TEN_COMPONENTS.map((c, i) => (
-            <li key={c.name} className="ten-components-item">
-              <span className="ten-components-number">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="ten-components-body">
-                <h3 className="ten-components-name">{c.name}</h3>
-                <p className="ten-components-desc">{c.desc}</p>
-              </div>
-              <SignalTriangle size={14} className="ten-components-mark" decorative />
-            </li>
+            <DataRow
+              key={c.name}
+              number={String(i + 1).padStart(2, "0")}
+              title={c.name}
+              description={c.desc}
+            />
           ))}
-        </ol>
+        </div>
         <ContinueReading href="/services" label="Explore all ten components" context="paper" />
       </div>
     </section>
@@ -162,6 +184,7 @@ export function TenComponentsPreview() {
    ============================================================ */
 
 const FEATURED_CASES: ReadonlyArray<{
+  specId: string;
   href: string;
   badge: string;
   firm: string;
@@ -169,10 +192,12 @@ const FEATURED_CASES: ReadonlyArray<{
   stats: ReadonlyArray<{ value: string; label: string }>;
 }> = [
   {
+    specId: "CS-001",
     href: "/case-studies/aws-law-firm",
     badge: "Legal · Probate · Tampa, FL",
     firm: "AWS Law Firm",
-    challenge: "Tampa probate firm with two decades of experience but no online presence. From page two to position one.",
+    challenge:
+      "Tampa probate firm with two decades of experience but no online presence. From page two to position one.",
     stats: [
       { value: "+240%", label: "consultations" },
       { value: "#1", label: "priority queries" },
@@ -180,21 +205,25 @@ const FEATURED_CASES: ReadonlyArray<{
     ],
   },
   {
+    specId: "CS-002",
     href: "/case-studies/tyler-family-law",
     badge: "Legal · Divorce · Atlanta, GA",
     firm: "Tyler Family Law",
-    challenge: "Three other agencies said ranking against national divorce-firm chains was impossible. Eight months later, #1 with a 4-week waitlist.",
+    challenge:
+      "Three other agencies said ranking against national divorce-firm chains was impossible. Eight months later, #1 with a 4-week waitlist.",
     stats: [
       { value: "+1,240%", label: "lead growth" },
       { value: "#1", label: "priority queries" },
-      { value: "4-week", label: "intake waitlist" },
+      { value: "4-wk", label: "intake waitlist" },
     ],
   },
   {
+    specId: "CS-003",
     href: "/case-studies/hartman-dermatology",
     badge: "Medical · Dermatology · Miami, FL",
     firm: "Hartman Dermatology",
-    challenge: "Miami cosmetic dermatology practice with strong clinical reputation but page-two visibility. Now Miami&apos;s go-to.",
+    challenge:
+      "Miami cosmetic dermatology practice with strong clinical reputation but page-two visibility. Now Miami's go-to.",
     stats: [
       { value: "+78%", label: "consultations" },
       { value: "#1", label: "Miami queries" },
@@ -203,9 +232,15 @@ const FEATURED_CASES: ReadonlyArray<{
   },
 ];
 
+const ENGAGEMENT_STATS = "30+ active engagements · Average tenure: 18 months · Median revenue lift: 240%";
+
 export function SelectedEngagementsPreview() {
   return (
-    <section className="preview-section preview-section--paper" aria-label="Selected engagements">
+    <section
+      className="preview-section preview-section--paper"
+      aria-label="Selected engagements"
+      data-context="paper"
+    >
       <div className="section-corner-mark">
         <AmbientTriangle size={16} />
       </div>
@@ -219,35 +254,30 @@ export function SelectedEngagementsPreview() {
           Real revenue, attributed to source.
         </h2>
         <p className="preview-section-intro">
-          Selected engagements from active client work. Each represents a
-          specific challenge, a specific approach, and a specific measurable
-          result reported in dollars rather than impressions.
+          Selected engagements from{" "}
+          <Link href="/case-studies" className="text-link">
+            active client work
+          </Link>
+          . Each represents a specific challenge, a{" "}
+          <Link href="/methodology" className="text-link">
+            specific approach
+          </Link>
+          , and a specific measurable result reported in dollars rather than
+          impressions.
         </p>
-        <div className="featured-cases-grid">
+        <div className="engagement-stats-strip">{ENGAGEMENT_STATS}</div>
+        <div className="selected-cases-grid">
           {FEATURED_CASES.map((c) => (
-            <Link key={c.href} href={c.href} className="featured-case-card">
-              <div className="featured-case-corner">
-                <SignalTriangle size={14} decorative />
-              </div>
-              <div className="featured-case-badge">{c.badge}</div>
-              <h3 className="featured-case-firm">{c.firm}</h3>
-              <p
-                className="featured-case-challenge"
-                dangerouslySetInnerHTML={{ __html: c.challenge }}
-              />
-              <div className="featured-case-stats">
-                {c.stats.map((s) => (
-                  <div key={s.label} className="featured-case-stat">
-                    <span className="featured-case-stat-value">{s.value}</span>
-                    <span className="featured-case-stat-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-              <span className="featured-case-cta">
-                Read case study
-                <SignalTriangle size={9} decorative />
-              </span>
-            </Link>
+            <TechDocCard
+              key={c.specId}
+              specId={c.specId}
+              category={c.badge}
+              title={c.firm}
+              description={c.challenge}
+              metrics={c.stats}
+              href={c.href}
+              linkLabel="Read full case study"
+            />
           ))}
         </div>
         <ContinueReading href="/case-studies" label="View all case studies" context="paper" />
@@ -260,19 +290,28 @@ export function SelectedEngagementsPreview() {
    8. DATA SCIENCE EDGE PREVIEW (ink)
    ============================================================ */
 
-const DATA_TILES: ReadonlyArray<{ title: string; desc: string }> = [
-  { title: "Custom attribution", desc: "Per-client dashboards mapping organic to revenue." },
-  { title: "Custom rank tracking", desc: "Daily refresh, anomaly flagging, query-weighted." },
-  { title: "Call tracking", desc: "Dynamic number insertion, source attribution, quality scoring." },
-  { title: "Revenue attribution", desc: "Direct CRM integration. Channel-to-revenue." },
-  { title: "A/B testing", desc: "Statistical rigor on landing pages, intake, content." },
-  { title: "Cohort analysis", desc: "Acquisition channel → LTV, segment by segment." },
-  { title: "Predictive modeling", desc: "Forward-looking opportunity briefings." },
+const DATA_TILES: ReadonlyArray<{
+  specId: string;
+  category: string;
+  title: string;
+  desc: string;
+}> = [
+  { specId: "DS-01", category: "System 01", title: "Custom attribution", desc: "Per-client dashboards mapping organic to revenue." },
+  { specId: "DS-02", category: "System 02", title: "Custom rank tracking", desc: "Daily refresh, anomaly flagging, query-weighted." },
+  { specId: "DS-03", category: "System 03", title: "Call tracking", desc: "Dynamic number insertion, source attribution, quality scoring." },
+  { specId: "DS-04", category: "System 04", title: "Revenue attribution", desc: "Direct CRM integration. Channel-to-revenue." },
+  { specId: "DS-05", category: "System 05", title: "A/B testing", desc: "Statistical rigor on landing pages, intake, content." },
+  { specId: "DS-06", category: "System 06", title: "Cohort analysis", desc: "Acquisition channel → LTV, segment by segment." },
+  { specId: "DS-07", category: "System 07", title: "Predictive modeling", desc: "Forward-looking opportunity briefings." },
 ];
 
 export function DataScienceEdgePreview() {
   return (
-    <section className="preview-section preview-section--ink" aria-label="The data science edge">
+    <section
+      className="preview-section preview-section--ink"
+      aria-label="The data science edge"
+      data-context="ink"
+    >
       <div className="section-corner-mark">
         <AmbientTriangle size={16} />
       </div>
@@ -291,12 +330,16 @@ export function DataScienceEdgePreview() {
           channel measured. Every dollar attributed. Every decision sourced
           from real numbers.
         </p>
-        <div className="data-tiles-grid">
+        <div className="data-tiles-grid-cards">
           {DATA_TILES.map((t) => (
-            <article key={t.title} className="data-tile">
-              <h3 className="data-tile-title">{t.title}</h3>
-              <p className="data-tile-desc">{t.desc}</p>
-            </article>
+            <TechDocCard
+              key={t.specId}
+              specId={t.specId}
+              category={t.category}
+              title={t.title}
+              description={t.desc}
+              context="ink"
+            />
           ))}
         </div>
         <ContinueReading href="/how-we-measure" label="Read how we measure" context="ink" />
@@ -330,7 +373,7 @@ export function VerticalsWeServe() {
           challenges of legal or medical practice marketing — and they&apos;re
           tuned differently.
         </p>
-        <div className="verticals-grid">
+        <div className="verticals-grid verticals-grid--3up">
           <article className="vertical-card">
             <div className="vertical-card-art">
               <ScalesOfJustice />
@@ -366,6 +409,28 @@ export function VerticalsWeServe() {
             </ul>
             <Link href="/medical" className="vertical-card-cta">
               Read the Medical Playbook
+              <SignalTriangle size={9} decorative />
+            </Link>
+          </article>
+          <article className="vertical-card vertical-card--special">
+            <div className="vertical-card-art vertical-card-art--placeholder">
+              <span aria-hidden="true" className="vertical-card-art-mark">+</span>
+            </div>
+            <div className="section-eyebrow" style={{ marginBottom: 8 }}>
+              <SignalTriangle size={8} decorative />
+              <span className="eyebrow-text">Special engagements</span>
+            </div>
+            <h3 className="vertical-card-heading">Beyond legal &amp; medical.</h3>
+            <ul className="signal-list vertical-card-bullets">
+              <li>Brand-building outside the two core verticals</li>
+              <li>Operator-led growth demonstrations</li>
+              <li>Madison Clark — the AI persona — is one such engagement</li>
+            </ul>
+            <Link
+              href="/case-studies/madison-clark"
+              className="vertical-card-cta"
+            >
+              Read the Madison Clark case
               <SignalTriangle size={9} decorative />
             </Link>
           </article>

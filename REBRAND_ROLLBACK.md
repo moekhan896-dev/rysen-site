@@ -33,3 +33,11 @@ git checkout -b restore-from-pre-architecture
 git push origin restore-from-pre-architecture
 ```
 Points at commit `059f271` — the state immediately after Sessions 23–25 finished but before the Session 26 architecture restructure (new deep pages, blueprint illustrations, content redistribution).
+
+## Option 5: Rollback to v2.6-pre-polish (pre-Session-27)
+```
+git checkout v2.6-pre-polish
+git checkout -b restore-from-pre-polish
+git push origin restore-from-pre-polish
+```
+Points at commit `722dc02` — the state immediately after Session 26 Phase 2 (content migration + 12-section homepage + /services/ /case-studies/ /methodology expansions + breadcrumbs + page transitions) but before the Session 27 polish (hero fit, yellow readability, custom card architecture, scroll reveals, interlink bridges).

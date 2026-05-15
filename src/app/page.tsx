@@ -3,9 +3,11 @@
 import { useEffect } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
+import { DividerWithMark } from "@/components/brand/DividerWithMark";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { AuditForm } from "@/components/sections/AuditForm";
 import { BrandsParallax } from "@/components/sections/BrandsParallax";
+import { FirmAtAGlance } from "@/components/sections/FirmAtAGlance";
 import { HeroSearchAnimation } from "@/components/sections/HeroSearchAnimation";
 import { CaseStudySlider } from "@/components/sections/CaseStudySlider";
 import { CredibilityBand } from "@/components/sections/CredibilityBand";
@@ -30,12 +32,8 @@ import { WhyUsClosing } from "@/components/sections/WhyUsClosing";
 import { TeamFilter } from "@/components/sections/TeamFilter";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 
-const HEADLINE_LINES: ReadonlyArray<string> = [
-  "A boutique agency for law firms",
-  "and medical practices that intend",
-  "to organically dominate",
-  "their market.",
-];
+const HERO_HEADLINE =
+  "A boutique agency for law firms and medical practices that intend to organically dominate their market.";
 
 const HERO_CLARITY: ReadonlyArray<{ label: string; value: string }> = [
   { label: "What we build", value: "Organic Growth Engines" },
@@ -652,11 +650,7 @@ export default function HomePage() {
               initial="hidden"
               animate="visible"
             >
-              {HEADLINE_LINES.map((line) => (
-                <span key={line} className="hero-rebrand-headline-line">
-                  {line}
-                </span>
-              ))}
+              {HERO_HEADLINE}
             </motion.h1>
 
             <motion.p
@@ -710,6 +704,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* === LEGITIMACY EVIDENCE (Session 25 — front-loaded so a prospect
+              sees real-firm signals within the first 1-2 scrolls) === */}
+
+      <FirmAtAGlance />
+
+      <FounderSection />
+
+      <RealOperations />
+
+      <DividerWithMark context="paper" />
+
+      <TeamFilter />
+
+      <DividerWithMark context="paper" />
 
       <CredibilityBand />
 
@@ -1130,23 +1138,22 @@ export default function HomePage() {
       {/* === MEDICAL PLAYBOOK (Session 16) === */}
       <MedicalPlaybook />
 
-      {/* === FOUNDER SECTION (Detroit-anchored, with career timeline) === */}
-      <FounderSection />
+      {/* FounderSection moved to top of page (Session 25 legitimacy front-load) */}
 
       {/* === THOUGHT LEADERSHIP (published thinking) === */}
       <ThoughtLeadership />
 
+      <DividerWithMark context="paper" />
+
       {/* === BRANDS THE FOUNDER BUILT (3D parallax cards) === */}
       <BrandsParallax />
 
-      {/* === TEAM SECTION (filterable) === */}
-      <TeamFilter />
+      {/* TeamFilter moved to top of page (Session 25 legitimacy front-load) */}
 
       {/* === INSIDE THE STUDIO (Detroit HQ illustrated scene) === */}
       <InsideStudio />
 
-      {/* === REAL OPERATIONS (Session 17 — workspace + tool mockups + workflow) === */}
-      <RealOperations />
+      {/* RealOperations moved to top of page (Session 25 legitimacy front-load) */}
 
       {/* === TESTIMONIALS SECTION (carousel) === */}
       <TestimonialCarousel />

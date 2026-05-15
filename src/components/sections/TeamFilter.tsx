@@ -1,279 +1,145 @@
-"use client";
+import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
+import { SignalTriangle } from "@/components/brand/SignalTriangle";
 
-import { useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-
-type Group = "leadership" | "data" | "seo" | "content-account";
-type Location = "DET" | "REMOTE";
-
-type TeamMember = {
-  readonly name: string;
-  readonly role: string;
-  readonly specialty: string;
-  readonly bio: string;
-  readonly group: Group;
-  readonly location: Location;
-};
-
-const teamMembers: ReadonlyArray<TeamMember> = [
-  {
-    name: "Art Khan",
-    role: "Founder & Managing Partner",
-    specialty: "Strategy",
-    bio: "Ross BBA. ex-Salesforce, ex-Roku. Founded three Instagram-native brands before Rysen.",
-    group: "leadership",
-    location: "DET",
-  },
-  {
-    name: "David Reichert",
-    role: "Partner & Head of Strategy",
-    specialty: "Strategy",
-    bio: "20+ years in digital marketing leadership across consumer and B2B. Former VP at Brafton.",
-    group: "leadership",
-    location: "DET",
-  },
-  {
-    name: "Priya Mehta",
-    role: "Lead Data Scientist",
-    specialty: "Attribution",
-    bio: "Stanford Statistics. Builds the attribution models that translate marketing activity into client revenue.",
-    group: "data",
-    location: "DET",
-  },
-  {
-    name: "Marcus Chen",
-    role: "Senior Data Scientist",
-    specialty: "ML Models",
-    bio: "Carnegie Mellon ML. Specializes in search ranking signal analysis and forecast modeling.",
-    group: "data",
-    location: "REMOTE",
-  },
-  {
-    name: "Sofia Vasquez",
-    role: "Data Scientist",
-    specialty: "Dashboards",
-    bio: "MIT MBA. Designs the dashboards every Rysen client sees in their weekly meetings.",
-    group: "data",
-    location: "DET",
-  },
-  {
-    name: "Jordan Bell",
-    role: "Data Engineer",
-    specialty: "Infrastructure",
-    bio: "Maintains Rysen's data infrastructure. ex-Stripe, ex-Notion.",
-    group: "data",
-    location: "DET",
-  },
-  {
-    name: "Elena Markov",
-    role: "Director of SEO",
-    specialty: "Legal SEO",
-    bio: "12 years optimizing for local-intent queries. Specializes in legal vertical.",
-    group: "seo",
-    location: "DET",
-  },
-  {
-    name: "Hassan Reyes",
-    role: "Senior SEO Strategist",
-    specialty: "Medical SEO",
-    bio: "Medical and dental SEO specialist. Former in-house at a major California dermatology group.",
-    group: "seo",
-    location: "REMOTE",
-  },
-  {
-    name: "Ben Park",
-    role: "Senior SEO Strategist",
-    specialty: "GMB",
-    bio: "GMB optimization expert. Has worked on 200+ Google Business Profiles.",
-    group: "seo",
-    location: "DET",
-  },
-  {
-    name: "Lila Okonkwo",
-    role: "SEO Strategist",
-    specialty: "Schema",
-    bio: "Technical SEO and schema markup specialist.",
-    group: "seo",
-    location: "DET",
-  },
-  {
-    name: "Connor Fitzgerald",
-    role: "SEO Strategist",
-    specialty: "Citations",
-    bio: "Citation-building and off-page authority specialist.",
-    group: "seo",
-    location: "DET",
-  },
-  {
-    name: "Mia Tanaka",
-    role: "SEO Strategist",
-    specialty: "Content",
-    bio: "Local-intent content writer.",
-    group: "seo",
-    location: "DET",
-  },
-  {
-    name: "Theo Brennan",
-    role: "SEO Strategist",
-    specialty: "Keyword Research",
-    bio: "Competitive analysis and keyword strategy.",
-    group: "seo",
-    location: "REMOTE",
-  },
-  {
-    name: "Nora Bianchi",
-    role: "SEO Strategist",
-    specialty: "Analytics",
-    bio: "Analytics implementation and reporting.",
-    group: "seo",
-    location: "DET",
-  },
-  {
-    name: "Amara Singh",
-    role: "Senior Content Strategist",
-    specialty: "Authority Content",
-    bio: "Long-form authority content specialist for legal and medical clients.",
-    group: "content-account",
-    location: "DET",
-  },
-  {
-    name: "Felix Reyna",
-    role: "Content Strategist",
-    specialty: "Newsletters",
-    bio: "Newsletter strategy and lifecycle content.",
-    group: "content-account",
-    location: "REMOTE",
-  },
-  {
-    name: "Ruth Ayala",
-    role: "Senior Account Manager / GMB Specialist",
-    specialty: "GMB & Reviews",
-    bio: "Runs weekly client meetings. Specializes in GMB optimization and reputation management.",
-    group: "content-account",
-    location: "DET",
-  },
-  {
-    name: "Tomas Whitfield",
-    role: "Account Manager / GMB Specialist",
-    specialty: "Account Management",
-    bio: "Client-facing GMB and reputation specialist.",
-    group: "content-account",
-    location: "DET",
-  },
-];
-
-const filters: ReadonlyArray<{ id: Group | "all"; label: string }> = [
-  { id: "all", label: "All" },
-  { id: "leadership", label: "Leadership" },
-  { id: "data", label: "Data Science" },
-  { id: "seo", label: "SEO" },
-  { id: "content-account", label: "Content & Account" },
-];
-
-function initials(name: string): string {
-  return name
-    .split(" ")
-    .map((p) => p[0])
-    .join("")
-    .toUpperCase();
+interface Member {
+  monogram: string;
+  name: string;
+  title: string;
+  location: string;
+  specialty: string;
 }
 
+// NOTE: These names and details are PLACEHOLDERS per Session 25 spec.
+// Replace with actual team members or remove entries before launch.
+const TEAM: ReadonlyArray<Member> = [
+  {
+    monogram: "AK",
+    name: "Art K.",
+    title: "Founder & Managing Partner",
+    location: "Detroit",
+    specialty: "Brand strategy, operator perspective",
+  },
+  {
+    monogram: "DR",
+    name: "David R.",
+    title: "Partner",
+    location: "Detroit",
+    specialty: "Account leadership, legal vertical",
+  },
+  {
+    monogram: "MS",
+    name: "Maria S.",
+    title: "Director, Medical Vertical",
+    location: "Detroit",
+    specialty: "Dermatology, dental, plastic surgery",
+  },
+  {
+    monogram: "JL",
+    name: "Jordan L.",
+    title: "Director, Data Science",
+    location: "Ann Arbor",
+    specialty: "Attribution modeling, cohort analysis",
+  },
+  {
+    monogram: "RT",
+    name: "Rachel T.",
+    title: "Senior Strategist",
+    location: "Detroit",
+    specialty: "Local SEO, GMB optimization",
+  },
+  {
+    monogram: "BK",
+    name: "Ben K.",
+    title: "Senior Strategist",
+    location: "Chicago",
+    specialty: "AI search optimization, schema",
+  },
+  {
+    monogram: "EM",
+    name: "Emily M.",
+    title: "Senior Content Strategist",
+    location: "Detroit",
+    specialty: "Authority content, long-form articles",
+  },
+  {
+    monogram: "TP",
+    name: "Tom P.",
+    title: "Senior Engineer",
+    location: "Detroit",
+    specialty: "Schema, technical SEO, web performance",
+  },
+  {
+    monogram: "SH",
+    name: "Sarah H.",
+    title: "Director, Reputation",
+    location: "Detroit",
+    specialty: "Review velocity, response operations",
+  },
+  {
+    monogram: "MC",
+    name: "Michael C.",
+    title: "Senior PR Strategist",
+    location: "New York",
+    specialty: "Press outreach, podcast placements",
+  },
+  {
+    monogram: "AT",
+    name: "Aisha T.",
+    title: "Senior Analyst",
+    location: "Detroit",
+    specialty: "Revenue attribution, CRM integration",
+  },
+  {
+    monogram: "JC",
+    name: "James C.",
+    title: "Senior Engineer",
+    location: "Detroit",
+    specialty: "Custom rank tracking, internal tools",
+  },
+];
+
 export function TeamFilter() {
-  const [active, setActive] = useState<Group | "all">("all");
-
-  const filtered = useMemo(
-    () =>
-      teamMembers
-        .map((m, originalIdx) => ({ ...m, originalIdx }))
-        .filter((m) => active === "all" || m.group === active),
-    [active]
-  );
-
-  const detCount = teamMembers.filter((m) => m.location === "DET").length;
-  const remoteCount = teamMembers.length - detCount;
-  const specialtyCount = new Set(teamMembers.map((m) => m.specialty)).size;
-
   return (
-    <section className="team-section" id="team">
-      <div className="team-inner">
-        <div className="section-2-eyebrow">The team</div>
-        <h2 className="section-2-h2">
-          Eighteen operators{" "}
-          <span className="accent-text">behind every result.</span>
-        </h2>
-        <p className="team-subhead">
-          A small team by design. Data scientists, SEO strategists, content
-          specialists, and account leads — each hired for depth in one craft,
-          not spread across many.
-        </p>
+    <section className="team-rebrand" aria-label="The team">
+      <div className="section-corner-mark">
+        <AmbientTriangle size={16} />
+      </div>
 
-        <div className="team-us-badge" aria-label="Team origin">
-          <span className="team-us-flag" aria-hidden="true">🇺🇸</span>
-          <span className="team-us-text">
-            100% US-based · Most in Detroit · No outsourced roles
-          </span>
+      <div className="team-rebrand-inner">
+        <div className="section-eyebrow">
+          <SignalTriangle size={10} decorative />
+          <span className="eyebrow-rule" aria-hidden="true" />
+          <span className="eyebrow-text">The team</span>
         </div>
 
-        <div className="team-filters" role="tablist">
-          {filters.map((f) => (
-            <button
-              key={f.id}
-              type="button"
-              role="tab"
-              aria-selected={active === f.id}
-              className={`team-filter-pill${active === f.id ? " is-active" : ""}`}
-              onClick={() => setActive(f.id)}
-            >
-              {f.label}
-            </button>
+        <h2 className="team-rebrand-heading">
+          Senior operators. Mostly in Detroit.
+        </h2>
+
+        <p className="team-rebrand-intro">
+          Eighteen senior team members, all US-based, most in Detroit. No
+          outsourced content. No overseas contractors. No junior staff running
+          senior accounts. The team that runs your engagement is the team you
+          meet on the audit call.
+        </p>
+
+        <div className="team-rebrand-grid">
+          {TEAM.map((m) => (
+            <article key={m.name} className="team-card">
+              <div className="team-card-monogram" aria-hidden="true">
+                {m.monogram}
+              </div>
+              <p className="team-card-name">{m.name}</p>
+              <p className="team-card-title">{m.title}</p>
+              <p className="team-card-location">{m.location}</p>
+              <p className="team-card-specialty">{m.specialty}</p>
+            </article>
           ))}
         </div>
 
-        <div className="team-grid team-grid-filter">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((member) => (
-              <motion.article
-                key={member.name}
-                layout
-                initial={{ opacity: 0, scale: 0.94 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.94 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="team-card team-card-filter"
-              >
-                <span
-                  className={`team-loc-badge${
-                    member.location === "REMOTE"
-                      ? " team-loc-remote"
-                      : " team-loc-det"
-                  }`}
-                  aria-label={
-                    member.location === "DET"
-                      ? "Detroit"
-                      : "Remote"
-                  }
-                >
-                  {member.location}
-                </span>
-                <div
-                  className={`team-avatar team-avatar-grad-${member.originalIdx % 6}`}
-                  aria-hidden="true"
-                >
-                  {initials(member.name)}
-                </div>
-                <div className="team-name">{member.name}</div>
-                <div className="team-role">{member.role}</div>
-                <div className="team-specialty">{member.specialty}</div>
-                <div className="team-rule" aria-hidden="true"></div>
-                <div className="team-bio">{member.bio}</div>
-              </motion.article>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        <div className="team-stat-bar">
-          {teamMembers.length} operators · {detCount} in Detroit ·{" "}
-          {remoteCount} remote · {specialtyCount} specialties
+        <div className="team-rebrand-statsbar">
+          18 total team members · 100% US-based · 14 in Detroit · 6+ years
+          average tenure
         </div>
       </div>
     </section>

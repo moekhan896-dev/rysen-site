@@ -12817,16 +12817,35 @@ select:focus-visible,
 .hero-rebrand-headline {
   font-family: var(--font-fraunces), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(40px, 5.5vw, 80px);
-  line-height: 1.05;
+  font-size: clamp(36px, 5vw, 76px);
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--paper-text);
   font-variation-settings: 'opsz' 80;
   margin: 0;
+  max-width: 14ch;
+  text-wrap: balance;
 }
 
+/* Legacy line-break wrapper kept for any remaining static markup */
 .hero-rebrand-headline-line {
   display: block;
+}
+
+@media (max-width: 1024px) {
+  .hero-rebrand-headline {
+    font-size: clamp(32px, 7vw, 56px);
+    line-height: 1.1;
+    max-width: 18ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-rebrand-headline {
+    font-size: clamp(30px, 8vw, 44px);
+    line-height: 1.12;
+    max-width: 100%;
+  }
 }
 
 .hero-rebrand-subhead {
@@ -12975,10 +12994,6 @@ select:focus-visible,
 
   .hero-rebrand-content {
     gap: 32px;
-  }
-
-  .hero-rebrand-headline {
-    font-size: clamp(36px, 8vw, 56px);
   }
 
   .hero-clarity-grid {
@@ -13515,3 +13530,678 @@ path.oge-connection {
   stroke: rgba(245, 197, 24, 0.2) !important;
 }
 
+/* ============================================================
+   === SESSION 25 — FIRM AT A GLANCE + DIVIDERS + LEGITIMACY ===
+   ============================================================ */
+
+/* ---- FirmAtAGlance section ---- */
+
+.firm-at-a-glance {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink-text);
+  padding: 100px 64px 80px;
+  overflow: hidden;
+}
+
+.firm-at-a-glance .section-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.firm-at-a-glance-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.firm-at-a-glance-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  color: var(--ink-text);
+  margin: 16px 0 24px 0;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.firm-at-a-glance-intro {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 720px;
+  margin: 0 0 64px 0;
+}
+
+.glance-table {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+
+.glance-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+
+.glance-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--signal);
+  letter-spacing: 0;
+  text-transform: none;
+  padding-top: 4px;
+}
+
+.glance-value {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--ink-text);
+  letter-spacing: -0.008em;
+}
+
+.glance-meta {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  letter-spacing: 0;
+}
+
+.cadence-day {
+  display: inline-block;
+  margin-right: 16px;
+  margin-top: 4px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink-muted);
+  padding: 2px 8px;
+  background: var(--paper-elevated);
+  border-radius: var(--radius-1);
+}
+
+.glance-closing {
+  margin-top: 48px;
+}
+
+.glance-rule {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: 0 0 32px 0;
+}
+
+.glance-closing p {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+  max-width: 720px;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .firm-at-a-glance {
+    padding: 80px 32px 60px;
+  }
+  .glance-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px 0;
+  }
+  .glance-label {
+    font-size: 12px;
+  }
+  .glance-value {
+    font-size: 19px;
+  }
+  .cadence-day {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .firm-at-a-glance {
+    padding: 64px 20px 48px;
+  }
+  .firm-at-a-glance-heading {
+    font-size: clamp(28px, 6vw, 40px);
+  }
+}
+
+/* ---- Divider with mark (Session 25 variant) ---- */
+
+.divider-with-mark--paper,
+.divider-with-mark--ink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 64px;
+  position: relative;
+  color: transparent;
+}
+
+.divider-with-mark--paper::before,
+.divider-with-mark--paper::after,
+.divider-with-mark--ink::before,
+.divider-with-mark--ink::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  max-width: 80px;
+  background: var(--signal);
+  opacity: 0.4;
+}
+
+.divider-with-mark--paper::before,
+.divider-with-mark--ink::before {
+  margin-right: 16px;
+}
+
+.divider-with-mark--paper::after,
+.divider-with-mark--ink::after {
+  margin-left: 16px;
+}
+
+@media (max-width: 768px) {
+  .divider-with-mark--paper,
+  .divider-with-mark--ink {
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+}
+
+/* ============================================================
+   SESSION 25 — FOUNDER OPERATORS CARDS (3 credentials)
+   ============================================================ */
+
+.founder-operator-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.founder-operator-card {
+  position: relative;
+  padding: 32px;
+  background: var(--ink-elevated);
+  border: 0.5px solid var(--rule-ink);
+  border-radius: var(--radius-0);
+  transition: border-color var(--dur-base) var(--ease-settle);
+}
+
+.founder-operator-card:hover {
+  border-color: rgba(245, 197, 24, 0.4);
+}
+
+.founder-operator-card-mark {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  opacity: 0.6;
+}
+
+.founder-operator-card-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--paper-text);
+  margin: 0 0 12px 0;
+  padding-right: 24px;
+}
+
+.founder-operator-card-desc {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--paper-muted);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .founder-operator-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   SESSION 25 — REAL OPERATIONS REBRAND (5-day cards)
+   ============================================================ */
+
+.real-ops-rebrand {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink-text);
+  padding: 100px 64px 80px;
+}
+
+.real-ops-rebrand-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.real-ops-rebrand .section-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.real-ops-rebrand-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  color: var(--ink-text);
+  margin: 16px 0 24px 0;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.real-ops-rebrand-intro {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 720px;
+  margin: 0 0 48px 0;
+}
+
+.real-ops-rebrand-cadence-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.real-ops-day-card {
+  position: relative;
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-0);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color var(--dur-base) var(--ease-settle);
+}
+
+.real-ops-day-card.is-today {
+  border: 1px solid var(--signal);
+  background: linear-gradient(180deg, rgba(245, 197, 24, 0.08) 0%, var(--paper-elevated) 80%);
+}
+
+.real-ops-day-eyebrow {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0;
+  color: var(--signal);
+}
+
+.real-ops-day-title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--ink-text);
+  margin: 0;
+}
+
+.real-ops-day-desc {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.real-ops-day-deliverable {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+.real-ops-day-time {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.real-ops-day-today-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--signal);
+  color: var(--ink);
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: var(--radius-2);
+}
+
+.real-ops-rebrand-coda {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.real-ops-rebrand-coda-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 720px;
+  margin: 0;
+}
+
+.real-ops-rebrand-workweek {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--ink-faint);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .real-ops-rebrand {
+    padding: 80px 32px 60px;
+  }
+  .real-ops-rebrand-cadence-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .real-ops-rebrand {
+    padding: 64px 20px 48px;
+  }
+}
+
+/* ============================================================
+   SESSION 25 — TEAM FILTER REBRAND (monogram cards)
+   ============================================================ */
+
+.team-rebrand {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink-text);
+  padding: 100px 64px 80px;
+}
+
+.team-rebrand-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-rebrand .section-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.team-rebrand-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  color: var(--ink-text);
+  margin: 16px 0 24px 0;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.team-rebrand-intro {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 720px;
+  margin: 0 0 48px 0;
+}
+
+.team-rebrand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.team-card {
+  background: var(--paper-elevated);
+  border: 0.5px solid var(--rule);
+  border-radius: var(--radius-0);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color var(--dur-base) var(--ease-settle);
+}
+
+.team-card:hover {
+  border-color: rgba(245, 197, 24, 0.4);
+}
+
+.team-card-monogram {
+  width: 56px;
+  height: 56px;
+  background: var(--signal-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--ink-text);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.team-card-name {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--ink-text);
+  margin: 0;
+}
+
+.team-card-title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.team-card-location {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--signal);
+  margin: 4px 0 0 0;
+}
+
+.team-card-specialty {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+  margin: 4px 0 0 0;
+}
+
+.team-rebrand-statsbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .team-rebrand-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .team-rebrand {
+    padding: 80px 32px 60px;
+  }
+  .team-rebrand-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .team-rebrand {
+    padding: 64px 20px 48px;
+  }
+  .team-rebrand-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   SESSION 25 — FOUNDER REBRAND SECTION (ink background)
+   ============================================================ */
+
+.founder-rebrand {
+  position: relative;
+  background: var(--ink);
+  color: var(--paper-text);
+  padding: 100px 64px 80px;
+}
+
+.founder-rebrand .section-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.founder-rebrand-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.founder-rebrand-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  color: var(--paper-text);
+  margin: 16px 0 24px 0;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.founder-rebrand-lead {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--paper-muted);
+  max-width: 720px;
+  margin: 0 0 48px 0;
+}
+
+.founder-rebrand-quote {
+  margin: 48px 0 0 0;
+  padding: 0;
+  max-width: 880px;
+  border: 0;
+}
+
+.founder-rebrand-quote p {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(24px, 2.8vw, 36px);
+  line-height: 1.3;
+  color: var(--paper-text);
+  margin: 0 0 16px 0;
+  font-style: italic;
+}
+
+.founder-rebrand-attribution {
+  display: block;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  font-style: normal;
+  color: var(--paper-muted);
+}
+
+@media (max-width: 1024px) {
+  .founder-rebrand {
+    padding: 80px 32px 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .founder-rebrand {
+    padding: 64px 20px 48px;
+  }
+}

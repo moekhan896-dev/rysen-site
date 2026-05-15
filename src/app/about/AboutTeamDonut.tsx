@@ -82,7 +82,7 @@ export function AboutTeamDonut() {
             x="110"
             y="128"
             textAnchor="middle"
-            fontFamily="Geist Mono, monospace"
+            fontFamily="Geist, system-ui, sans-serif"
             fontSize="10"
             letterSpacing="1.2"
             fill="var(--text-muted)"

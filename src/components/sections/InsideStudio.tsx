@@ -186,7 +186,7 @@ export function InsideStudio() {
                 x="266"
                 y="206"
                 fontSize="6"
-                fontFamily="Geist Mono, monospace"
+                fontFamily="Geist, system-ui, sans-serif"
                 fill="#1d4ed8"
               >
                 +12
@@ -266,7 +266,7 @@ export function InsideStudio() {
                   x="474"
                   y="164"
                   fontSize="6"
-                  fontFamily="Geist Mono, monospace"
+                  fontFamily="Geist, system-ui, sans-serif"
                   fill="#595964"
                 >
                   3 metros · 6 firms
@@ -295,7 +295,7 @@ export function InsideStudio() {
                   x="566"
                   y="164"
                   fontSize="6"
-                  fontFamily="Geist Mono, monospace"
+                  fontFamily="Geist, system-ui, sans-serif"
                   fill="#595964"
                 >
                   AWS · live
@@ -324,7 +324,7 @@ export function InsideStudio() {
                   x="658"
                   y="164"
                   fontSize="6"
-                  fontFamily="Geist Mono, monospace"
+                  fontFamily="Geist, system-ui, sans-serif"
                   fill="#595964"
                 >
                   in progress
@@ -354,7 +354,7 @@ export function InsideStudio() {
                   x="474"
                   y="230"
                   fontSize="6"
-                  fontFamily="Geist Mono, monospace"
+                  fontFamily="Geist, system-ui, sans-serif"
                   fill="#595964"
                 >
                   priority active

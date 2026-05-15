@@ -38,7 +38,7 @@ function FoundedVisual() {
         x="16"
         y="21"
         textAnchor="middle"
-        fontFamily="Geist Mono, monospace"
+        fontFamily="Geist, system-ui, sans-serif"
         fontSize="8"
         fontWeight="600"
         fill="var(--text)"

@@ -110,7 +110,7 @@ export function GrowthChart() {
             textAnchor="end"
             fontSize="9"
             fill="var(--text-faint)"
-            fontFamily="Geist Mono, monospace"
+            fontFamily="Geist, system-ui, sans-serif"
           >
             {y === 0 ? "0%" : `${y.toLocaleString()}%`}
           </text>
@@ -125,7 +125,7 @@ export function GrowthChart() {
             textAnchor="middle"
             fontSize="9"
             fill="var(--text-faint)"
-            fontFamily="Geist Mono, monospace"
+            fontFamily="Geist, system-ui, sans-serif"
           >
             {p.label}
           </text>

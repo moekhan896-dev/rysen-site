@@ -15777,6 +15777,722 @@ path.oge-connection {
   color: var(--signal);
 }
 
+/* ============================================================
+   === SESSION 28 PHASE 2 — SECTION HEADING MASK REVEAL ===
+   Opt-in via the .mask-reveal modifier. The MaskRevealHeading
+   component adds .is-visible via IntersectionObserver to trigger
+   the left-to-right serif wipe. currentColor inherits from the
+   parent (ink-text or paper-text) before the transparent rule.
+   ============================================================ */
+
+.section-heading.mask-reveal,
+.mask-reveal {
+  background: linear-gradient(to right, currentColor 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: background-position 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-heading.mask-reveal.is-visible,
+.mask-reveal.is-visible {
+  background-position: 0% 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-heading.mask-reveal,
+  .mask-reveal {
+    background-position: 0% 0;
+  }
+}
+
+/* ============================================================
+   === SESSION 28 PHASE 2 — MAGAZINE-SPREAD CARDS ===
+   FeatureCard / FactCard / ProfileCard replace the older
+   TechDocCard / IndexCard / DataRow patterns. Metrics integrate
+   into description text, layouts are asymmetric, no monospace,
+   no rounded-shadow box.
+   ============================================================ */
+
+/* ---------- FeatureCard ---------- */
+
+.feature-card {
+  position: relative;
+  background: var(--paper);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-top: 2px solid var(--signal);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--dur-base) var(--ease-settle);
+}
+
+.feature-card--linked {
+  cursor: pointer;
+}
+
+.feature-card--linked:hover {
+  transform: translateY(-2px);
+}
+
+.feature-card__kicker {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--signal-text);
+  letter-spacing: 0;
+}
+
+.feature-card__title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ink-text);
+  margin: 0;
+}
+
+.feature-card__body {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 40px;
+  align-items: start;
+}
+
+.feature-card__lead {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: 580px;
+}
+
+.feature-card__lead em {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--ink-text);
+}
+
+.feature-card__lead strong,
+.feature-card__lead .inline-metric {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--ink-text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+  padding: 0 2px;
+}
+
+.feature-card__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 24px;
+  border-left: 1px solid rgba(10, 10, 10, 0.12);
+}
+
+.feature-card__sidebar-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-card__sidebar-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--signal-text);
+}
+
+.feature-card__sidebar-value {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink-text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+  line-height: 1.2;
+}
+
+.feature-card__sidebar-rule {
+  border: 0;
+  height: 1px;
+  background: rgba(10, 10, 10, 0.12);
+  margin: 8px 0 0 0;
+}
+
+.feature-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--signal-text);
+  text-decoration: none;
+  border-bottom: 0;
+  margin-top: auto;
+  align-self: flex-start;
+  transition: gap var(--dur-base) var(--ease-settle);
+}
+
+.feature-card--linked:hover .feature-card__link {
+  gap: 14px;
+}
+
+/* FeatureCard, ink context */
+
+.feature-card--ink {
+  background: var(--ink-elevated);
+  color: var(--paper-text);
+}
+
+.feature-card--ink .feature-card__kicker {
+  color: var(--signal);
+}
+
+.feature-card--ink .feature-card__title {
+  color: var(--paper-text);
+}
+
+.feature-card--ink .feature-card__lead {
+  color: var(--paper-muted);
+}
+
+.feature-card--ink .feature-card__lead em,
+.feature-card--ink .feature-card__lead strong,
+.feature-card--ink .feature-card__lead .inline-metric {
+  color: var(--paper-text);
+}
+
+.feature-card--ink .feature-card__sidebar {
+  border-left-color: rgba(244, 241, 232, 0.15);
+}
+
+.feature-card--ink .feature-card__sidebar-label {
+  color: var(--signal);
+}
+
+.feature-card--ink .feature-card__sidebar-value {
+  color: var(--paper-text);
+}
+
+.feature-card--ink .feature-card__sidebar-rule {
+  background: rgba(244, 241, 232, 0.15);
+}
+
+.feature-card--ink .feature-card__link {
+  color: var(--signal);
+}
+
+@media (max-width: 768px) {
+  .feature-card {
+    padding: 28px 20px;
+  }
+  .feature-card__body {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .feature-card__sidebar {
+    padding-left: 0;
+    padding-top: 16px;
+    border-left: 0;
+    border-top: 1px solid rgba(10, 10, 10, 0.12);
+  }
+  .feature-card--ink .feature-card__sidebar {
+    border-top-color: rgba(244, 241, 232, 0.15);
+  }
+}
+
+/* ---------- FactCard ---------- */
+
+.fact-card {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 32px;
+  align-items: start;
+  padding: 24px 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+}
+
+.fact-card:last-child {
+  border-bottom: 1px solid rgba(10, 10, 10, 0.12);
+}
+
+.fact-card__title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: var(--ink-text);
+  margin: 0 0 8px 0;
+  max-width: 580px;
+}
+
+.fact-card__qualifier {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--signal-text);
+}
+
+.fact-card__description {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: 580px;
+}
+
+.fact-card__signal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding-left: 16px;
+}
+
+.fact-card__number {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--signal-text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+  letter-spacing: -0.024em;
+}
+
+.fact-card__unit {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--ink-faint);
+  text-align: right;
+}
+
+/* FactCard, ink context (when wrapped in [data-context="ink"]) */
+[data-context="ink"] .fact-card {
+  border-top-color: rgba(244, 241, 232, 0.15);
+}
+
+[data-context="ink"] .fact-card:last-child {
+  border-bottom-color: rgba(244, 241, 232, 0.15);
+}
+
+[data-context="ink"] .fact-card__title {
+  color: var(--paper-text);
+}
+
+[data-context="ink"] .fact-card__qualifier {
+  color: var(--signal);
+}
+
+[data-context="ink"] .fact-card__description {
+  color: var(--paper-muted);
+}
+
+[data-context="ink"] .fact-card__number {
+  color: var(--signal);
+}
+
+[data-context="ink"] .fact-card__unit {
+  color: var(--paper-faint);
+}
+
+@media (max-width: 540px) {
+  .fact-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .fact-card__signal {
+    align-items: flex-start;
+    padding-left: 0;
+  }
+  .fact-card__unit {
+    text-align: left;
+  }
+}
+
+/* ---------- ProfileCard ---------- */
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 24px 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+}
+
+.profile-card:first-child {
+  border-top: 0;
+}
+
+.profile-card__monogram {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--signal);
+  color: var(--ink);
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+
+.profile-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 4px;
+}
+
+.profile-card__name {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink-text);
+  margin: 0;
+}
+
+.profile-card__title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.profile-card__brief {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 4px 0 0 0;
+  max-width: 480px;
+}
+
+.profile-card__brief em {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--signal-text);
+}
+
+/* ============================================================
+   === SESSION 28 PHASE 2 — INLINE DETAIL TOOLTIP ===
+   ============================================================ */
+
+.inline-detail {
+  position: relative;
+  display: inline;
+}
+
+.inline-detail__trigger {
+  border-bottom: 1px dashed var(--signal);
+  cursor: help;
+}
+
+.inline-detail__popover {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper-text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  width: max-content;
+  max-width: 280px;
+  z-index: 10;
+  border-top: 2px solid var(--signal);
+  animation: detail-pop 250ms var(--ease-settle);
+  pointer-events: none;
+}
+
+@keyframes detail-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inline-detail__popover {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   === SESSION 28 PHASE 2 — VERTICALS HOVER-REVEAL BLOCKS ===
+   ============================================================ */
+
+.verticals-section {
+  background: var(--paper);
+  padding: 100px 64px;
+}
+
+.verticals-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.vertical-block {
+  position: relative;
+  padding: 40px;
+  background: var(--paper-elevated);
+  border-top: 2px solid var(--signal);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform var(--dur-base) var(--ease-settle);
+}
+
+.vertical-block:hover {
+  transform: translateY(-2px);
+}
+
+.vertical-block__illustration {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.vertical-block__illustration svg {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+}
+
+.vertical-block__kicker {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--signal-text);
+}
+
+.vertical-block__title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ink-text);
+  margin: 0;
+}
+
+.vertical-block__points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vertical-block__points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+
+.vertical-block__points li svg {
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.vertical-block__detail {
+  padding-top: 16px;
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 600ms var(--ease-settle), opacity 400ms var(--ease-settle);
+}
+
+.vertical-block:hover .vertical-block__detail {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.vertical-block__detail p {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.vertical-block__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--signal-text);
+  text-decoration: none;
+  border-bottom: 0;
+  transition: gap var(--dur-base) var(--ease-settle);
+}
+
+.vertical-block:hover .vertical-block__link {
+  gap: 14px;
+}
+
+.verticals-footnote {
+  margin-top: 60px;
+  text-align: center;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--ink-faint);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .verticals-comparison {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Animated illustrations ---------- */
+
+.scales-animated {
+  width: 100%;
+  height: 100%;
+  color: var(--ink-text);
+}
+
+.scales-animated__beam {
+  transform-origin: 100px 38px;
+  animation: scales-tilt 4s ease-in-out infinite;
+}
+
+@keyframes scales-tilt {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2.2deg); }
+  75% { transform: rotate(-2.2deg); }
+}
+
+.scales-animated__pulse {
+  transform-origin: 100px 18px;
+  animation: signal-pulse 4s ease-in-out infinite;
+}
+
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+.stethoscope-animated {
+  width: 100%;
+  height: 100%;
+  color: var(--ink-text);
+}
+
+.stethoscope-animated__bell {
+  transform-origin: 100px 116px;
+  animation: stethoscope-pulse 3s ease-in-out infinite;
+}
+
+@keyframes stethoscope-pulse {
+  0%, 100% { stroke-width: 1.4; transform: scale(1); }
+  50% { stroke-width: 1.8; transform: scale(1.06); }
+}
+
+.stethoscope-animated__accent {
+  transform-origin: 100px 84px;
+  animation: signal-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scales-animated__beam,
+  .scales-animated__pulse,
+  .stethoscope-animated__bell,
+  .stethoscope-animated__accent {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   Session 28 Phase 2 — homepage grid wiring for new cards
+   ============================================================ */
+
+.who-runs-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 32px 0 0;
+}
+
+.selected-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.data-facts-list {
+  margin: 32px 0;
+  /* FactCards already have their own borders/spacing */
+}
+
+@media (max-width: 1024px) {
+  .who-runs-feature-grid,
+  .selected-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ----- 10. Madison preview metrics ----- */
 
 .madison-preview-metrics {

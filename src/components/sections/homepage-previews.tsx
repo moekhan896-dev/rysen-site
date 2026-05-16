@@ -3,10 +3,14 @@ import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { TechDocCard } from "@/components/cards/TechDocCard";
 import { DataRow } from "@/components/cards/DataRow";
+import { FeatureCard } from "@/components/cards/FeatureCard";
+import { FactCard } from "@/components/cards/FactCard";
 import { EngineArchitecture } from "@/components/illustrations/EngineArchitecture";
-import { ScalesOfJustice } from "@/components/illustrations/ScalesOfJustice";
-import { MedicalCaduceus } from "@/components/illustrations/MedicalCaduceus";
+import { ScalesOfJusticeAnimated } from "@/components/illustrations/ScalesOfJusticeAnimated";
+import { StethoscopeAnimated } from "@/components/illustrations/StethoscopeAnimated";
 import { ContinueReading } from "@/components/primitives/ContinueReading";
+import { InlineDetail } from "@/components/utilities/InlineDetail";
+import { MaskRevealHeading } from "@/components/utilities/MaskRevealHeading";
 
 /* ============================================================
    3. WHO RUNS RYSEN PREVIEW (ink)
@@ -54,27 +58,29 @@ export function WhoRunsRysenPreview() {
           <span className="eyebrow-rule" aria-hidden="true" />
           <span className="eyebrow-text">Who runs Rysen</span>
         </div>
-        <h2 className="preview-section-heading">
+        <MaskRevealHeading as="h2" className="preview-section-heading">
           Operators run this firm. Not consultants.
-        </h2>
+        </MaskRevealHeading>
         <p className="preview-section-intro">
           Most marketing agencies are run by people who have never built a
-          brand. Rysen is different. Our senior team has founded and operated
-          brands of their own, and brings that operator perspective to every
-          client engagement, backed by an{" "}
-          <Link href="/how-we-measure" className="text-link">
+          brand. Rysen is different. Our senior team has founded and operated{" "}
+          <InlineDetail detail="Quattro Labs (150K+ Instagram followers), The Honest Plumbers (active service brand), and the Madison Clark AI persona (100M views in 60 days) were all built by senior operators on the team.">
+            brands of their own
+          </InlineDetail>
+          , and brings that operator perspective to every client engagement,
+          backed by an{" "}
+          <InlineDetail detail="The data science team builds custom attribution dashboards, runs cohort analysis, and develops predictive models per client. Not vendor tools, rebadged.">
             in-house data science team
-          </Link>
+          </InlineDetail>
           .
         </p>
-        <div className="who-runs-grid">
+        <div className="who-runs-feature-grid">
           {CREDENTIALS.map((c) => (
-            <TechDocCard
+            <FeatureCard
               key={c.specId}
-              specId={c.specId}
-              category={c.category}
+              kicker={c.category}
               title={c.title}
-              description={c.desc}
+              lead={c.desc}
               context="ink"
             />
           ))}
@@ -250,9 +256,9 @@ export function SelectedEngagementsPreview() {
           <span className="eyebrow-rule" aria-hidden="true" />
           <span className="eyebrow-text">Selected engagements</span>
         </div>
-        <h2 className="preview-section-heading">
+        <MaskRevealHeading as="h2" className="preview-section-heading">
           Real revenue, attributed to source.
-        </h2>
+        </MaskRevealHeading>
         <p className="preview-section-intro">
           Selected engagements from{" "}
           <Link href="/case-studies" className="text-link">
@@ -266,15 +272,21 @@ export function SelectedEngagementsPreview() {
           impressions.
         </p>
         <div className="engagement-stats-strip">{ENGAGEMENT_STATS}</div>
-        <div className="selected-cases-grid">
+        <div className="selected-features-grid">
           {FEATURED_CASES.map((c) => (
-            <TechDocCard
+            <FeatureCard
               key={c.specId}
-              specId={c.specId}
-              category={c.badge}
+              kicker={c.badge}
               title={c.firm}
-              description={c.challenge}
-              metrics={c.stats}
+              lead={
+                <>
+                  {c.challenge}
+                </>
+              }
+              sidebar={c.stats.map((s) => ({
+                label: s.label,
+                value: s.value,
+              }))}
               href={c.href}
               linkLabel="Read full case study"
             />
@@ -290,19 +302,64 @@ export function SelectedEngagementsPreview() {
    8. DATA SCIENCE EDGE PREVIEW (ink)
    ============================================================ */
 
-const DATA_TILES: ReadonlyArray<{
-  specId: string;
-  category: string;
+interface DataFact {
   title: string;
-  desc: string;
-}> = [
-  { specId: "DS-01", category: "System 01", title: "Custom attribution", desc: "Per-client dashboards mapping organic to revenue." },
-  { specId: "DS-02", category: "System 02", title: "Custom rank tracking", desc: "Daily refresh, anomaly flagging, query-weighted." },
-  { specId: "DS-03", category: "System 03", title: "Call tracking", desc: "Dynamic number insertion, source attribution, quality scoring." },
-  { specId: "DS-04", category: "System 04", title: "Revenue attribution", desc: "Direct CRM integration. Channel-to-revenue." },
-  { specId: "DS-05", category: "System 05", title: "A/B testing", desc: "Statistical rigor on landing pages, intake, content." },
-  { specId: "DS-06", category: "System 06", title: "Cohort analysis", desc: "Acquisition channel → LTV, segment by segment." },
-  { specId: "DS-07", category: "System 07", title: "Predictive modeling", desc: "Forward-looking opportunity briefings." },
+  qualifier: string;
+  description: string;
+  number: string;
+  unit: string;
+}
+
+const DATA_FACTS: ReadonlyArray<DataFact> = [
+  {
+    title: "Custom attribution",
+    qualifier: "built per client",
+    description: "Every channel measured. Every dollar tied back to attributed revenue. Updated live, reviewed weekly.",
+    number: "7",
+    unit: "data systems",
+  },
+  {
+    title: "Custom rank tracking",
+    qualifier: "daily refresh",
+    description: "Anomaly flagging, query-weighted by priority. Not a vendor tool. Tuned for legal and medical query structures.",
+    number: "1k+",
+    unit: "queries tracked",
+  },
+  {
+    title: "Call tracking",
+    qualifier: "source attribution",
+    description: "Dynamic number insertion routes every inbound call to a source channel. Calls scored for qualification quality.",
+    number: "100%",
+    unit: "calls attributed",
+  },
+  {
+    title: "Revenue attribution",
+    qualifier: "CRM integration",
+    description: "Direct integration with Clio, Salesforce Health, Practice Better. Closed cases tied back to acquisition channel.",
+    number: "$",
+    unit: "channel to revenue",
+  },
+  {
+    title: "A/B testing",
+    qualifier: "statistical rigor",
+    description: "Landing pages, intake forms, content formats. Minimum sample sizes, confidence thresholds, segmentation.",
+    number: "95%",
+    unit: "confidence floor",
+  },
+  {
+    title: "Cohort analysis",
+    qualifier: "lifetime value",
+    description: "Patient and case cohorts tracked over time. Acquisition channel to LTV to referral graph.",
+    number: "LTV",
+    unit: "by channel",
+  },
+  {
+    title: "Predictive modeling",
+    qualifier: "quarterly briefings",
+    description: "Forward-looking opportunity identification trained on engagement-specific data plus market signals.",
+    number: "Q+",
+    unit: "next-quarter horizon",
+  },
 ];
 
 export function DataScienceEdgePreview() {
@@ -321,24 +378,27 @@ export function DataScienceEdgePreview() {
           <span className="eyebrow-rule" aria-hidden="true" />
           <span className="eyebrow-text">The data science edge</span>
         </div>
-        <h2 className="preview-section-heading">
+        <MaskRevealHeading as="h2" className="preview-section-heading">
           Where most agencies guess, we measure.
-        </h2>
+        </MaskRevealHeading>
         <p className="preview-section-intro">
-          Most agencies have spreadsheets. Rysen has systems. Seven data
-          infrastructures run continuously for every client engagement. Every
-          channel measured. Every dollar attributed. Every decision sourced
-          from real numbers.
+          Most agencies have spreadsheets. Rysen has{" "}
+          <InlineDetail detail="Each system is custom-built in-house for our specific legal and medical use case. They run on a shared data warehouse and feed each other plus the Friday client report.">
+            systems
+          </InlineDetail>
+          . Seven data infrastructures run continuously for every client
+          engagement. Every channel measured. Every dollar attributed. Every
+          decision sourced from real numbers.
         </p>
-        <div className="data-tiles-grid-cards">
-          {DATA_TILES.map((t) => (
-            <TechDocCard
-              key={t.specId}
-              specId={t.specId}
-              category={t.category}
-              title={t.title}
-              description={t.desc}
-              context="ink"
+        <div className="data-facts-list">
+          {DATA_FACTS.map((f) => (
+            <FactCard
+              key={f.title}
+              title={f.title}
+              qualifier={f.qualifier}
+              description={f.description}
+              number={f.number}
+              unit={f.unit}
             />
           ))}
         </div>
@@ -354,7 +414,11 @@ export function DataScienceEdgePreview() {
 
 export function VerticalsWeServe() {
   return (
-    <section className="preview-section preview-section--paper" aria-label="Verticals we serve">
+    <section
+      className="verticals-section preview-section preview-section--paper"
+      aria-label="Verticals we serve"
+      data-context="paper"
+    >
       <div className="section-corner-mark">
         <AmbientTriangle size={16} />
       </div>
@@ -364,76 +428,93 @@ export function VerticalsWeServe() {
           <span className="eyebrow-rule" aria-hidden="true" />
           <span className="eyebrow-text">Vertical expertise</span>
         </div>
-        <h2 className="preview-section-heading">
+        <MaskRevealHeading as="h2" className="preview-section-heading">
           Two verticals. Distinct playbooks.
-        </h2>
+        </MaskRevealHeading>
         <p className="preview-section-intro">
-          Other agencies serve restaurants, retail, e-commerce, and home
-          services. We don&apos;t. Every playbook is tuned for the specific
-          challenges of legal or medical practice marketing, and they&apos;re
-          tuned differently.
+          Other agencies serve restaurants, retail, e-commerce. Rysen does not.
+          Every playbook tunes for the specific dynamics of legal or medical
+          practice marketing, and the two playbooks tune differently.
         </p>
-        <div className="verticals-grid verticals-grid--3up">
-          <article className="vertical-card">
-            <div className="vertical-card-art">
-              <ScalesOfJustice />
+        <div className="verticals-comparison">
+          <article className="vertical-block">
+            <div className="vertical-block__illustration">
+              <ScalesOfJusticeAnimated />
             </div>
-            <div className="section-eyebrow" style={{ marginBottom: 8 }}>
-              <SignalTriangle size={8} decorative />
-              <span className="eyebrow-text">Vertical: Legal</span>
-            </div>
-            <h3 className="vertical-card-heading">Built for law firms.</h3>
-            <ul className="signal-list vertical-card-bullets">
-              <li>Long decision cycles, trust-first conversion</li>
-              <li>Bar advertising compliance, state-by-state</li>
-              <li>9 practice areas served</li>
+            <div className="vertical-block__kicker">Legal vertical</div>
+            <h3 className="vertical-block__title">Built for law firms.</h3>
+            <ul className="vertical-block__points">
+              <li>
+                <SignalTriangle size={8} decorative />
+                <span>Long decision cycles, trust-first conversion</span>
+              </li>
+              <li>
+                <SignalTriangle size={8} decorative />
+                <span>Bar advertising compliance, state by state</span>
+              </li>
+              <li>
+                <SignalTriangle size={8} decorative />
+                <span>Nine practice areas, from probate to personal injury</span>
+              </li>
             </ul>
-            <Link href="/legal" className="vertical-card-cta">
-              Read the Legal Playbook
-              <SignalTriangle size={9} decorative />
+            <div className="vertical-block__detail">
+              <p>
+                Legal marketing is high stakes. Prospects research for weeks
+                before hiring. Trust signals matter more than ad spend. Bar
+                regulations vary by state. The legal playbook addresses all of
+                this directly.
+              </p>
+            </div>
+            <Link href="/legal" className="vertical-block__link">
+              <span>Read the Legal Playbook</span>
+              <SignalTriangle size={10} decorative />
             </Link>
           </article>
-          <article className="vertical-card">
-            <div className="vertical-card-art">
-              <MedicalCaduceus />
+
+          <article className="vertical-block">
+            <div className="vertical-block__illustration">
+              <StethoscopeAnimated />
             </div>
-            <div className="section-eyebrow" style={{ marginBottom: 8 }}>
-              <SignalTriangle size={8} decorative />
-              <span className="eyebrow-text">Vertical: Medical</span>
-            </div>
-            <h3 className="vertical-card-heading">Built for medical practices.</h3>
-            <ul className="signal-list vertical-card-bullets">
-              <li>HIPAA-compliant marketing, insurance-aware funnels</li>
-              <li>Patient privacy in content and reviews</li>
-              <li>9 specialties served</li>
+            <div className="vertical-block__kicker">Medical vertical</div>
+            <h3 className="vertical-block__title">Built for medical practices.</h3>
+            <ul className="vertical-block__points">
+              <li>
+                <SignalTriangle size={8} decorative />
+                <span>HIPAA compliant marketing, insurance aware funnels</span>
+              </li>
+              <li>
+                <SignalTriangle size={8} decorative />
+                <span>Patient privacy in content and reviews</span>
+              </li>
+              <li>
+                <SignalTriangle size={8} decorative />
+                <span>Nine specialties, from dermatology to mental health</span>
+              </li>
             </ul>
-            <Link href="/medical" className="vertical-card-cta">
-              Read the Medical Playbook
-              <SignalTriangle size={9} decorative />
+            <div className="vertical-block__detail">
+              <p>
+                Medical marketing has different rules. Patient privacy is
+                non-negotiable. Insurance acceptance affects discovery. Visual
+                proof matters for aesthetic practices. The medical playbook is
+                engineered for these constraints.
+              </p>
+            </div>
+            <Link href="/medical" className="vertical-block__link">
+              <span>Read the Medical Playbook</span>
+              <SignalTriangle size={10} decorative />
             </Link>
           </article>
-          <article className="vertical-card vertical-card--special">
-            <div className="vertical-card-art vertical-card-art--placeholder">
-              <span aria-hidden="true" className="vertical-card-art-mark">+</span>
-            </div>
-            <div className="section-eyebrow" style={{ marginBottom: 8 }}>
-              <SignalTriangle size={8} decorative />
-              <span className="eyebrow-text">Special engagements</span>
-            </div>
-            <h3 className="vertical-card-heading">Beyond legal &amp; medical.</h3>
-            <ul className="signal-list vertical-card-bullets">
-              <li>Brand-building outside the two core verticals</li>
-              <li>Operator-led growth demonstrations</li>
-              <li>Madison Clark, the AI persona, is one such engagement</li>
-            </ul>
-            <Link
-              href="/case-studies/madison-clark"
-              className="vertical-card-cta"
-            >
-              Read the Madison Clark case
-              <SignalTriangle size={9} decorative />
-            </Link>
-          </article>
+        </div>
+
+        <div className="verticals-footnote">
+          <p>
+            We also accept select{" "}
+            <Link href="/case-studies/madison-clark" className="text-link">
+              special engagements
+            </Link>{" "}
+            for brand building work that does not fit traditional playbooks.
+            The Madison Clark AI persona case is one such example.
+          </p>
         </div>
       </div>
     </section>

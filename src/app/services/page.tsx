@@ -47,7 +47,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     body: [
       "Most agencies treat GMB as a checkbox. We treat it as the central conversion asset for every local-intent practice. Profile configuration, service taxonomy, photo strategy, post cadence, Q&A operations, and review velocity, all run as one coordinated system.",
       "For multi-location practices: each location optimized at the network level, not individually. Coordinated category strategy, coordinated service taxonomy, coordinated review velocity.",
-      "GMB is the highest-leverage local surface. A well-operated GMB profile compounds every other component of the engine.",
+      "GMB is the highest-use local surface. A well-operated GMB profile compounds every other component of the engine.",
     ],
     deliverables: [
       "Full GMB rebuild including categories, services, attributes, photos",
@@ -119,7 +119,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     body: [
       "Reviews are the conversion moat. Three competitors with 50 reviews each lose to the one with 400, assuming the 400 are recent and well-managed.",
       "We architect review velocity systems specific to your practice: HIPAA-aware request flows for medical, ethical bar-compliant requests for legal. Response operations cover every review within 48 hours.",
-      "Reputation is one of the highest-leverage components: it amplifies local pack, AI citation, and conversion simultaneously.",
+      "Reputation is one of the highest-use components: it amplifies local pack, AI citation, and conversion simultaneously.",
     ],
     deliverables: [
       "Review request automation (HIPAA / bar-compliant)",
@@ -351,7 +351,7 @@ export default function ServicesPage() {
         <h2 className="deep-page-cta-heading">Request an audit.</h2>
         <p className="deep-page-cta-sub">
           Audit calls include a walkthrough of which components are highest-
-          leverage for your specific firm, market, and competitive landscape.
+          use for your specific firm, market, and competitive landscape.
         </p>
         <Link href="/audit" className="deep-page-cta-button">
           Request an audit

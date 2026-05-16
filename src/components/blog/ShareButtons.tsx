@@ -61,7 +61,7 @@ export function ShareButtons({ title, slug }: ShareButtonsProps) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
-      // Ignore — old browsers
+      // Ignore, old browsers
     }
   };
 

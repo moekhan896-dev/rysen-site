@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 
 export const metadata: Metadata = {
-  title: "Medical — The Medical Playbook",
+  title: "Medical, The Medical Playbook",
   description:
     "A specialized playbook for medical practices. HIPAA-compliant marketing, insurance-aware funnels, patient privacy. Nine specialties served.",
 };
@@ -16,7 +16,7 @@ const CHALLENGES = [
   {
     n: "01",
     title: "HIPAA-compliant marketing",
-    body: "Patient data is regulated. Before-and-after content, testimonials, reviews — all bounded by privacy rules that most agencies don't think through.",
+    body: "Patient data is regulated. Before-and-after content, testimonials, reviews, all bounded by privacy rules that most agencies don't think through.",
     rysen: "Per-engagement HIPAA review of every public asset. Compliant before/after frameworks. Review request flows that don't expose PHI.",
   },
   {
@@ -40,14 +40,14 @@ const CHALLENGES = [
   {
     n: "05",
     title: "Multi-location complexity",
-    body: "Medical practices often have multiple locations. Each location needs its own GMB, its own neighborhood content, and its own review flow — coordinated, not duplicated.",
+    body: "Medical practices often have multiple locations. Each location needs its own GMB, its own neighborhood content, and its own review flow, coordinated, not duplicated.",
     rysen: "Network-level GMB optimization. Per-location content. Coordinated review velocity. Same playbook deployed locally, not just nationally.",
   },
 ];
 
 const SPECIALTIES = [
   { name: "Dermatology", desc: "Cosmetic + medical. Reviews + before/after compliance + GMB per location." },
-  { name: "Dental", desc: "Multi-location, neighborhood-specific. Implants, cosmetic, family — different funnels." },
+  { name: "Dental", desc: "Multi-location, neighborhood-specific. Implants, cosmetic, family, different funnels." },
   { name: "Chiropractic", desc: "Pain-driven intent, local-pack heavy. Schema + reviews + neighborhood content." },
   { name: "Plastic Surgery", desc: "HNW audience, high-trust threshold. Authority + reviews + portfolio compliance." },
   { name: "Cardiology", desc: "Referral-driven, age-skewed. Authority + insurance + senior-appropriate UX." },
@@ -142,7 +142,7 @@ export default function MedicalPage() {
         </div>
         <h2 className="deep-page-section-h2">The medical-weighted engine.</h2>
         <p className="deep-page-section-body">
-          Higher GMB and reviews weighting than legal — medical practices live
+          Higher GMB and reviews weighting than legal, medical practices live
           and die by local pack dominance and review velocity. Content
           weighting still strong, but slightly behind legal&apos;s authority
           emphasis.

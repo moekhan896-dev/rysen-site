@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * FORMSPREE SETUP — REQUIRED FOR AUDIT FORM TO WORK IN PRODUCTION
+ * FORMSPREE SETUP, REQUIRED FOR AUDIT FORM TO WORK IN PRODUCTION
  *
  * 1. Go to https://formspree.io and sign in with marketing@rysengrowth.com.
  * 2. Create a new form named "Rysen Audit" (separate from the contact form).

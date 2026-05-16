@@ -20,11 +20,11 @@ const CHALLENGES = [
   },
   {
     title: "Trust-first conversion",
-    desc: "Legal decisions are high-stakes. Authority signals — publications, schema, citations, reviews — matter more than ad spend. We engineer trust before we ask for the call.",
+    desc: "Legal decisions are high-stakes. Authority signals, publications, schema, citations, reviews, matter more than ad spend. We engineer trust before we ask for the call.",
   },
   {
     title: "Geo-specific intent",
-    desc: "Almost every legal search has geographic intent. We architect hyperlocal strategies — neighborhood, metro, region — not generic statewide visibility.",
+    desc: "Almost every legal search has geographic intent. We architect hyperlocal strategies, neighborhood, metro, region, not generic statewide visibility.",
   },
   {
     title: "Bar compliance & advertising regulation",
@@ -32,7 +32,7 @@ const CHALLENGES = [
   },
   {
     title: "Practice-area specificity",
-    desc: "A probate attorney needs different content than a personal injury attorney. We don't run generic “lawyer marketing” — we run practice-area-specific playbooks.",
+    desc: "A probate attorney needs different content than a personal injury attorney. We don't run generic “lawyer marketing”, we run practice-area-specific playbooks.",
   },
 ];
 
@@ -64,7 +64,7 @@ export function LegalPlaybook() {
   return (
     <PlaybookSection
       variant="legal"
-      eyebrow="Vertical — legal"
+      eyebrow="Vertical, legal"
       title={
         <>
           The <span className="accent-italic">Legal</span> Playbook.

@@ -14,7 +14,7 @@ interface Props {
 }
 
 /**
- * PillarReveal — scroll-progressive 5-pillar reveal on /methodology.
+ * PillarReveal, scroll-progressive 5-pillar reveal on /methodology.
  * Uses IntersectionObserver to detect which pillar is currently centered
  * in the viewport. Active pillar gets a yellow left rule + "is-active"
  * class. Sticky "Pillar N of 5" indicator tracks position.

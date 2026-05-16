@@ -11,9 +11,9 @@ import {
 import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
-  title: "Ridge Dental Case Study — Chicago Multi-Location, +186% Calls",
+  title: "Ridge Dental Case Study, Chicago Multi-Location, +186% Calls",
   description:
-    "How Rysen won the Chicago Maps Pack across 5 neighborhoods for Ridge Dental — coordinated multi-location strategy, +186% new patient calls in 4 months.",
+    "How Rysen won the Chicago Maps Pack across 5 neighborhoods for Ridge Dental, coordinated multi-location strategy, +186% new patient calls in 4 months.",
 };
 
 const PHASES = [
@@ -30,7 +30,7 @@ const PHASES = [
   {
     window: "Month 2",
     title: "Neighborhood-specific content",
-    desc: "Every location got real, distinct content — not duplicate pages with neighborhood names swapped.",
+    desc: "Every location got real, distinct content, not duplicate pages with neighborhood names swapped.",
     tactics: [
       "Lincoln Park, Wicker Park, Lakeview, West Loop, Logan Square pages",
       "Local hooks per neighborhood (neighborhood-specific FAQ + content)",
@@ -40,7 +40,7 @@ const PHASES = [
   {
     window: "Month 3",
     title: "Review velocity coordination",
-    desc: "Patient review request flow timed across all 5 locations — built the network into the local pack as a coordinated push.",
+    desc: "Patient review request flow timed across all 5 locations, built the network into the local pack as a coordinated push.",
     tactics: [
       "Automated review request system, location-aware",
       "Response handling protocol across the network",
@@ -50,7 +50,7 @@ const PHASES = [
   {
     window: "Month 4",
     title: "Hyperlocal citation building",
-    desc: "Neighborhood-level citation work — local chambers, community sites, and verified directory placements per location.",
+    desc: "Neighborhood-level citation work, local chambers, community sites, and verified directory placements per location.",
     tactics: [
       "Per-neighborhood chamber and community placements",
       "Verified medical directory submissions per location",
@@ -66,7 +66,7 @@ const TACTICS = [
   },
   {
     title: "Neighborhood-specific content",
-    desc: "Lincoln Park, Wicker Park, Lakeview, West Loop, Logan Square — each location page written for residents of that neighborhood.",
+    desc: "Lincoln Park, Wicker Park, Lakeview, West Loop, Logan Square, each location page written for residents of that neighborhood.",
   },
   {
     title: "Review velocity campaign",
@@ -82,7 +82,7 @@ const TACTICS = [
   },
   {
     title: "Local link building per neighborhood",
-    desc: "Local link earning tied to each neighborhood — community sites, chamber profiles, and neighborhood-specific authority placements.",
+    desc: "Local link earning tied to each neighborhood, community sites, chamber profiles, and neighborhood-specific authority placements.",
   },
 ];
 
@@ -91,7 +91,7 @@ export default function RidgeCaseStudyPage() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline:
-      "Ridge Dental — Chicago multi-location, +186% new patient calls, #1 in Maps Pack across 5 neighborhoods",
+      "Ridge Dental, Chicago multi-location, +186% new patient calls, #1 in Maps Pack across 5 neighborhoods",
     author: { "@type": "Organization", name: "Rysen Growth" },
     publisher: { "@type": "Organization", name: "Rysen Growth" },
   };
@@ -135,8 +135,8 @@ export default function RidgeCaseStudyPage() {
       >
         <p className="case-prose">
           Ridge Dental is a 5-location dental practice across Chicago
-          neighborhoods — Lincoln Park, Wicker Park, Lakeview, West Loop, and
-          Logan Square — founded in 2016 by Dr. Sarah Ridge. Family dental and
+          neighborhoods, Lincoln Park, Wicker Park, Lakeview, West Loop, and
+          Logan Square, founded in 2016 by Dr. Sarah Ridge. Family dental and
           cosmetic dental focus with twelve dentists across the network. They
           engaged Rysen in mid-2024 because they wanted Maps Pack dominance per
           neighborhood, not generic Chicago rankings.
@@ -160,7 +160,7 @@ export default function RidgeCaseStudyPage() {
           </p>
           <p>
             Each location was a separate GBP but they weren’t optimized
-            as a network — they competed independently against well-established
+            as a network, they competed independently against well-established
             neighborhood incumbents and against each other. The fix wasn’t
             harder generic ranking work; it was treating the 5 locations as a
             coordinated system.
@@ -217,7 +217,7 @@ export default function RidgeCaseStudyPage() {
         background="tint"
       >
         <CaseQuote
-          quote="We thought 'Chicago dentist' was the prize. Rysen showed us 5 prizes — one per neighborhood — and won them all."
+          quote="We thought 'Chicago dentist' was the prize. Rysen showed us 5 prizes, one per neighborhood, and won them all."
           attribution="Dr. Sarah Ridge, Founder"
         />
       </PageSection>
@@ -229,7 +229,7 @@ export default function RidgeCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your practice’s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your practice’s visibility, same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

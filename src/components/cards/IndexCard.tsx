@@ -13,7 +13,7 @@ export interface IndexCardProps {
 }
 
 /**
- * Index card — narrow vertical format inspired by library catalog
+ * Index card, narrow vertical format inspired by library catalog
  * cards. Top 2px yellow rule, monospace category eyebrow, monogram
  * square (optional), Fraunces name + Inter title, bottom rule with
  * location + triangle mark. Used for team members, brands built,

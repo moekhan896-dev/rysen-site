@@ -4,11 +4,11 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const SELL: ReadonlyArray<{ readonly label: string; readonly desc: string }> = [
-  { label: "Outcomes", desc: "Cases, patients, revenue — measured." },
+  { label: "Outcomes", desc: "Cases, patients, revenue, measured." },
   { label: "Revenue attribution", desc: "Every channel tied to dollars." },
   { label: "#1 rankings", desc: "Position one, or it doesn’t count." },
   { label: "Weekly accountability", desc: "Every account, every Monday." },
-  { label: "Honest pacing", desc: "Months 1–6 are foundation. We tell you that." },
+  { label: "Honest pacing", desc: "Months 1-6 are foundation. We tell you that." },
 ];
 
 const DONT: ReadonlyArray<{ readonly label: string; readonly desc: string }> = [

@@ -9,9 +9,9 @@ import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 
 export const metadata: Metadata = {
-  title: "Madison Clark — AI persona, 100M views in 60 days",
+  title: "Madison Clark, AI persona, 100M views in 60 days",
   description:
-    "Same team. Same data discipline. Applied to an AI persona built from scratch. 100M+ views, 850K followers, $0 ad spend.",
+    "Same team. Same data discipline. Applied to an AI persona built from scratch. 100M+ views, 20K followers, $0 ad spend.",
 };
 
 const WEEKLY_VIEWS = [
@@ -53,8 +53,8 @@ export default function MadisonClarkCaseStudy() {
                 <div className="madison-metric-label">Views in 60 days</div>
               </div>
               <div className="madison-metric">
-                <div className="madison-metric-value">850K</div>
-                <div className="madison-metric-label">Followers, from zero</div>
+                <div className="madison-metric-value">20K</div>
+                <div className="madison-metric-label">Followers, from zero. Views compounded faster than audience conversion.</div>
               </div>
               <div className="madison-metric">
                 <div className="madison-metric-value">$0</div>
@@ -77,7 +77,7 @@ export default function MadisonClarkCaseStudy() {
             <p>
               Most agencies sell growth methodology they&apos;ve never run
               themselves. We wanted to prove ours by running it on a brand we
-              built from nothing — and one that lived in a completely different
+              built from nothing, and one that lived in a completely different
               audience than our law-firm and medical-practice clients.
             </p>
             <p>
@@ -139,7 +139,7 @@ export default function MadisonClarkCaseStudy() {
           <h2 className="deep-page-section-h2">Twelve weeks. Compound growth.</h2>
           <p className="deep-page-section-body">
             Weekly views grew from 120 in week 1 to 100M+ by week 11. Classic
-            algorithmic compound — the system rewards consistency, retention,
+            algorithmic compound, the system rewards consistency, retention,
             and shareability simultaneously.
           </p>
 

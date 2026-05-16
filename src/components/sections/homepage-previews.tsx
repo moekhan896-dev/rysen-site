@@ -22,7 +22,7 @@ const CREDENTIALS: ReadonlyArray<{
     specId: "OPS-01",
     category: "Founders",
     title: "Brand operators",
-    desc: "Senior team founded Quattro Labs, The Honest Plumbers, and grew Madison Clark — an AI persona — to 100M+ views in 60 days.",
+    desc: "Senior team founded Quattro Labs, The Honest Plumbers, and grew Madison Clark, an AI persona, to 100M+ views in 60 days.",
   },
   {
     specId: "OPS-02",
@@ -60,7 +60,7 @@ export function WhoRunsRysenPreview() {
         <p className="preview-section-intro">
           Most marketing agencies are run by people who have never built a
           brand. Rysen is different. Our senior team has founded and operated
-          brands of their own — and brings that operator perspective to every
+          brands of their own, and brings that operator perspective to every
           client engagement, backed by an{" "}
           <Link href="/how-we-measure" className="text-link">
             in-house data science team
@@ -107,7 +107,7 @@ export function OrganicEnginePreview() {
               We don&apos;t sell components. We build engines.
             </h2>
             <p className="preview-section-intro">
-              Most agencies sell SEO, or content, or GMB management — as
+              Most agencies sell SEO, or content, or GMB management, as
               separate services with separate reports. Rysen treats all ten
               components as one coordinated system, engineered to compound.
               When one component improves, all others amplify.
@@ -370,7 +370,7 @@ export function VerticalsWeServe() {
         <p className="preview-section-intro">
           Other agencies serve restaurants, retail, e-commerce, and home
           services. We don&apos;t. Every playbook is tuned for the specific
-          challenges of legal or medical practice marketing — and they&apos;re
+          challenges of legal or medical practice marketing, and they&apos;re
           tuned differently.
         </p>
         <div className="verticals-grid verticals-grid--3up">
@@ -424,7 +424,7 @@ export function VerticalsWeServe() {
             <ul className="signal-list vertical-card-bullets">
               <li>Brand-building outside the two core verticals</li>
               <li>Operator-led growth demonstrations</li>
-              <li>Madison Clark — the AI persona — is one such engagement</li>
+              <li>Madison Clark, the AI persona, is one such engagement</li>
             </ul>
             <Link
               href="/case-studies/madison-clark"
@@ -462,7 +462,7 @@ export function MadisonClarkPreview() {
         <p className="preview-section-intro">
           Same team. Same data discipline. Applied to a completely different
           surface. If we can do this for an AI persona starting from zero,
-          imagine what we can do for your law firm or medical practice — which
+          imagine what we can do for your law firm or medical practice, which
           already has years of authority to amplify.
         </p>
         <div className="madison-preview-metrics">
@@ -471,7 +471,7 @@ export function MadisonClarkPreview() {
             <div className="madison-preview-label">views in 60 days</div>
           </div>
           <div className="madison-preview-metric">
-            <div className="madison-preview-value">850K</div>
+            <div className="madison-preview-value">20K</div>
             <div className="madison-preview-label">followers from zero</div>
           </div>
           <div className="madison-preview-metric">

@@ -320,9 +320,9 @@ export function EditorialBeat() {
         </p>
       </div>
 
-      {/* DUAL PANEL FEED — NOISE vs REVENUE */}
+      {/* DUAL PANEL FEED, NOISE vs REVENUE */}
       <div className="eb-panels">
-        {/* LEFT — noise dashboard */}
+        {/* LEFT, noise dashboard */}
         <div className="eb-noise-panel" aria-label="What other agencies show you">
           <div className="eb-noise-scanlines" aria-hidden="true" />
 
@@ -391,7 +391,7 @@ export function EditorialBeat() {
           <span className="eb-divider-pulse" />
         </div>
 
-        {/* RIGHT — live revenue feed */}
+        {/* RIGHT, live revenue feed */}
         <div className="eb-revenue-panel" aria-label="What we show you">
           <div className="eb-rev-glow" aria-hidden="true" />
 

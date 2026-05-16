@@ -296,7 +296,7 @@ function UsMap() {
       aria-hidden="true"
       preserveAspectRatio="xMidYMid meet"
     >
-      {/* Stylized continental US outline — single thin path (approximate) */}
+      {/* Stylized continental US outline, single thin path (approximate) */}
       <path
         className="stats-usmap-path"
         d="M 90,250 L 60,210 L 80,160 L 130,130 L 200,110 L 290,90 L 380,80 L 470,70 L 560,80 L 660,90 L 760,100 L 840,120 L 905,160 L 935,210 L 925,260 L 905,300 L 870,335 L 830,365 L 790,395 L 760,420 L 735,440 L 700,455 L 660,455 L 620,440 L 595,420 L 575,395 L 555,370 L 520,355 L 480,350 L 440,355 L 400,360 L 360,365 L 320,360 L 280,350 L 240,335 L 205,320 L 175,300 L 150,285 L 120,275 Z"

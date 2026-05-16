@@ -251,7 +251,7 @@ export function BrandsParallax() {
         </h2>
         <p className="brands-built-subhead">
           Before Rysen, Art Khan founded three Instagram-native brands across
-          automotive customs, plumbing, and home cleaning — each becoming the
+          automotive customs, plumbing, and home cleaning, each becoming the
           fastest-growing brand in its category in the Midwest. Same
           hyperlocal focus. Same data discipline. Same compound-visibility
           playbook.
@@ -271,7 +271,7 @@ export function BrandsParallax() {
         </div>
 
         <p className="brands-built-footnote">
-          Plus a personal brand of <FollowerCounter /> followers —{" "}
+          Plus a personal brand of <FollowerCounter /> followers,{" "}
           <a
             href="https://www.instagram.com/arttkhan"
             target="_blank"

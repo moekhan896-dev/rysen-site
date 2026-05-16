@@ -10,7 +10,7 @@ export function MedicalCaduceus({ className = "" }: Props) {
       width={400}
       height={300}
       className={className}
-      ariaLabel="Architectural diagram of medical vertical playbook — caduceus"
+      ariaLabel="Architectural diagram of medical vertical playbook, caduceus"
     >
       {/* Central staff */}
       <line x1="200" y1="40" x2="200" y2="260" stroke="currentColor" strokeWidth="1.5" />
@@ -52,13 +52,13 @@ export function MedicalCaduceus({ className = "" }: Props) {
       <path d="M 195 250 L 205 250 L 200 240 Z" fill="var(--signal)" />
 
       {/* Annotation labels */}
-      <text x="20" y="100" fontSize="9" fontFamily="var(--font-mono), monospace" fill="currentColor" opacity="0.6">
+      <text x="20" y="100" fontSize="9" fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic" fill="currentColor" opacity="0.6">
         HIPAA-AWARE
       </text>
-      <text x="290" y="100" fontSize="9" fontFamily="var(--font-mono), monospace" fill="currentColor" opacity="0.6">
+      <text x="290" y="100" fontSize="9" fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic" fill="currentColor" opacity="0.6">
         INTENT FUNNEL
       </text>
-      <text x="160" y="285" fontSize="9" fontFamily="var(--font-mono), monospace" fill="currentColor" opacity="0.6">
+      <text x="160" y="285" fontSize="9" fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic" fill="currentColor" opacity="0.6">
         PATIENT TRUST
       </text>
 

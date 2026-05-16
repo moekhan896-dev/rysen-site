@@ -16,7 +16,7 @@ const CARDS = [
     title: "Call us",
     primary: "(248) 406-6223",
     href: "tel:+12484066223",
-    detail: "Mon-Fri · 9AM–6PM ET.",
+    detail: "Mon-Fri · 9AM-6PM ET.",
   },
   {
     icon: MapPin,

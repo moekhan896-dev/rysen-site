@@ -18,7 +18,7 @@ export interface TechDocCardProps {
 }
 
 /**
- * Technical document card — engineering-document aesthetic.
+ * Technical document card, engineering-document aesthetic.
  * Top yellow accent bar, spec-id eyebrow, hairline rules, optional
  * 3-up metrics, "Read full document" footer link styled like an
  * engineering reference. Replaces the generic AI-template card

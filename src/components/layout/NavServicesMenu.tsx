@@ -30,7 +30,7 @@ const SERVICES = [
     icon: <FileText {...ITEM_PROPS} aria-hidden="true" />,
     title: "Content & Reputation",
     subtitle: "Full-stack growth, not piecemeal services",
-    desc: "Authority content, reputation management, newsletters, web design, and off-page SEO — run as one integrated program.",
+    desc: "Authority content, reputation management, newsletters, web design, and off-page SEO, run as one integrated program.",
     href: "/services/content",
   },
 ] as const;

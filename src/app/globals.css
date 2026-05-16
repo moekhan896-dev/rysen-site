@@ -26,7 +26,7 @@
 
   :root {
     /* ============================================================
-       REBRAND 2.0 — PRIMARY SURFACES
+       REBRAND 2.0, PRIMARY SURFACES
        ============================================================ */
     --ink: #0a0a0a;
     --ink-elevated: #131313;
@@ -36,20 +36,20 @@
     --paper-warm: #faf6ec;
 
     /* ============================================================
-       SIGNAL — Rysen yellow
+       SIGNAL, Rysen yellow
        ============================================================ */
     --signal: #f5c518;
     --signal-deep: #d4a90c;
     --signal-soft: #fdf3c4;
     --signal-glow: #f5c51833;
-    /* Session 27 — readable yellow for text on paper backgrounds.
+    /* Session 27, readable yellow for text on paper backgrounds.
        AAA contrast vs --paper. Use anywhere --signal was used for
        small text on paper. Bright --signal stays for graphics. */
     --signal-text: #7a5d00;
     --signal-text-soft: #6b5200;
 
     /* ============================================================
-       TEXT — on paper
+       TEXT, on paper
        ============================================================ */
     --ink-text: #0a0a0a;
     --ink-muted: #44423d;
@@ -57,7 +57,7 @@
     --ink-whisper: #b8b3a3;
 
     /* ============================================================
-       TEXT — on ink
+       TEXT, on ink
        ============================================================ */
     --paper-text: #f4f1e8;
     --paper-muted: #b5b1a3;
@@ -147,7 +147,7 @@
     --z-tooltip: 300;
 
     /* ============================================================
-       MOTION — easings
+       MOTION, easings
        ============================================================ */
     --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-deep-settle: cubic-bezier(0.22, 1, 0.36, 1);
@@ -158,7 +158,7 @@
     --ease-linear: linear;
 
     /* ============================================================
-       MOTION — durations
+       MOTION, durations
        ============================================================ */
     --dur-instant: 0ms;
     --dur-fast: 200ms;
@@ -170,8 +170,14 @@
     --dur-ambient-2: 12000ms;
     --dur-ambient-3: 20000ms;
 
+    /* Session 28, monospace purge: --font-mono is now an alias to
+       Inter. All existing var(--font-mono) references render in
+       Inter with tabular-nums via font-feature-settings, no
+       per-rule rewriting needed. */
+    --font-mono: var(--font-inter), system-ui, sans-serif;
+
     /* ============================================================
-       LEGACY ALIASES — map old token names onto rebrand 2.0 palette
+       LEGACY ALIASES, map old token names onto rebrand 2.0 palette
        so existing CSS rules (12k+ lines) render in the new system
        without per-rule rewriting. Indigo and warm cream are GONE.
        ============================================================ */
@@ -6556,7 +6562,7 @@ letter-spacing: 0;
   }
 
   /* ============================================================
-     === SESSION 11 v2 — CREDIBILITY BAND ===
+     === SESSION 11 v2, CREDIBILITY BAND ===
      ============================================================ */
   .credibility-band {
     width: 100%;
@@ -6635,7 +6641,7 @@ letter-spacing: 0;
     color: var(--text-faint);
 }
 
-  /* --- Tile 1: Founded — underline pulse --- */
+  /* --- Tile 1: Founded, underline pulse --- */
   .cb-founded-underline {
     animation: cbFoundedUnderline 4s ease-in-out infinite;
   }
@@ -6644,7 +6650,7 @@ letter-spacing: 0;
     50%      { opacity: 1; }
   }
 
-  /* --- Tile 2: HQ — pin pulse --- */
+  /* --- Tile 2: HQ, pin pulse --- */
   .cb-hq-pin {
     transform-origin: center;
     transform-box: fill-box;
@@ -6655,7 +6661,7 @@ letter-spacing: 0;
     50%      { transform: scale(1.3); opacity: 1; }
   }
 
-  /* --- Tile 3: Team — pulsed dot --- */
+  /* --- Tile 3: Team, pulsed dot --- */
   .cb-team-dot {
     transform-origin: center;
     transform-box: fill-box;
@@ -6670,7 +6676,7 @@ letter-spacing: 0;
     100% { transform: scale(1); }
   }
 
-  /* --- Tile 4: Engagements — staggered bar pulse --- */
+  /* --- Tile 4: Engagements, staggered bar pulse --- */
   .cb-engagement-bar {
     animation: cbEngagementBar 3s ease-in-out infinite;
   }
@@ -6683,7 +6689,7 @@ letter-spacing: 0;
     50%      { opacity: 0.5; }
   }
 
-  /* --- Tile 5: This Week — live dot + waveform scan --- */
+  /* --- Tile 5: This Week, live dot + waveform scan --- */
   .cb-thisweek-dot {
     transform-origin: center;
     transform-box: fill-box;
@@ -6738,7 +6744,7 @@ letter-spacing: 0;
   }
 
   /* ============================================================
-     === SESSION 12 — SUB-PAGES + SHARED COMPONENTS ===
+     === SESSION 12, SUB-PAGES + SHARED COMPONENTS ===
      ============================================================ */
 
   /* ---------- NAV DROPDOWN + MOBILE ---------- */
@@ -8696,7 +8702,7 @@ font-style: normal;
   }
 
   /* ============================================================
-     === SESSION 13 — HEADER REDESIGN + CREDIBILITY + LOADER ===
+     === SESSION 13, HEADER REDESIGN + CREDIBILITY + LOADER ===
      ============================================================ */
 
   /* ============ SITE NAV (redesigned, all states) ============ */
@@ -9752,7 +9758,7 @@ color: var(--accent);
   }
 
   /* ============================================================
-     === SESSION 14 — BLOG INFRASTRUCTURE ===
+     === SESSION 14, BLOG INFRASTRUCTURE ===
      ============================================================ */
 
   /* Reading progress bar */
@@ -10282,7 +10288,7 @@ color: var(--text-muted);
   }
 
   /* ============================================================
-     === SESSION 16 — POSITIONING LIFT ===
+     === SESSION 16, POSITIONING LIFT ===
      ============================================================ */
 
   /* ========== ORGANIC GROWTH ENGINE ========== */
@@ -11360,7 +11366,7 @@ color: var(--text-muted);
   }
 
   /* ============================================================
-     === SESSION 17 — POSITIONING SHARPENING + WEDGE ===
+     === SESSION 17, POSITIONING SHARPENING + WEDGE ===
      ============================================================ */
 
   /* ----- Hero proof bar + states line ----- */
@@ -12148,7 +12154,7 @@ color: var(--text-faint);
     .why-us-num { font-size: 24px; }
   }
 
-  /* ============ TEN COMPONENTS — grid is 5 cols on desktop ============ */
+  /* ============ TEN COMPONENTS, grid is 5 cols on desktop ============ */
   .nine-components.ten-components .ten-grid {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -12184,7 +12190,7 @@ color: var(--text-faint);
   }
 
   /* ============================================================
-     === SESSION 18 — HERO REFINEMENT ===
+     === SESSION 18, HERO REFINEMENT ===
      ============================================================ */
 
   /* Per-word spans driven by framer-motion stagger. Replaces .word CSS reveal
@@ -12242,7 +12248,7 @@ color: var(--text-faint);
     100% { transform: scaleX(1); transform-origin: left center; }
   }
 
-  /* Hero proof bar lucide icons — accent color, aligned with mono text */
+  /* Hero proof bar lucide icons, accent color, aligned with mono text */
   .hero-proof-bar .hero-proof-icon {
     display: inline-flex;
     flex-shrink: 0;
@@ -12261,7 +12267,7 @@ color: var(--text-faint);
   }
 
   /* ============================================================
-     === SESSION 21 — EDITORIAL ACCENT (SENTENCE CASE) ===
+     === SESSION 21, EDITORIAL ACCENT (SENTENCE CASE) ===
      ============================================================ */
 
   .editorial-eyebrow {
@@ -12400,10 +12406,10 @@ color: var(--text-faint);
   }
 
 /* ============================================================
-   === SESSION 23 — REBRAND 2.0 (APOLLO × STRIPE PRESS × OPERATORS) ===
+   === SESSION 23, REBRAND 2.0 (APOLLO × STRIPE PRESS × OPERATORS) ===
    ============================================================ */
 
-/* Global font baseline — Inter for body, Fraunces for headings */
+/* Global font baseline, Inter for body, Fraunces for headings */
 html, body {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
@@ -12572,27 +12578,33 @@ h1, h2, h3 {
 }
 
 .type-metric-display {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-fraunces), Georgia, serif;
   font-weight: 400;
   font-size: clamp(48px, 6vw, 80px);
   line-height: 1;
   letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1, 'opsz' 96;
 }
 
 .type-metric-large {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-fraunces), Georgia, serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 1;
   letter-spacing: -0.015em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
 }
 
 .type-metric {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-inter), system-ui, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.1;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
 }
 
 /* ============================================================
@@ -12607,7 +12619,7 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   SIGNAL LIST — bullets replaced with triangle marker
+   SIGNAL LIST, bullets replaced with triangle marker
    ============================================================ */
 
 .signal-list {
@@ -12750,7 +12762,7 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   FOCUS RINGS — keyboard-only via :focus-visible
+   FOCUS RINGS, keyboard-only via :focus-visible
    ============================================================ */
 
 a:focus-visible,
@@ -12765,7 +12777,7 @@ select:focus-visible,
 }
 
 /* ============================================================
-   REBRAND 2.0 — HERO SECTION (Session 24 — two-column + clarity block)
+   REBRAND 2.0, HERO SECTION (Session 24, two-column + clarity block)
    ============================================================ */
 
 .hero-rebrand {
@@ -12833,14 +12845,15 @@ select:focus-visible,
 .hero-rebrand-headline {
   font-family: var(--font-fraunces), Georgia, serif;
   font-weight: 400;
-  /* Viewport-width AND viewport-height aware clamp — keeps headline
-     fitting above the fold on short laptop screens. */
-  font-size: clamp(32px, min(4.5vw, 9vh), 72px);
+  /* Session 28: tighter upper bound (64px) so the 4-span headline
+     reliably fits above the fold on 1366×768 laptop screens. */
+  font-size: clamp(32px, min(4vw, 8vh), 64px);
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.022em;
   color: var(--paper-text);
-  font-variation-settings: 'opsz' 72;
+  font-variation-settings: 'opsz' 64;
   margin: 0;
+  max-width: none;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -12849,7 +12862,6 @@ select:focus-visible,
 .hero-line {
   display: block;
   word-spacing: -0.02em;
-  text-wrap: balance;
 }
 
 /* Legacy line-break wrapper kept for any remaining static markup */
@@ -12862,12 +12874,20 @@ select:focus-visible,
     font-size: clamp(28px, 6vw, 48px);
     line-height: 1.1;
   }
+  /* On narrow viewports, let the 4 spans flow inline and wrap
+     naturally rather than forcing 4 separate visual lines. */
+  .hero-line {
+    display: inline;
+  }
+  .hero-line:not(:last-child)::after {
+    content: ' ';
+  }
 }
 
 @media (max-width: 640px) {
   .hero-rebrand-headline {
-    font-size: clamp(28px, 8vw, 40px);
-    line-height: 1.12;
+    font-size: clamp(26px, 7vw, 38px);
+    line-height: 1.1;
   }
 }
 
@@ -12992,7 +13012,7 @@ select:focus-visible,
   opacity: 0.8;
 }
 
-/* ---- RIGHT COLUMN — search animation ---- */
+/* ---- RIGHT COLUMN, search animation ---- */
 
 .hero-rebrand-visual {
   position: relative;
@@ -13164,7 +13184,7 @@ select:focus-visible,
 }
 
 .search-result-domain {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   color: var(--signal);
   margin-bottom: 4px;
@@ -13209,14 +13229,14 @@ select:focus-visible,
 }
 
 /* ============================================================
-   REBRAND 2.0 — HEADER CONTEXT (Session 24)
+   REBRAND 2.0, HEADER CONTEXT (Session 24)
 
    Two variants: on-ink (homepage, blends with dark hero) and on-paper
    (every other route). Both keep the floating-pill scrolled treatment;
    the only difference is surface + text colors.
    ============================================================ */
 
-/* ON-INK: homepage — dark masthead that blends with the hero */
+/* ON-INK: homepage, dark masthead that blends with the hero */
 .site-nav.on-ink .nav-main {
   background: rgba(10, 10, 10, 0.85);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
@@ -13257,7 +13277,7 @@ select:focus-visible,
   background: var(--paper-text);
 }
 
-/* ON-PAPER: every other route — cream surface, ink text */
+/* ON-PAPER: every other route, cream surface, ink text */
 .site-nav.on-paper .nav-main {
   background: rgba(244, 241, 232, 0.85);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
@@ -13314,7 +13334,7 @@ select:focus-visible,
 }
 
 /* ============================================================
-   REBRAND 2.0 — FOOTER OVERRIDES (paint the new editorial footer)
+   REBRAND 2.0, FOOTER OVERRIDES (paint the new editorial footer)
    ============================================================ */
 
 .rebrand-footer {
@@ -13451,7 +13471,7 @@ select:focus-visible,
 }
 
 /* ============================================================
-   AMBIENT TRIANGLE — scroll-rotation transition
+   AMBIENT TRIANGLE, scroll-rotation transition
    ============================================================ */
 
 .ambient-triangle {
@@ -13461,7 +13481,7 @@ select:focus-visible,
 }
 
 /* ============================================================
-   === SESSION 24 — YELLOW ASCENDANT ===
+   === SESSION 24, YELLOW ASCENDANT ===
    Distribute yellow signal across the site so it reads as a
    defining color rather than a sparse accent.
    ============================================================ */
@@ -13527,7 +13547,7 @@ blockquote.pull-quote::before {
 }
 
 /* ============================================================
-   ORGANIC GROWTH ENGINE — yellow theming (Session 24 fix 5)
+   ORGANIC GROWTH ENGINE, yellow theming (Session 24 fix 5)
    Re-skin the node icons, borders, and connection lines with
    --signal so the engine reads as a yellow diagram, not paper-on-ink.
    ============================================================ */
@@ -13554,7 +13574,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 25 — FIRM AT A GLANCE + DIVIDERS + LEGITIMACY ===
+   === SESSION 25, FIRM AT A GLANCE + DIVIDERS + LEGITIMACY ===
    ============================================================ */
 
 /* ---- FirmAtAGlance section ---- */
@@ -13760,7 +13780,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   SESSION 25 — FOUNDER OPERATORS CARDS (3 credentials)
+   SESSION 25, FOUNDER OPERATORS CARDS (3 credentials)
    ============================================================ */
 
 .founder-operator-cards {
@@ -13817,7 +13837,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   SESSION 25 — REAL OPERATIONS REBRAND (5-day cards)
+   SESSION 25, REAL OPERATIONS REBRAND (5-day cards)
    ============================================================ */
 
 .real-ops-rebrand {
@@ -13924,7 +13944,7 @@ path.oge-connection {
 }
 
 .real-ops-day-time {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
   font-size: 11px;
   color: var(--ink-faint);
@@ -13938,7 +13958,7 @@ path.oge-connection {
   right: 14px;
   background: var(--signal);
   color: var(--ink);
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 600;
   font-size: 10px;
   padding: 2px 6px;
@@ -13963,7 +13983,7 @@ path.oge-connection {
 }
 
 .real-ops-rebrand-workweek {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
   font-size: 12px;
   color: var(--ink-faint);
@@ -13987,7 +14007,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   SESSION 25 — TEAM FILTER REBRAND (monogram cards)
+   SESSION 25, TEAM FILTER REBRAND (monogram cards)
    ============================================================ */
 
 .team-rebrand {
@@ -14145,7 +14165,7 @@ path.oge-connection {
 
 
 /* ============================================================
-   SESSION 25 — FOUNDER REBRAND SECTION (ink background)
+   SESSION 25, FOUNDER REBRAND SECTION (ink background)
    ============================================================ */
 
 .founder-rebrand {
@@ -14230,7 +14250,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 26 — ARCHITECTURE PRIMITIVES + DEEP PAGES ===
+   === SESSION 26, ARCHITECTURE PRIMITIVES + DEEP PAGES ===
    ============================================================ */
 
 /* ---- Continue Reading primitive ---- */
@@ -14690,7 +14710,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   SESSION 26 — WHAT THIS MEANS HOMEPAGE SECTION
+   SESSION 26, WHAT THIS MEANS HOMEPAGE SECTION
    ============================================================ */
 
 .what-this-means {
@@ -14754,7 +14774,7 @@ path.oge-connection {
 }
 
 .wtm-phase-period {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 12px;
   color: var(--signal-text);
@@ -14821,7 +14841,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   SESSION 26 — DEEP-PAGE BASELINE
+   SESSION 26, DEEP-PAGE BASELINE
    Shared layout primitives every new page uses
    ============================================================ */
 
@@ -15077,7 +15097,7 @@ path.oge-connection {
 }
 
 .practice-card-number {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   color: var(--signal);
   margin-bottom: 8px;
@@ -15150,7 +15170,7 @@ path.oge-connection {
 }
 
 .engine-config-weight {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   color: var(--ink-faint);
   text-align: right;
@@ -15280,7 +15300,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 26 PHASE 2 — HOMEPAGE PREVIEW SECTIONS ===
+   === SESSION 26 PHASE 2, HOMEPAGE PREVIEW SECTIONS ===
    ============================================================ */
 
 .preview-section {
@@ -15506,7 +15526,7 @@ path.oge-connection {
 }
 
 .featured-case-badge {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 12px;
   color: var(--signal-text);
@@ -15547,7 +15567,7 @@ path.oge-connection {
 }
 
 .featured-case-stat-value {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 18px;
   color: var(--ink-text);
@@ -15736,7 +15756,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 27 — DROP CAP UTILITY ===
+   === SESSION 27, DROP CAP UTILITY ===
    Apply .has-drop-cap to opening paragraphs on /methodology (and
    article pages) for a true Fraunces drop cap.
    ============================================================ */
@@ -15849,7 +15869,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 26 PHASE 2 — /about REBUILD ===
+   === SESSION 26 PHASE 2, /about REBUILD ===
    ============================================================ */
 
 .about-reasons {
@@ -15975,7 +15995,7 @@ path.oge-connection {
 }
 
 .about-leader-chip {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 10px;
   color: var(--ink-muted);
@@ -16038,7 +16058,7 @@ path.oge-connection {
 }
 
 .brands-list-status {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   padding: 2px 8px;
   border: 0.5px solid var(--rule);
@@ -16096,7 +16116,7 @@ path.oge-connection {
 }
 
 .press-year {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   color: var(--signal);
   text-align: right;
@@ -16152,7 +16172,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 26 PHASE 2 — /services EXPANSION ===
+   === SESSION 26 PHASE 2, /services EXPANSION ===
    ============================================================ */
 
 .services-engine-overview {
@@ -16300,7 +16320,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 26 PHASE 2 — /case-studies HUB FILTERS ===
+   === SESSION 26 PHASE 2, /case-studies HUB FILTERS ===
    ============================================================ */
 
 .case-studies-hub {
@@ -16403,7 +16423,7 @@ path.oge-connection {
 }
 
 .case-studies-filters-count {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   color: var(--ink-faint);
   margin-bottom: 24px;
@@ -16474,11 +16494,11 @@ path.oge-connection {
   color: var(--signal-text);
   font-weight: 500;
   font-size: 12px;
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
 }
 
 .case-index-stat {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 18px;
   color: var(--ink-text);
@@ -16520,7 +16540,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 26 PHASE 2 — METHODOLOGY PILLAR REVEAL ===
+   === SESSION 26 PHASE 2, METHODOLOGY PILLAR REVEAL ===
    ============================================================ */
 
 .pillar-reveal {
@@ -16584,7 +16604,7 @@ path.oge-connection {
 }
 
 .pillar-indicator-num {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 18px;
   color: var(--signal-text);
   font-weight: 500;
@@ -16635,7 +16655,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 26 PHASE 2 — PAGE TRANSITIONS ===
+   === SESSION 26 PHASE 2, PAGE TRANSITIONS ===
    Next.js template.tsx wraps children in .page-transition.
    On every route change template re-mounts, so the entrance
    animation runs fresh.
@@ -16696,7 +16716,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 27 — ENGINEERING-DOCUMENT CARD SYSTEM ===
+   === SESSION 27, ENGINEERING-DOCUMENT CARD SYSTEM ===
    Replaces the rounded-shadow-card pattern with engineering-spec
    and library-index-card aesthetics.
    ============================================================ */
@@ -16741,7 +16761,7 @@ path.oge-connection {
 }
 
 .tech-doc-card__spec-id {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
   font-size: 11px;
   color: var(--ink-faint);
@@ -16770,7 +16790,7 @@ path.oge-connection {
 
 .tech-doc-card__category {
   padding: 20px 24px 12px;
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
   font-size: 11px;
   color: var(--signal-text);
@@ -16813,7 +16833,7 @@ path.oge-connection {
 }
 
 .tech-doc-card__metric-value {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 20px;
   letter-spacing: -0.01em;
@@ -16848,7 +16868,7 @@ path.oge-connection {
   gap: 14px;
 }
 
-/* TechDocCard — ink context */
+/* TechDocCard, ink context */
 
 .tech-doc-card--ink {
   background: var(--ink-elevated);
@@ -16911,7 +16931,7 @@ path.oge-connection {
 
 .index-card__category {
   padding: 16px 20px 0;
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.06em;
@@ -16980,7 +17000,7 @@ path.oge-connection {
 }
 
 .index-card__location {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.04em;
@@ -16996,7 +17016,7 @@ path.oge-connection {
   transform: rotate(45deg);
 }
 
-/* IndexCard — ink context */
+/* IndexCard, ink context */
 
 .index-card--ink {
   background: var(--ink-elevated);
@@ -17087,7 +17107,7 @@ path.oge-connection {
   transform: rotate(45deg);
 }
 
-/* DataRow — ink context */
+/* DataRow, ink context */
 
 .data-row--ink {
   border-bottom-color: rgba(244, 241, 232, 0.15);
@@ -17205,7 +17225,7 @@ path.oge-connection {
 }
 
 /* ============================================================
-   === SESSION 27 — INTERLINK BRIDGE ===
+   === SESSION 27, INTERLINK BRIDGE ===
    ============================================================ */
 
 .interlink-bridge {
@@ -17280,7 +17300,7 @@ path.oge-connection {
 }
 
 .interlink-bridge__category {
-  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
   font-size: 10px;
   letter-spacing: 0.06em;

@@ -7,7 +7,7 @@ import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 
 export const metadata: Metadata = {
-  title: "Services — Ten coordinated components. One engine.",
+  title: "Services, Ten coordinated components. One engine.",
   description:
     "The Organic Growth Engine is ten coordinated services for law firms and medical practices. Each has its own playbook, team, and data dashboard. They run together.",
 };
@@ -28,8 +28,8 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Google Local Service Ads (LSA)",
     oneliner: "Pre-vetted lead generation through Google Screened.",
     body: [
-      "LSA places your firm at the top of Google search results — above paid ads, above the local pack, above organic. For local-intent queries in legal and medical, LSA placement is the single highest-converting surface available.",
-      "We architect your LSA profile, run the verification through Google&apos;s background screening process, and operate the campaign as part of the coordinated engine. Not as a vendor relationship — as a component of the system.",
+      "LSA places your firm at the top of Google search results, above paid ads, above the local pack, above organic. For local-intent queries in legal and medical, LSA placement is the single highest-converting surface available.",
+      "We architect your LSA profile, run the verification through Google&apos;s background screening process, and operate the campaign as part of the coordinated engine. Not as a vendor relationship, as a component of the system.",
       "Where LSA fits: high-intent local queries (probate lawyer Tampa, dental implants Chicago). Lower fit: long-tail authority queries where LSA doesn&apos;t serve.",
     ],
     deliverables: [
@@ -45,7 +45,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Google Business Profile (GMB)",
     oneliner: "GMB rebuilt as a network-level asset, not a one-off listing.",
     body: [
-      "Most agencies treat GMB as a checkbox. We treat it as the central conversion asset for every local-intent practice. Profile configuration, service taxonomy, photo strategy, post cadence, Q&A operations, and review velocity — all run as one coordinated system.",
+      "Most agencies treat GMB as a checkbox. We treat it as the central conversion asset for every local-intent practice. Profile configuration, service taxonomy, photo strategy, post cadence, Q&A operations, and review velocity, all run as one coordinated system.",
       "For multi-location practices: each location optimized at the network level, not individually. Coordinated category strategy, coordinated service taxonomy, coordinated review velocity.",
       "GMB is the highest-leverage local surface. A well-operated GMB profile compounds every other component of the engine.",
     ],
@@ -53,7 +53,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
       "Full GMB rebuild including categories, services, attributes, photos",
       "Weekly post cadence with location-specific content",
       "Review velocity automation (HIPAA-aware for medical)",
-      "Q&A operations — pre-loaded with high-intent questions",
+      "Q&A operations, pre-loaded with high-intent questions",
       "Multi-location coordination where applicable",
     ],
     caseRef: { href: "/case-studies/ridge-dental", label: "Ridge Dental engagement" },
@@ -64,7 +64,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     oneliner: "Conversion-engineered pages tuned to legal & medical intake.",
     body: [
       "Most law firm and medical practice websites are brochures. We turn them into conversion engines. Practice-area pages restructured around buyer-intent patterns. Intake flows redesigned to surface insurance acceptance / case fit / urgency triage.",
-      "Continuous A/B testing across landing pages, headlines, intake forms, and CTAs. Statistical rigor on the test design — minimum sample sizes, confidence thresholds, segmentation.",
+      "Continuous A/B testing across landing pages, headlines, intake forms, and CTAs. Statistical rigor on the test design, minimum sample sizes, confidence thresholds, segmentation.",
       "The result: same traffic, more cases. Same cases, higher quality. Same engagement, higher revenue.",
     ],
     deliverables: [
@@ -81,7 +81,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     oneliner: "Entity, schema, and content engineered for ChatGPT / Perplexity / AI Overviews.",
     body: [
       "AI search is the fastest-growing query surface in legal and medical. Patients ask ChatGPT for &ldquo;best dermatologist in Miami.&rdquo; Heirs ask Perplexity for &ldquo;probate attorney recommendations in Tampa.&rdquo; The firms cited in those AI answers win the next decade of clients.",
-      "We engineer your firm&apos;s entity for AI search consumption. Knowledge graph signals, schema markup, authority content, and directory placements — all tuned to be the source AI surfaces cite.",
+      "We engineer your firm&apos;s entity for AI search consumption. Knowledge graph signals, schema markup, authority content, and directory placements, all tuned to be the source AI surfaces cite.",
       "Coverage: ChatGPT, Perplexity, Claude, Google AI Overviews, Bing AI. We monitor citation rates across all four major surfaces weekly.",
     ],
     deliverables: [
@@ -99,7 +99,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Authority Content",
     oneliner: "Long-form articles that earn featured snippets and AI citations.",
     body: [
-      "Most agency content is generic, scraped, or LLM-spun. Ours isn&apos;t. We produce long-form authority content tied to your practice areas — written for the actual decision a prospect is making, not for SEO checkbox completion.",
+      "Most agency content is generic, scraped, or LLM-spun. Ours isn&apos;t. We produce long-form authority content tied to your practice areas, written for the actual decision a prospect is making, not for SEO checkbox completion.",
       "Topics chosen against real query data from our rank tracker. Length determined by what the query rewards (some need 800 words, some need 4,000). Schema and internal linking integrated from production, not bolted on after.",
       "Authority content compounds: every piece amplifies AI citation, builds topical authority, and reinforces the GMB / website / press signal stack.",
     ],
@@ -117,7 +117,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Reputation Management",
     oneliner: "Review velocity systems plus response operations.",
     body: [
-      "Reviews are the conversion moat. Three competitors with 50 reviews each lose to the one with 400 — assuming the 400 are recent and well-managed.",
+      "Reviews are the conversion moat. Three competitors with 50 reviews each lose to the one with 400, assuming the 400 are recent and well-managed.",
       "We architect review velocity systems specific to your practice: HIPAA-aware request flows for medical, ethical bar-compliant requests for legal. Response operations cover every review within 48 hours.",
       "Reputation is one of the highest-leverage components: it amplifies local pack, AI citation, and conversion simultaneously.",
     ],
@@ -151,7 +151,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Schema & Technical SEO",
     oneliner: "LegalService, Physician, Attorney entity work.",
     body: [
-      "Schema markup tells Google and AI surfaces what your firm actually is — practice areas, jurisdictions, providers, services, reviews. Most websites have none. Some have a generic Organization schema. We deploy the full LegalService / Physician / Attorney / Medical-specialty schema stack with entity references between assets.",
+      "Schema markup tells Google and AI surfaces what your firm actually is, practice areas, jurisdictions, providers, services, reviews. Most websites have none. Some have a generic Organization schema. We deploy the full LegalService / Physician / Attorney / Medical-specialty schema stack with entity references between assets.",
       "Plus the rest of technical SEO: Core Web Vitals, crawlability, internal linking, sitemaps, robots config, and page-speed engineering.",
     ],
     deliverables: [
@@ -181,7 +181,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Social Media Growth",
     oneliner: "Platform-tuned brand presence, not generic posting.",
     body: [
-      "Social media for legal and medical is misunderstood. The audience isn&apos;t on every platform — and the content doesn&apos;t convert from generic posting. We architect social presence on the platforms specific to your firm&apos;s vertical: LinkedIn for B2B legal, Instagram and TikTok for cosmetic medical, Facebook for family law.",
+      "Social media for legal and medical is misunderstood. The audience isn&apos;t on every platform, and the content doesn&apos;t convert from generic posting. We architect social presence on the platforms specific to your firm&apos;s vertical: LinkedIn for B2B legal, Instagram and TikTok for cosmetic medical, Facebook for family law.",
       "Same operator playbook that grew Madison Clark to 100M views, adapted to legal / medical content requirements.",
     ],
     deliverables: [
@@ -199,14 +199,14 @@ export default function ServicesPage() {
     <main className="services-hub">
       <PageHero
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
-        eyebrow="Services — The Ten Components"
+        eyebrow="Services, The Ten Components"
         title={
           <>
             Ten coordinated services.{" "}
             <span className="accent-italic">One engine.</span>
           </>
         }
-        subtitle="Each component has its own playbook, its own team, and its own data dashboard. They run together as one engine — engineered to compound."
+        subtitle="Each component has its own playbook, its own team, and its own data dashboard. They run together as one engine, engineered to compound."
       />
 
       {/* THE ENGINE OVERVIEW */}
@@ -221,8 +221,8 @@ export default function ServicesPage() {
           <div className="services-engine-text">
             <p>
               The Organic Growth Engine is the architectural manifestation of
-              the Rysen methodology. Ten components — each with its own
-              playbook, dashboard, and team — running together as one
+              the Rysen methodology. Ten components, each with its own
+              playbook, dashboard, and team, running together as one
               coordinated system.
             </p>
             <p>
@@ -310,9 +310,9 @@ export default function ServicesPage() {
             local pack which feeds LSA performance (component 1).
           </p>
           <p>
-            Run separately — as most agencies do — each component is a
+            Run separately, as most agencies do, each component is a
             single-digit-percent lift. Run together, the same components
-            produce a 150–500% revenue lift over 12–24 months. The
+            produce a 150-500% revenue lift over 12-24 months. The
             arithmetic is multiplicative.
           </p>
           <p>

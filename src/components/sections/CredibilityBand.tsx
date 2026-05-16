@@ -133,7 +133,7 @@ function TeamVisual() {
 }
 
 function EngagementsVisual() {
-  // 4 bars: FL (20), CA (16), IL (12), NY (14) — heights in 32px viewBox
+  // 4 bars: FL (20), CA (16), IL (12), NY (14), heights in 32px viewBox
   const bars: ReadonlyArray<{ x: number; h: number }> = [
     { x: 4, h: 20 },
     { x: 11, h: 16 },

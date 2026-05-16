@@ -25,14 +25,14 @@ const steps: ReadonlyArray<Step> = [
   {
     num: "03",
     title: "Execution & Optimization",
-    pill: "Months 1–6",
+    pill: "Months 1-6",
     desc: "Content production, technical SEO, AI search optimization, citation building, and continuous refinement. We meet biweekly. You see what's shipping, what's working, and what's being adjusted based on real data.",
   },
   {
     num: "04",
     title: "Reporting & Iteration",
     pill: "Ongoing",
-    desc: "Monthly reports showing ranking movements, AI citation counts, and revenue attribution. Strategy adjusts as the AI search landscape evolves — which it does, constantly.",
+    desc: "Monthly reports showing ranking movements, AI citation counts, and revenue attribution. Strategy adjusts as the AI search landscape evolves, which it does, constantly.",
   },
 ];
 

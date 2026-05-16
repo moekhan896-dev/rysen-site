@@ -18,7 +18,7 @@ export function OperatorJourney({ className = "" }: Props) {
       width={600}
       height={200}
       className={className}
-      ariaLabel="Operator journey timeline — Ross to Salesforce to Roku to Rysen"
+      ariaLabel="Operator journey timeline, Ross to Salesforce to Roku to Rysen"
     >
       {/* Baseline */}
       <line
@@ -65,7 +65,7 @@ export function OperatorJourney({ className = "" }: Props) {
               x={x}
               y="92"
               fontSize="10"
-              fontFamily="var(--font-mono), monospace"
+              fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
               fill="currentColor"
               textAnchor="middle"
               opacity="0.7"
@@ -77,7 +77,7 @@ export function OperatorJourney({ className = "" }: Props) {
               x={x}
               y="148"
               fontSize="9"
-              fontFamily="var(--font-mono), monospace"
+              fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
               fill={isFounding ? "currentColor" : "currentColor"}
               fontWeight={isFounding ? "600" : "400"}
               textAnchor="middle"
@@ -94,7 +94,7 @@ export function OperatorJourney({ className = "" }: Props) {
         x="40"
         y="180"
         fontSize="9"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         opacity="0.5"
       >

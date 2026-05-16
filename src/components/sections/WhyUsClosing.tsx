@@ -29,12 +29,12 @@ const ROWS: ReadonlyArray<Row> = [
   },
   {
     title: "We built the infrastructure ourselves.",
-    body: "Custom rank tracking software. Custom attribution dashboards. Custom AI search monitoring tools. We didn't buy a SaaS stack and rebadge it — we built the operational layer ourselves so it actually fits what we do.",
+    body: "Custom rank tracking software. Custom attribution dashboards. Custom AI search monitoring tools. We didn't buy a SaaS stack and rebadge it, we built the operational layer ourselves so it actually fits what we do.",
     proof: "5+ proprietary tools · Built in-house",
   },
   {
     title: "We turn down more work than we take.",
-    body: "We don't onboard every firm that asks. We screen for fit — local market dominance opportunity, partner-level commitment, willingness to invest 6-12 months minimum. If you're not the right fit, we'll tell you in the audit call.",
+    body: "We don't onboard every firm that asks. We screen for fit, local market dominance opportunity, partner-level commitment, willingness to invest 6-12 months minimum. If you're not the right fit, we'll tell you in the audit call.",
     proof: "~32% acceptance rate · Audit-first onboarding",
   },
 ];

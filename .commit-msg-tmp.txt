@@ -1,0 +1,102 @@
+Session 28: De-AI audit pass, kill monospace + em-dashes + "independent firm" + tighten hero fit + correct Madison Clark facts
+
+Comprehensive de-AI pass focused on the 5 highest-impact items from
+the spec. The remaining items (full card architecture rebuild with
+FeatureCard/FactCard/ProfileCard, trajectory rail rebuild, animated
+weekly cadence roadmap, enriched verticals with hover-reveals, inline
+detail tooltips, section heading mask-reveal, comprehensive copy
+rewrite for AI-writing tells) are deferred as a future polish session.
+
+BACKUP
+- Tag v2.7-pre-deai-audit pushed (points at 7d4445e)
+- REBRAND_ROLLBACK.md updated with Option 6
+
+PART 1, MONOSPACE PURGE
+- Removed IBM_Plex_Mono import + ibmPlexMono.variable from layout.tsx
+- Redefined --font-mono as an alias to var(--font-inter), so all
+  existing var(--font-mono) references render in Inter (with
+  tabular-nums via font-feature-settings). No per-rule rewrite needed.
+- Updated .type-metric-display + .type-metric-large to Fraunces with
+  tabular-nums and font-feature-settings 'tnum' 1 'lnum' 1.
+- Updated .type-metric (smaller) to Inter 500 with tabular-nums.
+- Swept ", 'IBM Plex Mono', monospace" fallbacks from globals.css.
+- Swept fontFamily="var(--font-mono), monospace" from all 7 blueprint
+  illustration components (ScalesOfJustice, MedicalCaduceus,
+  EngineArchitecture, DataInfrastructure, WeeklyCadenceGrid,
+  FirstPositionFramework, OperatorJourney) and BlueprintChart, plus
+  the inline mono style in /how-we-work page.tsx.
+- Final grep: zero user-visible monospace remains. The 5 remaining
+  matches are all in comments/JSDoc strings.
+
+PART 2, EM-DASH AND EN-DASH PURGE
+- PowerShell sweep across 77 files: ", " (em-dash with surrounding
+  spaces) to ", " (comma), then standalone em-dashes to "," and
+  standalone en-dashes to "-". Covers all .tsx, .ts, .css, .md files
+  under src/.
+- Final grep: zero em-dashes or en-dashes anywhere in src/.
+
+PART 3, INDEPENDENT FIRM PURGE
+- Hero masthead right column: "An independent firm" replaced with
+  the concrete fact "30+ engagements, 4 states".
+- Footer legal line: "Rysen Growth, LLC. An independent firm based
+  in Detroit, Michigan." simplified to "Rysen Growth, LLC. Based in
+  Detroit, Michigan."
+- FirmAtAGlance closing italic line: "An independent firm.
+  Founder-operated. No outside capital. No exits." simplified to
+  "Founder-operated. No outside capital. No exits."
+- /about hero title: "An independent boutique firm, run by
+  operators." simplified to "A boutique firm, run by operators."
+- Final grep: zero instances of "independent firm" remain.
+
+PART 4, HERO HEADLINE FIT
+- font-size clamp tightened from clamp(32px, min(4.5vw, 9vh), 72px)
+  to clamp(32px, min(4vw, 8vh), 64px). The lower upper bound (64px
+  vs 72px) plus tighter viewport-height ratio (8vh vs 9vh) means
+  the 4-line headline now fits above the fold on 1366x768 laptop
+  screens.
+- letter-spacing tightened to -0.022em.
+- font-variation-settings opsz 64 (matches the new max font-size).
+- On 1024px and below, .hero-line switches to display: inline so
+  the 4 spans flow naturally with normal word wrapping rather than
+  forcing 4 visual lines on narrow screens.
+
+PART 5, MADISON CLARK FACTS
+- "850K followers" replaced with "20K followers" everywhere:
+  - src/app/case-studies/page.tsx
+  - src/app/case-studies/madison-clark/page.tsx
+  - src/components/sections/homepage-previews.tsx
+- Madison Clark detail page metric label expanded to reflect the
+  new framing: "Followers, from zero. Views compounded faster than
+  audience conversion." (matches the 100M views / 20K followers
+  reality of the engagement.)
+
+BUILD
+- npx tsc --noEmit clean
+- npm run build clean (33/33 static pages)
+- Required NODE_OPTIONS=--max-old-space-size=8192
+
+DEFERRED
+- Part 6 (new FeatureCard, FactCard, ProfileCard with magazine-spread
+  composition, replacing TechDocCard/IndexCard/DataRow): full rebuild
+  requires swapping dozens of card usages site-wide. Session 27's
+  TechDocCard/IndexCard/DataRow already moved off the most generic
+  "rounded soft-shadow box" pattern; pushing to the next level is a
+  separate dedicated pass.
+- Part 7 (rebuild WhatThisMeans as horizontal trajectory rail).
+- Part 8 (rebuild RealOperations as animated cadence roadmap with
+  yellow progress line).
+- Part 9 (enrich Verticals with hover-reveal details + animated
+  illustrations).
+- Part 10 (per-element ScrollReveal on every text element with
+  staggered delays; current state is section-level only).
+- Part 11 (section heading mask-reveal animation CSS).
+- Part 12 (comprehensive copy rewrite for AI-writing tells, "imagine
+  if...", tricolons, "leveraging", etc.) - this needs a writer
+  pass.
+- Part 13 (InlineDetail tooltip component).
+
+The 5 items shipped in this commit are the highest-impact de-AI
+signals. The deferred items are quality polish that can be done
+without breaking anything else.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>

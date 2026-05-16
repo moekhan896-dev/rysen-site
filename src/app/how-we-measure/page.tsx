@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 
 export const metadata: Metadata = {
-  title: "How we measure — The data science edge",
+  title: "How we measure, The data science edge",
   description:
     "Seven data infrastructures, custom-built for legal and medical client work, running continuously. Operated by an in-house data science team.",
 };
@@ -22,7 +22,7 @@ const SYSTEMS = [
   {
     n: "02",
     title: "Custom rank tracking",
-    body: "Built-in-house rank tracking against priority queries, run daily, with anomaly flagging. Not a vendor tool — a system tuned for legal and medical query structures, with weighted importance per practice area.",
+    body: "Built-in-house rank tracking against priority queries, run daily, with anomaly flagging. Not a vendor tool, a system tuned for legal and medical query structures, with weighted importance per practice area.",
     callout: "Clients receive: daily rank refresh, weekly delta report, anomaly alerts.",
   },
   {
@@ -34,19 +34,19 @@ const SYSTEMS = [
   {
     n: "04",
     title: "Revenue attribution (CRM integration)",
-    body: "Direct integration with the firm's CRM (Clio, Salesforce Health, Practice Better, etc.) so that closed cases and patient revenue are attributed back to source channel. The dollar number — not the impression number — is what gets reported.",
+    body: "Direct integration with the firm's CRM (Clio, Salesforce Health, Practice Better, etc.) so that closed cases and patient revenue are attributed back to source channel. The dollar number, not the impression number, is what gets reported.",
     callout: "Clients receive: revenue-by-channel breakdown, ROI per dollar spent, attribution windows.",
   },
   {
     n: "05",
     title: "A/B testing infrastructure",
-    body: "Ongoing tests across landing pages, CTAs, intake forms, and content formats. Run with proper statistical rigor — minimum sample sizes, confidence thresholds, segmentation. We move on data, not opinion.",
+    body: "Ongoing tests across landing pages, CTAs, intake forms, and content formats. Run with proper statistical rigor, minimum sample sizes, confidence thresholds, segmentation. We move on data, not opinion.",
     callout: "Clients receive: test results documentation, decisions taken, winners deployed.",
   },
   {
     n: "06",
     title: "Cohort analysis",
-    body: "Patient and case cohorts tracked over time. Acquisition channel, conversion path, lifetime value. Used to identify which acquisition strategies produce which kind of client — and which client segments compound through referrals.",
+    body: "Patient and case cohorts tracked over time. Acquisition channel, conversion path, lifetime value. Used to identify which acquisition strategies produce which kind of client, and which client segments compound through referrals.",
     callout: "Clients receive: cohort dashboards, LTV by channel, referral graph analysis.",
   },
   {
@@ -133,7 +133,7 @@ export default function HowWeMeasurePage() {
             The seven systems are built and maintained by a dedicated data
             science team operating in-house at Rysen. Pedigrees from Salesforce
             data science, attribution modeling at consumer brands, and
-            statistical work in academia. Not a vendor relationship — a team
+            statistical work in academia. Not a vendor relationship, a team
             that sits in standing meetings with the senior strategists every
             week.
           </p>

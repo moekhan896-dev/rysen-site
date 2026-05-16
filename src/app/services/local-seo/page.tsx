@@ -81,12 +81,12 @@ const FAQ = [
   {
     question: "What’s the difference between local SEO and regular SEO?",
     answer:
-      "Local SEO targets intent that includes location — “probate lawyer tampa,” “dermatologist near me.” The signals are different: GMB completeness, review velocity, citation consistency, proximity, and category targeting matter more than backlinks alone.",
+      "Local SEO targets intent that includes location, “probate lawyer tampa,” “dermatologist near me.” The signals are different: GMB completeness, review velocity, citation consistency, proximity, and category targeting matter more than backlinks alone.",
   },
   {
     question: "How long until I’m in the 3-pack?",
     answer:
-      "First movement: 30–60 days. Consistent top-3 in priority neighborhoods: 90–120 days. Defensible position-one against active competitors: 6+ months. Pace depends on your starting position and the competitive landscape in your metro.",
+      "First movement: 30-60 days. Consistent top-3 in priority neighborhoods: 90-120 days. Defensible position-one against active competitors: 6+ months. Pace depends on your starting position and the competitive landscape in your metro.",
   },
   {
     question: "Do you handle reviews for us?",
@@ -101,7 +101,7 @@ const FAQ = [
   {
     question: "Will this work in a saturated metro?",
     answer:
-      "Usually yes — but we’ll tell you upfront if the math doesn’t look winnable. We’ve turned down engagements in markets where the incumbent moat was too deep to justify the spend. We’d rather lose a deal than lose your retainer to a bad fit.",
+      "Usually yes, but we’ll tell you upfront if the math doesn’t look winnable. We’ve turned down engagements in markets where the incumbent moat was too deep to justify the spend. We’d rather lose a deal than lose your retainer to a bad fit.",
   },
 ];
 
@@ -129,7 +129,7 @@ export default function LocalSeoPage() {
           { label: "Services", href: "/services" },
           { label: "Local SEO" },
         ]}
-        eyebrow="Service — local SEO"
+        eyebrow="Service, local SEO"
         title={
           <>
             Own your metro.{" "}
@@ -144,7 +144,7 @@ export default function LocalSeoPage() {
         title={
           <>
             Local pack invisibility isn’t a{" "}
-            <span className="accent-italic">ranking problem</span> — it’s a
+            <span className="accent-italic">ranking problem</span>, it’s a
             revenue problem.
           </>
         }
@@ -156,7 +156,7 @@ export default function LocalSeoPage() {
             For most legal and medical queries, eighty percent of intent is local.
             Probate lawyer Tampa. Dermatologist Miami. Family law attorney
             Atlanta. The user wants a provider near them and they’re going
-            to call one of the top three results — usually the first.
+            to call one of the top three results, usually the first.
           </p>
           <p>
             If you’re on the second page of the local pack, you’re
@@ -168,7 +168,7 @@ export default function LocalSeoPage() {
           <p>
             We don’t hope. We engineer position-one across priority
             neighborhoods with systematic GMB optimization, citation work, review
-            velocity, and hyperlocal content — and we track it every week.
+            velocity, and hyperlocal content, and we track it every week.
           </p>
         </div>
       </PageSection>

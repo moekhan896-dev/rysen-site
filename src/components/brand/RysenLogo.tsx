@@ -6,7 +6,7 @@ interface RysenLogoProps {
 }
 
 /**
- * RysenLogo — the brand mark. The yellow right triangle alone, no square
+ * RysenLogo, the brand mark. The yellow right triangle alone, no square
  * wrapper. The hypotenuse runs from top-left to bottom-right; right angle
  * is at the bottom-left corner.
  */

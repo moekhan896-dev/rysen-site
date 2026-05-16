@@ -10,7 +10,7 @@ export function ScalesOfJustice({ className = "" }: Props) {
       width={400}
       height={300}
       className={className}
-      ariaLabel="Architectural diagram of legal vertical playbook — scales of justice"
+      ariaLabel="Architectural diagram of legal vertical playbook, scales of justice"
     >
       {/* Vertical pillar */}
       <line x1="200" y1="40" x2="200" y2="260" stroke="currentColor" strokeWidth="1.5" />
@@ -40,13 +40,13 @@ export function ScalesOfJustice({ className = "" }: Props) {
       <path d="M 195 260 L 205 260 L 200 250 Z" fill="var(--signal)" />
 
       {/* Annotation labels (IBM Plex Mono via attribute, falls back to sans) */}
-      <text x="20" y="200" fontSize="9" fontFamily="var(--font-mono), monospace" fill="currentColor" opacity="0.6">
+      <text x="20" y="200" fontSize="9" fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic" fill="currentColor" opacity="0.6">
         TRUST SIGNALS
       </text>
-      <text x="282" y="200" fontSize="9" fontFamily="var(--font-mono), monospace" fill="currentColor" opacity="0.6">
+      <text x="282" y="200" fontSize="9" fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic" fill="currentColor" opacity="0.6">
         AUTHORITY
       </text>
-      <text x="156" y="285" fontSize="9" fontFamily="var(--font-mono), monospace" fill="currentColor" opacity="0.6">
+      <text x="156" y="285" fontSize="9" fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic" fill="currentColor" opacity="0.6">
         FIRST POSITION
       </text>
 

@@ -9,7 +9,7 @@ interface AmbientTriangleProps {
 }
 
 /**
- * AmbientTriangle — a SignalTriangle that rotates 0.5deg per 100px of scroll.
+ * AmbientTriangle, a SignalTriangle that rotates 0.5deg per 100px of scroll.
  * Used as a watermark in section corners. Skips the rotation entirely when
  * prefers-reduced-motion: reduce is set.
  */

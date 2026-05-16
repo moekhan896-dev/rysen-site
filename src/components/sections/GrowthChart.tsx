@@ -138,7 +138,7 @@ export function GrowthChart() {
           className="growth-chart-area"
         />
 
-        {/* Line — animated stroke-dashoffset */}
+        {/* Line, animated stroke-dashoffset */}
         <path
           d={linePath}
           fill="none"

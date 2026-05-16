@@ -11,14 +11,14 @@ import {
 import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
-  title: "AWS Law Firm Case Study — Tampa Probate, +240% Consultations",
+  title: "AWS Law Firm Case Study, Tampa Probate, +240% Consultations",
   description:
-    "How Rysen took AWS Law Firm from page two of Google to position one across every priority Tampa probate query — with 52% AI citation rate.",
+    "How Rysen took AWS Law Firm from page two of Google to position one across every priority Tampa probate query, with 52% AI citation rate.",
 };
 
 const PHASES = [
   {
-    window: "Month 1–2",
+    window: "Month 1-2",
     title: "Foundation rebuild",
     desc: "Audit, schema, technical SEO, and practice-area page architecture before any content shipped.",
     tactics: [
@@ -28,7 +28,7 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 3–4",
+    window: "Month 3-4",
     title: "Authority construction",
     desc: "Long-form probate authority content, citation acquisition, GMB rebuild, and review velocity systems.",
     tactics: [
@@ -39,7 +39,7 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 5–6",
+    window: "Month 5-6",
     title: "AI search optimization",
     desc: "Entity strengthening and LLM-ready content engineered for AI citation across ChatGPT, Perplexity, and Google AIO.",
     tactics: [
@@ -75,7 +75,7 @@ const TACTICS = [
   },
   {
     title: "Long-form authority content",
-    desc: "12 deep articles covering Florida probate law, timelines, and process — earning featured snippets.",
+    desc: "12 deep articles covering Florida probate law, timelines, and process, earning featured snippets.",
   },
   {
     title: "GMB optimization & review velocity",
@@ -92,7 +92,7 @@ export default function AwsCaseStudyPage() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline:
-      "AWS Law Firm — Tampa probate, +240% consultations, 52% AI citation rate",
+      "AWS Law Firm, Tampa probate, +240% consultations, 52% AI citation rate",
     author: { "@type": "Organization", name: "Rysen Growth" },
     publisher: { "@type": "Organization", name: "Rysen Growth" },
   };
@@ -162,7 +162,7 @@ export default function AwsCaseStudyPage() {
             their immediate map area.
           </p>
           <p>
-            Their schema markup was incomplete — no LegalService tagging, no
+            Their schema markup was incomplete, no LegalService tagging, no
             attorney entity definitions, no FAQ structured data. Their practice
             area pages averaged 400 words apiece. The competitive set, mostly
             national lawyer-mill franchises and a few local incumbents, had
@@ -221,7 +221,7 @@ export default function AwsCaseStudyPage() {
         background="tint"
       >
         <CaseQuote
-          quote="We went from invisible to inevitable. Rysen doesn't just rank you — they make you the answer. Eight months of weekly reporting, no surprises, and we're now the firm people get told to call."
+          quote="We went from invisible to inevitable. Rysen doesn't just rank you, they make you the answer. Eight months of weekly reporting, no surprises, and we're now the firm people get told to call."
           attribution="Managing Partner, AWS Law Firm"
         />
       </PageSection>
@@ -233,7 +233,7 @@ export default function AwsCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your firm’s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your firm’s visibility, same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

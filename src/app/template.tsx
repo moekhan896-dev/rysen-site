@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 /**
- * Next.js template — re-mounts on every route change. The framer-motion
+ * Next.js template, re-mounts on every route change. The framer-motion
  * entrance animates each new page in (fade + lift). The CSS class
  * .page-transition handles the yellow wipe line that sweeps across the
  * viewport during the navigation.

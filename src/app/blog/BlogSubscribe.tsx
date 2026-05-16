@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * FORMSPREE SETUP — REQUIRED FOR BLOG SUBSCRIBE TO WORK IN PRODUCTION
+ * FORMSPREE SETUP, REQUIRED FOR BLOG SUBSCRIBE TO WORK IN PRODUCTION
  *
  * 1. Sign in at https://formspree.io with marketing@rysengrowth.com.
  * 2. Create a new form named "Rysen Blog Subscribe".

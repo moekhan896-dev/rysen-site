@@ -38,7 +38,7 @@ export function FounderSection() {
         <p className="founder-rebrand-lead">
           Most marketing agencies are run by consultants who have never built a
           brand. Rysen is different. The senior strategists here have founded,
-          scaled, or operated brands of their own — and they bring that operator
+          scaled, or operated brands of their own, and they bring that operator
           experience to every law firm and medical practice we serve. Backed by
           an in-house data science team that measures every dollar in attributed
           revenue, not impressions.
@@ -48,10 +48,10 @@ export function FounderSection() {
           <p>
             We don&apos;t sell our clients on growth playbooks we&apos;ve never
             run ourselves. We&apos;ve run them. Then we operate the same
-            playbooks for them — backed by the data infrastructure to prove
+            playbooks for them, backed by the data infrastructure to prove
             what&apos;s working.
           </p>
-          <cite className="founder-rebrand-attribution">— Rysen leadership</cite>
+          <cite className="founder-rebrand-attribution">, Rysen leadership</cite>
         </blockquote>
 
         <div className="founder-operator-cards">

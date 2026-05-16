@@ -37,7 +37,7 @@ export function DataInfrastructure({ className = "" }: Props) {
         x="390"
         y="195"
         fontSize="10"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         textAnchor="middle"
       >
@@ -47,7 +47,7 @@ export function DataInfrastructure({ className = "" }: Props) {
         x="390"
         y="207"
         fontSize="10"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         textAnchor="middle"
       >
@@ -70,7 +70,7 @@ export function DataInfrastructure({ className = "" }: Props) {
             x="50"
             y={s.y + 4}
             fontSize="9"
-            fontFamily="var(--font-mono), monospace"
+            fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
             fill="currentColor"
             opacity="0.7"
           >
@@ -109,7 +109,7 @@ export function DataInfrastructure({ className = "" }: Props) {
         x="460"
         y="178"
         fontSize="8"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         textAnchor="middle"
         opacity="0.6"

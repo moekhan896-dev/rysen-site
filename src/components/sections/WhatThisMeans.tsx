@@ -19,18 +19,18 @@ const PHASES: ReadonlyArray<Phase> = [
       "Initial content production pipeline active",
       "Custom attribution dashboard live",
     ],
-    outcome: "Typical visibility gain: 15–25% in core local queries.",
+    outcome: "Typical visibility gain: 15-25% in core local queries.",
   },
   {
     period: "WITHIN 6 MONTHS",
     title: "Compound visibility begins",
     bullets: [
       "Core practice area queries ranking in top 5",
-      "Review velocity 3–5× baseline",
+      "Review velocity 3-5× baseline",
       "AI search citations beginning",
       "Tracked revenue attribution active",
     ],
-    outcome: "Typical revenue lift: 40–80% from organic.",
+    outcome: "Typical revenue lift: 40-80% from organic.",
   },
   {
     period: "WITHIN 12 MONTHS",
@@ -41,7 +41,7 @@ const PHASES: ReadonlyArray<Phase> = [
       "Press placements and authority signals secured",
       "Predictive modeling identifying next-quarter opportunities",
     ],
-    outcome: "Typical revenue lift: 150–300% from organic.",
+    outcome: "Typical revenue lift: 150-300% from organic.",
   },
   {
     period: "WITHIN 24 MONTHS",
@@ -52,7 +52,7 @@ const PHASES: ReadonlyArray<Phase> = [
       "Authority content library compounding citations",
       "Engagement transitions to operational mode",
     ],
-    outcome: "Typical revenue lift: 300–500% from organic, sustained.",
+    outcome: "Typical revenue lift: 300-500% from organic, sustained.",
   },
 ];
 

@@ -14,7 +14,7 @@ const TICKER_PHRASES = [
 function buildTickerText(): string {
   // Two passes so the marquee loops cleanly
   const single = TICKER_PHRASES.join(" · ");
-  return `Now optimizing — ${single} · ${single}`;
+  return `Now optimizing, ${single} · ${single}`;
 }
 
 function useDetroitTime(): string {

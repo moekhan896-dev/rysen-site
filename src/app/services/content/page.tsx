@@ -21,7 +21,7 @@ import {
 export const metadata: Metadata = {
   title: "Content, Reputation & Web Design for Law & Medical Practices",
   description:
-    "Full-stack growth services: long-form authority content, newsletter strategy, review management, web design, and off-page SEO — run from one Detroit team.",
+    "Full-stack growth services: long-form authority content, newsletter strategy, review management, web design, and off-page SEO, run from one Detroit team.",
 };
 
 const ICON_PROPS = { size: 18, strokeWidth: 1.8, "aria-hidden": true } as const;
@@ -49,7 +49,7 @@ const CAPABILITIES = [
   {
     icon: <MessageSquare {...ICON_PROPS} />,
     title: "Email automation",
-    desc: "Lifecycle email — intake, nurture, win-back — tied to your CRM and reporting layer.",
+    desc: "Lifecycle email, intake, nurture, win-back, tied to your CRM and reporting layer.",
   },
   {
     icon: <Globe {...ICON_PROPS} />,
@@ -65,7 +65,7 @@ const PROCESS = [
   },
   {
     title: "Strategy",
-    desc: "Editorial calendar, review acquisition plan, web priorities, and email cadence — all sequenced.",
+    desc: "Editorial calendar, review acquisition plan, web priorities, and email cadence, all sequenced.",
   },
   {
     title: "Execution",
@@ -86,7 +86,7 @@ const FAQ = [
   {
     question: "How long are your articles?",
     answer:
-      "Usually 1,500–3,500 words for authority content. Length follows the topic. We don’t inflate articles to hit word counts — long-form has to earn the length.",
+      "Usually 1,500-3,500 words for authority content. Length follows the topic. We don’t inflate articles to hit word counts, long-form has to earn the length.",
   },
   {
     question: "Will you write under our attorneys’ bylines?",
@@ -129,14 +129,14 @@ export default function ContentPage() {
           { label: "Services", href: "/services" },
           { label: "Content & reputation" },
         ]}
-        eyebrow="Service — content & reputation"
+        eyebrow="Service, content & reputation"
         title={
           <>
             Full-stack growth, not{" "}
             <span className="accent-italic">piecemeal</span> services.
           </>
         }
-        subtitle="Most agencies sell one tactic at a time. Firms need an integrated approach: authority content, reputation, newsletters, web, email — all run from one team."
+        subtitle="Most agencies sell one tactic at a time. Firms need an integrated approach: authority content, reputation, newsletters, web, email, all run from one team."
       />
 
       <PageSection
@@ -154,7 +154,7 @@ export default function ContentPage() {
           <p>
             Most agencies want to sell you one service. Just content. Or just
             reviews. Or just web. It’s easier to sell, easier to staff,
-            easier to bill. But it doesn’t work — because the levers
+            easier to bill. But it doesn’t work, because the levers
             you’re trying to move all depend on each other.
           </p>
           <p>
@@ -227,7 +227,7 @@ export default function ContentPage() {
 
       <CTABanner
         title="Want the full stack reviewed?"
-        subtitle="A free audit covers content gaps, reputation status, conversion leaks, and authority signal — all in one PDF."
+        subtitle="A free audit covers content gaps, reputation status, conversion leaks, and authority signal, all in one PDF."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See all services"

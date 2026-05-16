@@ -11,16 +11,16 @@ import {
 import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
-  title: "Coleman & Co. Case Study — LA Estate Attorney, +320% Qualified Leads",
+  title: "Coleman & Co. Case Study, LA Estate Attorney, +320% Qualified Leads",
   description:
     "How Rysen took Coleman & Co. from referral-dependent boutique to Los Angeles’s #1 ranked estate attorney across HNW estate planning queries.",
 };
 
 const PHASES = [
   {
-    window: "Month 1–2",
+    window: "Month 1-2",
     title: "Hyperlocal LA neighborhood targeting",
-    desc: "Forget “Los Angeles” in general — we built the strategy around Beverly Hills, Pacific Palisades, Brentwood, and Bel Air specifically.",
+    desc: "Forget “Los Angeles” in general, we built the strategy around Beverly Hills, Pacific Palisades, Brentwood, and Bel Air specifically.",
     tactics: [
       "Neighborhood-level location pages with intent-aligned content",
       "GMB optimization tuned for HNW estate intent",
@@ -28,9 +28,9 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 3–5",
+    window: "Month 3-5",
     title: "Trust-specific and HNW authority content",
-    desc: "Authority library covering trust types, estate tax strategies, and succession planning — written for HNW intent, not generic estate planning.",
+    desc: "Authority library covering trust types, estate tax strategies, and succession planning, written for HNW intent, not generic estate planning.",
     tactics: [
       "Trust type authority series (revocable, irrevocable, dynasty, etc.)",
       "Estate tax strategy long-form content",
@@ -38,9 +38,9 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 6–7",
+    window: "Month 6-7",
     title: "Strategic referral partner content",
-    desc: "Reciprocal authority content with CPAs and wealth managers — turns the firm’s referral network into an indirect SEO signal.",
+    desc: "Reciprocal authority content with CPAs and wealth managers, turns the firm’s referral network into an indirect SEO signal.",
     tactics: [
       "Co-authored content with allied CPAs and RIAs",
       "Reciprocal citation and link strategy",
@@ -48,9 +48,9 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 8–9",
+    window: "Month 8-9",
     title: "AI search positioning",
-    desc: "Entity strengthening tuned for Perplexity and Claude — the AI surfaces HNW prospects use most for legal research.",
+    desc: "Entity strengthening tuned for Perplexity and Claude, the AI surfaces HNW prospects use most for legal research.",
     tactics: [
       "Knowledge graph signal work for the firm and partners",
       "Content engineered for Perplexity citation in trust queries",
@@ -62,11 +62,11 @@ const PHASES = [
 const TACTICS = [
   {
     title: "Neighborhood location pages",
-    desc: "Beverly Hills, Pacific Palisades, Brentwood, Bel Air — purpose-built pages, not duplicate templates with town names swapped.",
+    desc: "Beverly Hills, Pacific Palisades, Brentwood, Bel Air, purpose-built pages, not duplicate templates with town names swapped.",
   },
   {
     title: "Trust-specific authority library",
-    desc: "Deep authority articles on revocable, irrevocable, dynasty, and charitable trust structures — earning featured snippets.",
+    desc: "Deep authority articles on revocable, irrevocable, dynasty, and charitable trust structures, earning featured snippets.",
   },
   {
     title: "HNW case study format",
@@ -74,11 +74,11 @@ const TACTICS = [
   },
   {
     title: "CPA + wealth-manager content",
-    desc: "Co-authored pieces with allied CPAs and RIAs — turning the existing referral network into a compounding SEO signal.",
+    desc: "Co-authored pieces with allied CPAs and RIAs, turning the existing referral network into a compounding SEO signal.",
   },
   {
     title: "Legal directory optimization",
-    desc: "Authority placements across Martindale, Avvo, and Super Lawyers — the directories estate prospects research before calling.",
+    desc: "Authority placements across Martindale, Avvo, and Super Lawyers, the directories estate prospects research before calling.",
   },
   {
     title: "AI citation strategy",
@@ -91,7 +91,7 @@ export default function ColemanCaseStudyPage() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline:
-      "Coleman & Co. — Los Angeles estate attorney, +320% qualified leads, #1 ranked in 9 months",
+      "Coleman & Co., Los Angeles estate attorney, +320% qualified leads, #1 ranked in 9 months",
     author: { "@type": "Organization", name: "Rysen Growth" },
     publisher: { "@type": "Organization", name: "Rysen Growth" },
   };
@@ -147,7 +147,7 @@ export default function ColemanCaseStudyPage() {
 
       <PageSection
         eyebrow="Where they were"
-        title="Quietly the best — and quietly invisible online."
+        title="Quietly the best, and quietly invisible online."
         titleAlignment="left"
         maxWidth="780px"
         background="tint"
@@ -155,14 +155,14 @@ export default function ColemanCaseStudyPage() {
         <div className="case-prose">
           <p>
             Despite serving HNW clients with $5M+ estates, Coleman & Co.
-            was invisible compared to mega-firms. They ranked #6–8 for
+            was invisible compared to mega-firms. They ranked #6-8 for
             “estate attorney Los Angeles” and were buried for
             “trust attorney LA” and “estate planning Beverly
             Hills.”
           </p>
           <p>
             Practice was almost entirely referral-driven from CPAs and wealth
-            managers — a network that had served them well for over a decade
+            managers, a network that had served them well for over a decade
             but was now plateauing. The partners knew if they didn’t
             build inbound visibility before the network turned over, the firm
             would face a slow capacity decline.
@@ -231,7 +231,7 @@ export default function ColemanCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your firm’s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your firm’s visibility, same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

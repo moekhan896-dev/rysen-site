@@ -12,7 +12,7 @@ type Testimonial = {
 const testimonials: ReadonlyArray<Testimonial> = [
   {
     quote:
-      "Rysen approaches our marketing the way a serious litigation team approaches a case — with data, with structure, and without hype. Almost two years in, we're cited by ChatGPT in our target queries and our consultation calendar has never been fuller.",
+      "Rysen approaches our marketing the way a serious litigation team approaches a case, with data, with structure, and without hype. Almost two years in, we're cited by ChatGPT in our target queries and our consultation calendar has never been fuller.",
     name: "Marcus Webb",
     role: "Managing Partner, AWS Law Firm",
   },

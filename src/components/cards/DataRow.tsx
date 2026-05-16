@@ -10,7 +10,7 @@ export interface DataRowProps {
 }
 
 /**
- * Data row — editorial table-of-contents pattern. NO background, NO
+ * Data row, editorial table-of-contents pattern. NO background, NO
  * border. Just a hairline rule below, large Fraunces number on the
  * left, content in the middle, rotating SignalTriangle on the right.
  * Replaces the generic feature-card-grid pattern.

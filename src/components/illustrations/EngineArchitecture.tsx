@@ -107,7 +107,7 @@ export function EngineArchitecture({ className = "" }: Props) {
               x={labelOffset.x}
               y={labelOffset.y}
               fontSize="8"
-              fontFamily="var(--font-mono), monospace"
+              fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
               fill="currentColor"
               textAnchor="middle"
               dominantBaseline="middle"
@@ -124,7 +124,7 @@ export function EngineArchitecture({ className = "" }: Props) {
         x={CENTER.x}
         y={CENTER.y + RADIUS + 60}
         fontSize="9"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         textAnchor="middle"
         opacity="0.6"

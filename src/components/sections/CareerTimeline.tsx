@@ -33,7 +33,7 @@ const POINTS: ReadonlyArray<TimelinePoint> = [
     year: "2021+",
     company: "Brands built",
     description:
-      "Founded Quattro Labs, Honest Plumbers, Honest Maids — three fastest-growing brands in their categories.",
+      "Founded Quattro Labs, Honest Plumbers, Honest Maids, three fastest-growing brands in their categories.",
   },
 ];
 
@@ -94,7 +94,7 @@ export function CareerTimeline() {
                 onMouseLeave={() => setHovered(null)}
                 onFocus={() => setHovered(i)}
                 onBlur={() => setHovered(null)}
-                aria-label={`${point.year} — ${point.company}`}
+                aria-label={`${point.year}, ${point.company}`}
                 aria-pressed={isActive}
               >
                 <span className="ct-circle" />

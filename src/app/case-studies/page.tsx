@@ -5,7 +5,7 @@ import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { CaseStudyFilters, type CaseStudyRecord } from "./CaseStudyFilters";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Selected engagements",
+  title: "Case Studies, Selected engagements",
   description:
     "Real revenue, attributed to source. Selected engagements across legal and medical from active client work.",
 };
@@ -91,7 +91,7 @@ const CASES: ReadonlyArray<CaseStudyRecord> = [
     challenge: "AI persona built from scratch. 100M views in 60 days. Same team, same data discipline, applied to a completely different surface.",
     stats: [
       { value: "100M+", label: "views" },
-      { value: "850K", label: "followers" },
+      { value: "20K", label: "followers" },
       { value: "$0", label: "ad spend" },
     ],
   },

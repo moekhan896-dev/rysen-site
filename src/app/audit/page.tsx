@@ -10,7 +10,7 @@ import { AuditHowItWorks } from "./AuditHowItWorks";
 export const metadata: Metadata = {
   title: "Free Marketing Audit for Law Firms & Medical Practices",
   description:
-    "Get a free 12-page audit of your firm's online visibility — Google, AI search, Maps, content. 48-hour turnaround. No sales call required.",
+    "Get a free 12-page audit of your firm's online visibility, Google, AI search, Maps, content. 48-hour turnaround. No sales call required.",
 };
 
 const AUDIT_FAQ = [
@@ -60,7 +60,7 @@ export default function AuditPage() {
         eyebrow="Free audit · 48-hour turnaround"
         title={
           <>
-            We’ll audit your firm’s online visibility —{" "}
+            We’ll audit your firm’s online visibility,{" "}
             <span className="accent-italic">for free.</span>
           </>
         }
@@ -69,7 +69,7 @@ export default function AuditPage() {
 
       <PageSection
         eyebrow="Start your audit"
-        title="Submit your firm — get the PDF in 48 hours."
+        title="Submit your firm, get the PDF in 48 hours."
         maxWidth="720px"
         id="audit-form"
         titleAlignment="left"
@@ -112,7 +112,7 @@ export default function AuditPage() {
           <p>
             We do free audits because most firms have no idea how invisible they
             actually are. They have a website, a Google Business Profile, a few
-            stale blog posts — and they assume that means they show up when their
+            stale blog posts, and they assume that means they show up when their
             future clients search. They usually don’t.
           </p>
           <p>
@@ -132,7 +132,7 @@ export default function AuditPage() {
           <blockquote className="audit-proof">
             <p>
               “We went from invisible to inevitable. Rysen doesn’t just
-              rank you — they make you the answer.”
+              rank you, they make you the answer.”
             </p>
             <cite>Managing Partner, AWS Law Firm · Tampa</cite>
           </blockquote>

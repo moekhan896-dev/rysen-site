@@ -133,7 +133,7 @@ export function RealOperations() {
           <p className="real-ops-rebrand-coda-text">
             Standing meetings. Documented decisions. Named owners for every
             workstream. The kind of operating rigor that most agencies talk
-            about but few actually maintain — because it requires real US-based
+            about but few actually maintain, because it requires real US-based
             senior staff working real hours in real time zones.
           </p>
           <p className="real-ops-rebrand-workweek">

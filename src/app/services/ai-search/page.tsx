@@ -81,7 +81,7 @@ const FAQ = [
   {
     question: "How is AI search different from regular SEO?",
     answer:
-      "Traditional SEO optimizes for ranked search results — blue links. AI search optimizes for being the entity an AI model cites or recommends inside a generated answer. The signals overlap but the work is different. Entity data, structured content, and authority placements matter more than backlink count.",
+      "Traditional SEO optimizes for ranked search results, blue links. AI search optimizes for being the entity an AI model cites or recommends inside a generated answer. The signals overlap but the work is different. Entity data, structured content, and authority placements matter more than backlink count.",
   },
   {
     question:
@@ -92,12 +92,12 @@ const FAQ = [
   {
     question: "How long until I see citations?",
     answer:
-      "Initial entity recognition: 30–60 days. Consistent citations in priority queries: 90–120 days. Compound authority that holds against competitor moves: 6+ months.",
+      "Initial entity recognition: 30-60 days. Consistent citations in priority queries: 90-120 days. Compound authority that holds against competitor moves: 6+ months.",
   },
   {
     question: "Can you guarantee I’ll be cited?",
     answer:
-      "No. Anyone who guarantees an AI citation is lying about how these systems work. We can show you, with data, why we believe we can move you into citation range — and we report progress weekly.",
+      "No. Anyone who guarantees an AI citation is lying about how these systems work. We can show you, with data, why we believe we can move you into citation range, and we report progress weekly.",
   },
   {
     question: "Do you optimize for Bing Chat and other AI engines?",
@@ -130,7 +130,7 @@ export default function AiSearchPage() {
           { label: "Services", href: "/services" },
           { label: "AI search" },
         ]}
-        eyebrow="Service — AI search"
+        eyebrow="Service, AI search"
         title={
           <>
             When AI answers a question, your firm is{" "}
@@ -156,7 +156,7 @@ export default function AiSearchPage() {
           <p>
             Roughly a third of consumer queries that used to start at Google now
             start at ChatGPT, Perplexity, or an AI overview. For legal and medical
-            queries that share is climbing fast — users want a synthesized answer,
+            queries that share is climbing fast, users want a synthesized answer,
             not ten blue links. They’re asking AI which firm to call.
           </p>
           <p>
@@ -196,7 +196,7 @@ export default function AiSearchPage() {
         <ServiceProofReference
           eyebrow="AWS Law Firm · Tampa"
           headline="52% AI citation rate across priority probate queries."
-          body="Eight months into our engagement, AWS Law Firm is cited by ChatGPT in over half of priority probate queries in their Tampa market — and ranks #1 organically for the same terms."
+          body="Eight months into our engagement, AWS Law Firm is cited by ChatGPT in over half of priority probate queries in their Tampa market, and ranks #1 organically for the same terms."
           href="/case-studies/aws-law-firm"
         />
       </PageSection>
@@ -209,7 +209,7 @@ export default function AiSearchPage() {
       >
         <ServiceDeliverables
           items={[
-            "Weekly citation report — every priority surface, tracked",
+            "Weekly citation report, every priority surface, tracked",
             "Monthly strategy review with the team running your account",
             "Quarterly authority roadmap with publication targets",
             "Real-time monitoring dashboard you can check anytime",

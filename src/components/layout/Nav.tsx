@@ -29,7 +29,7 @@ export function Nav() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Scroll detection — rAF-throttled
+  // Scroll detection, rAF-throttled
   useEffect(() => {
     let ticking = false;
     let lastY = 0;
@@ -104,7 +104,7 @@ export function Nav() {
       <div className="nav-main">
         <div className="nav-noise" aria-hidden="true" />
         <div className="nav-inner">
-          {/* LEFT — Rysen mark + wordmark + subline */}
+          {/* LEFT, Rysen mark + wordmark + subline */}
           <Link href="/" className="nav-logo" aria-label="Rysen home">
             <RysenLogo size={28} />
             <span className="nav-logo-stack">
@@ -113,7 +113,7 @@ export function Nav() {
             </span>
           </Link>
 
-          {/* CENTER — Nav links */}
+          {/* CENTER, Nav links */}
           <nav className="nav-links" aria-label="Primary">
             {NAV_LINKS.map((item) =>
               item.hasDropdown ? (
@@ -150,7 +150,7 @@ export function Nav() {
             )}
           </nav>
 
-          {/* RIGHT — CTA + mobile toggle (status pill removed in Session 23) */}
+          {/* RIGHT, CTA + mobile toggle (status pill removed in Session 23) */}
           <div className="nav-right">
             <Link href="/audit" className="nav-cta">
               <span className="nav-cta-text">Request audit</span>

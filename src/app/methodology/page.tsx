@@ -10,7 +10,7 @@ import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { PillarReveal } from "./PillarReveal";
 
 export const metadata: Metadata = {
-  title: "Methodology — The First Position framework",
+  title: "Methodology, The First Position framework",
   description:
     "First Position is not SEO. It's an operating system for market dominance. Five pillars, ten coordinated components, one outcome: #1 in your market.",
 };
@@ -30,7 +30,7 @@ const PILLARS = [
   {
     n: "02",
     title: "Data-first reporting",
-    desc: "Every marketing decision should answer to math. Every dollar should report to revenue. We build custom attribution dashboards for each client that connect organic visibility to closed cases and patient revenue — not impressions, not clicks.",
+    desc: "Every marketing decision should answer to math. Every dollar should report to revenue. We build custom attribution dashboards for each client that connect organic visibility to closed cases and patient revenue, not impressions, not clicks.",
     bullets: [
       "Custom attribution dashboard per client",
       "CRM integration for revenue tracking by channel",
@@ -63,7 +63,7 @@ const PILLARS = [
   {
     n: "05",
     title: "Honest selection",
-    desc: "We turn down two of every three firms who ask. Not because we don't need clients, but because we only succeed with firms that fit our methodology — those with partner-level commitment, willingness to invest 6–12 months minimum, and a real local market dominance opportunity.",
+    desc: "We turn down two of every three firms who ask. Not because we don't need clients, but because we only succeed with firms that fit our methodology, those with partner-level commitment, willingness to invest 6-12 months minimum, and a real local market dominance opportunity.",
     bullets: [
       "Audit-first screening for engagement fit",
       "Minimum 6-month engagement floor",
@@ -139,8 +139,8 @@ export default function MethodologyPage() {
           </h2>
           <p className="deep-page-section-body" style={{ color: "var(--paper-muted)" }}>
             The Organic Growth Engine is the architectural manifestation of First
-            Position. Ten components — LSA, GMB, web optimization, AI search,
-            authority content, reputation, PR, schema, email, and social —
+            Position. Ten components, LSA, GMB, web optimization, AI search,
+            authority content, reputation, PR, schema, email, and social,
             engineered to run together, not separately. Each component improves
             the others.
           </p>
@@ -181,7 +181,7 @@ export default function MethodologyPage() {
           <li><strong>Data-first:</strong> custom probate-attribution dashboard built before content shipped.</li>
           <li><strong>Compound:</strong> schema overhaul amplified GMB rebuild amplified content authority.</li>
           <li><strong>Weekly accountability:</strong> 8-month engagement, zero missed weekly reports.</li>
-          <li><strong>Honest selection:</strong> AWS Law Firm fit the criteria — partner commitment, real market opportunity, sufficient runway.</li>
+          <li><strong>Honest selection:</strong> AWS Law Firm fit the criteria, partner commitment, real market opportunity, sufficient runway.</li>
         </ul>
         <div style={{ marginTop: 32 }}>
           <Link href="/case-studies/aws-law-firm" className="text-link">
@@ -197,7 +197,7 @@ export default function MethodologyPage() {
             href: "/services",
             eyebrow: "Components",
             title: "The ten components",
-            description: "Each component of the Organic Growth Engine in detail — what we do, why, and how clients access the data.",
+            description: "Each component of the Organic Growth Engine in detail, what we do, why, and how clients access the data.",
           },
           {
             href: "/how-we-measure",

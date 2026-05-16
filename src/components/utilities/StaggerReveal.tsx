@@ -17,7 +17,7 @@ interface StaggerRevealProps {
  *
  * NOTE: this wraps each child in an extra <div>. For grid layouts where
  * each child must be a direct grid item, set className on the parent
- * grid container and let StaggerReveal render as its children — the
+ * grid container and let StaggerReveal render as its children, the
  * grid will receive the wrapper <div>s as items.
  */
 export function StaggerReveal({

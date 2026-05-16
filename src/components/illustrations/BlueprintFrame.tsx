@@ -10,7 +10,7 @@ interface BlueprintFrameProps {
 
 /**
  * Shared blueprint background. Use as the outer SVG for any architectural
- * line drawing — provides the 20px grid pattern that gives the system its
+ * line drawing, provides the 20px grid pattern that gives the system its
  * cohesive "drafting paper" feel.
  */
 export function BlueprintFrame({

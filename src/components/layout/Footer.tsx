@@ -96,7 +96,7 @@ export function Footer() {
 
         <div className="rebrand-footer-bottom">
           <span className="rebrand-footer-legal">
-            Rysen Growth, LLC. An independent firm based in Detroit, Michigan.
+            Rysen Growth, LLC. Based in Detroit, Michigan.
             Founded 2019.
           </span>
           <span className="rebrand-footer-legal-links">

@@ -17,7 +17,7 @@ const pillars: ReadonlyArray<Pillar> = [
     title: "Hyperlocal Dominance",
     summary: "Depth before breadth, always.",
     description:
-      "We don't compete statewide. We make you the #1 choice in your metro — Tampa, Miami, Chicago, LA — wherever your firm serves. Once you own one market, we expand to the next on your terms.",
+      "We don't compete statewide. We make you the #1 choice in your metro, Tampa, Miami, Chicago, LA, wherever your firm serves. Once you own one market, we expand to the next on your terms.",
     tactics: [
       "Metro-specific keyword and competitor mapping",
       "Hyperlocal landing pages for every neighborhood you serve",
@@ -29,7 +29,7 @@ const pillars: ReadonlyArray<Pillar> = [
     title: "Data-First Reporting",
     summary: "Marketing without attribution is gambling.",
     description:
-      "We track every conversion to its origin — channel, query, content piece — and report results in dollars, not impressions. You'll always know exactly which dollar of marketing produced which dollar of revenue.",
+      "We track every conversion to its origin, channel, query, content piece, and report results in dollars, not impressions. You'll always know exactly which dollar of marketing produced which dollar of revenue.",
     tactics: [
       "End-to-end attribution from query to consultation booked",
       "Custom dashboards reviewed in every weekly meeting",
@@ -41,7 +41,7 @@ const pillars: ReadonlyArray<Pillar> = [
     title: "Compound Visibility",
     summary: "Five surfaces, one cohesive strategy.",
     description:
-      "Google rankings, Maps Pack, AI search citations, reviews, content, newsletter — each lever amplifies the others. We run all five in a coordinated cadence so the compounding starts working for you in month one, not month six.",
+      "Google rankings, Maps Pack, AI search citations, reviews, content, newsletter, each lever amplifies the others. We run all five in a coordinated cadence so the compounding starts working for you in month one, not month six.",
     tactics: [
       "Single content asset reformatted for Google, AI, and email",
       "Citation strategy reinforced by GMB review velocity",
@@ -53,7 +53,7 @@ const pillars: ReadonlyArray<Pillar> = [
     title: "Weekly Accountability",
     summary: "Transparent, predictable, professional.",
     description:
-      "Every client gets a standing weekly meeting. No exceptions. You see what's shipping, what's working, and what's being adjusted — alongside the data behind every recommendation. No mystery, no surprises.",
+      "Every client gets a standing weekly meeting. No exceptions. You see what's shipping, what's working, and what's being adjusted, alongside the data behind every recommendation. No mystery, no surprises.",
     tactics: [
       "60-minute standing weekly review with full team access",
       "Always-on dashboard with no gated information",
@@ -86,12 +86,12 @@ export function MethodologyExplorer() {
           <span className="accent-text">First Position.</span>
         </h2>
         <p className="methodology-tagline">
-          Our framework for getting your firm to the top — and keeping it
+          Our framework for getting your firm to the top, and keeping it
           there.
         </p>
         <p className="methodology-subhead">
           Most marketing agencies sell tactics. We sell outcomes. First
-          Position is the framework we run with every client — five principles
+          Position is the framework we run with every client, five principles
           that compound into one result: your firm becomes the dominant choice
           in your market.
         </p>

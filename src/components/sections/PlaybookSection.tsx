@@ -80,7 +80,7 @@ export function PlaybookSection({
         </div>
 
         <div className="playbook-grid">
-          {/* LEFT — Challenges */}
+          {/* LEFT, Challenges */}
           <div className="playbook-col playbook-col-left">
             <div className="playbook-col-head">
               What makes {variant} different
@@ -114,7 +114,7 @@ export function PlaybookSection({
             </ul>
           </div>
 
-          {/* RIGHT — Practice Areas */}
+          {/* RIGHT, Practice Areas */}
           <div className="playbook-col playbook-col-right">
             <div className="playbook-col-head">
               {variant === "legal" ? "Practice areas we win in" : "Specialties we win in"}

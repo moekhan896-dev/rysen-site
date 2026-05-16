@@ -14,7 +14,7 @@ const STEPS = [
     n: "02",
     title: "We audit your visibility",
     duration: "~48 hours",
-    desc: "Our analysts do the real work — no automated reports, no scraped boilerplate.",
+    desc: "Our analysts do the real work, no automated reports, no scraped boilerplate.",
   },
   {
     n: "03",

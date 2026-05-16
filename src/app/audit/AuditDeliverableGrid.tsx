@@ -29,7 +29,7 @@ const ITEMS = [
   {
     icon: FileSearch,
     title: "Content & Authority Gaps",
-    desc: "What competitors have published that you haven't — and why it matters.",
+    desc: "What competitors have published that you haven't, and why it matters.",
   },
   {
     icon: BarChart3,

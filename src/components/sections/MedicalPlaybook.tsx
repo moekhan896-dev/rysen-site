@@ -19,7 +19,7 @@ const CHALLENGES = [
   },
   {
     title: "Insurance-aware funnels",
-    desc: "Patients filter by insurance acceptance before they filter by location. We structure your visibility around the insurance networks you accept — not just your specialty.",
+    desc: "Patients filter by insurance acceptance before they filter by location. We structure your visibility around the insurance networks you accept, not just your specialty.",
   },
   {
     title: "Before/after content strategy",
@@ -27,7 +27,7 @@ const CHALLENGES = [
   },
   {
     title: "Provider-level authority",
-    desc: "Patients don't hire “a practice” — they hire a specific doctor. We build authority at the provider level, not just the practice level, so prospective patients trust the specific physician they'll see.",
+    desc: "Patients don't hire “a practice”, they hire a specific doctor. We build authority at the provider level, not just the practice level, so prospective patients trust the specific physician they'll see.",
   },
   {
     title: "Insurance-specific GMB optimization",
@@ -63,7 +63,7 @@ export function MedicalPlaybook() {
   return (
     <PlaybookSection
       variant="medical"
-      eyebrow="Vertical — medical"
+      eyebrow="Vertical, medical"
       title={
         <>
           The <span className="accent-italic">Medical</span> Playbook.

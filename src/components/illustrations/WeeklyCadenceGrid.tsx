@@ -25,7 +25,7 @@ export function WeeklyCadenceGrid({ className = "" }: Props) {
         x="20"
         y="30"
         fontSize="9"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         opacity="0.6"
       >
@@ -66,7 +66,7 @@ export function WeeklyCadenceGrid({ className = "" }: Props) {
               x={x + 8}
               y="80"
               fontSize="11"
-              fontFamily="var(--font-mono), monospace"
+              fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
               fill="var(--signal)"
               fontWeight="600"
             >
@@ -95,7 +95,7 @@ export function WeeklyCadenceGrid({ className = "" }: Props) {
               x={x + 8}
               y="200"
               fontSize="9"
-              fontFamily="var(--font-mono), monospace"
+              fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
               fill="currentColor"
               opacity="0.7"
             >
@@ -110,7 +110,7 @@ export function WeeklyCadenceGrid({ className = "" }: Props) {
         x="20"
         y="250"
         fontSize="8"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         opacity="0.5"
       >

@@ -19,7 +19,7 @@ interface BlueprintChartProps {
 }
 
 /**
- * BlueprintChart — SVG-based chart with the architectural blueprint
+ * BlueprintChart, SVG-based chart with the architectural blueprint
  * aesthetic. Pure data-to-SVG transformation; no external chart library.
  * Hairline axes, IBM Plex Mono ticks, yellow accent for the highlighted
  * series, dashed lines for projections/baselines.
@@ -124,7 +124,7 @@ export function BlueprintChart({
                 x={padL - 8}
                 y={y + 3}
                 fontSize="9"
-                fontFamily="var(--font-mono), monospace"
+                fontFamily="var(--font-inter), system-ui, sans-serif"
                 fill="currentColor"
                 textAnchor="end"
                 opacity="0.6"
@@ -142,7 +142,7 @@ export function BlueprintChart({
             x={pointX(i)}
             y={padT + chartH + 18}
             fontSize="9"
-            fontFamily="var(--font-mono), monospace"
+            fontFamily="var(--font-inter), system-ui, sans-serif"
             fill="currentColor"
             textAnchor="middle"
             opacity="0.6"
@@ -223,7 +223,7 @@ export function BlueprintChart({
             x={16}
             y={padT + chartH / 2}
             fontSize="9"
-            fontFamily="var(--font-mono), monospace"
+            fontFamily="var(--font-inter), system-ui, sans-serif"
             fill="currentColor"
             textAnchor="middle"
             opacity="0.6"

@@ -34,7 +34,7 @@ const CARDS: ReadonlyArray<ComponentCard> = [
     title: "Google Local Service Ads",
     subtitle: "Pre-vetted lead generation",
     description:
-      "We architect and manage your Google Screened/LSA profile so qualified prospects who search “lawyer near me” or “doctor near me” see your firm first — with verified credentials and prepaid lead pricing.",
+      "We architect and manage your Google Screened/LSA profile so qualified prospects who search “lawyer near me” or “doctor near me” see your firm first, with verified credentials and prepaid lead pricing.",
     capabilities: [
       "Google Screened verification & badge management",
       "Bid optimization across practice areas & metros",
@@ -76,7 +76,7 @@ const CARDS: ReadonlyArray<ComponentCard> = [
     title: "AI Search Optimization",
     subtitle: "Be cited by ChatGPT, Perplexity, AI Overviews",
     description:
-      "When prospects ask AI “who's the best [practice area] in [city]?” — your firm needs to be the answer. We optimize content, entity signals, and citation authority for the AI search era.",
+      "When prospects ask AI “who's the best [practice area] in [city]?”, your firm needs to be the answer. We optimize content, entity signals, and citation authority for the AI search era.",
     capabilities: [
       "Entity disambiguation & schema",
       "LLM-citation-friendly content structure",
@@ -90,9 +90,9 @@ const CARDS: ReadonlyArray<ComponentCard> = [
     title: "Authority Content",
     subtitle: "Long-form content that ranks and gets cited",
     description:
-      "Thin “practice area” pages don't rank in 2026. We produce 2,000+ word authority articles on practice-specific topics — the kind of content that ranks, gets cited by AI, and converts skeptical prospects into qualified leads.",
+      "Thin “practice area” pages don't rank in 2026. We produce 2,000+ word authority articles on practice-specific topics, the kind of content that ranks, gets cited by AI, and converts skeptical prospects into qualified leads.",
     capabilities: [
-      "4–8 articles/month per engagement",
+      "4-8 articles/month per engagement",
       "Topical authority cluster strategy",
       "Quarterly content refresh discipline",
     ],
@@ -118,7 +118,7 @@ const CARDS: ReadonlyArray<ComponentCard> = [
     title: "Press & PR Outreach",
     subtitle: "Authority signals from real publications",
     description:
-      "Press mentions, podcast appearances, expert commentary in industry publications — the authority signals Google and AI search engines weight heaviest. We do real outreach, not press release blasts.",
+      "Press mentions, podcast appearances, expert commentary in industry publications, the authority signals Google and AI search engines weight heaviest. We do real outreach, not press release blasts.",
     capabilities: [
       "Targeted journalist outreach",
       "Podcast guest placements",
@@ -146,7 +146,7 @@ const CARDS: ReadonlyArray<ComponentCard> = [
     title: "Email & Newsletter",
     subtitle: "Nurture leads that don't convert immediately",
     description:
-      "Most legal/medical decisions take 3-9 touchpoints over weeks or months. We build email sequences and newsletters that nurture prospects through long decision cycles — turning research-stage visitors into eventual clients.",
+      "Most legal/medical decisions take 3-9 touchpoints over weeks or months. We build email sequences and newsletters that nurture prospects through long decision cycles, turning research-stage visitors into eventual clients.",
     capabilities: [
       "Drip sequence engineering",
       "Monthly newsletter strategy & execution",
@@ -160,7 +160,7 @@ const CARDS: ReadonlyArray<ComponentCard> = [
     title: "Social Media Growth",
     subtitle: "Authority, presence, and proof at every surface",
     description:
-      "Most law firms and medical practices ignore social media — or run it badly. We engineer presence on Instagram, TikTok, and YouTube Shorts that builds authority, captures attention from younger prospects, and turns short-form video into a real lead source. Backed by the same team that grew an AI influencer to 100M views in 60 days.",
+      "Most law firms and medical practices ignore social media, or run it badly. We engineer presence on Instagram, TikTok, and YouTube Shorts that builds authority, captures attention from younger prospects, and turns short-form video into a real lead source. Backed by the same team that grew an AI influencer to 100M views in 60 days.",
     capabilities: [
       "Short-form video strategy & production direction",
       "Platform-specific content calendars",
@@ -190,7 +190,7 @@ export function TenComponents() {
           </h2>
           <p className="nine-sub">
             Ten specialized services. One unified system. Each component has
-            its own team, its own playbook, and its own data dashboard — all
+            its own team, its own playbook, and its own data dashboard, all
             coordinated through First Position methodology.
           </p>
         </div>
@@ -245,7 +245,7 @@ export function TenComponents() {
         <div className="nine-footer">
           <p className="nine-footer-line">
             Most agencies sell three of these.{" "}
-            <span className="accent-italic">We run all ten — as one engine.</span>
+            <span className="accent-italic">We run all ten, as one engine.</span>
           </p>
           <Link href="/audit" className="nine-cta">
             See how your engine could be built <span className="arrow">→</span>

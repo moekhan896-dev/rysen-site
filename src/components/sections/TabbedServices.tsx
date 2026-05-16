@@ -38,7 +38,7 @@ const services: ReadonlyArray<Service> = [
     title: "AI Search Optimization",
     subtitle: "Be the answer when AI suggests.",
     description:
-      "Generative AI is the new front door. Prospects ask ChatGPT, Perplexity, Claude, and Google AI Overviews for recommendations before they ever open Maps. We engineer your firm to be the answer those models cite, recommend, and link to — across every prompt that matters in your market.",
+      "Generative AI is the new front door. Prospects ask ChatGPT, Perplexity, Claude, and Google AI Overviews for recommendations before they ever open Maps. We engineer your firm to be the answer those models cite, recommend, and link to, across every prompt that matters in your market.",
     bullets: [
       { icon: Sparkles, text: "Schema markup engineered for AI consumption" },
       { icon: FileText, text: "Authority content designed to be cited" },
@@ -53,7 +53,7 @@ const services: ReadonlyArray<Service> = [
     title: "Local SEO & GMB Dominance",
     subtitle: "Own your metro. Period.",
     description:
-      "We don't compete statewide. We make you the unmistakable #1 in your metro — top-ranked organic, dominant in the Maps 3-pack, surrounded by the right reviews, citations, and signals that compound month over month. The result is a defensible local moat that holds up regardless of who shows up next.",
+      "We don't compete statewide. We make you the unmistakable #1 in your metro, top-ranked organic, dominant in the Maps 3-pack, surrounded by the right reviews, citations, and signals that compound month over month. The result is a defensible local moat that holds up regardless of who shows up next.",
     bullets: [
       { icon: MapPin, text: "GMB optimization to a level most firms haven't seen" },
       { icon: Star, text: "Reputation and review-velocity programs" },
@@ -68,7 +68,7 @@ const services: ReadonlyArray<Service> = [
     title: "Content, Reputation & Beyond",
     subtitle: "Full-stack growth, not piecemeal services.",
     description:
-      "Long-form authority content, lifecycle newsletter strategy, off-page SEO, web design, technical SEO — we run every growth lever your firm needs from one team. Everything is reported in dollars attributed to a source, not impressions stitched into a slide. If a tactic doesn't move revenue, we kill it.",
+      "Long-form authority content, lifecycle newsletter strategy, off-page SEO, web design, technical SEO, we run every growth lever your firm needs from one team. Everything is reported in dollars attributed to a source, not impressions stitched into a slide. If a tactic doesn't move revenue, we kill it.",
     bullets: [
       { icon: FileText, text: "Long-form pieces designed to earn citations" },
       { icon: Sparkles, text: "Newsletter strategy and lifecycle content" },
@@ -301,8 +301,8 @@ export function TabbedServices() {
         </h2>
         <p className="services-subhead">
           Everything we do is built around one question: when someone in your
-          market searches for the service you provide — across Google, ChatGPT,
-          Perplexity, or AI Overviews — does your firm appear first?
+          market searches for the service you provide, across Google, ChatGPT,
+          Perplexity, or AI Overviews, does your firm appear first?
         </p>
 
         <div className="services-tabs" role="tablist">

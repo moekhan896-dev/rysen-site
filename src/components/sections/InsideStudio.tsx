@@ -25,7 +25,7 @@ export function InsideStudio() {
           </h2>
           <p className="is-subhead">
             We're a small team operating out of downtown Detroit. Strategy
-            work, content production, and weekly client reviews — all
+            work, content production, and weekly client reviews, all
             coordinated from one room, all reported in real numbers.
           </p>
         </div>

@@ -16,7 +16,7 @@ export function BlueprintPullQuote({
       </span>
       <p className="blueprint-pullquote-text">{quote}</p>
       <hr className="blueprint-pullquote-rule" aria-hidden="true" />
-      <cite className="blueprint-pullquote-attribution">— {attribution}</cite>
+      <cite className="blueprint-pullquote-attribution">, {attribution}</cite>
     </blockquote>
   );
 }

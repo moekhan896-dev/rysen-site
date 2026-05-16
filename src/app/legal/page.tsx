@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 
 export const metadata: Metadata = {
-  title: "Legal — The Legal Playbook",
+  title: "Legal, The Legal Playbook",
   description:
     "A specialized playbook for boutique law firms in mid-sized metros. Long decision cycles, bar advertising compliance, trust-first conversion.",
 };
@@ -22,8 +22,8 @@ const CHALLENGES = [
   {
     n: "02",
     title: "Trust-first conversion",
-    body: "Legal services are bought on trust, not on price. The website, the reviews, the press, the partner credentials — all of it has to signal reliability before a phone call.",
-    rysen: "Reputation moats — third-party review velocity, press placements, bar association recognition, and authority content all coordinated as one trust signal.",
+    body: "Legal services are bought on trust, not on price. The website, the reviews, the press, the partner credentials, all of it has to signal reliability before a phone call.",
+    rysen: "Reputation moats, third-party review velocity, press placements, bar association recognition, and authority content all coordinated as one trust signal.",
   },
   {
     n: "03",
@@ -34,7 +34,7 @@ const CHALLENGES = [
   {
     n: "04",
     title: "Bar compliance & advertising regulation",
-    body: "Bar associations regulate attorney advertising state-by-state. Claims about outcomes, disclaimers, comparative language — all governed.",
+    body: "Bar associations regulate attorney advertising state-by-state. Claims about outcomes, disclaimers, comparative language, all governed.",
     rysen: "Every state's bar advertising rules tracked. Content reviewed against jurisdiction-specific rules before deployment. Compliance documented per piece.",
   },
   {
@@ -143,8 +143,8 @@ export default function LegalPage() {
         <h2 className="deep-page-section-h2">The legal-weighted engine.</h2>
         <p className="deep-page-section-body">
           The same ten components, weighted differently for legal clients vs.
-          medical. Higher emphasis on authority content, reviews, and GMB —
-          lower on social and email — than the medical configuration.
+          medical. Higher emphasis on authority content, reviews, and GMB,
+          lower on social and email, than the medical configuration.
         </p>
         <div className="engine-config" style={{ marginTop: 40 }}>
           {ENGINE_CONFIG.map((c) => (

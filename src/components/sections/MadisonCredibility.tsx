@@ -70,7 +70,7 @@ export function MadisonCredibility() {
           </h2>
           <p className="madison-sub">
             Most agencies talk about social media. We engineered a complete AI
-            influencer from scratch — Madison Clark, @itsmadisonclarkk — and grew
+            influencer from scratch, Madison Clark, @itsmadisonclarkk, and grew
             her to 100M+ views in under two months. The same team. The same data
             discipline. The same operational rigor we bring to your law firm or
             medical practice.
@@ -95,7 +95,7 @@ export function MadisonCredibility() {
               </motion.div>
             ))}
             <div className="madison-metric-foot">
-              Real growth. Real data. Real operational playbook — applied to an
+              Real growth. Real data. Real operational playbook, applied to an
               entirely new medium.
             </div>
           </div>
@@ -108,18 +108,18 @@ export function MadisonCredibility() {
         <div className="madison-editorial">
           <p>
             This isn&apos;t a marketing case study. It&apos;s an engineering one.
-            We architected Madison Clark from scratch — the content strategy,
+            We architected Madison Clark from scratch, the content strategy,
             the visual identity, the posting cadence, the algorithm signals,
             the retention hooks. Then we ran it like an operational system:
             daily monitoring, weekly iteration, monthly strategic review. The
-            same playbook we run for our law firm and medical practice clients —
+            same playbook we run for our law firm and medical practice clients,
             just applied to a different surface.
           </p>
           <p>
             If a team can grow a brand-new AI persona from zero to 100 million
             views in 60 days using only data and operational discipline,
             imagine what they can do with your existing law firm or medical
-            practice — which already has years of authority, real reviews, and
+            practice, which already has years of authority, real reviews, and
             real client outcomes to work with.
           </p>
         </div>
@@ -229,7 +229,7 @@ function MadisonGrowthChart({
       </svg>
 
       <div className="madison-chart-caption">
-        Growth curve · @itsmadisonclarkk · Mar–May 2026
+        Growth curve · @itsmadisonclarkk · Mar-May 2026
       </div>
     </div>
   );

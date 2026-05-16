@@ -93,7 +93,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     description:
       "2,000+ word authority articles per topic. Practice-area depth, not thin service pages.",
     examples: [
-      "4–8 long-form articles per month",
+      "4-8 long-form articles per month",
       "Topical authority cluster strategy",
       "Quarterly refresh discipline",
     ],
@@ -105,7 +105,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Reputation",
     short: "Review velocity + response",
     description:
-      "Review pipeline engineered for 8–20 new reviews/month with 24-hour response discipline.",
+      "Review pipeline engineered for 8-20 new reviews/month with 24-hour response discipline.",
     examples: [
       "Review request automation",
       "Response template library + custom replies",
@@ -147,7 +147,7 @@ const COMPONENTS: ReadonlyArray<Component> = [
     name: "Email & Newsletter",
     short: "Nurture across long cycles",
     description:
-      "Drip sequences and newsletters that nurture 3–9 touchpoint legal/medical decision cycles.",
+      "Drip sequences and newsletters that nurture 3-9 touchpoint legal/medical decision cycles.",
     examples: [
       "Drip sequence engineering",
       "Monthly newsletter strategy & execution",
@@ -253,7 +253,7 @@ export function OrganicGrowthEngine() {
             <span className="accent-italic">Organic Growth Engines.</span>
           </h2>
           <p className="oge-sub">
-            Not a stack of services. A single coordinated system — nine
+            Not a stack of services. A single coordinated system, nine
             components, engineered to compound. Every component reinforces the
             others. Every dollar of work feeds the engine.
           </p>
@@ -534,7 +534,7 @@ export function OrganicGrowthEngine() {
           </p>
           <p>
             Rysen builds the engine. We architect, deploy, and operate all nine
-            components as a coordinated system — with weekly accountability,
+            components as a coordinated system, with weekly accountability,
             data-attributed reporting, and the operational discipline to
             maintain it for years. The result isn’t “good SEO.”
             It’s a market-dominance machine purpose-built for your firm.

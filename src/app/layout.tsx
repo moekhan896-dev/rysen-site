@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 import "./globals.css";
 
-// Display serif — variable, with optical sizing
+// Display serif, variable, with optical sizing
 const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
@@ -20,20 +20,15 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-// Tabular numerals — for metrics and data
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-  variable: "--font-mono",
-});
+// Tabular numerals now ride on Inter / Fraunces via font-feature-settings.
+// IBM Plex Mono was removed in Session 28's de-AI audit.
 
 const SITE_URL = "https://rysengrowth.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rysen Growth — Data-Driven Marketing for Law Firms & Medical Practices",
+    default: "Rysen Growth, Data-Driven Marketing for Law Firms and Medical Practices",
     template: "%s | Rysen Growth",
   },
   description:
@@ -43,13 +38,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Rysen Growth",
     title:
-      "Rysen Growth — Data-Driven Marketing for Law Firms & Medical Practices",
+      "Rysen Growth, Data-Driven Marketing for Law Firms and Medical Practices",
     description:
-      "A Detroit-based, founder-led marketing agency. We make law firms and medical practices the first answer — across Google, AI search, and Maps.",
+      "A Detroit-based, founder-led marketing agency. We make law firms and medical practices the first answer across Google, AI search, and Maps.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rysen Growth — Data-Driven Marketing for Law & Medical",
+    title: "Rysen Growth, Data-Driven Marketing for Law and Medical",
     description:
       "Detroit-based, founder-led. 30+ engagements across legal and medical. Free audit available.",
   },
@@ -83,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} ${ibmPlexMono.variable}`}
+      className={`${fraunces.variable} ${inter.variable}`}
     >
       <head>
         <script

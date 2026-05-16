@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * FORMSPREE SETUP — REQUIRED FOR FORM TO WORK IN PRODUCTION
+ * FORMSPREE SETUP, REQUIRED FOR FORM TO WORK IN PRODUCTION
  *
  * 1. Go to https://formspree.io and sign up using marketing@rysengrowth.com.
  * 2. Create a new form named "Rysen Contact".
@@ -181,8 +181,8 @@ export function ContactForm() {
           options={[
             { value: "", label: "Prefer not to say" },
             { value: "<50k", label: "Under $50K" },
-            { value: "50-200k", label: "$50K — $200K" },
-            { value: "200-500k", label: "$200K — $500K" },
+            { value: "50-200k", label: "$50K, $200K" },
+            { value: "200-500k", label: "$200K, $500K" },
             { value: "500k+", label: "$500K+" },
           ]}
         />

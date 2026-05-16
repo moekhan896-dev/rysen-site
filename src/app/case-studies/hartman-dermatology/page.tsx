@@ -11,16 +11,16 @@ import {
 import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
-  title: "Hartman Dermatology Case Study — Miami Cosmetic Dermatology",
+  title: "Hartman Dermatology Case Study, Miami Cosmetic Dermatology",
   description:
-    "How Rysen took Hartman Dermatology from page two of Google to #1 across Miami cosmetic dermatology queries — with 38% AI citation rate.",
+    "How Rysen took Hartman Dermatology from page two of Google to #1 across Miami cosmetic dermatology queries, with 38% AI citation rate.",
 };
 
 const PHASES = [
   {
     window: "Month 1",
     title: "Schema and entity rebuild",
-    desc: "Medical practice entity work first — schema, structured data, and physician disambiguation across both Miami locations.",
+    desc: "Medical practice entity work first, schema, structured data, and physician disambiguation across both Miami locations.",
     tactics: [
       "MedicalBusiness + Physician schema across both locations",
       "Entity disambiguation for the practice + each provider",
@@ -28,11 +28,11 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 2–3",
+    window: "Month 2-3",
     title: "Treatment-specific authority content",
-    desc: "Eighteen long-form authority articles in 90 days — every priority cosmetic treatment got a real publication.",
+    desc: "Eighteen long-form authority articles in 90 days, every priority cosmetic treatment got a real publication.",
     tactics: [
-      "Botox, fillers, laser, melanoma screening — full coverage",
+      "Botox, fillers, laser, melanoma screening, full coverage",
       "HIPAA-compliant before/after content strategy",
       "Internal linking system across treatment subtopics",
     ],
@@ -48,9 +48,9 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 5–6",
+    window: "Month 5-6",
     title: "AI search positioning",
-    desc: "Entity signals tuned for AI search consumption — the firm started showing up as a cited source in cosmetic dermatology queries.",
+    desc: "Entity signals tuned for AI search consumption, the firm started showing up as a cited source in cosmetic dermatology queries.",
     tactics: [
       "Knowledge graph signal strengthening",
       "Authority placements on Healthgrades, Vitals, RealSelf",
@@ -70,15 +70,15 @@ const TACTICS = [
   },
   {
     title: "HIPAA-compliant before/after",
-    desc: "Before/after content strategy that drives conversion without exposing PHI — a hard balance most agencies skip entirely.",
+    desc: "Before/after content strategy that drives conversion without exposing PHI, a hard balance most agencies skip entirely.",
   },
   {
     title: "Review velocity campaign",
-    desc: "Automated, two-location review request flow with response handling — monthly velocity rose from 12–15 to 30+.",
+    desc: "Automated, two-location review request flow with response handling, monthly velocity rose from 12-15 to 30+.",
   },
   {
     title: "Medical authority citations",
-    desc: "Authoritative placements on Healthgrades, Vitals, RealSelf, and Zocdoc — the directories AI surfaces actually trust.",
+    desc: "Authoritative placements on Healthgrades, Vitals, RealSelf, and Zocdoc, the directories AI surfaces actually trust.",
   },
   {
     title: "AI citation building",
@@ -91,7 +91,7 @@ export default function HartmanCaseStudyPage() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline:
-      "Hartman Dermatology — Miami cosmetic dermatology, +78% consultations, 38% AI citation rate",
+      "Hartman Dermatology, Miami cosmetic dermatology, +78% consultations, 38% AI citation rate",
     author: { "@type": "Organization", name: "Rysen Growth" },
     publisher: { "@type": "Organization", name: "Rysen Growth" },
   };
@@ -156,11 +156,11 @@ export default function HartmanCaseStudyPage() {
             Despite the credentials and patient outcomes, Hartman ranked on
             page two for “Botox Miami,” “cosmetic
             dermatologist Miami,” and “laser treatments Miami.”
-            Zero meaningful AI search visibility — ChatGPT and Perplexity
+            Zero meaningful AI search visibility, ChatGPT and Perplexity
             defaulted to national chains.
           </p>
           <p>
-            Review velocity was slow at 12–15 per month. The practice was still
+            Review velocity was slow at 12-15 per month. The practice was still
             referral-heavy, but referral volume had plateaued and competitors
             with weaker clinical credentials were eating market share through
             paid acquisition. We told them what we’d do, what it would
@@ -231,7 +231,7 @@ export default function HartmanCaseStudyPage() {
 
       <CTABanner
         title="Want results like these?"
-        subtitle="Get a free audit of your practice’s visibility — same methodology, your numbers."
+        subtitle="Get a free audit of your practice’s visibility, same methodology, your numbers."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

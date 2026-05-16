@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 
 export const runtime = "nodejs";
-export const alt = "Rysen Notes — article";
+export const alt = "Rysen Notes, article";
 export const contentType = "image/png";
 export const size = { width: 1200, height: 630 };
 

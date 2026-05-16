@@ -8,11 +8,11 @@ import { BlogSubscribe } from "./BlogSubscribe";
 
 export const metadata: Metadata = {
   title:
-    "Rysen Notes — Marketing Insights for Law Firms & Medical Practices",
+    "Rysen Notes, Marketing Insights for Law Firms & Medical Practices",
   description:
     "Long-form writing from Art Khan on AI search, marketing attribution, local SEO, and the operational discipline of professional services marketing.",
   openGraph: {
-    title: "Rysen Notes — Marketing Insights for Law Firms & Medical Practices",
+    title: "Rysen Notes, Marketing Insights for Law Firms & Medical Practices",
     description:
       "Long-form writing from Art Khan on AI search, attribution, local SEO, and the operational discipline of professional services marketing.",
     type: "website",
@@ -51,7 +51,7 @@ export default function BlogIndexPage() {
       <PageSection
         eyebrow="Stay posted"
         title="Get future notes in your inbox."
-        subtitle="One email when a new article publishes. No marketing, no nurturing — just the writing."
+        subtitle="One email when a new article publishes. No marketing, no nurturing, just the writing."
         background="tint"
         maxWidth="640px"
       >

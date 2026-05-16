@@ -97,7 +97,7 @@ export default function HomePage() {
                   Detroit, Michigan · Founded 2019
                 </span>
                 <span className="hero-rebrand-masthead-item">
-                  An independent firm
+                  30+ engagements · 4 states
                 </span>
               </div>
             </div>
@@ -264,7 +264,7 @@ export default function HomePage() {
           variant="paper"
           primary={{
             category: "Growth capability",
-            title: "Madison Clark — 100M views in 60 days",
+            title: "Madison Clark, 100M views in 60 days",
             href: "/case-studies/madison-clark",
           }}
           secondary={{

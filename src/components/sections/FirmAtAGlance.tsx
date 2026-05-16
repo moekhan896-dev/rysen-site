@@ -26,11 +26,11 @@ const ROWS: ReadonlyArray<GlanceRow> = [
 ];
 
 const CADENCE_DAYS: ReadonlyArray<string> = [
-  "Monday — Data sync",
-  "Tuesday — Strategy review",
-  "Wednesday — Production",
-  "Thursday — QA",
-  "Friday — Client reports",
+  "Monday, Data sync",
+  "Tuesday, Strategy review",
+  "Wednesday, Production",
+  "Thursday, QA",
+  "Friday, Client reports",
 ];
 
 export function FirmAtAGlance() {
@@ -104,7 +104,7 @@ export function FirmAtAGlance() {
         <div className="glance-closing">
           <hr className="glance-rule" aria-hidden="true" />
           <p>
-            An independent firm. Founder-operated. No outside capital. No exits.
+            Founder-operated. No outside capital. No exits.
             No drift from the original mandate.
           </p>
         </div>

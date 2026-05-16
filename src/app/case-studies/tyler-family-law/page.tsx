@@ -12,14 +12,14 @@ import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 
 export const metadata: Metadata = {
   title:
-    "Tyler Family Law Case Study — Atlanta Divorce, +1,240% Leads in 8 Months",
+    "Tyler Family Law Case Study, Atlanta Divorce, +1,240% Leads in 8 Months",
   description:
     "How Rysen took Tyler Family Law from a referral-only Atlanta divorce practice to position one across priority family law queries with a four-week intake waitlist.",
 };
 
 const PHASES = [
   {
-    window: "Month 1–2",
+    window: "Month 1-2",
     title: "Hyperlocal foundation",
     desc: "Atlanta-only strategy from day one. We told other agencies’ recommended GA-wide approach was wrong for this firm.",
     tactics: [
@@ -29,7 +29,7 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 3–4",
+    window: "Month 3-4",
     title: "Authority + AI consumption",
     desc: "Long-form authority content covering divorce subtopics, engineered for both ranking and AI citation.",
     tactics: [
@@ -39,7 +39,7 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 5–6",
+    window: "Month 5-6",
     title: "Review velocity + neighborhood content",
     desc: "Systematic review acquisition program and neighborhood-specific landing pages across priority Atlanta zones.",
     tactics: [
@@ -49,7 +49,7 @@ const PHASES = [
     ],
   },
   {
-    window: "Month 7–8",
+    window: "Month 7-8",
     title: "Position-one capture",
     desc: "Crossed into position one across priority queries. Engagement focus shifted to defense and capacity.",
     tactics: [
@@ -67,11 +67,11 @@ const TACTICS = [
   },
   {
     title: "Divorce subtopic authority",
-    desc: "Authority articles covering custody, asset division, prenups, and post-decree — the queries with real intent.",
+    desc: "Authority articles covering custody, asset division, prenups, and post-decree, the queries with real intent.",
   },
   {
     title: "Atlanta-only GMB",
-    desc: "GMB optimization that targeted Atlanta proper, not Georgia broadly, not the suburbs — the math wins faster.",
+    desc: "GMB optimization that targeted Atlanta proper, not Georgia broadly, not the suburbs, the math wins faster.",
   },
   {
     title: "Review velocity strategy",
@@ -83,7 +83,7 @@ const TACTICS = [
   },
   {
     title: "Hyperlocal neighborhood pages",
-    desc: "Practice pages for Buckhead, Decatur, Sandy Springs, and Midtown — written for residents, not just SEO.",
+    desc: "Practice pages for Buckhead, Decatur, Sandy Springs, and Midtown, written for residents, not just SEO.",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function TylerCaseStudyPage() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline:
-      "Tyler Family Law — Atlanta divorce, +1,240% leads, #1 ranked in 8 months",
+      "Tyler Family Law, Atlanta divorce, +1,240% leads, #1 ranked in 8 months",
     author: { "@type": "Organization", name: "Rysen Growth" },
     publisher: { "@type": "Organization", name: "Rysen Growth" },
   };
@@ -138,7 +138,7 @@ export default function TylerCaseStudyPage() {
           Tyler Family Law is an Atlanta-based divorce and family law practice
           with deep trial experience and a partner who’s argued some of
           the most cited custody cases in Georgia. The firm had been running on
-          referral volume for over a decade — but referrals had plateaued, and
+          referral volume for over a decade, but referrals had plateaued, and
           the partner watching her son use ChatGPT to research his upcoming
           college essays realized her future clients were going to find lawyers
           the same way. She called us.
@@ -156,7 +156,7 @@ export default function TylerCaseStudyPage() {
           <p>
             Tyler had spoken with three other agencies before us. All three told
             them the same thing: ranking in Atlanta against the national lawyer
-            mills was impossible. The math, they said, didn’t work — the
+            mills was impossible. The math, they said, didn’t work, the
             national franchises had bigger budgets, more domain authority, and
             more historical link equity. The recommended path was to compete
             statewide. Get traffic from Augusta or Savannah and hope to convert
@@ -221,7 +221,7 @@ export default function TylerCaseStudyPage() {
         background="tint"
       >
         <CaseQuote
-          quote="Three other agencies told us ranking in Atlanta was impossible. Eight months in we're #1 with a four-week intake waitlist. The difference was discipline — hyperlocal, weekly accountability, and a strategist who picked up the phone every Monday."
+          quote="Three other agencies told us ranking in Atlanta was impossible. Eight months in we're #1 with a four-week intake waitlist. The difference was discipline, hyperlocal, weekly accountability, and a strategist who picked up the phone every Monday."
           attribution="Founder, Tyler Family Law"
         />
       </PageSection>
@@ -233,7 +233,7 @@ export default function TylerCaseStudyPage() {
 
       <CTABanner
         title="Think your market is unwinnable?"
-        subtitle="Get a free audit. We’ll tell you the truth — if it’s winnable, here’s how. If it isn’t, we’ll say so."
+        subtitle="Get a free audit. We’ll tell you the truth, if it’s winnable, here’s how. If it isn’t, we’ll say so."
         primaryText="Get a free audit"
         primaryHref="/audit"
         secondaryText="See another case study"

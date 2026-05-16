@@ -7,7 +7,7 @@ import { ContactForm } from "./ContactForm";
 import { ContactCards } from "./ContactCards";
 
 export const metadata: Metadata = {
-  title: "Contact Rysen Growth — Detroit, MI",
+  title: "Contact Rysen Growth, Detroit, MI",
   description:
     "Get in touch with Rysen Growth. Email marketing@rysengrowth.com or call (248) 406-6223. We respond within 24 hours.",
 };
@@ -77,7 +77,7 @@ export default function ContactPage() {
 
       <CTABanner
         title="Prefer to see what we’d do first?"
-        subtitle="Get a free audit of your firm’s online visibility — 48-hour turnaround."
+        subtitle="Get a free audit of your firm’s online visibility, 48-hour turnaround."
         primaryText="Get a free audit"
         primaryHref="/audit"
       />

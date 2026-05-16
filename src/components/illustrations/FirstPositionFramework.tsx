@@ -26,7 +26,7 @@ export function FirstPositionFramework({ className = "" }: Props) {
       width={500}
       height={400}
       className={className}
-      ariaLabel="First Position framework — five interconnected pillars"
+      ariaLabel="First Position framework, five interconnected pillars"
     >
       {/* Connection edges between pillars (every pair) */}
       {PILLARS.map((p, i) =>
@@ -67,7 +67,7 @@ export function FirstPositionFramework({ className = "" }: Props) {
         x={CENTER.x + 30}
         y={CENTER.y + 4}
         fontSize="9"
-        fontFamily="var(--font-mono), monospace"
+        fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
         fill="currentColor"
         opacity="0.7"
       >
@@ -102,7 +102,7 @@ export function FirstPositionFramework({ className = "" }: Props) {
               x={label.x}
               y={label.y}
               fontSize="9"
-              fontFamily="var(--font-mono), monospace"
+              fontFamily="var(--font-inter), system-ui, sans-serif" fontStyle="italic"
               fill="currentColor"
               textAnchor="middle"
               opacity="0.7"

@@ -12,7 +12,7 @@ import { AboutUsMap } from "./AboutUsMap";
 
 export const metadata: Metadata = {
   title:
-    "About Rysen Growth — Detroit Marketing Agency for Law & Medical Firms",
+    "About Rysen Growth, Detroit Marketing Agency for Law & Medical Firms",
   description:
     "Founded in 2019 in Detroit, Rysen Growth is a boutique data-driven marketing agency serving 30+ law firms and medical practices across the US.",
 };
@@ -23,7 +23,7 @@ const LEADERSHIP = [
     name: "Art Khan",
     title: "Founder & Managing Partner",
     location: "Detroit, Michigan",
-    bio: "Before Rysen, Art ran growth programs at Salesforce and Roku, and founded three consumer brands — Quattro Labs (150K+ followers), The Honest Plumbers (active service brand), and The Honest Maids (exited). Each became one of the fastest-growing brands in its category in the Midwest. He started Rysen in 2019 to apply that operator perspective specifically to law firms and medical practices, where the dollars are larger and the marketing reporting is worse. Ross School of Business BBA.",
+    bio: "Before Rysen, Art ran growth programs at Salesforce and Roku, and founded three consumer brands, Quattro Labs (150K+ followers), The Honest Plumbers (active service brand), and The Honest Maids (exited). Each became one of the fastest-growing brands in its category in the Midwest. He started Rysen in 2019 to apply that operator perspective specifically to law firms and medical practices, where the dollars are larger and the marketing reporting is worse. Ross School of Business BBA.",
     chips: ["ROSS BBA", "ex-SALESFORCE", "ex-ROKU", "Detroit"],
   },
   {
@@ -94,7 +94,7 @@ export default function AboutPage() {
         eyebrow="About Rysen"
         title={
           <>
-            An independent boutique firm,{" "}
+            A boutique firm,{" "}
             <span className="accent-italic">run by operators.</span>
           </>
         }
@@ -127,7 +127,7 @@ export default function AboutPage() {
           </p>
           <p>
             Rysen was built around the answer. We rebuild our clients&apos;
-            visibility — across Google, AI search, Maps, and content — and we
+            visibility, across Google, AI search, Maps, and content, and we
             tie every change back to a source, a channel, and a dollar.
             Clients see the math every week. Engagements range from six
             months to three-plus years. Most renew before their first
@@ -143,7 +143,7 @@ export default function AboutPage() {
             We&apos;re headquartered in downtown Detroit because we wanted a
             city that takes work seriously. Fourteen of us are here in person.
             Four work remote on specialized lanes. We stay boutique on
-            purpose — every account has a senior strategist as the day-one
+            purpose, every account has a senior strategist as the day-one
             contact, and we cap engagements so no one is spread thin.
           </p>
         </div>
@@ -175,7 +175,7 @@ export default function AboutPage() {
             },
             {
               title: "We turn down two of every three firms who ask.",
-              desc: "We screen for fit — local market dominance opportunity, partner-level commitment, long engagement horizon. If you&apos;re not the right fit, we&apos;ll tell you in the audit call.",
+              desc: "We screen for fit, local market dominance opportunity, partner-level commitment, long engagement horizon. If you&apos;re not the right fit, we&apos;ll tell you in the audit call.",
             },
           ].map((r, i) => (
             <article key={r.title} className="about-reason">
@@ -375,7 +375,7 @@ export default function AboutPage() {
               </a>
             </p>
             <p className="office-hours">
-              Monday–Friday · 9:00 AM–6:00 PM EST
+              Monday-Friday · 9:00 AM-6:00 PM EST
               <br />
               By appointment for prospect visits.
             </p>

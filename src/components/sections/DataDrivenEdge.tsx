@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-/* ============ MOCKUPS — each emits its own live animations ============ */
+/* ============ MOCKUPS, each emits its own live animations ============ */
 
 function MockAttribution({ active }: { active: boolean }) {
   // 5 bars, heights tweaked every 6s
@@ -274,7 +274,7 @@ const MODULES: ReadonlyArray<Module> = [
     title: "Call Tracking & Source Attribution",
     subtitle: "Every call traced to its origin",
     detail:
-      "Every phone call into your firm is tracked to its originating source via CallRail integration. You don't just see leads — you see which marketing channel produced each one.",
+      "Every phone call into your firm is tracked to its originating source via CallRail integration. You don't just see leads, you see which marketing channel produced each one.",
     live: "47 calls today, 8 sources",
     Mock: MockCallTracking,
   },
@@ -282,7 +282,7 @@ const MODULES: ReadonlyArray<Module> = [
     title: "Revenue Attribution",
     subtitle: "Closed cases mapped back to source",
     detail:
-      "We integrate with your CRM so closed cases and revenue flow back into your attribution dashboard. You see exactly which marketing dollars produced which client revenue — by source, by query, by channel.",
+      "We integrate with your CRM so closed cases and revenue flow back into your attribution dashboard. You see exactly which marketing dollars produced which client revenue, by source, by query, by channel.",
     live: "$34,800 attributed this month",
     Mock: MockRevenueFunnel,
   },
@@ -290,7 +290,7 @@ const MODULES: ReadonlyArray<Module> = [
     title: "A/B Testing on Landing Pages",
     subtitle: "Optimize what converts",
     detail:
-      "Continuous A/B tests on landing pages — headlines, CTAs, form layouts, social proof placement. Conversion rates compound over time as we identify what works for your specific audience.",
+      "Continuous A/B tests on landing pages, headlines, CTAs, form layouts, social proof placement. Conversion rates compound over time as we identify what works for your specific audience.",
     live: "12 active tests",
     Mock: MockABTest,
   },
@@ -306,7 +306,7 @@ const MODULES: ReadonlyArray<Module> = [
     title: "Predictive Modeling",
     subtitle: "Which markets are worth investing in next",
     detail:
-      "We model expected ROI for new keywords, new neighborhoods, new content topics — so you invest in what will compound 6-12 months from now, not what feels obvious today.",
+      "We model expected ROI for new keywords, new neighborhoods, new content topics, so you invest in what will compound 6-12 months from now, not what feels obvious today.",
     live: "12 opportunities modeled",
     Mock: MockPredictive,
   },
@@ -328,7 +328,7 @@ export function DataDrivenEdge() {
             <span className="dde-accent-italic">we measure.</span>
           </h2>
           <p className="dde-sub">
-            Data infrastructure that most agencies don’t have — and most
+            Data infrastructure that most agencies don’t have, and most
             clients don’t realize they’re missing. Every decision we
             make is sourced from real numbers. Every dollar of work reports back
             to real revenue.
@@ -372,7 +372,7 @@ export function DataDrivenEdge() {
           <p>
             This is what “data-driven” actually means. Not a slogan.
             Not a sales line. Operational infrastructure that produces
-            decisions you can defend in a partner meeting — because the data is
+            decisions you can defend in a partner meeting, because the data is
             right there, live, in your dashboard.
           </p>
           <p className="dde-editorial-final">

@@ -41,3 +41,11 @@ git checkout -b restore-from-pre-polish
 git push origin restore-from-pre-polish
 ```
 Points at commit `722dc02` — the state immediately after Session 26 Phase 2 (content migration + 12-section homepage + /services/ /case-studies/ /methodology expansions + breadcrumbs + page transitions) but before the Session 27 polish (hero fit, yellow readability, custom card architecture, scroll reveals, interlink bridges).
+
+## Option 6: Rollback to v2.7-pre-deai-audit (pre-Session-28)
+```
+git checkout v2.7-pre-deai-audit
+git checkout -b restore-from-pre-deai-audit
+git push origin restore-from-pre-deai-audit
+```
+Points at commit `7d4445e` — the state immediately after Session 27 polish (hero 4-line fit, yellow text readability with --signal-text token, custom TechDocCard/IndexCard/DataRow components, ScrollReveal/StaggerReveal, InterlinkBridges, page transition framer-motion, typography refinements) but before the Session 28 de-AI audit (monospace purge, em-dash purge, "independent firm" removal, Madison Clark fact corrections, new FeatureCard/FactCard/ProfileCard patterns).

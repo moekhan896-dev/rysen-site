@@ -16,7 +16,7 @@ const MENTIONS: ReadonlyArray<Mention> = [
   {
     publication: "Search Engine Journal",
     type: "CONTRIBUTOR",
-    context: "Local SEO trends contributor — 2024 industry forecast",
+    context: "Local SEO trends contributor, 2024 industry forecast",
     year: "2024",
     Icon: BookOpen,
   },
@@ -24,7 +24,7 @@ const MENTIONS: ReadonlyArray<Mention> = [
     publication: "Modern Law Practice Magazine",
     type: "FEATURED",
     context:
-      "Featured agency profile — “The Detroit firm rewriting legal marketing”",
+      "Featured agency profile, “The Detroit firm rewriting legal marketing”",
     year: "2024",
     Icon: Newspaper,
   },
@@ -39,7 +39,7 @@ const MENTIONS: ReadonlyArray<Mention> = [
     publication: "Legal Marketing Association",
     type: "SPEAKER",
     context:
-      "Speaker, 2024 Annual Conference — “AI Search & The Future of Legal Visibility”",
+      "Speaker, 2024 Annual Conference, “AI Search & The Future of Legal Visibility”",
     year: "2024",
     Icon: Mic,
   },

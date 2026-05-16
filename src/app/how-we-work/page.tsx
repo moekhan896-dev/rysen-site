@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 
 export const metadata: Metadata = {
-  title: "How we work — Weekly operating cadence",
+  title: "How we work, Weekly operating cadence",
   description:
     "A standing 5-day operating rhythm. Data sync Monday, strategy Tuesday, production Wednesday, QA Thursday, client reports Friday. Standing since 2019.",
 };
@@ -102,7 +102,7 @@ export default function HowWeWorkPage() {
             <article key={d.day} className="pillar-block">
               <div className="pillar-number" style={{ fontSize: 48 }}>{d.day}</div>
               <div className="pillar-content">
-                <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, color: "var(--signal)", marginBottom: 8 }}>
+                <div style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontStyle: "italic", fontSize: 12, color: "var(--signal-text)", marginBottom: 8 }}>
                   {d.time}
                 </div>
                 <h3>{d.title}</h3>

@@ -21,7 +21,7 @@ const BEFORE_RESULTS: ReadonlyArray<Result> = [
     snippet: "Browse 87 verified probate attorneys serving the Tampa Bay area.",
   },
   {
-    title: "How probate works in Florida — Avvo Guide",
+    title: "How probate works in Florida, Avvo Guide",
     url: "avvo.com › legal-guides › fl › probate",
     snippet:
       "Avvo's free legal guide covers the basics of Florida probate proceedings.",
@@ -29,7 +29,7 @@ const BEFORE_RESULTS: ReadonlyArray<Result> = [
 ];
 
 const AFTER_RESULT: Result = {
-  title: "AWS Law Firm — Tampa's Top Probate & Estate Planning Attorneys",
+  title: "AWS Law Firm, Tampa's Top Probate & Estate Planning Attorneys",
   url: "awslawfirm.com › probate",
   snippet:
     "Tampa's leading probate and estate practice. Cited in ChatGPT, Perplexity, and Google AI Overviews. Six-week consultation waitlist.",
@@ -105,7 +105,7 @@ export function CaseStudySlider() {
   return (
     <div className="cs-slider">
       <div className="cs-slider-frame" ref={containerRef}>
-        {/* BEFORE state (buried at position 8) — visible behind, full width */}
+        {/* BEFORE state (buried at position 8), visible behind, full width */}
         <div className="cs-slider-state cs-slider-before">
           <div className="cs-slider-header">
             <span className="cs-slider-traffic">

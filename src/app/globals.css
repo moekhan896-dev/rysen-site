@@ -16493,6 +16493,341 @@ path.oge-connection {
   }
 }
 
+/* ============================================================
+   === SESSION 28 PHASE 3 — TRAJECTORY RAIL (WhatThisMeans) ===
+   ============================================================ */
+
+.trajectory-section {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink-text);
+  padding: 100px 64px 80px;
+}
+
+.trajectory-section .section-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.trajectory-section-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trajectory-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  color: var(--ink-text);
+  margin: 16px 0 24px 0;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.trajectory-intro {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 720px;
+  margin: 0 0 56px 0;
+}
+
+.trajectory-rail {
+  position: relative;
+  margin: 0 0 32px 0;
+}
+
+.trajectory-rail__svg {
+  width: 100%;
+  height: 14px;
+  margin-bottom: 32px;
+}
+
+.trajectory-stations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.trajectory-station {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
+  padding-right: 16px;
+}
+
+.trajectory-station__marker {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  margin-bottom: 4px;
+}
+
+.trajectory-station__time {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--signal-text);
+}
+
+.trajectory-station__title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--ink-text);
+  margin: 0;
+}
+
+.trajectory-station__brief {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.trajectory-station__signal {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--ink-text);
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(10, 10, 10, 0.15);
+}
+
+.trajectory-station__signal em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--signal-text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+.trajectory-footnote {
+  margin-top: 48px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--ink-faint);
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .trajectory-section {
+    padding: 80px 32px 60px;
+  }
+  .trajectory-stations {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .trajectory-section {
+    padding: 64px 20px 48px;
+  }
+  .trajectory-stations {
+    grid-template-columns: 1fr;
+  }
+  .trajectory-station + .trajectory-station {
+    padding-top: 32px;
+    border-top: 1px solid rgba(10, 10, 10, 0.12);
+  }
+}
+
+/* ============================================================
+   === SESSION 28 PHASE 3 — CADENCE ROADMAP (HowWeWorkPreview) ===
+   ============================================================ */
+
+.cadence-section {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink-text);
+  padding: 100px 64px 80px;
+}
+
+.cadence-section .section-corner-mark {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.cadence-heading {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.016em;
+  color: var(--ink-text);
+  margin: 16px 0 24px 0;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.cadence-intro {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 720px;
+  margin: 0 0 56px 0;
+}
+
+.cadence-intro em {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--signal-text);
+}
+
+.cadence-roadmap {
+  position: relative;
+}
+
+.cadence-rail__svg {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.cadence-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.cadence-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 20px 20px 24px;
+  border-left: 1px solid rgba(10, 10, 10, 0.12);
+  transition: background var(--dur-base) var(--ease-settle);
+}
+
+.cadence-card:hover {
+  background: rgba(245, 197, 24, 0.04);
+}
+
+.cadence-card--today {
+  background: rgba(245, 197, 24, 0.08);
+  border-left: 2px solid var(--signal);
+  padding-left: 23px;
+}
+
+.cadence-card__day {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--ink-text);
+}
+
+.cadence-card--today .cadence-card__day {
+  color: var(--signal-text);
+  font-weight: 600;
+}
+
+.cadence-card__task {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--ink-text);
+}
+
+.cadence-card__detail {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.cadence-card__time {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin: auto 0 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+.cadence-counter {
+  margin-top: 48px;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.cadence-counter__num {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--signal-text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+@media (max-width: 1024px) {
+  .cadence-section {
+    padding: 80px 32px 60px;
+  }
+  .cadence-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .cadence-rail__svg {
+    height: 40px;
+  }
+  .cadence-card {
+    padding: 20px 0 20px 24px;
+    border-left: 1px solid rgba(10, 10, 10, 0.12);
+  }
+  .cadence-card--today {
+    padding-left: 23px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cadence-section {
+    padding: 64px 20px 48px;
+  }
+}
+
 /* ----- 10. Madison preview metrics ----- */
 
 .madison-preview-metrics {

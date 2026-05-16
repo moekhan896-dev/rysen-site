@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
-import { TechDocCard } from "@/components/cards/TechDocCard";
-import { DataRow } from "@/components/cards/DataRow";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { FactCard } from "@/components/cards/FactCard";
 import { EngineArchitecture } from "@/components/illustrations/EngineArchitecture";
@@ -171,11 +169,12 @@ export function TenComponentsPreview() {
         </p>
         <div className="ten-components-rows">
           {TEN_COMPONENTS.map((c, i) => (
-            <DataRow
+            <FactCard
               key={c.name}
-              number={String(i + 1).padStart(2, "0")}
               title={c.name}
               description={c.desc}
+              number={String(i + 1).padStart(2, "0")}
+              unit="of ten"
             />
           ))}
         </div>
@@ -570,53 +569,11 @@ export function MadisonClarkPreview() {
   );
 }
 
-/* ============================================================
-   11. HOW WE WORK PREVIEW (paper)
-   ============================================================ */
-
-const COMPACT_DAYS: ReadonlyArray<{ eyebrow: string; title: string; desc: string; dow: number }> = [
-  { dow: 1, eyebrow: "Monday", title: "Data sync", desc: "Dashboards refresh. Anomalies flagged." },
-  { dow: 2, eyebrow: "Tuesday", title: "Strategy review", desc: "Every account reviewed. Decisions documented." },
-  { dow: 3, eyebrow: "Wednesday", title: "Production", desc: "Content, links, GMB posts, schema deployed." },
-  { dow: 4, eyebrow: "Thursday", title: "QA + ship", desc: "Senior strategist signs off on every output." },
-  { dow: 5, eyebrow: "Friday", title: "Reports + retro", desc: "Reports sent. Retro on what worked." },
-];
-
-export function HowWeWorkPreview() {
-  return (
-    <section className="preview-section preview-section--paper" aria-label="How we work">
-      <div className="section-corner-mark">
-        <AmbientTriangle size={16} />
-      </div>
-      <div className="preview-section-inner">
-        <div className="section-eyebrow">
-          <SignalTriangle size={10} decorative />
-          <span className="eyebrow-rule" aria-hidden="true" />
-          <span className="eyebrow-text">How we work</span>
-        </div>
-        <h2 className="preview-section-heading">
-          Weekly cadence. Standing since 2019.
-        </h2>
-        <p className="preview-section-intro">
-          Real operations require real cadence. Rysen runs a standing 5-day
-          weekly rhythm: data sync Monday, strategy Tuesday, production
-          Wednesday, QA Thursday, client reports Friday. The kind of operating
-          discipline most agencies say they have but few actually maintain.
-        </p>
-        <div className="how-we-work-preview-grid">
-          {COMPACT_DAYS.map((d) => (
-            <div key={d.eyebrow} className="how-we-work-preview-card">
-              <div className="how-we-work-preview-eyebrow">{d.eyebrow}</div>
-              <div className="how-we-work-preview-title">{d.title}</div>
-              <div className="how-we-work-preview-desc">{d.desc}</div>
-            </div>
-          ))}
-        </div>
-        <ContinueReading href="/how-we-work" label="Read about our operations" context="paper" />
-      </div>
-    </section>
-  );
-}
+/* HowWeWorkPreview was moved to its own client component file
+   (src/components/sections/HowWeWorkPreview.tsx) so it can run the
+   SVG cadence roadmap with today calculation and the IntersectionObserver
+   trigger for the yellow progress line. */
+export { HowWeWorkPreview } from "./HowWeWorkPreview";
 
 /* ============================================================
    12. FINAL CTA (paper)

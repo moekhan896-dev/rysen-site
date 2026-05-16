@@ -5,6 +5,7 @@ import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { MedicalCaduceus } from "@/components/illustrations/MedicalCaduceus";
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { InlineDetail } from "@/components/utilities/InlineDetail";
 
 export const metadata: Metadata = {
   title: "Medical, The Medical Playbook",
@@ -142,10 +143,17 @@ export default function MedicalPage() {
         </div>
         <h2 className="deep-page-section-h2">The medical-weighted engine.</h2>
         <p className="deep-page-section-body">
-          Higher GMB and reviews weighting than legal, medical practices live
-          and die by local pack dominance and review velocity. Content
-          weighting still strong, but slightly behind legal&apos;s authority
-          emphasis.
+          Higher GMB and reviews weighting than legal. Medical practices live
+          and die by{" "}
+          <InlineDetail detail="A 4.7-star practice with 80 reviews outperforms a 4.9-star practice with 12 reviews in Google's local pack ranking, by a wide margin. Volume signals recency and active patient base.">
+            local pack dominance
+          </InlineDetail>{" "}
+          and{" "}
+          <InlineDetail detail="Our HIPAA-aware review request flow times the ask to post-appointment confirmations, with patient-identifier scrubbing applied to every response template before a strategist publishes it.">
+            review velocity
+          </InlineDetail>
+          . Content weighting still strong, but slightly behind
+          legal&apos;s authority emphasis.
         </p>
         <div className="engine-config" style={{ marginTop: 40 }}>
           {ENGINE_CONFIG.map((c) => (

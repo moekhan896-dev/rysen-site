@@ -5,6 +5,7 @@ import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { WeeklyCadenceGrid } from "@/components/illustrations/WeeklyCadenceGrid";
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { InlineDetail } from "@/components/utilities/InlineDetail";
 
 export const metadata: Metadata = {
   title: "How we work, Weekly operating cadence",
@@ -94,7 +95,11 @@ export default function HowWeWorkPage() {
         <p className="deep-page-section-body">
           Most agencies say they&apos;re &ldquo;data-driven&rdquo; or
           &ldquo;weekly-accountable.&rdquo; Few publish what that actually means
-          in their operating week. Here&apos;s ours, every week, since 2019.
+          in their{" "}
+          <InlineDetail detail="Every Monday at 08:00 EST, every Tuesday at 10:00 EST, every Thursday at 16:00 EST, every Friday at 12:00 EST. Times documented, owners named, decisions logged. Same cadence since the firm was founded.">
+            operating week
+          </InlineDetail>
+          . Here&apos;s ours, every week, since 2019.
         </p>
 
         <div style={{ marginTop: 48 }}>

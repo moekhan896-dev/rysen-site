@@ -7,6 +7,7 @@ import { EngineArchitecture } from "@/components/illustrations/EngineArchitectur
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { BlueprintPullQuote } from "@/components/primitives/BlueprintPullQuote";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { InlineDetail } from "@/components/utilities/InlineDetail";
 import { PillarReveal } from "./PillarReveal";
 
 export const metadata: Metadata = {
@@ -116,10 +117,13 @@ export default function MethodologyPage() {
         </div>
         <h2 className="deep-page-section-h2">Five pillars. One coordinated system.</h2>
         <p className="deep-page-section-body">
-          Most agencies sell a stack of tactics. First Position is a coordinated
-          system: five pillars working in concert, with each pillar reinforcing
-          the others. Remove any one and the system degrades. Run them together
-          and the results compound.
+          Most agencies sell a stack of tactics. First Position is a{" "}
+          <InlineDetail detail="Authority content amplifies AI citations. Reviews reinforce local pack rankings. Each lever adds 5 to 15 percent to the next when run together. The compound effect is what generic SEO stacks miss.">
+            coordinated system
+          </InlineDetail>
+          : five pillars working in concert, with each pillar reinforcing the
+          others. Remove any one and the system degrades. Run them together and
+          the results compound.
         </p>
 
         <div style={{ marginTop: 48 }}>
@@ -141,8 +145,11 @@ export default function MethodologyPage() {
             The Organic Growth Engine is the architectural manifestation of First
             Position. Ten components, LSA, GMB, web optimization, AI search,
             authority content, reputation, PR, schema, email, and social,
-            engineered to run together, not separately. Each component improves
-            the others.
+            engineered to run together, not separately. Each component{" "}
+            <InlineDetail detail="Schema markup multiplies AI search citation rates. Authority content boosts review signal. GMB optimization amplifies local pack rankings. Every component has measurable compounding effects on at least 3 others.">
+              improves the others
+            </InlineDetail>
+            .
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, marginTop: 56, alignItems: "center" }}>

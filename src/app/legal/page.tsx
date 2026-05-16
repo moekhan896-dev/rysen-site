@@ -5,6 +5,7 @@ import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { ScalesOfJustice } from "@/components/illustrations/ScalesOfJustice";
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { InlineDetail } from "@/components/utilities/InlineDetail";
 
 export const metadata: Metadata = {
   title: "Legal, The Legal Playbook",
@@ -143,8 +144,15 @@ export default function LegalPage() {
         <h2 className="deep-page-section-h2">The legal-weighted engine.</h2>
         <p className="deep-page-section-body">
           The same ten components, weighted differently for legal clients vs.
-          medical. Higher emphasis on authority content, reviews, and GMB,
-          lower on social and email, than the medical configuration.
+          medical. Higher emphasis on{" "}
+          <InlineDetail detail="Legal prospects spend weeks researching before hiring. Authority content (state law explainers, process guides, case-type FAQs) compounds visibility across that decision window where ad spend cannot.">
+            authority content
+          </InlineDetail>
+          , reviews, and{" "}
+          <InlineDetail detail="Bar advertising rules vary state by state. Our compliance review tracks the rules in every state our clients practice in, so attorney-marketing claims, disclaimers, and comparative language stay defensible.">
+            bar-aware GMB
+          </InlineDetail>
+          , lower on social and email, than the medical configuration.
         </p>
         <div className="engine-config" style={{ marginTop: 40 }}>
           {ENGINE_CONFIG.map((c) => (

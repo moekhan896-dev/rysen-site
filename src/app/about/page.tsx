@@ -6,7 +6,7 @@ import { OperatorJourney } from "@/components/illustrations/OperatorJourney";
 import { BlueprintPullQuote } from "@/components/primitives/BlueprintPullQuote";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
-import { IndexCard } from "@/components/cards/IndexCard";
+import { ProfileCard } from "@/components/cards/ProfileCard";
 import { AboutPrinciples } from "./AboutPrinciples";
 import { AboutUsMap } from "./AboutUsMap";
 
@@ -257,16 +257,18 @@ export default function AboutPage() {
           fourteen specialists, each running their own discipline within the
           Organic Growth Engine.
         </p>
-        <div className="team-index-grid">
+        <div className="team-profile-list">
           {TEAM_EXTRAS.map((m) => (
-            <IndexCard
+            <ProfileCard
               key={m.name}
-              category="Senior operator"
               monogram={m.monogram}
               name={m.name}
               title={m.title}
-              location={m.location}
-              specialty={m.specialty}
+              brief={
+                <>
+                  <em>{m.location}.</em> {m.specialty}
+                </>
+              }
             />
           ))}
         </div>

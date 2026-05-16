@@ -5,6 +5,7 @@ import { SignalTriangle } from "@/components/brand/SignalTriangle";
 import { DataInfrastructure } from "@/components/illustrations/DataInfrastructure";
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { InlineDetail } from "@/components/utilities/InlineDetail";
 
 export const metadata: Metadata = {
   title: "How we measure, The data science edge",
@@ -101,9 +102,13 @@ export default function HowWeMeasurePage() {
             Seven systems. Built in-house. Running continuously.
           </h2>
           <p className="deep-page-section-body" style={{ color: "var(--paper-muted)" }}>
-            Each system is custom-built for our specific use case in legal and
-            medical client work. Not vendor tools rebadged. Each system feeds
-            data into the others, and into the weekly client report.
+            Each system is{" "}
+            <InlineDetail detail="The data team writes its own ingestion pipelines per client CRM (Clio, Salesforce Health, Practice Better) and runs daily integrity checks. No off-the-shelf SaaS tool sits between the firm and its numbers.">
+              custom-built
+            </InlineDetail>{" "}
+            for our specific use case in legal and medical client work. Not
+            vendor tools rebadged. Each system feeds data into the others, and
+            into the weekly client report.
           </p>
 
           <div style={{ marginTop: 48 }}>
@@ -132,10 +137,12 @@ export default function HowWeMeasurePage() {
           <p className="deep-page-section-body">
             The seven systems are built and maintained by a dedicated data
             science team operating in-house at Rysen. Pedigrees from Salesforce
-            data science, attribution modeling at consumer brands, and
-            statistical work in academia. Not a vendor relationship, a team
-            that sits in standing meetings with the senior strategists every
-            week.
+            data science, attribution modeling at consumer brands, and{" "}
+            <InlineDetail detail="Two of our senior analysts hold graduate degrees in applied statistics. Their academic work feeds the cohort analysis and predictive modeling systems, not just dashboards.">
+              statistical work in academia
+            </InlineDetail>
+            . Not a vendor relationship, a team that sits in standing meetings
+            with the senior strategists every week.
           </p>
           <p className="deep-page-section-body" style={{ marginTop: 24 }}>
             Clients can request custom analyses any time. The team writes

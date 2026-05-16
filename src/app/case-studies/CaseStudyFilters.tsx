@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { SignalTriangle } from "@/components/brand/SignalTriangle";
-import { TechDocCard } from "@/components/cards/TechDocCard";
+import { FeatureCard } from "@/components/cards/FeatureCard";
 
 export interface CaseStudyRecord {
   href: string;
@@ -64,15 +64,14 @@ export function CaseStudyFilters({ cases, featured }: Props) {
           <span className="eyebrow-text">Featured engagements</span>
         </div>
         <h2 className="case-studies-section-h2">Four engagements worth a longer read.</h2>
-        <div className="selected-cases-grid">
-          {featuredCases.map((c, i) => (
-            <TechDocCard
+        <div className="selected-features-grid">
+          {featuredCases.map((c) => (
+            <FeatureCard
               key={c.href}
-              specId={`CS-${String(i + 1).padStart(3, "0")}`}
-              category={c.badge}
+              kicker={c.badge}
               title={c.firm}
-              description={c.challenge}
-              metrics={c.stats}
+              lead={<>{c.challenge}</>}
+              sidebar={c.stats.map((s) => ({ label: s.label, value: s.value }))}
               href={c.href}
               linkLabel="Read full case study"
             />

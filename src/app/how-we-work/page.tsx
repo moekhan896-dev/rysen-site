@@ -6,6 +6,7 @@ import { WeeklyCadenceGrid } from "@/components/illustrations/WeeklyCadenceGrid"
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { InlineDetail } from "@/components/utilities/InlineDetail";
+import { ScrollReveal } from "@/components/utilities/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "How we work, Weekly operating cadence",
@@ -85,38 +86,46 @@ export default function HowWeWorkPage() {
 
       {/* FULL 5-DAY CADENCE */}
       <section className="deep-page-section">
-        <div className="deep-page-section-eyebrow">
-          <SignalTriangle size={10} decorative />
-          <span>The full cadence</span>
-        </div>
-        <h2 className="deep-page-section-h2">
-          Five standing days. Named owners. Documented decisions.
-        </h2>
-        <p className="deep-page-section-body">
-          Most agencies say they&apos;re &ldquo;data-driven&rdquo; or
-          &ldquo;weekly-accountable.&rdquo; Few publish what that actually means
-          in their{" "}
-          <InlineDetail detail="Every Monday at 08:00 EST, every Tuesday at 10:00 EST, every Thursday at 16:00 EST, every Friday at 12:00 EST. Times documented, owners named, decisions logged. Same cadence since the firm was founded.">
-            operating week
-          </InlineDetail>
-          . Here&apos;s ours, every week, since 2019.
-        </p>
+        <ScrollReveal>
+          <div className="deep-page-section-eyebrow">
+            <SignalTriangle size={10} decorative />
+            <span>The full cadence</span>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={150}>
+          <h2 className="deep-page-section-h2">
+            Five standing days. Named owners. Documented decisions.
+          </h2>
+        </ScrollReveal>
+        <ScrollReveal delay={300}>
+          <p className="deep-page-section-body">
+            Most agencies say they&apos;re &ldquo;data-driven&rdquo; or
+            &ldquo;weekly-accountable.&rdquo; Few publish what that actually
+            means in their{" "}
+            <InlineDetail detail="Every Monday at 08:00 EST, every Tuesday at 10:00 EST, every Thursday at 16:00 EST, every Friday at 12:00 EST. Times documented, owners named, decisions logged. Same cadence since the firm was founded.">
+              operating week
+            </InlineDetail>
+            . Here&apos;s ours, every week, since 2019.
+          </p>
+        </ScrollReveal>
 
         <div style={{ marginTop: 48 }}>
-          {DAYS.map((d) => (
-            <article key={d.day} className="pillar-block">
-              <div className="pillar-number" style={{ fontSize: 48 }}>{d.day}</div>
-              <div className="pillar-content">
-                <div style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontStyle: "italic", fontSize: 12, color: "var(--signal-text)", marginBottom: 8 }}>
-                  {d.time}
+          {DAYS.map((d, i) => (
+            <ScrollReveal key={d.day} delay={450 + i * 100}>
+              <article className="pillar-block">
+                <div className="pillar-number" style={{ fontSize: 48 }}>{d.day}</div>
+                <div className="pillar-content">
+                  <div style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontStyle: "italic", fontSize: 12, color: "var(--signal-text)", marginBottom: 8 }}>
+                    {d.time}
+                  </div>
+                  <h3>{d.title}</h3>
+                  <p>{d.body}</p>
+                  <div className="data-system-callout" style={{ background: "var(--paper-elevated)", color: "var(--ink-text)", borderLeft: "2px solid var(--signal)" }}>
+                    {d.delivers}
+                  </div>
                 </div>
-                <h3>{d.title}</h3>
-                <p>{d.body}</p>
-                <div className="data-system-callout" style={{ background: "var(--paper-elevated)", color: "var(--ink-text)", borderLeft: "2px solid var(--signal)" }}>
-                  {d.delivers}
-                </div>
-              </div>
-            </article>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </section>

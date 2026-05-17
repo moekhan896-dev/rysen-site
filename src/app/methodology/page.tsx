@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { BlueprintPullQuote } from "@/components/primitives/BlueprintPullQuote";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { InlineDetail } from "@/components/utilities/InlineDetail";
+import { ScrollReveal } from "@/components/utilities/ScrollReveal";
 import { PillarReveal } from "./PillarReveal";
 
 export const metadata: Metadata = {
@@ -111,36 +112,48 @@ export default function MethodologyPage() {
 
       {/* THE FIVE PILLARS */}
       <section className="deep-page-section">
-        <div className="deep-page-section-eyebrow">
-          <SignalTriangle size={10} decorative />
-          <span>The framework</span>
-        </div>
-        <h2 className="deep-page-section-h2">Five pillars. One coordinated system.</h2>
-        <p className="deep-page-section-body">
-          Most agencies sell a stack of tactics. First Position is a{" "}
-          <InlineDetail detail="Authority content amplifies AI citations. Reviews reinforce local pack rankings. Each lever adds 5 to 15 percent to the next when run together. The compound effect is what generic SEO stacks miss.">
-            coordinated system
-          </InlineDetail>
-          : five pillars working in concert, with each pillar reinforcing the
-          others. Remove any one and the system degrades. Run them together and
-          the results compound.
-        </p>
+        <ScrollReveal>
+          <div className="deep-page-section-eyebrow">
+            <SignalTriangle size={10} decorative />
+            <span>The framework</span>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={150}>
+          <h2 className="deep-page-section-h2">Five pillars. One coordinated system.</h2>
+        </ScrollReveal>
+        <ScrollReveal delay={300}>
+          <p className="deep-page-section-body">
+            Most agencies sell a stack of tactics. First Position is a{" "}
+            <InlineDetail detail="Authority content amplifies AI citations. Reviews reinforce local pack rankings. Each lever adds 5 to 15 percent to the next when run together. The compound effect is what generic SEO stacks miss.">
+              coordinated system
+            </InlineDetail>
+            : five pillars working in concert, with each pillar reinforcing the
+            others. Remove any one and the system degrades. Run them together
+            and the results compound.
+          </p>
+        </ScrollReveal>
 
-        <div style={{ marginTop: 48 }}>
-          <PillarReveal pillars={PILLARS} />
-        </div>
+        <ScrollReveal delay={450}>
+          <div style={{ marginTop: 48 }}>
+            <PillarReveal pillars={PILLARS} />
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* THE ENGINE */}
       <section className="deep-page-section" style={{ background: "var(--ink)", color: "var(--paper-text)", maxWidth: "none", padding: "80px 64px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div className="deep-page-section-eyebrow">
-            <SignalTriangle size={10} decorative />
-            <span>The engine</span>
-          </div>
-          <h2 className="deep-page-section-h2" style={{ color: "var(--paper-text)" }}>
-            Ten coordinated components. One unified engine.
-          </h2>
+          <ScrollReveal>
+            <div className="deep-page-section-eyebrow">
+              <SignalTriangle size={10} decorative />
+              <span>The engine</span>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <h2 className="deep-page-section-h2" style={{ color: "var(--paper-text)" }}>
+              Ten coordinated components. One unified engine.
+            </h2>
+          </ScrollReveal>
           <p className="deep-page-section-body" style={{ color: "var(--paper-muted)" }}>
             The Organic Growth Engine is the architectural manifestation of First
             Position. Ten components, LSA, GMB, web optimization, AI search,

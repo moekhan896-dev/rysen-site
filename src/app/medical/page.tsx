@@ -6,6 +6,7 @@ import { MedicalCaduceus } from "@/components/illustrations/MedicalCaduceus";
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { InlineDetail } from "@/components/utilities/InlineDetail";
+import { ScrollReveal } from "@/components/utilities/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Medical, The Medical Playbook",
@@ -96,23 +97,29 @@ export default function MedicalPage() {
       </section>
 
       <section className="deep-page-section">
-        <div className="deep-page-section-eyebrow">
-          <SignalTriangle size={10} decorative />
-          <span>Five challenges specific to medical</span>
-        </div>
-        <h2 className="deep-page-section-h2">Medical marketing isn&apos;t generic SEO.</h2>
+        <ScrollReveal>
+          <div className="deep-page-section-eyebrow">
+            <SignalTriangle size={10} decorative />
+            <span>Five challenges specific to medical</span>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={150}>
+          <h2 className="deep-page-section-h2">Medical marketing isn&apos;t generic SEO.</h2>
+        </ScrollReveal>
         <div style={{ marginTop: 48 }}>
-          {CHALLENGES.map((c) => (
-            <div key={c.n} className="pillar-block">
-              <div className="pillar-number">{c.n}</div>
-              <div className="pillar-content">
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
-                <div className="data-system-callout" style={{ background: "var(--paper-elevated)", color: "var(--ink-text)", borderLeft: "2px solid var(--signal)" }}>
-                  <strong>The Rysen approach:</strong> {c.rysen}
+          {CHALLENGES.map((c, i) => (
+            <ScrollReveal key={c.n} delay={300 + i * 100}>
+              <div className="pillar-block">
+                <div className="pillar-number">{c.n}</div>
+                <div className="pillar-content">
+                  <h3>{c.title}</h3>
+                  <p>{c.body}</p>
+                  <div className="data-system-callout" style={{ background: "var(--paper-elevated)", color: "var(--ink-text)", borderLeft: "2px solid var(--signal)" }}>
+                    <strong>The Rysen approach:</strong> {c.rysen}
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>

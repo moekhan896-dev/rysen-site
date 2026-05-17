@@ -6,6 +6,7 @@ import { DataInfrastructure } from "@/components/illustrations/DataInfrastructur
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
 import { InlineDetail } from "@/components/utilities/InlineDetail";
+import { ScrollReveal } from "@/components/utilities/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "How we measure, The data science edge",
@@ -94,33 +95,41 @@ export default function HowWeMeasurePage() {
       {/* THE 7 SYSTEMS */}
       <section className="deep-page-section" style={{ maxWidth: "none", padding: "80px 64px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div className="deep-page-section-eyebrow">
-            <SignalTriangle size={10} decorative />
-            <span>The seven systems</span>
-          </div>
-          <h2 className="deep-page-section-h2" style={{ color: "var(--paper-text)" }}>
-            Seven systems. Built in-house. Running continuously.
-          </h2>
-          <p className="deep-page-section-body" style={{ color: "var(--paper-muted)" }}>
-            Each system is{" "}
-            <InlineDetail detail="The data team writes its own ingestion pipelines per client CRM (Clio, Salesforce Health, Practice Better) and runs daily integrity checks. No off-the-shelf SaaS tool sits between the firm and its numbers.">
-              custom-built
-            </InlineDetail>{" "}
-            for our specific use case in legal and medical client work. Not
-            vendor tools rebadged. Each system feeds data into the others, and
-            into the weekly client report.
-          </p>
+          <ScrollReveal>
+            <div className="deep-page-section-eyebrow">
+              <SignalTriangle size={10} decorative />
+              <span>The seven systems</span>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <h2 className="deep-page-section-h2" style={{ color: "var(--paper-text)" }}>
+              Seven systems. Built in-house. Running continuously.
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={300}>
+            <p className="deep-page-section-body" style={{ color: "var(--paper-muted)" }}>
+              Each system is{" "}
+              <InlineDetail detail="The data team writes its own ingestion pipelines per client CRM (Clio, Salesforce Health, Practice Better) and runs daily integrity checks. No off-the-shelf SaaS tool sits between the firm and its numbers.">
+                custom-built
+              </InlineDetail>{" "}
+              for our specific use case in legal and medical client work. Not
+              vendor tools rebadged. Each system feeds data into the others,
+              and into the weekly client report.
+            </p>
+          </ScrollReveal>
 
           <div style={{ marginTop: 48 }}>
-            {SYSTEMS.map((s) => (
-              <article key={s.n} className="data-system">
-                <div className="data-system-number">{s.n}</div>
-                <div>
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
-                </div>
-                <div className="data-system-callout">{s.callout}</div>
-              </article>
+            {SYSTEMS.map((s, i) => (
+              <ScrollReveal key={s.n} delay={450 + i * 100}>
+                <article className="data-system">
+                  <div className="data-system-number">{s.n}</div>
+                  <div>
+                    <h3>{s.title}</h3>
+                    <p>{s.body}</p>
+                  </div>
+                  <div className="data-system-callout">{s.callout}</div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>

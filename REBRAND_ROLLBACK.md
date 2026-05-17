@@ -49,3 +49,11 @@ git checkout -b restore-from-pre-deai-audit
 git push origin restore-from-pre-deai-audit
 ```
 Points at commit `7d4445e` — the state immediately after Session 27 polish (hero 4-line fit, yellow text readability with --signal-text token, custom TechDocCard/IndexCard/DataRow components, ScrollReveal/StaggerReveal, InterlinkBridges, page transition framer-motion, typography refinements) but before the Session 28 de-AI audit (monospace purge, em-dash purge, "independent firm" removal, Madison Clark fact corrections, new FeatureCard/FactCard/ProfileCard patterns).
+
+## Option 7: Rollback to v2.9-pre-confidential-redesign (pre-Session-30)
+```
+git checkout v2.9-pre-confidential-redesign
+git checkout -b restore-from-pre-confidential-redesign
+git push origin restore-from-pre-confidential-redesign
+```
+Points at commit `10b4a7a` — the state after Session 28 (Phases 1-4) but before the Session 30 homepage redesign (animated Google search hero, 8-section homepage, removal of FirmAtAGlance, WhatThisMeans, VerticalsWeServe, etc.).

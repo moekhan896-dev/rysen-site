@@ -94,6 +94,10 @@ export function Nav() {
   const isHomepage = pathname === "/";
   const contextClass = isHomepage ? " on-ink" : " on-paper";
 
+  if (isHomepage) {
+    return null;
+  }
+
   return (
     <header
       id="nav"

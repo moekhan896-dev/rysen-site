@@ -94,12 +94,6 @@ export function Nav() {
   const isHomepage = pathname === "/";
   const contextClass = isHomepage ? " on-ink" : " on-paper";
 
-  // Session 30: the homepage handles its own corner mark and navigation in
-  // the hero. The site-wide Nav is hidden on the homepage only.
-  if (isHomepage) {
-    return null;
-  }
-
   return (
     <header
       id="nav"

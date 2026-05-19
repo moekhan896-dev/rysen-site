@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { RysenLogo } from "@/components/brand/RysenLogo";
 
-const NAV = [
-  { num: "01", label: "Methodology", href: "/methodology" },
-  { num: "02", label: "Services", href: "/services" },
-  { num: "03", label: "Work", href: "/case-studies" },
-  { num: "04", label: "About", href: "/about" },
-  { num: "05", label: "Contact", href: "/contact" },
+const SITEMAP = [
+  { label: "Methodology", href: "/methodology" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/case-studies" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 const VERTICALS = [
@@ -21,18 +21,17 @@ export function Footer() {
       <div className="site-footer__inner">
         <div className="site-footer__col site-footer__col--brand">
           <RysenLogo size="md" />
-          <p className="site-footer__location">Detroit · Phoenix</p>
+          <p className="site-footer__tagline">
+            Marketing engineering for law firms and medical practices.
+          </p>
         </div>
 
         <div className="site-footer__col">
           <h3 className="site-footer__col-head">Sitemap</h3>
           <ul>
-            {NAV.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>
-                  <span className="site-footer__num">{link.num}</span>
-                  {link.label}
-                </Link>
+            {SITEMAP.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>
@@ -41,9 +40,9 @@ export function Footer() {
         <div className="site-footer__col">
           <h3 className="site-footer__col-head">Verticals</h3>
           <ul>
-            {VERTICALS.map((v) => (
-              <li key={v.href}>
-                <Link href={v.href}>{v.label}</Link>
+            {VERTICALS.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>
@@ -58,7 +57,7 @@ export function Footer() {
             <li>
               <a href="tel:+12484066223">(248) 406-6223</a>
             </li>
-            <li>By appointment</li>
+            <li>Detroit + Phoenix</li>
           </ul>
         </div>
       </div>

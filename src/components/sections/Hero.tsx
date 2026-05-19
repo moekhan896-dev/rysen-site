@@ -1,157 +1,147 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { AmbientTriangle } from "@/components/brand/AmbientTriangle";
-import { SignalTriangle } from "@/components/brand/SignalTriangle";
+import { useEffect, useState } from "react";
+import { HERO_SEARCH_CYCLES } from "@/lib/heroSearchCycles";
+import { HeroSearchAnimation } from "./HeroSearchAnimation";
+
+function GoogleWordmark() {
+  return (
+    <span
+      style={{
+        fontFamily: "var(--font-inter), system-ui, sans-serif",
+        fontWeight: 700,
+        fontSize: 13,
+        letterSpacing: "-0.01em",
+      }}
+      aria-label="Google"
+    >
+      <span style={{ color: "#4285F4" }}>G</span>
+      <span style={{ color: "#EA4335" }}>o</span>
+      <span style={{ color: "#FBBC05" }}>o</span>
+      <span style={{ color: "#4285F4" }}>g</span>
+      <span style={{ color: "#34A853" }}>l</span>
+      <span style={{ color: "#EA4335" }}>e</span>
+    </span>
+  );
+}
+
+function ChatGPTMark() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+      <circle cx="8" cy="8" r="8" fill="#0a0908" />
+      <path
+        d="M 8 2 L 9.5 6.5 L 14 6.8 L 10.5 9.3 L 11.8 13.8 L 8 11 L 4.2 13.8 L 5.5 9.3 L 2 6.8 L 6.5 6.5 Z"
+        fill="#ffffff"
+      />
+    </svg>
+  );
+}
+
+function PerplexityMark() {
+  return (
+    <svg width="12" height="14" viewBox="0 0 14 16" aria-hidden="true">
+      <rect x="0" y="2" width="14" height="2" rx="1" fill="#20B8CD" />
+      <rect x="0" y="6" width="14" height="2" rx="1" fill="#20B8CD" />
+      <rect x="0" y="10" width="14" height="2" rx="1" fill="#20B8CD" />
+      <rect x="0" y="14" width="14" height="2" rx="1" fill="#20B8CD" />
+    </svg>
+  );
+}
+
+function GeminiMark() {
+  return (
+    <svg width="12" height="14" viewBox="0 0 14 16" aria-hidden="true">
+      <defs>
+        <linearGradient id="gemini-hero-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#4796E3" />
+          <stop offset="50%" stopColor="#9168C0" />
+          <stop offset="100%" stopColor="#E94436" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M 7 0 L 8.4 6.4 L 14 8 L 8.4 9.6 L 7 16 L 5.6 9.6 L 0 8 L 5.6 6.4 Z"
+        fill="url(#gemini-hero-grad)"
+      />
+    </svg>
+  );
+}
 
 export function Hero() {
-  const shouldReduceMotion = useReducedMotion();
+  const [cycleIndex, setCycleIndex] = useState(0);
+  const currentCycle = HERO_SEARCH_CYCLES[cycleIndex];
 
-  const fadeUp = (delay = 0): Variants => ({
-    hidden: { opacity: 0, y: 14 },
-    visible: shouldReduceMotion
-      ? { opacity: 1, y: 0, transition: { duration: 0 } }
-      : {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.9, delay, ease: [0.19, 1, 0.22, 1] },
-        },
-  });
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+    const t = setTimeout(() => {
+      setCycleIndex((idx) => (idx + 1) % HERO_SEARCH_CYCLES.length);
+    }, 8000);
+    return () => clearTimeout(t);
+  }, [cycleIndex]);
 
   return (
-    <section className="hero31" aria-label="Hero">
-      <div className="hero31__corner-mark">
-        <AmbientTriangle size={16} />
+    <section className="hero" aria-label="Hero">
+      <div className="hero__spotlight" aria-hidden="true" />
+
+      <div className="hero__badge">
+        <span className="hero__badge-dot" aria-hidden="true" />
+        <span>Currently accepting 2 new engagements for Q2 2026</span>
       </div>
 
-      <div className="hero31__masthead">
-        <hr className="hero31__masthead-rule" aria-hidden="true" />
-        <div className="hero31__masthead-row">
-          <span className="hero31__masthead-item">
-            Detroit, Michigan · Founded 2019
-          </span>
-          <span className="hero31__masthead-item">
-            30+ engagements · 4 states
-          </span>
-        </div>
+      <h1 className="hero__headline">
+        Imagine your{" "}
+        <span className="hero__highlight">{currentCycle.vertical}</span> appeared
+        as the <span className="hero__signal">#1 result</span> for every search
+        in your city.
+      </h1>
+
+      <p className="hero__sub">
+        We make law firms and medical practices famous on Google. One per metro.
+        By invitation.
+      </p>
+
+      <div className="hero__platforms">
+        <span className="hero__platforms-label">Tracked across</span>
+        <span className="hero__platform">
+          <GoogleWordmark />
+        </span>
+        <span className="hero__platforms-divider" aria-hidden="true">
+          ·
+        </span>
+        <span className="hero__platform">
+          <ChatGPTMark /> ChatGPT
+        </span>
+        <span className="hero__platforms-divider" aria-hidden="true">
+          ·
+        </span>
+        <span className="hero__platform">
+          <PerplexityMark /> Perplexity
+        </span>
+        <span className="hero__platforms-divider" aria-hidden="true">
+          ·
+        </span>
+        <span className="hero__platform">
+          <GeminiMark /> Gemini
+        </span>
       </div>
 
-      <div className="hero31__grid">
-        <div className="hero31__content">
-          <motion.p
-            className="hero31__caption"
-            variants={fadeUp(0)}
-            initial="hidden"
-            animate="visible"
-          >
-            What if you stopped competing for visibility?
-          </motion.p>
-
-          <motion.h1
-            className="hero31__headline"
-            variants={fadeUp(0.15)}
-            initial="hidden"
-            animate="visible"
-          >
-            Imagine your{" "}
-            <span className="hero-headline__highlight hero-headline__highlight--a">
-              law firm
-            </span>{" "}
-            or{" "}
-            <span className="hero-headline__highlight hero-headline__highlight--b">
-              medical practice
-            </span>{" "}
-            appeared at the top of every search in your city.
-          </motion.h1>
-
-          <motion.div
-            className="hero31__cta-row"
-            variants={fadeUp(0.55)}
-            initial="hidden"
-            animate="visible"
-          >
-            <Link href="/audit" className="hero31__cta-primary">
-              Request audit
-            </Link>
-            <Link href="/case-studies" className="hero31__cta-secondary">
-              View case studies
-              <SignalTriangle size={10} decorative />
-            </Link>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="hero31__visual"
-          variants={fadeUp(0.35)}
-          initial="hidden"
-          animate="visible"
-        >
-          <div
-            className="hero-search-demo"
-            role="img"
-            aria-label="A representative client appearing at the #1 position for a category search."
-          >
-            <div className="hero-search-demo__bar">
-              <span className="hero-search-demo__bar-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <circle cx="10.5" cy="10.5" r="6.5" />
-                  <line x1="15.5" y1="15.5" x2="20" y2="20" />
-                </svg>
-              </span>
-              <span className="hero-search-demo__bar-text">
-                best personal injury attorney near me
-              </span>
-            </div>
-
-            <div className="hero-search-demo__result">
-              <span className="hero-search-demo__rank-tag">#1</span>
-              <div className="hero-search-demo__rank-badge" aria-hidden="true">
-                1
-              </div>
-              <div className="hero-search-demo__result-body">
-                <span className="hero-search-demo__result-url">
-                  yourfirm.com › practice-areas › personal-injury
-                </span>
-                <span className="hero-search-demo__result-title">
-                  Personal Injury Attorneys — Free Case Review
-                </span>
-                <span className="hero-search-demo__result-desc">
-                  Boutique firm representing injured clients across the state.
-                  Decades of trial experience. No fee unless we win your case.
-                </span>
-              </div>
-            </div>
-
-            <div className="hero-search-demo__platforms">
-              <span className="hero-search-demo__platforms-label">
-                Tracked across
-              </span>
-              <span className="hero-search-demo__platforms-list">
-                <span>Google</span>
-                <span className="hero-search-demo__platforms-dot" aria-hidden="true">·</span>
-                <span>ChatGPT</span>
-                <span className="hero-search-demo__platforms-dot" aria-hidden="true">·</span>
-                <span>Perplexity</span>
-                <span className="hero-search-demo__platforms-dot" aria-hidden="true">·</span>
-                <span>Gemini</span>
-              </span>
-            </div>
-          </div>
-        </motion.div>
+      <div className="hero__demo">
+        <HeroSearchAnimation cycle={currentCycle} />
       </div>
 
-      <motion.div
-        className="hero31__credibility"
-        variants={fadeUp(0.75)}
-        initial="hidden"
-        animate="visible"
-      >
-        <hr className="hero31__credibility-rule" aria-hidden="true" />
-        <p className="hero31__credibility-text">
-          Selected client rankings. Real engagements. Updated daily.
-        </p>
-      </motion.div>
+      <div className="hero__ctas">
+        <Link href="/contact" className="hero__cta-primary">
+          See if your metro is open
+        </Link>
+        <Link href="#work" className="hero__cta-secondary">
+          View the work →
+        </Link>
+      </div>
     </section>
   );
 }

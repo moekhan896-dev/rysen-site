@@ -1,330 +1,55 @@
 "use client";
 
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import { RysenLogo } from "@/components/brand/RysenLogo";
-import { NavServicesMenu } from "./NavServicesMenu";
 
-const NAV_LINKS: ReadonlyArray<{ label: string; href: string; hasDropdown?: boolean }> = [
+const NAV_LINKS: ReadonlyArray<{ label: string; href: string }> = [
   { label: "Methodology", href: "/methodology" },
-  { label: "Services", href: "/services", hasDropdown: true },
+  { label: "Services", href: "/services" },
   { label: "Work", href: "/case-studies" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
-const SERVICE_HREFS: ReadonlyArray<string> = [
-  "/services",
-  "/services/ai-search",
-  "/services/local-seo",
-  "/services/content",
-];
-
 export function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Scroll detection, rAF-throttled
   useEffect(() => {
-    let ticking = false;
-    let lastY = 0;
-    const onScroll = () => {
-      lastY = window.scrollY;
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setScrolled(lastY > 80);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
+    const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menus on route change
-  useEffect(() => {
-    setMobileOpen(false);
-    setServicesOpen(false);
-  }, [pathname]);
-
-  // ESC closes services menu
-  useEffect(() => {
-    if (!servicesOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setServicesOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [servicesOpen]);
-
-  // Lock body scroll when mobile menu open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = "";
-      };
-    }
-  }, [mobileOpen]);
-
-  const handleServicesEnter = () => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    hoverTimer.current = setTimeout(() => setServicesOpen(true), 100);
-  };
-
-  const handleServicesLeave = () => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    hoverTimer.current = setTimeout(() => setServicesOpen(false), 150);
-  };
-
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    if (href === "/services") {
-      return SERVICE_HREFS.some((h) => pathname === h);
-    }
-    return pathname.startsWith(href);
-  };
-
   const isHomepage = pathname === "/";
-  const contextClass = isHomepage ? " on-ink" : " on-paper";
+  const transparent = isHomepage && !scrolled;
 
   return (
     <header
-      id="nav"
-      className={`site-nav${scrolled ? " is-scrolled" : ""}${
-        servicesOpen ? " is-mega-open" : ""
-      }${contextClass}`}
+      className={`site-header${scrolled ? " is-scrolled" : ""}${
+        isHomepage ? " is-homepage" : ""
+      }`}
     >
-      <div className="nav-main">
-        <div className="nav-noise" aria-hidden="true" />
-        <div className="nav-inner">
-          {/* LEFT, Rysen mark + wordmark + subline */}
-          <Link href="/" className="nav-logo" aria-label="Rysen home">
-            <RysenLogo size={28} />
-            <span className="nav-logo-stack">
-              <span className="nav-logo-wordmark">Rysen</span>
-              <span className="nav-logo-subline">Est. 2019 · Detroit</span>
-            </span>
-          </Link>
+      <div className="site-header__inner">
+        <Link href="/" className="site-header__brand" aria-label="Rysen home">
+          <RysenLogo size="md" variant={transparent ? "inverse" : "default"} />
+        </Link>
 
-          {/* CENTER, Nav links */}
-          <nav className="nav-links" aria-label="Primary">
-            {NAV_LINKS.map((item) =>
-              item.hasDropdown ? (
-                <div
-                  key={item.label}
-                  className="nav-link-wrap"
-                  onMouseEnter={handleServicesEnter}
-                  onMouseLeave={handleServicesLeave}
-                >
-                  <button
-                    type="button"
-                    className={`nav-link nav-link-button${
-                      isActive(item.href) ? " is-active" : ""
-                    }${servicesOpen ? " is-open" : ""}`}
-                    aria-expanded={servicesOpen}
-                    aria-haspopup="true"
-                    onClick={() => setServicesOpen((v) => !v)}
-                  >
-                    <span className="nav-link-text">{item.label}</span>
-                    <span className="nav-link-chevron" aria-hidden="true">
-                      ▾
-                    </span>
-                  </button>
-                </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`nav-link${isActive(item.href) ? " is-active" : ""}`}
-                >
-                  <span className="nav-link-text">{item.label}</span>
-                </Link>
-              )
-            )}
-          </nav>
-
-          {/* RIGHT, CTA + mobile toggle (status pill removed in Session 23) */}
-          <div className="nav-right">
-            <Link href="/audit" className="nav-cta">
-              <span className="nav-cta-text">Request audit</span>
-              <span className="nav-cta-sheen" aria-hidden="true" />
+        <nav className="site-header__nav" aria-label="Primary">
+          {NAV_LINKS.map((link) => (
+            <Link key={link.href} href={link.href}>
+              {link.label}
             </Link>
+          ))}
+        </nav>
 
-            <button
-              type="button"
-              className="nav-mobile-toggle"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-              onClick={() => setMobileOpen((v) => !v)}
-            >
-              <span
-                className={`nav-mobile-icon${mobileOpen ? " is-open" : ""}`}
-                aria-hidden="true"
-              >
-                <span />
-                <span />
-                <span />
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <div className="nav-hairline" aria-hidden="true">
-          <span className="nav-hairline-pulse" />
-        </div>
+        <Link href="/contact" className="site-header__cta">
+          Request audit
+        </Link>
       </div>
-
-      {/* Services mega-menu */}
-      <div
-        onMouseEnter={handleServicesEnter}
-        onMouseLeave={handleServicesLeave}
-      >
-        <NavServicesMenu
-          open={servicesOpen}
-          onClose={() => setServicesOpen(false)}
-        />
-      </div>
-
-      {/* Mobile slide-in panel */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            className="nav-mobile-panel"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            role="dialog"
-            aria-label="Mobile navigation"
-          >
-            <div className="nav-mobile-panel-inner">
-              <div className="nav-mobile-group">
-                <div className="nav-mobile-group-head">Services</div>
-                <Link
-                  href="/services"
-                  className="nav-mobile-sublink"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Overview
-                </Link>
-                <Link
-                  href="/services/ai-search"
-                  className="nav-mobile-sublink"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  AI Search
-                </Link>
-                <Link
-                  href="/services/local-seo"
-                  className="nav-mobile-sublink"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Local SEO
-                </Link>
-                <Link
-                  href="/services/content"
-                  className="nav-mobile-sublink"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Content & Reputation
-                </Link>
-              </div>
-
-              <Link
-                href="/methodology"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                Methodology
-              </Link>
-              <Link
-                href="/how-we-measure"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                How we measure
-              </Link>
-              <Link
-                href="/how-we-work"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                How we work
-              </Link>
-              <Link
-                href="/legal"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                Legal
-              </Link>
-              <Link
-                href="/medical"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                Medical
-              </Link>
-              <Link
-                href="/case-studies"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                Work
-              </Link>
-              <Link
-                href="/about"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="nav-mobile-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                Contact
-              </Link>
-
-              <Link
-                href="/audit"
-                className="nav-mobile-cta"
-                onClick={() => setMobileOpen(false)}
-              >
-                Request audit →
-              </Link>
-
-              <div className="nav-mobile-footer">
-                <div className="nav-mobile-footer-line">Rysen Growth</div>
-                <div className="nav-mobile-footer-line">
-                  1 Campus Martius, Suite 200
-                </div>
-                <div className="nav-mobile-footer-line">Detroit, MI 48226</div>
-                <a
-                  href="tel:+12484066223"
-                  className="nav-mobile-footer-line nav-mobile-footer-contact"
-                >
-                  (248) 406-6223
-                </a>
-                <a
-                  href="mailto:marketing@rysengrowth.com"
-                  className="nav-mobile-footer-line nav-mobile-footer-contact"
-                >
-                  marketing@rysengrowth.com
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

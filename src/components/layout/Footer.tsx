@@ -58,8 +58,7 @@ export function Footer() {
       <div className="footer-triangle-pattern" aria-hidden="true" />
       <div className="rebrand-footer-inner">
         <div className="rebrand-footer-top">
-          <RysenLogo size={48} />
-          <span className="rebrand-footer-wordmark">Rysen</span>
+          <RysenLogo size="lg" />
         </div>
 
         <p className="rebrand-footer-tagline">

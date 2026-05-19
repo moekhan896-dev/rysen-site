@@ -1,109 +1,74 @@
 import Link from "next/link";
 import { RysenLogo } from "@/components/brand/RysenLogo";
 
-const SITEMAP: ReadonlyArray<{
-  head: string;
-  items: ReadonlyArray<
-    | { kind: "link"; label: string; href: string }
-    | { kind: "tel"; label: string; href: string }
-    | { kind: "mail"; label: string; href: string }
-    | { kind: "text"; label: string }
-  >;
-}> = [
-  {
-    head: "Practice",
-    items: [
-      { kind: "link", label: "Methodology", href: "/methodology" },
-      { kind: "link", label: "Services", href: "/services" },
-      { kind: "link", label: "How we measure", href: "/how-we-measure" },
-      { kind: "link", label: "How we work", href: "/how-we-work" },
-      { kind: "link", label: "Case studies", href: "/case-studies" },
-      { kind: "link", label: "Audit", href: "/audit" },
-    ],
-  },
-  {
-    head: "Verticals",
-    items: [
-      { kind: "link", label: "Legal", href: "/legal" },
-      { kind: "link", label: "Medical", href: "/medical" },
-    ],
-  },
-  {
-    head: "Firm",
-    items: [
-      { kind: "link", label: "About", href: "/about" },
-      { kind: "link", label: "Team", href: "/about" },
-      { kind: "link", label: "Press", href: "/about" },
-      { kind: "link", label: "Thought leadership", href: "/blog" },
-    ],
-  },
-  {
-    head: "Contact",
-    items: [
-      {
-        kind: "mail",
-        label: "marketing@rysengrowth.com",
-        href: "mailto:marketing@rysengrowth.com",
-      },
-      { kind: "tel", label: "(248) 406-6223", href: "tel:+12484066223" },
-      { kind: "text", label: "1 Campus Martius, Suite 200" },
-      { kind: "text", label: "Detroit, MI 48226" },
-    ],
-  },
-];
+const NAV = [
+  { num: "01", label: "Methodology", href: "/methodology" },
+  { num: "02", label: "Services", href: "/services" },
+  { num: "03", label: "Work", href: "/case-studies" },
+  { num: "04", label: "About", href: "/about" },
+  { num: "05", label: "Contact", href: "/contact" },
+] as const;
+
+const VERTICALS = [
+  { label: "Legal", href: "/legal" },
+  { label: "Medical", href: "/medical" },
+  { label: "Brand-built", href: "/case-studies" },
+] as const;
 
 export function Footer() {
   return (
-    <footer className="rebrand-footer">
-      <div className="footer-triangle-pattern" aria-hidden="true" />
-      <div className="rebrand-footer-inner">
-        <div className="rebrand-footer-top">
-          <RysenLogo size="lg" />
+    <footer className="site-footer">
+      <div className="site-footer__inner">
+        <div className="site-footer__col site-footer__col--brand">
+          <RysenLogo size="md" />
+          <p className="site-footer__location">Detroit · Phoenix</p>
         </div>
 
-        <p className="rebrand-footer-tagline">
-          A boutique agency for law firms and medical practices that intend to
-          organically dominate their market.
-        </p>
-
-        <div className="rebrand-footer-divider" />
-
-        <div className="rebrand-footer-sitemap">
-          {SITEMAP.map((col) => (
-            <div className="rebrand-footer-col" key={col.head}>
-              <div className="rebrand-footer-col-head">{col.head}</div>
-              {col.items.map((item) =>
-                item.kind === "link" ? (
-                  <Link key={item.label} href={item.href}>
-                    {item.label}
-                  </Link>
-                ) : item.kind === "mail" || item.kind === "tel" ? (
-                  <a key={item.label} href={item.href}>
-                    {item.label}
-                  </a>
-                ) : (
-                  <div key={item.label} className="rebrand-footer-col-line">
-                    {item.label}
-                  </div>
-                )
-              )}
-            </div>
-          ))}
+        <div className="site-footer__col">
+          <h3 className="site-footer__col-head">Sitemap</h3>
+          <ul>
+            {NAV.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href}>
+                  <span className="site-footer__num">{link.num}</span>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="rebrand-footer-divider-tight" />
-
-        <div className="rebrand-footer-bottom">
-          <span className="rebrand-footer-legal">
-            Rysen Growth, LLC. Based in Detroit, Michigan.
-            Founded 2019.
-          </span>
-          <span className="rebrand-footer-legal-links">
-            <Link href="/privacy">Privacy</Link>
-            <span aria-hidden="true">·</span>
-            <Link href="/terms">Terms</Link>
-          </span>
+        <div className="site-footer__col">
+          <h3 className="site-footer__col-head">Verticals</h3>
+          <ul>
+            {VERTICALS.map((v) => (
+              <li key={v.href}>
+                <Link href={v.href}>{v.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <div className="site-footer__col">
+          <h3 className="site-footer__col-head">Contact</h3>
+          <ul>
+            <li>
+              <a href="mailto:marketing@rysengrowth.com">marketing@rysengrowth.com</a>
+            </li>
+            <li>
+              <a href="tel:+12484066223">(248) 406-6223</a>
+            </li>
+            <li>By appointment</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="site-footer__strip">
+        <span>© 2026 Rysen Growth. All rights reserved.</span>
+        <span className="site-footer__legal-links">
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+        </span>
       </div>
     </footer>
   );

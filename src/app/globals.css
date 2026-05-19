@@ -22292,15 +22292,21 @@ main, body > div, #__next {
   align-items: center;
   justify-content: center;
   width: 100%;
-  aspect-ratio: 1;
+  height: auto;
+  min-height: 480px;
   max-width: 600px;
   justify-self: end;
 }
 
 .hero-viz {
   width: 100%;
+  max-width: 600px;
   height: 100%;
+  min-height: 320px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-viz__svg {
@@ -22328,14 +22334,31 @@ main, body > div, #__next {
 
 @media (max-width: 980px) {
   .hero__inner { grid-template-columns: 1fr !important; gap: 48px; }
-  .hero__right { max-width: 480px; justify-self: center; }
+  .hero__right {
+    max-width: 480px;
+    min-height: 360px;
+    justify-self: center;
+    margin: 0 auto;
+  }
   .hero { flex-direction: column !important; }
 }
 
 @media (max-width: 600px) {
-  .hero__right { max-width: 360px; }
+  .hero__right {
+    max-width: 360px;
+    min-height: 320px;
+  }
+  .hero-viz { min-height: 320px; }
   .hero__ctas { flex-direction: row !important; }
   .hero__cta-primary, .hero__cta-secondary { width: auto !important; }
+}
+
+@media (max-width: 400px) {
+  .hero__right {
+    max-width: 320px;
+    min-height: 300px;
+  }
+  .hero-viz { min-height: 300px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -22562,10 +22585,13 @@ main, body > div, #__next {
   font-style: normal;
 }
 
+.the-work__flywheel { display: block; }
+.the-work__list-mobile { display: none; }
 .the-work__list { display: none; }
 
 @media (max-width: 768px) {
-  .flywheel-wrap { display: none; }
+  .the-work__flywheel { display: none; }
+  .the-work__list-mobile { display: flex !important; }
   .the-work__list {
     display: flex;
     flex-direction: column;
@@ -23539,4 +23565,129 @@ main, body > div, #__next {
 }
 
 .rebrand-footer { display: none !important; }
+
+/* ============================================================
+   SESSION 35, PROCESS TIMELINE (desktop + mobile variants)
+   ============================================================ */
+
+.process-timeline--desktop {
+  display: block;
+}
+
+.process-timeline-mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .process-timeline-wrap { display: none; }
+  .process-timeline-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 12px;
+    max-width: 520px;
+    margin: 40px auto 0;
+  }
+  .process-timeline-mobile__track {
+    position: absolute;
+    left: 36px;
+    top: 24px;
+    bottom: 24px;
+    width: 1.5px;
+    background: linear-gradient(to bottom, rgba(255, 232, 23, 0.6), rgba(77, 127, 255, 0.3));
+    pointer-events: none;
+  }
+  .process-timeline-mobile__phase {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+    align-items: start;
+    position: relative;
+  }
+  .process-timeline-mobile__node {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #050507;
+    border: 2px solid #FFE817;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .process-timeline-mobile__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 4px;
+  }
+  .process-timeline-mobile__head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .process-timeline-mobile__num {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFE817;
+    letter-spacing: -0.012em;
+  }
+  .process-timeline-mobile__title {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-on-dark);
+    letter-spacing: -0.018em;
+  }
+  .process-timeline-mobile__duration {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #FFE817;
+    letter-spacing: 0.16em;
+    opacity: 0.85;
+  }
+  .process-timeline-mobile__desc {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--text-on-dark-muted);
+    margin: 0;
+    max-width: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-timeline circle[r="4"] { animation: none; }
+}
+
+/* ============================================================
+   SESSION 35, SERVICE ROW illustration mobile hide
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .service-row__vis { display: none !important; }
+}
+
+/* ============================================================
+   SESSION 35, HERO underline animation reduced-motion fallback
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hv-scan,
+  .fw-scan { animation: none !important; }
+  .hero-viz__svg animate,
+  .hero-viz__svg animateMotion,
+  .flywheel-svg animate,
+  .how__diagram animate,
+  .how__diagram animateMotion,
+  .process-timeline animate {
+    /* SMIL freezes at first frame when reduced-motion is preferred */
+  }
+}
 

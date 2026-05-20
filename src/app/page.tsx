@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { HowItWorks } from "@/components/sections/HowItWorks";
+import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Verticals } from "@/components/sections/Verticals";
+import { BuiltByOperators } from "@/components/sections/BuiltByOperators";
 import { TheWall } from "@/components/sections/TheWall";
 import { TheOffer } from "@/components/sections/TheOffer";
 import { TheTeam } from "@/components/sections/TheTeam";
@@ -19,8 +20,9 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
-      <HowItWorks />
+      <SelectedWork />
       <Verticals />
+      <BuiltByOperators />
       <TheWall />
       <TheOffer />
       <TheTeam />

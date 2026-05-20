@@ -1,10 +1,27 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Fraunces, Geist, Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
+import { FloatingCTA } from "@/components/ui/FloatingCTA";
 import "./globals.css";
 
-// Display serif, variable, with optical sizing
+// Primary typeface, Session 37 onward
+const geist = Geist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-geist",
+  display: "swap",
+});
+
+// Inter is now reserved for the RysenLogo wordmark only
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+// Fraunces kept loaded for deep pages and other surfaces that still use it
 const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
@@ -12,41 +29,30 @@ const fraunces = Fraunces({
   axes: ["SOFT", "WONK", "opsz"],
 });
 
-// UI + body, with heavy weights for all-caps RYSEN wordmark
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-// Tabular numerals now ride on Inter / Fraunces via font-feature-settings.
-// IBM Plex Mono was removed in Session 28's de-AI audit.
-
 const SITE_URL = "https://rysengrowth.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rysen Growth, Data-Driven Marketing for Law Firms and Medical Practices",
+    default: "Rysen Growth, Marketing Engineering for Law Firms and Medical Practices",
     template: "%s | Rysen Growth",
   },
   description:
-    "Rysen Growth is a Detroit-based, founder-led marketing agency for law firms and medical practices. Founded 2019. 30+ engagements across FL, CA, IL, NY.",
+    "Rysen Growth is a Detroit-based marketing firm engineered for selective law firms and medical practices. One firm per metro across Google, ChatGPT, Perplexity, and Gemini.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Rysen Growth",
     title:
-      "Rysen Growth, Data-Driven Marketing for Law Firms and Medical Practices",
+      "Rysen Growth, Marketing Engineering for Law Firms and Medical Practices",
     description:
-      "A Detroit-based, founder-led marketing agency. We make law firms and medical practices the first answer across Google, AI search, and Maps.",
+      "A Detroit-based marketing firm. We make law firms and medical practices the #1 result across Google, ChatGPT, Perplexity, and Gemini.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rysen Growth, Data-Driven Marketing for Law and Medical",
+    title: "Rysen Growth, Marketing Engineering for Law and Medical",
     description:
-      "Detroit-based, founder-led. 30+ engagements across legal and medical. Free audit available.",
+      "Detroit-based. 30+ engagements across legal and medical. By invitation.",
   },
 };
 
@@ -78,7 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable}`}
+      className={`${geist.variable} ${inter.variable} ${fraunces.variable}`}
     >
       <head>
         <script
@@ -91,6 +97,7 @@ export default function RootLayout({
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <FloatingCTA />
       </body>
     </html>
   );

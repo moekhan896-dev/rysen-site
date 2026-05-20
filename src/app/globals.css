@@ -20282,19 +20282,15 @@ main, body > div, #__next {
   flex-direction: column;
 }
 
-/* Suppress prior spotlight/noise/ambient-triangle/menu artifacts */
+/* Suppress prior legacy hero artifacts (Session 29 -> 33).
+   Session 34/35 hero elements (.hero__left, .hero__right, .hero__composition,
+   .hero__badge, .hero__badge-dot, .hero__highlight, .hero__mark) were removed
+   from this list in Session 35.1 because they are actively rendered. */
 .hero__spotlight,
 .hero__noise,
 .hero__menu-trigger,
 .hero__menu-overlay,
 .hero__ambient-triangle,
-.hero__mark,
-.hero__badge,
-.hero__badge-dot,
-.hero__composition,
-.hero__left,
-.hero__right,
-.hero__highlight,
 .hero__kicker,
 .hero-search,
 .hero-headline,

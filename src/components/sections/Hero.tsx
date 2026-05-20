@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TwinSerps } from "./TwinSerps";
 
 function ArrowIcon() {
   return (
@@ -14,59 +15,33 @@ function ArrowIcon() {
   );
 }
 
-const LEGAL_PHOTO = "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=1200&q=85";
-const MEDICAL_PHOTO = "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1200&q=85";
-
 export function Hero() {
   return (
     <section className="hero" aria-label="Hero">
-      <div className="hero__grid">
-        {/* LEFT: Law firm world */}
-        <div className="hero__panel hero__panel--left">
-          <img
-            src={LEGAL_PHOTO}
-            alt="Law firm office interior"
-            className="hero__panel-image"
-            loading="eager"
-          />
-          <div className="hero__panel-overlay" aria-hidden="true" />
+      <div className="hero__bg-grid" aria-hidden="true" />
+      <div className="hero__corner hero__corner--tl" aria-hidden="true" />
+      <div className="hero__corner hero__corner--br" aria-hidden="true" />
 
-          <div className="hero__panel-label">
-            <span className="hero__panel-label-marker" aria-hidden="true" />
-            <span>FOR LAW FIRMS</span>
-          </div>
-
-          <div className="hero__panel-bottom">
-            <div className="hero__panel-tagline">
-              Probate · Family · Personal injury · Estate
-            </div>
-            <div className="hero__panel-overlay-card">
-              <div className="hero__panel-overlay-card-line">
-                <span className="hero__panel-overlay-card-badge">#1</span>
-                <span className="hero__panel-overlay-card-domain">awslawfirm.com</span>
-              </div>
-              <div className="hero__panel-overlay-card-title">Tampa Probate Attorneys</div>
-              <div className="hero__panel-overlay-card-metric">348 calls · Q1 2026</div>
-            </div>
-          </div>
-        </div>
-
-        {/* CENTER: Content */}
-        <div className="hero__center">
+      <div className="hero__inner">
+        <div className="hero__head">
           <div className="hero__status">
             <span className="hero__status-dot" aria-hidden="true" />
             <span>Currently accepting 2 engagements · Q2 2026</span>
           </div>
 
+          <div className="hero__verticals">
+            <span>FOR LAW FIRMS</span>
+            <span className="hero__verticals-sep" aria-hidden="true">·</span>
+            <span>FOR MEDICAL PRACTICES</span>
+          </div>
+
           <h1 className="hero__headline">
-            Make your{" "}
-            <span className="hero__vertical-mark">law firm</span> or{" "}
-            <span className="hero__vertical-mark">medical practice</span> the{" "}
-            <span className="hero__highlight">#1 result</span> on Google.
+            <span className="hero__headline-line">Visibility,</span>
+            <span className="hero__headline-line hero__headline-line--accent">engineered.</span>
           </h1>
 
           <p className="hero__sub">
-            Rysen is the marketing firm engineered for selective law firms and medical practices. One per metro. Across Google, ChatGPT, Perplexity, and Gemini.
+            For selective law firms and medical practices. We work with one firm per metro across Google, ChatGPT, Perplexity, and Gemini.
           </p>
 
           <div className="hero__ctas">
@@ -77,53 +52,26 @@ export function Hero() {
               See the work
             </Link>
           </div>
-
-          <div className="hero__platforms">
-            <span className="hero__platforms-label">Visibility engineered across</span>
-            <div className="hero__platforms-list">
-              <span>Google</span>
-              <span className="hero__platforms-dot" aria-hidden="true" />
-              <span>ChatGPT</span>
-              <span className="hero__platforms-dot" aria-hidden="true" />
-              <span>Perplexity</span>
-              <span className="hero__platforms-dot" aria-hidden="true" />
-              <span>Gemini</span>
-            </div>
-          </div>
         </div>
 
-        {/* RIGHT: Medical world */}
-        <div className="hero__panel hero__panel--right">
-          <img
-            src={MEDICAL_PHOTO}
-            alt="Modern medical clinic interior"
-            className="hero__panel-image"
-            loading="eager"
-          />
-          <div className="hero__panel-overlay" aria-hidden="true" />
+        <TwinSerps />
 
-          <div className="hero__panel-label">
-            <span className="hero__panel-label-marker" aria-hidden="true" />
-            <span>FOR MEDICAL PRACTICES</span>
-          </div>
-
-          <div className="hero__panel-bottom">
-            <div className="hero__panel-tagline">
-              Dental · Dermatology · Regenerative · Aesthetics
-            </div>
-            <div className="hero__panel-overlay-card">
-              <div className="hero__panel-overlay-card-line">
-                <span className="hero__panel-overlay-card-badge">#1</span>
-                <span className="hero__panel-overlay-card-domain">hartmandermatology.com</span>
-              </div>
-              <div className="hero__panel-overlay-card-title">Miami Cosmetic Dermatology</div>
-              <div className="hero__panel-overlay-card-metric">38% AI citation rate</div>
-            </div>
-          </div>
+        <div className="hero__more">
+          <span className="hero__more-label">Also ranking #1 for:</span>
+          <span className="hero__more-list">
+            Tyler Family Law
+            <span className="hero__more-dot" aria-hidden="true">·</span>
+            Slim Dental
+            <span className="hero__more-dot" aria-hidden="true">·</span>
+            Madison Clark
+            <span className="hero__more-dot" aria-hidden="true">·</span>
+            Quattro Labs
+            <span className="hero__more-dot" aria-hidden="true">·</span>
+            30+ more
+          </span>
         </div>
       </div>
 
-      {/* Stats row below hero grid */}
       <div className="hero__stats-row">
         <div className="hero__stat">
           <div className="hero__stat-num">30+</div>

@@ -1,19 +1,24 @@
+const PLUMBERS_PHOTO = "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&q=85";
+const MAIDS_PHOTO = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=85";
+
 export function BuiltByOperators() {
   return (
     <section className="operators" aria-label="Built by operators">
       <div className="operators__inner">
         <div className="operators__header">
-          <p className="operators__label">02 — Operators</p>
+          <p className="operators__label">
+            <span className="operators__label-marker" aria-hidden="true" /> 04 — Operators
+          </p>
           <h2 className="operators__headline">
-            Built by operators, <em>not consultants.</em>
+            We don&apos;t just market brands. <em>We build them.</em>
           </h2>
           <p className="operators__sub">
-            Before we marketed for law firms and medical practices, we built our own brands from zero. Same playbook. Different verticals. Real receipts.
+            Before we engineered visibility for law firms and medical practices, we built our own brands from scratch. Real founders. Real audiences. Real receipts. The same engineering applied to your firm started here.
           </p>
         </div>
 
         <div className="operators__cards">
-          {/* Quattro Labs */}
+          {/* Card 1 — Quattro Labs */}
           <article className="operator-card">
             <div className="operator-card__visual">
               <video
@@ -23,26 +28,84 @@ export function BuiltByOperators() {
                 loop
                 playsInline
                 preload="metadata"
+                width={800}
+                height={450}
                 aria-label="Quattro Labs car meet footage"
               >
                 <source src="/assets/quattro-labs/car-meet-1.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="operator-card__body">
-              <span className="operator-card__category">QUATTRO LABS · AUTOMOTIVE MEDIA</span>
+              <span className="operator-card__category">AUTOMOTIVE MEDIA · ACTIVE</span>
               <h3 className="operator-card__name">Quattro Labs</h3>
               <p className="operator-card__desc">
-                Built from zero to 150,000+ Instagram followers since 2021. Active. The brand we use as our own laboratory for organic growth experiments.
+                Built from zero to 150,000+ Instagram followers since 2021. Active automotive media brand we run as our growth laboratory. Every algorithm change tested here first.
               </p>
               <div className="operator-card__metrics">
                 <span>150K+ followers</span>
-                <span>Active</span>
-                <span>4 years</span>
+                <span>Active 4 years</span>
+                <span>Auto · Phoenix</span>
               </div>
             </div>
           </article>
 
-          {/* Madison Clark */}
+          {/* Card 2 — The Honest Plumbers */}
+          <article className="operator-card">
+            <div className="operator-card__visual">
+              <img
+                src={PLUMBERS_PHOTO}
+                alt="Plumbing work"
+                className="operator-card__image"
+                loading="lazy"
+                width={800}
+                height={450}
+              />
+              <div className="operator-card__visual-overlay" aria-hidden="true" />
+              <div className="operator-card__badge">#1 IN MICHIGAN</div>
+            </div>
+            <div className="operator-card__body">
+              <span className="operator-card__category">HOME SERVICE · STILL RUNNING</span>
+              <h3 className="operator-card__name">The Honest Plumbers</h3>
+              <p className="operator-card__desc">
+                Michigan&apos;s most-followed plumbing brand on Instagram. Built from scratch in 2022. We operate it actively to prove our playbook in a vertical no one expected to win on social.
+              </p>
+              <div className="operator-card__metrics">
+                <span>#1 IG · Michigan</span>
+                <span>Active 3 years</span>
+                <span>Home service</span>
+              </div>
+            </div>
+          </article>
+
+          {/* Card 3 — The Honest Maids */}
+          <article className="operator-card">
+            <div className="operator-card__visual">
+              <img
+                src={MAIDS_PHOTO}
+                alt="Cleaning service"
+                className="operator-card__image"
+                loading="lazy"
+                width={800}
+                height={450}
+              />
+              <div className="operator-card__visual-overlay" aria-hidden="true" />
+              <div className="operator-card__badge">#1 IN MICHIGAN</div>
+            </div>
+            <div className="operator-card__body">
+              <span className="operator-card__category">HOME SERVICE · ACTIVE</span>
+              <h3 className="operator-card__name">The Honest Maids</h3>
+              <p className="operator-card__desc">
+                Michigan&apos;s most-followed cleaning brand on Instagram. Launched 2022. Same proof of method applied to a different vertical, same #1 result.
+              </p>
+              <div className="operator-card__metrics">
+                <span>#1 IG · Michigan</span>
+                <span>Active 3 years</span>
+                <span>Home service</span>
+              </div>
+            </div>
+          </article>
+
+          {/* Card 4 — Madison Clark */}
           <article className="operator-card">
             <div className="operator-card__visual">
               <div className="operator-card__viz">
@@ -52,8 +115,8 @@ export function BuiltByOperators() {
                 <svg className="operator-card__viz-curve" viewBox="0 0 400 80" fill="none" aria-hidden="true">
                   <defs>
                     <linearGradient id="madison-curve-fill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#FFE817" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#FFE817" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#A88B47" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#A88B47" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   <path
@@ -62,24 +125,24 @@ export function BuiltByOperators() {
                   />
                   <path
                     d="M 0 70 Q 80 68 120 65 Q 200 60 240 50 Q 320 35 400 5"
-                    stroke="#FFE817"
+                    stroke="#A88B47"
                     strokeWidth="2.5"
                     fill="none"
                     strokeLinecap="round"
                   />
-                  <circle cx="0" cy="70" r="3" fill="#FFE817" />
-                  <circle cx="120" cy="65" r="3" fill="#FFE817" />
-                  <circle cx="240" cy="50" r="3" fill="#FFE817" />
-                  <circle cx="400" cy="5" r="5" fill="#FFE817" />
-                  <circle cx="400" cy="5" r="12" fill="#FFE817" opacity="0.25" />
+                  <circle cx="0" cy="70" r="3" fill="#A88B47" />
+                  <circle cx="120" cy="65" r="3" fill="#A88B47" />
+                  <circle cx="240" cy="50" r="3" fill="#A88B47" />
+                  <circle cx="400" cy="5" r="5" fill="#A88B47" />
+                  <circle cx="400" cy="5" r="12" fill="#A88B47" opacity="0.25" />
                 </svg>
               </div>
             </div>
             <div className="operator-card__body">
-              <span className="operator-card__category">MADISON CLARK · AI PERSONA</span>
+              <span className="operator-card__category">AI PERSONA · CASE STUDY</span>
               <h3 className="operator-card__name">Madison Clark</h3>
               <p className="operator-card__desc">
-                Built and scaled an AI-generated persona to 100 million views in 60 days. Zero ad spend. Proof that organic engineering works in any vertical.
+                Built and scaled an AI-generated persona to 100 million views in 60 days. Zero ad spend. Proof that the playbook compounds across any vertical, any format, any starting point.
               </p>
               <div className="operator-card__metrics">
                 <span>100M views</span>
@@ -100,6 +163,8 @@ export function BuiltByOperators() {
               loop
               playsInline
               preload="metadata"
+              width={600}
+              height={400}
             >
               <source src="/assets/quattro-labs/car-meet-1.mp4" type="video/mp4" />
             </video>
@@ -113,6 +178,8 @@ export function BuiltByOperators() {
               loop
               playsInline
               preload="metadata"
+              width={600}
+              height={400}
             >
               <source src="/assets/quattro-labs/car-meet-2.mp4" type="video/mp4" />
             </video>
@@ -126,6 +193,8 @@ export function BuiltByOperators() {
               loop
               playsInline
               preload="metadata"
+              width={600}
+              height={400}
             >
               <source src="/assets/quattro-labs/car-meet-3.mp4" type="video/mp4" />
             </video>

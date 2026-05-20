@@ -1,6 +1,71 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { type HeroClient } from "@/lib/heroClients";
+
+// AnimatedCounter — ticks up to its final value on first scroll-into-view
+// only. IntersectionObserver disconnects after first trigger so the counter
+// doesn't reset on subsequent scrolls. Respects prefers-reduced-motion.
+function AnimatedCounter({ value }: { value: string }) {
+  const [display, setDisplay] = useState("0");
+  const ref = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) {
+      setDisplay(value);
+      hasAnimated.current = true;
+      return;
+    }
+    // Parse the numeric portion (handles "348", "+186%", "100M", "150K+", etc.)
+    const match = value.match(/[\d,]+/);
+    if (!match) {
+      setDisplay(value);
+      return;
+    }
+    const numStr = match[0].replace(/,/g, "");
+    const target = parseInt(numStr, 10);
+    if (isNaN(target)) {
+      setDisplay(value);
+      return;
+    }
+    const prefix = value.substring(0, value.indexOf(match[0]));
+    const suffix = value.substring(value.indexOf(match[0]) + match[0].length);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true;
+            const duration = 1400;
+            const steps = 60;
+            const stepTime = duration / steps;
+            const increment = target / steps;
+            let current = 0;
+            const interval = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                setDisplay(prefix + target.toLocaleString() + suffix);
+                clearInterval(interval);
+              } else {
+                setDisplay(prefix + Math.floor(current).toLocaleString() + suffix);
+              }
+            }, stepTime);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return <span ref={ref}>{display}</span>;
+}
 
 function GoogleWordmark() {
   return (
@@ -121,7 +186,9 @@ export function SerpVisualization({ client }: { client: HeroClient }) {
         </a>
         <p className="serp__result-snippet">{client.yourRow.snippet}</p>
         <div className="serp__result-metric">
-          <span className="serp__metric-num">{client.metric.value}</span>
+          <span className="serp__metric-num">
+            <AnimatedCounter value={client.metric.value} />
+          </span>
           <span className="serp__metric-label">{client.metric.label}</span>
         </div>
       </div>

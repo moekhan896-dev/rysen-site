@@ -1,7 +1,8 @@
 import Link from "next/link";
-
-const LEGAL_CARD_PHOTO = "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800&q=85";
-const MEDICAL_CARD_PHOTO = "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=85";
+import {
+  LegalVerticalIllustration,
+  MedicalVerticalIllustration,
+} from "@/components/illustrations/VerticalIllustrations";
 
 export function Verticals() {
   return (
@@ -22,14 +23,8 @@ export function Verticals() {
         <div className="verticals__grid">
           {/* Card 01 — Legal */}
           <article className="vertical-card">
-            <div className="vertical-card__visual">
-              <img
-                src={LEGAL_CARD_PHOTO}
-                alt="Law firm interior"
-                className="vertical-card__visual-image"
-                loading="lazy"
-              />
-              <div className="vertical-card__visual-overlay" aria-hidden="true" />
+            <div className="vertical-card__visual vertical-card__visual--illustration">
+              <LegalVerticalIllustration />
               <div className="vertical-card__visual-badge">LEGAL · VERTICAL 01</div>
             </div>
             <div className="vertical-card__body">
@@ -71,14 +66,8 @@ export function Verticals() {
 
           {/* Card 02 — Medical */}
           <article className="vertical-card">
-            <div className="vertical-card__visual">
-              <img
-                src={MEDICAL_CARD_PHOTO}
-                alt="Modern medical clinic"
-                className="vertical-card__visual-image"
-                loading="lazy"
-              />
-              <div className="vertical-card__visual-overlay" aria-hidden="true" />
+            <div className="vertical-card__visual vertical-card__visual--illustration">
+              <MedicalVerticalIllustration />
               <div className="vertical-card__visual-badge">MEDICAL · VERTICAL 02</div>
             </div>
             <div className="vertical-card__body">

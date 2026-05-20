@@ -28,21 +28,57 @@
     /* ============================================================
        REBRAND 2.0, PRIMARY SURFACES
        ============================================================ */
-    /* Session 38 PREMIUM POLISH: bone + brass + forest, restricted signal */
-    --paper: #F5F1E8;
-    --paper-elevated: #FAF7EF;
-    --paper-recessed: #ECE7DA;
-    --paper-warm: #F0EBDE;
+    /* Session 39 RAMP-INSPIRED: white-dominant canvas + platform UI colors */
+    --canvas: #FCFCFA;
+    --canvas-elevated: #FFFFFF;
+    --canvas-recessed: #F4F4F0;
+    --canvas-warm: #F8F7F2;
+
+    /* Legacy --paper-* aliases now point at canvas tokens */
+    --paper: #FCFCFA;
+    --paper-elevated: #FFFFFF;
+    --paper-recessed: #F4F4F0;
+    --paper-warm: #F8F7F2;
     --paper-line: rgba(26, 23, 20, 0.08);
     --paper-line-strong: rgba(26, 23, 20, 0.16);
 
-    --ink: #1A1714;
-    --ink-soft: #36312A;
-    --ink-elevated: #252220;
-    --ink-recessed: #100E0C;
-    --ink-deep: #100E0C;
-    --ink-line: rgba(245, 241, 232, 0.10);
-    --ink-line-strong: rgba(245, 241, 232, 0.20);
+    --ink: #18171A;
+    --ink-soft: #2A2829;
+    --ink-elevated: #232123;
+    --ink-recessed: #0F0E10;
+    --ink-deep: #0F0E10;
+    --ink-line: rgba(252, 252, 250, 0.08);
+    --ink-line-strong: rgba(252, 252, 250, 0.20);
+
+    /* Session 39 text tier system */
+    --text-primary: #18171A;
+    --text-secondary: #57565A;
+    --text-tertiary: #908F92;
+    --text-quaternary: #BFBEBF;
+
+    /* Session 39 line tiers */
+    --line-faint: rgba(24, 23, 26, 0.04);
+    --line-medium: rgba(24, 23, 26, 0.14);
+    --line-soft-on-ink-v2: rgba(252, 252, 250, 0.08);
+    --line-medium-on-ink: rgba(252, 252, 250, 0.16);
+
+    /* Session 39 shadow scale (Ramp-style, multi-layered) */
+    --shadow-flat: 0 1px 2px rgba(24, 23, 26, 0.04);
+    --shadow-serp: 0 32px 80px rgba(24, 23, 26, 0.08), 0 8px 24px rgba(24, 23, 26, 0.04), 0 2px 6px rgba(24, 23, 26, 0.04);
+
+    /* Session 39 PLATFORM colors (used inside hero SERP cards only) */
+    --color-google-blue: #4285F4;
+    --color-google-red: #EA4335;
+    --color-google-yellow: #FBBC05;
+    --color-google-green: #34A853;
+    --color-google-link: #1A0DAB;
+    --color-chatgpt: #10A37F;
+    --color-chatgpt-light: #E8F5F0;
+    --color-perplexity: #20B8A6;
+    --color-perplexity-deep: #1A8F82;
+    --color-gemini: #4285F4;
+    --color-gemini-gradient-start: #4285F4;
+    --color-gemini-gradient-end: #9747FF;
 
     /* Line aliases (paper-context defaults) */
     --line-soft: rgba(26, 23, 20, 0.08);
@@ -27500,5 +27536,778 @@ html, body {
   .outcome-flow__stage { transition: none !important; }
   .outcome-flow__connector svg circle,
   .outcome-flow__connector svg animateMotion { /* SMIL freezes */ }
+}
+
+/* ============================================================
+   SESSION 39 — Ramp-inspired Platform Gallery hero
+   ============================================================ */
+
+.platform-gallery {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  aspect-ratio: 1180 / 760;
+  isolation: isolate;
+}
+
+.platform-gallery__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(168, 139, 71, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 139, 71, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.platform-gallery__connectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.platform-card {
+  position: absolute;
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 1px solid rgba(24, 23, 26, 0.08);
+  box-shadow:
+    0 1px 0 rgba(24, 23, 26, 0.04),
+    0 2px 4px rgba(24, 23, 26, 0.05),
+    0 8px 18px rgba(24, 23, 26, 0.07),
+    0 28px 60px rgba(24, 23, 26, 0.10);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.platform-card:hover {
+  box-shadow:
+    0 1px 0 rgba(24, 23, 26, 0.04),
+    0 3px 6px rgba(24, 23, 26, 0.06),
+    0 12px 24px rgba(24, 23, 26, 0.09),
+    0 40px 80px rgba(24, 23, 26, 0.14);
+}
+
+.platform-card--google { top: 2%; right: 0; width: 56%; z-index: 4; }
+.platform-card--chatgpt { top: 8%; left: 0; width: 40%; z-index: 3; }
+.platform-card--perplexity { bottom: 4%; left: 6%; width: 38%; z-index: 3; }
+.platform-card--gemini { bottom: 0; right: 6%; width: 34%; z-index: 2; }
+
+.platform-gallery__strip {
+  position: absolute;
+  left: 50%;
+  bottom: -52px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(24, 23, 26, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(24, 23, 26, 0.08);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2A2829;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.platform-gallery__strip-label { font-weight: 600; }
+.platform-gallery__strip-sep { width: 1px; height: 12px; background: rgba(24, 23, 26, 0.15); }
+.platform-gallery__strip-meta { color: #6B6968; font-weight: 500; }
+
+/* ---------- GOOGLE CARD ---------- */
+
+.google-card {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  font-size: 12px;
+  color: #202124;
+  position: relative;
+}
+
+.google-card__chrome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #F1F3F4;
+  border-bottom: 1px solid rgba(24, 23, 26, 0.06);
+}
+
+.google-card__dots { display: flex; gap: 5px; }
+.google-card__dot { width: 9px; height: 9px; border-radius: 50%; }
+.google-card__dot--red { background: #FF5F57; }
+.google-card__dot--yellow { background: #FEBC2E; }
+.google-card__dot--green { background: #28C840; }
+
+.google-card__url {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  color: #5F6368;
+  border: 1px solid rgba(24, 23, 26, 0.06);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.google-card__header { display: flex; align-items: center; gap: 16px; padding: 16px 18px 10px; }
+
+.g-wordmark {
+  font-family: "Product Sans", "Arial", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+}
+
+.google-card__search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid #DFE1E5;
+  border-radius: 22px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.google-card__search-text {
+  flex: 1;
+  font-size: 13px;
+  color: #202124;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.google-card__tabs {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 8px 18px 0;
+  border-bottom: 1px solid #EBEBEB;
+  font-size: 12px;
+  color: #5F6368;
+}
+
+.google-card__tab { display: inline-flex; align-items: center; gap: 5px; padding: 6px 0 10px; position: relative; color: #5F6368; }
+.google-card__tab--active { color: #1A73E8; font-weight: 500; }
+.google-card__tab--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: #1A73E8;
+  border-radius: 2px;
+}
+
+.google-card__ai-overview {
+  margin: 14px 18px 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(168, 139, 71, 0.25);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #FCFCFA 0%, #FFFFFF 100%);
+}
+
+.google-card__ai-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #5F6368;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.google-card__ai-text { font-size: 12.5px; line-height: 1.5; color: #202124; }
+.google-card__ai-text strong { color: #18171A; font-weight: 600; }
+
+.google-card__ai-cite {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #5F6368;
+}
+
+.google-card__result { padding: 10px 18px; }
+.google-card__result--featured {
+  background: linear-gradient(90deg, rgba(168, 139, 71, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
+  border-left: 2px solid #A88B47;
+}
+
+.google-card__result-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+
+.google-card__result-favicon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid rgba(24, 23, 26, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-card__result-favicon--muted { background: #E8EAED; border-color: transparent; }
+
+.google-card__result-meta-text { display: flex; flex-direction: column; line-height: 1.3; }
+.google-card__result-domain { font-size: 12px; font-weight: 500; color: #202124; }
+.google-card__result-url { font-size: 11px; color: #5F6368; }
+
+.google-card__result-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A0DAB;
+  margin: 4px 0;
+  text-decoration: none;
+}
+
+.google-card__result-title--ghost { color: #6B6968; font-weight: 400; }
+.google-card__result-snippet { font-size: 12px; color: #4D5156; line-height: 1.5; margin: 0; }
+
+.google-card__result-snippet em {
+  color: #18171A;
+  font-style: normal;
+  font-weight: 500;
+  background: rgba(168, 139, 71, 0.18);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.google-card__result-snippet--ghost { color: #6B6968; }
+
+.google-card__result-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 11px;
+  color: #5F6368;
+}
+
+.google-card__stars { color: #F6B73C; letter-spacing: 0.5px; }
+.google-card__rating-num { font-weight: 600; color: #202124; }
+
+.google-card__sitelinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  padding: 8px 18px 12px;
+}
+
+.google-card__sitelink { display: flex; flex-direction: column; gap: 2px; }
+.google-card__sitelink-title { font-size: 12px; color: #1A0DAB; font-weight: 500; }
+.google-card__sitelink-desc { font-size: 11px; color: #5F6368; line-height: 1.4; }
+
+.google-card__paa { padding: 10px 18px 14px; border-top: 1px solid #EBEBEB; }
+.google-card__paa-title { font-size: 13px; font-weight: 500; color: #202124; margin-bottom: 8px; }
+
+.google-card__paa-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid #EBEBEB;
+  font-size: 12px;
+  color: #202124;
+}
+
+.google-card__paa-chevron { color: #5F6368; font-size: 10px; }
+
+.google-card__position-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  background: #18171A;
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(24, 23, 26, 0.2);
+  z-index: 5;
+}
+
+.google-card__position-num { color: #FFE817; font-weight: 700; font-size: 13px; }
+.google-card__position-label { color: rgba(255, 255, 255, 0.85); font-weight: 500; }
+
+/* ---------- CHATGPT CARD ---------- */
+
+.chatgpt-card {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  font-size: 12.5px;
+  color: #202124;
+  position: relative;
+}
+
+.chatgpt-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(24, 23, 26, 0.06);
+  background: #FFFFFF;
+}
+
+.chatgpt-card__logo { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; }
+.chatgpt-card__name { font-size: 14px; font-weight: 600; color: #202124; }
+
+.chatgpt-card__model {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6B6968;
+  background: rgba(16, 163, 127, 0.10);
+  border: 1px solid rgba(16, 163, 127, 0.25);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: auto;
+}
+
+.chatgpt-card__user-row { display: flex; align-items: flex-start; justify-content: flex-end; gap: 8px; padding: 14px 16px 6px; }
+
+.chatgpt-card__user-bubble {
+  background: #F4F4F4;
+  border-radius: 14px 14px 4px 14px;
+  padding: 9px 13px;
+  font-size: 12.5px;
+  color: #202124;
+  line-height: 1.5;
+  max-width: 75%;
+}
+
+.chatgpt-card__user-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #18171A;
+  color: #FFE817;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.chatgpt-card__response { display: flex; gap: 10px; padding: 6px 16px 14px; }
+.chatgpt-card__response-avatar { width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: flex-start; justify-content: center; }
+.chatgpt-card__response-body { flex: 1; font-size: 12.5px; line-height: 1.55; color: #202124; }
+.chatgpt-card__response-body p { margin: 0 0 8px; }
+.chatgpt-card__response-body strong { font-weight: 600; color: #18171A; }
+.chatgpt-card__response-body ul { margin: 6px 0 8px; padding-left: 18px; }
+.chatgpt-card__response-body li { margin-bottom: 4px; }
+
+.chatgpt-card__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  background: rgba(16, 163, 127, 0.08);
+  border: 1px solid rgba(16, 163, 127, 0.25);
+  border-radius: 999px;
+  font-size: 11px;
+  color: #10A37F;
+  margin-top: 4px;
+}
+
+.chatgpt-card__followup { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+.chatgpt-card__followup-chip {
+  padding: 5px 10px;
+  border: 1px solid rgba(24, 23, 26, 0.10);
+  border-radius: 999px;
+  font-size: 11px;
+  color: #4D5156;
+  background: #FFFFFF;
+}
+
+.chatgpt-card__composer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 16px 14px;
+  padding: 9px 14px;
+  border: 1px solid rgba(24, 23, 26, 0.10);
+  border-radius: 12px;
+  background: #FAFAFA;
+}
+
+.chatgpt-card__composer-text { font-size: 12px; color: #6B6968; }
+
+.chatgpt-card__composer-send {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #10A37F;
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.chatgpt-card__position-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  background: #10A37F;
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(16, 163, 127, 0.3);
+}
+
+.chatgpt-card__position-num { color: #FFE817; font-weight: 700; font-size: 13px; }
+.chatgpt-card__position-label { color: rgba(255, 255, 255, 0.9); font-weight: 500; }
+
+/* ---------- PERPLEXITY CARD ---------- */
+
+.perplexity-card {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  font-size: 12.5px;
+  color: #202124;
+  position: relative;
+}
+
+.perplexity-card__header { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(24, 23, 26, 0.06); }
+.perplexity-card__name { font-size: 14px; font-weight: 600; color: #202124; }
+
+.perplexity-card__pro {
+  font-size: 10px;
+  font-weight: 600;
+  color: #20B8A6;
+  border: 1px solid #20B8A6;
+  border-radius: 4px;
+  padding: 1px 5px;
+  letter-spacing: 0.05em;
+}
+
+.perplexity-card__query { padding: 12px 16px 6px; font-size: 14px; font-weight: 600; color: #18171A; }
+
+.perplexity-card__sources-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #20B8A6;
+}
+
+.perplexity-card__sources { display: flex; flex-direction: column; gap: 5px; padding: 4px 16px 10px; }
+
+.perplexity-card__source {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 9px;
+  background: #F9FAFB;
+  border: 1px solid rgba(24, 23, 26, 0.06);
+  border-radius: 7px;
+  font-size: 11.5px;
+  color: #4D5156;
+}
+
+.perplexity-card__source--primary {
+  background: rgba(32, 184, 166, 0.08);
+  border-color: rgba(32, 184, 166, 0.3);
+  color: #18171A;
+  font-weight: 500;
+}
+
+.perplexity-card__source-favicon {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: #E8EAED;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #5F6368;
+}
+
+.perplexity-card__source-num { margin-left: auto; font-size: 10px; color: #6B6968; font-weight: 600; }
+
+.perplexity-card__answer { padding: 4px 16px 14px; font-size: 12.5px; line-height: 1.55; color: #202124; }
+.perplexity-card__answer strong { font-weight: 600; color: #18171A; }
+.perplexity-card__answer sup { font-size: 9px; color: #20B8A6; font-weight: 700; padding: 0 2px; }
+
+.perplexity-card__related { padding: 8px 16px 14px; border-top: 1px solid rgba(24, 23, 26, 0.06); }
+.perplexity-card__related-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6B6968;
+  margin-bottom: 6px;
+}
+
+.perplexity-card__related-item {
+  padding: 6px 0;
+  font-size: 12px;
+  color: #4D5156;
+  border-bottom: 1px solid rgba(24, 23, 26, 0.05);
+}
+
+.perplexity-card__related-item:last-child { border-bottom: none; }
+
+.perplexity-card__position-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  background: #20B8A6;
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(32, 184, 166, 0.3);
+}
+
+.perplexity-card__position-num { color: #FFE817; font-weight: 700; font-size: 13px; }
+.perplexity-card__position-label { color: rgba(255, 255, 255, 0.9); font-weight: 500; }
+
+/* ---------- GEMINI CARD ---------- */
+
+.gemini-card {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  font-size: 12.5px;
+  color: #202124;
+  position: relative;
+}
+
+.gemini-card__header { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(24, 23, 26, 0.06); }
+
+.gemini-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #4285F4 0%, #9747FF 50%, #EA4335 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gemini-card__query { padding: 12px 16px 8px; font-size: 13.5px; font-weight: 600; color: #18171A; }
+.gemini-card__answer { padding: 4px 16px 16px; font-size: 12.5px; line-height: 1.55; color: #202124; }
+.gemini-card__answer p { margin: 0 0 10px; }
+.gemini-card__answer strong { font-weight: 600; color: #18171A; }
+
+.gemini-card__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, rgba(66, 133, 244, 0.05) 0%, rgba(151, 71, 255, 0.05) 100%);
+  border: 1px solid rgba(151, 71, 255, 0.15);
+  border-radius: 8px;
+  margin: 6px 0 10px;
+}
+
+.gemini-card__highlight { display: flex; justify-content: space-between; font-size: 11.5px; }
+.gemini-card__highlight-label { color: #6B6968; letter-spacing: 0.02em; }
+.gemini-card__highlight-value { color: #18171A; font-weight: 600; }
+
+.gemini-card__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  background: linear-gradient(90deg, rgba(66, 133, 244, 0.08) 0%, rgba(151, 71, 255, 0.08) 100%);
+  border: 1px solid rgba(151, 71, 255, 0.25);
+  border-radius: 999px;
+  font-size: 11px;
+  color: #18171A;
+}
+
+.gemini-card__position-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  background: linear-gradient(90deg, #4285F4 0%, #9747FF 50%, #EA4335 100%);
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(151, 71, 255, 0.3);
+}
+
+.gemini-card__position-num { color: #FFE817; font-weight: 700; font-size: 13px; }
+.gemini-card__position-label { color: rgba(255, 255, 255, 0.95); font-weight: 500; }
+
+/* ---------- MOBILE STACK ---------- */
+
+@media (max-width: 900px) {
+  .platform-gallery {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 8px 0;
+  }
+  .platform-gallery__grid,
+  .platform-gallery__connectors { display: none; }
+  .platform-card,
+  .platform-card--google,
+  .platform-card--chatgpt,
+  .platform-card--perplexity,
+  .platform-card--gemini {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    transform: none !important;
+  }
+  .platform-gallery__strip {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 8px auto 0;
+    white-space: normal;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .google-card__sitelinks { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .platform-card { border-radius: 11px; }
+  .google-card__header { padding: 12px 14px 8px; }
+  .google-card__search-text { font-size: 12px; }
+  .google-card__tabs { gap: 14px; padding-left: 14px; padding-right: 14px; }
+  .google-card__ai-overview { margin-left: 12px; margin-right: 12px; }
+  .google-card__result { padding-left: 14px; padding-right: 14px; }
+  .chatgpt-card__header,
+  .chatgpt-card__user-row,
+  .chatgpt-card__response,
+  .perplexity-card__header,
+  .perplexity-card__query,
+  .perplexity-card__answer,
+  .gemini-card__header,
+  .gemini-card__query,
+  .gemini-card__answer { padding-left: 14px; padding-right: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-card { transition: none !important; transform: none !important; }
+}
+
+/* ============================================================
+   SESSION 39 — Section palette rhythm
+   Light: Hero, SelectedWork, TheOutcome, Verticals, TheWall, TheTeam, TheServices
+   Dark:  BuiltByOperators, TheOffer, TheProcess, TheClose
+   ============================================================ */
+
+.hero,
+.selected-work,
+.outcome,
+.verticals,
+.wall,
+.the-team,
+.the-services {
+  background: var(--canvas, #FCFCFA) !important;
+  color: var(--ink, #18171A) !important;
+}
+
+.operators,
+.offer,
+.process,
+.the-close {
+  background: var(--ink, #18171A) !important;
+  color: var(--canvas, #FCFCFA) !important;
+}
+
+/* Vertical-card illustration container — replaces the photo image
+   background previously used on .vertical-card__visual. */
+.vertical-card__visual--illustration {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--canvas-elevated, #FFFFFF);
+  border: 1px solid rgba(24, 23, 26, 0.08);
+  border-radius: 14px;
+  padding: 24px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.vertical-card__visual--illustration svg {
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+}
+
+.vertical-card__visual--illustration .vertical-card__visual-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 5px 10px;
+  background: #18171A;
+  color: #FFE817;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 

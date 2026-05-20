@@ -9,7 +9,7 @@ import {
   SchemaIllustration,
   EmailIllustration,
   SocialIllustration,
-} from "@/components/services/ServiceIllustrations";
+} from "@/components/illustrations/ServiceIllustrations";
 
 const SERVICES = [
   { num: "01", title: "Local search visibility", body: "Owning the map pack and local rankings in your metro.", meta: ["GOOGLE", "MAPS"], Vis: LocalVisibilityIllustration },

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TwinSerps } from "./TwinSerps";
+import { PlatformGallery } from "./PlatformGallery";
 
 function ArrowIcon() {
   return (
@@ -36,12 +36,12 @@ export function Hero() {
           </div>
 
           <h1 className="hero__headline">
-            <span className="hero__headline-line">Visibility,</span>
-            <span className="hero__headline-line hero__headline-line--accent">engineered.</span>
+            <span className="hero__headline-line">Visibility, engineered</span>
+            <span className="hero__headline-line hero__headline-line--accent">for the AI search era.</span>
           </h1>
 
           <p className="hero__sub">
-            For selective law firms and medical practices. We work with one firm per metro across Google, ChatGPT, Perplexity, and Gemini.
+            For selective law firms and medical practices. One firm per metro, ranked #1 across Google, ChatGPT, Perplexity, and Gemini.
           </p>
 
           <div className="hero__ctas">
@@ -54,7 +54,7 @@ export function Hero() {
           </div>
         </div>
 
-        <TwinSerps />
+        <PlatformGallery />
 
         <div className="hero__more">
           <span className="hero__more-label">Also ranking #1 for:</span>

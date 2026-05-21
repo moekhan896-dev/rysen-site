@@ -13,10 +13,10 @@ type WallQuote = {
 
 const FEATURED: WallQuote = {
   quote:
-    "348 qualified calls in four months. We had to hire two intake paralegals just to handle the flow. Good problem.",
+    "~348 qualified calls in four months. We had to hire two intake paralegals just to handle the flow. Good problem.",
   author: "Operating Partner",
   firm: "Probate · Tampa",
-  metric: "348 calls · 4 months",
+  metric: "~348 calls · 4 months",
 };
 
 const SUPPORTING_LEFT: ReadonlyArray<WallQuote> = [
@@ -29,10 +29,10 @@ const SUPPORTING_LEFT: ReadonlyArray<WallQuote> = [
   },
   {
     quote:
-      "169 inbound calls in six months from Google Business Profile alone.",
+      "~169 inbound calls in six months from Google Business Profile alone.",
     author: "Founder",
     firm: "Divorce attorney · Atlanta",
-    metric: "169 calls · 6 months",
+    metric: "~169 calls · 6 months",
   },
 ];
 

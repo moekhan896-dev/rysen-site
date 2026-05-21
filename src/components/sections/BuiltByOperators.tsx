@@ -1,3 +1,11 @@
+import { OperatorsBannerIllustration } from "@/components/illustrations/OperatorsBannerIllustration";
+import {
+  QuattroGrowthChart,
+  HonestPlumbersChart,
+  HonestMaidsChart,
+  MadisonClarkChart,
+} from "./BrandGrowthCharts";
+
 const PLUMBERS_PHOTO = "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&q=85";
 const MAIDS_PHOTO = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=85";
 
@@ -10,17 +18,26 @@ export function BuiltByOperators() {
             <span className="operators__label-marker" aria-hidden="true" /> 05 — Operators
           </p>
           <h2 className="operators__headline">
-            We don&apos;t just market brands. <em>We engineer them.</em>
+            We don&apos;t just market brands.{" "}
+            <span className="operators__highlight">We grow them from zero.</span>
           </h2>
           <p className="operators__sub">
-            We don&apos;t just market brands — we engineer them. Before serving law firms and medical practices, our team built our own brands from zero. Same data + AI stack. Different verticals.
+            Before serving law firms and medical practices, our team built four
+            brands from scratch. Real founders. Real audiences. The same
+            proprietary data and AI stack we deploy for clients was first tested
+            on our own ventures. This is how we know it works.
           </p>
+        </div>
+
+        <div className="operators__banner">
+          <OperatorsBannerIllustration />
         </div>
 
         <div className="operators__cards">
           {/* Card 1 — Quattro Labs */}
           <article className="operator-card">
             <div className="operator-card__visual">
+              <div className="operator-card__velocity">ZERO TO 150K · 4 YEARS</div>
               <video
                 className="operator-card__video"
                 autoPlay
@@ -34,6 +51,9 @@ export function BuiltByOperators() {
               >
                 <source src="/assets/quattro-labs/car-meet-1.mp4" type="video/mp4" />
               </video>
+            </div>
+            <div className="operator-card__chart">
+              <QuattroGrowthChart />
             </div>
             <div className="operator-card__body">
               <span className="operator-card__category">AUTOMOTIVE MEDIA · ACTIVE</span>
@@ -52,6 +72,7 @@ export function BuiltByOperators() {
           {/* Card 2 — The Honest Plumbers */}
           <article className="operator-card">
             <div className="operator-card__visual">
+              <div className="operator-card__velocity">ZERO TO #1 · MICHIGAN</div>
               <img
                 src={PLUMBERS_PHOTO}
                 alt="Plumbing work"
@@ -62,6 +83,9 @@ export function BuiltByOperators() {
               />
               <div className="operator-card__visual-overlay" aria-hidden="true" />
               <div className="operator-card__badge">#1 IN MICHIGAN</div>
+            </div>
+            <div className="operator-card__chart">
+              <HonestPlumbersChart />
             </div>
             <div className="operator-card__body">
               <span className="operator-card__category">HOME SERVICE · STILL RUNNING</span>
@@ -80,6 +104,7 @@ export function BuiltByOperators() {
           {/* Card 3 — The Honest Maids */}
           <article className="operator-card">
             <div className="operator-card__visual">
+              <div className="operator-card__velocity">ZERO TO #1 · MICHIGAN</div>
               <img
                 src={MAIDS_PHOTO}
                 alt="Cleaning service"
@@ -90,6 +115,9 @@ export function BuiltByOperators() {
               />
               <div className="operator-card__visual-overlay" aria-hidden="true" />
               <div className="operator-card__badge">#1 IN MICHIGAN</div>
+            </div>
+            <div className="operator-card__chart">
+              <HonestMaidsChart />
             </div>
             <div className="operator-card__body">
               <span className="operator-card__category">HOME SERVICE · ACTIVE</span>
@@ -108,6 +136,7 @@ export function BuiltByOperators() {
           {/* Card 4 — Madison Clark */}
           <article className="operator-card">
             <div className="operator-card__visual">
+              <div className="operator-card__velocity">ZERO TO 100M · 60 DAYS</div>
               <div className="operator-card__viz">
                 <div className="operator-card__viz-big">100M</div>
                 <div className="operator-card__viz-label">VIEWS · 60 DAYS · ZERO AD SPEND</div>
@@ -137,6 +166,9 @@ export function BuiltByOperators() {
                   <circle cx="400" cy="5" r="12" fill="#A88B47" opacity="0.25" />
                 </svg>
               </div>
+            </div>
+            <div className="operator-card__chart">
+              <MadisonClarkChart />
             </div>
             <div className="operator-card__body">
               <span className="operator-card__category">AI PERSONA · CASE STUDY</span>
@@ -200,6 +232,28 @@ export function BuiltByOperators() {
             </video>
             <figcaption className="operators__gallery-caption">QUATTRO LABS · MEET HIGHLIGHTS</figcaption>
           </figure>
+        </div>
+
+        <div className="operators__aggregate">
+          <div className="operators__agg-item">
+            <div className="operators__agg-num">4</div>
+            <div className="operators__agg-label">brands built from zero</div>
+          </div>
+          <div className="operators__agg-divider" aria-hidden="true" />
+          <div className="operators__agg-item">
+            <div className="operators__agg-num">~250K+</div>
+            <div className="operators__agg-label">combined followers</div>
+          </div>
+          <div className="operators__agg-divider" aria-hidden="true" />
+          <div className="operators__agg-item">
+            <div className="operators__agg-num">~100M+</div>
+            <div className="operators__agg-label">collective views generated</div>
+          </div>
+          <div className="operators__agg-divider" aria-hidden="true" />
+          <div className="operators__agg-item">
+            <div className="operators__agg-num">5 years</div>
+            <div className="operators__agg-label">building our own ventures</div>
+          </div>
         </div>
       </div>
     </section>

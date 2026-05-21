@@ -1,85 +1,143 @@
 import Link from "next/link";
+import {
+  EstablishPathIllustration,
+  DominatePathIllustration,
+  ForkConnector,
+  AuditIcon,
+  PlanIcon,
+  GBPIcon,
+  AISearchIcon,
+  RankingsIcon,
+  AuthorityIcon,
+  ReportingIcon,
+  ExclusiveIcon,
+  TeamIcon,
+  ConversionIcon,
+  ReviewsIcon,
+  PressIcon,
+  StrategyIcon,
+} from "@/components/illustrations/PathIllustrations";
 
-const PATH_01_LIST = [
-  "30-day comprehensive audit",
-  "Custom 12-month growth plan",
-  "Google Business Profile rebuild",
-  "AI search optimization (ChatGPT, Perplexity, Gemini)",
-  "Local rankings program",
-  "Authority content engine",
-  "Monthly reporting with revenue attribution",
-] as const;
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path
+        d="M3 7H11M11 7L7 3M11 7L7 11"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-const PATH_02_LIST = [
-  "All of Path 01",
-  "Exclusive territory rights (metro + vertical lockup)",
-  "Dedicated account team",
-  "Custom landing page conversion engine",
-  "Reputation acceleration (review velocity + response)",
-  "Press placement program (3-5 publications / year)",
-  "Quarterly strategy sessions on-site (Phoenix HQ)",
-] as const;
+const PATH_01_BULLETS = [
+  { Icon: AuditIcon, label: "30-day comprehensive audit" },
+  { Icon: PlanIcon, label: "Custom 12-month growth plan" },
+  { Icon: GBPIcon, label: "Google Business Profile rebuild" },
+  { Icon: AISearchIcon, label: "AI search optimization" },
+  { Icon: RankingsIcon, label: "Local rankings program" },
+  { Icon: AuthorityIcon, label: "Authority content engine" },
+  { Icon: ReportingIcon, label: "Monthly attribution reporting" },
+];
+
+const PATH_02_BULLETS = [
+  { Icon: AuditIcon, label: "Everything in Path 01" },
+  { Icon: ExclusiveIcon, label: "Exclusive territory rights" },
+  { Icon: TeamIcon, label: "Dedicated account team" },
+  { Icon: ConversionIcon, label: "Custom landing page system" },
+  { Icon: ReviewsIcon, label: "Reputation acceleration" },
+  { Icon: PressIcon, label: "Press placement program" },
+  { Icon: StrategyIcon, label: "Quarterly on-site strategy" },
+];
 
 export function TheOffer() {
   return (
     <section className="offer" aria-label="Engagement paths">
       <div className="offer__inner">
-        <p className="offer__label">
-          <span aria-hidden="true" /> 04 — Engagement
-        </p>
-        <h2 className="offer__headline">
-          Two ways in. <em>One destination.</em>
-        </h2>
-        <p className="offer__sub">
-          Whether you&apos;re establishing your visibility from zero or scaling an already-strong firm, we have a defined entry path.
-        </p>
+        <div className="offer__header">
+          <p className="offer__label">
+            <span className="offer__label-marker" aria-hidden="true" />
+            06 — Engagement
+          </p>
+          <h2 className="offer__headline">
+            Two paths in.{" "}
+            <span className="offer__highlight">One destination.</span>
+          </h2>
+          <p className="offer__sub">
+            Whether you&apos;re establishing visibility from outside the top 5
+            or scaling a top-3 firm into permanent metro lockup, we have a
+            defined engagement model.
+          </p>
+        </div>
 
-        <div className="offer__paths">
-          {/* Path 01 */}
+        <div className="offer__paths-row">
           <article className="path-card">
-            <span className="path-card__label">Path 01</span>
-            <h3 className="path-card__headline">Establish.</h3>
-            <p className="path-card__tagline">For firms ranked outside the top 5 in their metro.</p>
-
-            <span className="path-card__best-label">Best for</span>
-            <p className="path-card__best">
-              New or growing firms ready to claim their position before a competitor does.
-            </p>
-
-            <span className="path-card__includes-label">What&apos;s included</span>
-            <ul className="path-card__list">
-              {PATH_01_LIST.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-
-            <Link href="/contact" className="path-card__cta">
-              Apply for engagement <span aria-hidden="true">→</span>
-            </Link>
+            <div className="path-card__illustration">
+              <EstablishPathIllustration />
+            </div>
+            <div className="path-card__body">
+              <div className="path-card__label">PATH 01</div>
+              <h3 className="path-card__title">Establish.</h3>
+              <p className="path-card__tagline">
+                For firms ranked outside the top 5.
+              </p>
+              <p className="path-card__best">
+                <span className="path-card__best-label">BEST FOR</span>
+                New or growing firms ready to claim their metro position.
+              </p>
+              <div className="path-card__includes">
+                <div className="path-card__includes-label">INCLUDES</div>
+                <ul className="path-card__list">
+                  {PATH_01_BULLETS.map(({ Icon, label }) => (
+                    <li key={label}>
+                      <Icon />
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="path-card__cta">
+                Apply for engagement <ArrowIcon />
+              </Link>
+            </div>
           </article>
 
-          {/* Path 02 */}
-          <article className="path-card">
-            <span className="path-card__badge">Most aggressive</span>
-            <span className="path-card__label">Path 02</span>
-            <h3 className="path-card__headline">Dominate.</h3>
-            <p className="path-card__tagline">For firms already in the top 3 ready for metro lockup.</p>
+          <div className="offer__fork" aria-hidden="true">
+            <ForkConnector />
+          </div>
 
-            <span className="path-card__best-label">Best for</span>
-            <p className="path-card__best">
-              Established firms ready to permanently lock competitors out of their metro.
-            </p>
-
-            <span className="path-card__includes-label">What&apos;s included</span>
-            <ul className="path-card__list">
-              {PATH_02_LIST.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-
-            <Link href="/contact" className="path-card__cta">
-              Apply for engagement <span aria-hidden="true">→</span>
-            </Link>
+          <article className="path-card path-card--featured">
+            <div className="path-card__badge">MOST AGGRESSIVE</div>
+            <div className="path-card__illustration">
+              <DominatePathIllustration />
+            </div>
+            <div className="path-card__body">
+              <div className="path-card__label">PATH 02</div>
+              <h3 className="path-card__title">Dominate.</h3>
+              <p className="path-card__tagline">
+                For top-3 firms ready for metro lockup.
+              </p>
+              <p className="path-card__best">
+                <span className="path-card__best-label">BEST FOR</span>
+                Established firms ready to permanently close their metro.
+              </p>
+              <div className="path-card__includes">
+                <div className="path-card__includes-label">INCLUDES</div>
+                <ul className="path-card__list">
+                  {PATH_02_BULLETS.map(({ Icon, label }) => (
+                    <li key={label}>
+                      <Icon />
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="path-card__cta">
+                Apply for engagement <ArrowIcon />
+              </Link>
+            </div>
           </article>
         </div>
       </div>

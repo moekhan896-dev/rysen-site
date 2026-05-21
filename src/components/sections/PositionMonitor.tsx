@@ -323,7 +323,10 @@ function StatsGrid() {
         <div className="position-monitor__stat-label">
           QUALIFIED CALLS · 30 DAYS
         </div>
-        <AnimatedNumber value={87} className="position-monitor__stat-num" />
+        <div className="position-monitor__stat-num">
+          <span aria-hidden="true">~</span>
+          <AnimatedNumber value={87} />
+        </div>
         <div className="position-monitor__stat-sub">
           +186% vs prior period
         </div>
@@ -510,7 +513,7 @@ function MonitorFooter() {
         <span>DATA + AI ENGINE</span>
       </span>
       <span className="position-monitor__footer-meta">
-        Updated 4 min ago · Rysen Growth
+        Approximate figures · Exact metrics confidential
       </span>
     </div>
   );

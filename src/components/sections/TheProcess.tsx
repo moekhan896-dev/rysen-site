@@ -42,10 +42,10 @@ export function TheProcess() {
     <section className="process" aria-label="Process">
       <div className="process__inner">
         <div className="process__header">
-          <p className="process__label">07 — Process</p>
-          <h2 className="process__headline">How an engagement begins.</h2>
+          <p className="process__label">10 — Process</p>
+          <h2 className="process__headline">An engineered methodology.</h2>
           <p className="process__sub">
-            Four phases. Defined timelines. Attributed outcomes at every step.
+            An engineered methodology with measurable checkpoints. Four phases. 120 days to compound velocity.
           </p>
         </div>
 

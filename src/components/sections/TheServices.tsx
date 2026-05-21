@@ -29,13 +29,13 @@ export function TheServices() {
     <section className="the-services" aria-label="The services">
       <div className="the-services__inner">
         <p className="verticals__label">
-          <span aria-hidden="true" /> 06 — Services
+          <span aria-hidden="true" /> 09 — Engineered Systems
         </p>
         <h2 className="verticals__headline">
-          Ten coordinated practices. <em>One engine.</em>
+          Ten engineered systems. <em>One engine.</em>
         </h2>
         <p className="verticals__sub">
-          Every service runs in concert. Stack them in any combination, they amplify each other.
+          Ten engineered systems we deploy. Each runs through our proprietary data and AI infrastructure. Stack them in any combination.
         </p>
 
         <ul className="services-list">

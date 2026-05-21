@@ -13,7 +13,7 @@ export function TheOutcome() {
             What being <span className="outcome__highlight">#1</span> actually produces.
           </h2>
           <p className="outcome__sub">
-            Position #1 isn&apos;t a vanity metric. It&apos;s a cascade. Each step compounds into measurable case intake and patient bookings for the firms we work with.
+            Position #1 isn&apos;t a vanity metric. It&apos;s a data cascade. We engineer each step into measurable case intake and patient bookings.
           </p>
         </div>
 

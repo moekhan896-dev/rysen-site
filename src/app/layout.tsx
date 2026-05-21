@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Geist, Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
-import { Nav } from "@/components/layout/Nav";
+import { Header } from "@/components/layout/Header";
 import { FloatingCTA } from "@/components/ui/FloatingCTA";
 import "./globals.css";
 
@@ -94,7 +94,7 @@ export default function RootLayout({
       </head>
       <body>
         <a href="#main" className="skip-to-content">Skip to content</a>
-        <Nav />
+        <Header />
         <main id="main">{children}</main>
         <Footer />
         <FloatingCTA />

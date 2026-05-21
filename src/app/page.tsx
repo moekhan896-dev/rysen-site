@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { TheOutcome } from "@/components/sections/TheOutcome";
 import { Verticals } from "@/components/sections/Verticals";
+import { TheStack } from "@/components/sections/TheStack";
 import { BuiltByOperators } from "@/components/sections/BuiltByOperators";
 import { TheWall } from "@/components/sections/TheWall";
 import { TheOffer } from "@/components/sections/TheOffer";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <SelectedWork />
       <TheOutcome />
       <Verticals />
+      <TheStack />
       <BuiltByOperators />
       <TheWall />
       <TheOffer />

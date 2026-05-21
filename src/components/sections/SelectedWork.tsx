@@ -1,39 +1,31 @@
-"use client";
-
-import { useState } from "react";
-import { SerpVisualization } from "./SerpVisualization";
-import { PreviewChips } from "./PreviewChips";
-import { HERO_CLIENTS, type HeroClient } from "@/lib/heroClients";
+import { RosterTable } from "./RosterTable";
 
 export function SelectedWork() {
-  const [activeClient, setActiveClient] = useState<HeroClient>(HERO_CLIENTS[0]);
-
   return (
-    <section className="selected-work" id="selected-work" aria-label="Selected work">
+    <section
+      className="selected-work"
+      id="selected-work"
+      aria-label="Selected work"
+    >
       <div className="selected-work__inner">
         <div className="selected-work__header">
-          <p className="selected-work__label">01 — Selected Work</p>
+          <p className="selected-work__label">
+            <span className="selected-work__label-marker" aria-hidden="true" />
+            01 — The Roster
+          </p>
           <h2 className="selected-work__headline">
-            Rankings, <em>engineered.</em>
+            Six firms. Six metros.{" "}
+            <span className="selected-work__highlight">All at position #1.</span>
           </h2>
           <p className="selected-work__sub">
-            Six firms we&apos;ve taken to position #1. Each one owns their metro. Click through to see their actual search positioning.
+            We maintain a small roster of selected engagements. Each one
+            operates as the dominant firm in their metro and vertical.
+            Click a row to see their full case study.
           </p>
         </div>
 
-        <div className="selected-work__display">
-          <SerpVisualization client={activeClient} />
-        </div>
-
-        <div className="selected-work__chips-row">
-          <PreviewChips
-            clients={HERO_CLIENTS}
-            activeId={activeClient.id}
-            onSelect={setActiveClient}
-          />
-          <p className="selected-work__chips-hint">
-            Click a client to see their ranking →
-          </p>
+        <div className="selected-work__dashboard">
+          <RosterTable />
         </div>
       </div>
     </section>

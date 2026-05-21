@@ -71,7 +71,7 @@ export function TheClose() {
         </h2>
 
         <p className="the-close__sub">
-          Request your audit. If we can take you to #1, we tell you. If we can&apos;t, we tell you that too.
+          We engineer competitive market position for one firm per metro. Apply for an audit to see if your metro is open.
         </p>
 
         <Link href="/contact" className="the-close__cta">

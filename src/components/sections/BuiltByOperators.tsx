@@ -7,13 +7,13 @@ export function BuiltByOperators() {
       <div className="operators__inner">
         <div className="operators__header">
           <p className="operators__label">
-            <span className="operators__label-marker" aria-hidden="true" /> 04 — Operators
+            <span className="operators__label-marker" aria-hidden="true" /> 05 — Operators
           </p>
           <h2 className="operators__headline">
-            We don&apos;t just market brands. <em>We build them.</em>
+            We don&apos;t just market brands. <em>We engineer them.</em>
           </h2>
           <p className="operators__sub">
-            Before we engineered visibility for law firms and medical practices, we built our own brands from scratch. Real founders. Real audiences. Real receipts. The same engineering applied to your firm started here.
+            We don&apos;t just market brands — we engineer them. Before serving law firms and medical practices, our team built our own brands from zero. Same data + AI stack. Different verticals.
           </p>
         </div>
 

@@ -1,48 +1,57 @@
 "use client";
 
-// Session 43 — HeroSearchTease.
+// Session 45 — HeroSearchTease rewritten to sync with the cycling
+// platform word in the headline.
 //
-// Compact, self-contained animated search bar that sits inside the
-// hero box below the CTAs. Lightweight by design so it does NOT
-// push the CTAs below the fold — it occupies a single row.
+// Reads HeroPlatformContext via useHeroPlatform(). On every platform
+// tick, the tease swaps its query, surface accent, and result chip
+// to match the headline's current platform. One choreographed unit:
+//   Google      → search bar style, "AWS Law Firm · #1" result chip
+//   ChatGPT     → chat-style framing, "Cited" chip
+//   Perplexity  → "sources" prefix, "Primary source" chip
+//   Gemini      → gradient spark glyph, "Cited" chip
 //
-// Behavior:
-//   - A query types itself character-by-character with a blinking
-//     cursor (~50ms per char).
-//   - Briefly pauses ~150ms after the last character.
-//   - A small green "#1 result" chip spring-snaps into place to the
-//     right of the typed query.
-//   - The bar holds the chip + completed query for ~1.6s.
-//   - The query clears (snap, not character-by-character).
-//   - Advances to the next query and repeats.
-//   - Cycles 3 queries forever (LA legal → Chicago dental → Miami derm).
-//
-// Reduced motion:
-//   - Skips typing/clearing/cycling entirely.
-//   - Renders the first query fully typed with the #1 chip visible.
-//   - Cursor blink animation is disabled via CSS.
+// Compact: single row, ~46–52px tall, so it does not push the CTAs
+// below the fold. The result chip is the only place green appears
+// (the #1 win moment). Reduced motion: static, locked on the Google
+// state with the result chip visible.
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useHeroPlatform, type HeroPlatform } from "./CyclingPlatform";
 
-// ---------- Constants ----------
+type PlatformSurface = {
+  query: string;
+  chipLabel: string;
+  accent: string;
+  prefix: "search" | "chat" | "sources" | "spark";
+};
 
-const QUERIES = [
-  "who is the best probate lawyer in Los Angeles?",
-  "best Invisalign dentist in Chicago?",
-  "top cosmetic dermatologist in Miami?",
-] as const;
-
-type Phase = "typing" | "holding" | "clearing";
-
-const TIMING = {
-  typingPerChar: 50,
-  preHold: 150,
-  hold: 1600,
-  clearPause: 400,
-  advancePause: 300,
-} as const;
-
-// ---------- Reduced-motion hook ----------
+const SURFACES: Record<HeroPlatform, PlatformSurface> = {
+  google: {
+    query: "best probate lawyer tampa",
+    chipLabel: "#1 result",
+    accent: "#4285F4",
+    prefix: "search",
+  },
+  chatgpt: {
+    query: "who is the best probate lawyer in tampa?",
+    chipLabel: "cited",
+    accent: "#10A37F",
+    prefix: "chat",
+  },
+  perplexity: {
+    query: "best probate lawyer tampa",
+    chipLabel: "primary source",
+    accent: "#20B8A6",
+    prefix: "sources",
+  },
+  gemini: {
+    query: "top rated probate attorney tampa",
+    chipLabel: "cited",
+    accent: "#9747FF",
+    prefix: "spark",
+  },
+};
 
 function useReducedMotion(): boolean {
   const [reduced, setReduced] = useState(false);
@@ -57,91 +66,43 @@ function useReducedMotion(): boolean {
   return reduced;
 }
 
-// ---------- Component ----------
-
 export function HeroSearchTease() {
+  const { platform } = useHeroPlatform();
   const reduced = useReducedMotion();
-  const [queryIndex, setQueryIndex] = useState(0);
-  const [typed, setTyped] = useState("");
-  const [phase, setPhase] = useState<Phase>("typing");
-  const timers = useRef<Array<ReturnType<typeof setTimeout>>>([]);
-
-  // Cleanup helper. Clears any pending timeouts so a phase change
-  // doesn't double-fire after unmount or after reduced-motion flips.
-  const clearTimers = () => {
-    timers.current.forEach(clearTimeout);
-    timers.current = [];
-  };
-
-  const queueTimer = (fn: () => void, delay: number) => {
-    const id = setTimeout(fn, delay);
-    timers.current.push(id);
-  };
-
-  // Reduced-motion: skip all phases, render first query + chip.
-  useEffect(() => {
-    if (!reduced) return;
-    clearTimers();
-    setQueryIndex(0);
-    setTyped(QUERIES[0]);
-    setPhase("holding");
-  }, [reduced]);
-
-  // Phase driver. Each phase schedules its own follow-on so the
-  // sequence runs end-to-end without a separate ticker.
-  useEffect(() => {
-    if (reduced) return;
-    const current = QUERIES[queryIndex];
-
-    if (phase === "typing") {
-      if (typed.length < current.length) {
-        queueTimer(() => {
-          setTyped(current.slice(0, typed.length + 1));
-        }, TIMING.typingPerChar);
-      } else {
-        // Fully typed — short pause, then show the chip.
-        queueTimer(() => setPhase("holding"), TIMING.preHold);
-      }
-    } else if (phase === "holding") {
-      queueTimer(() => setPhase("clearing"), TIMING.hold);
-    } else if (phase === "clearing") {
-      queueTimer(() => {
-        setTyped("");
-        queueTimer(() => {
-          setQueryIndex((i) => (i + 1) % QUERIES.length);
-          setPhase("typing");
-        }, TIMING.advancePause);
-      }, TIMING.clearPause);
-    }
-
-    return clearTimers;
-  }, [phase, typed, queryIndex, reduced]);
-
-  // Final cleanup on unmount.
-  useEffect(() => () => clearTimers(), []);
-
-  const showChip = phase === "holding";
+  const surface = SURFACES[reduced ? "google" : platform];
 
   return (
-    <div className="hero-tease" aria-hidden="true">
+    <div
+      className={`hero-tease hero-tease--${platform}`}
+      aria-hidden="true"
+      style={{ ["--tease-accent" as never]: surface.accent }}
+    >
       <div className="hero-tease__bar">
-        <SearchGlyph />
-        <span className="hero-tease__query">
-          {typed}
-          {!reduced && <span className="hero-tease__cursor" />}
+        <SurfacePrefix kind={surface.prefix} accent={surface.accent} />
+        <span className="hero-tease__query">{surface.query}</span>
+        <span className="hero-tease__chip">
+          <CheckGlyph />
+          <span>{surface.chipLabel}</span>
         </span>
-        {showChip && (
-          <span className="hero-tease__chip" key={`chip-${queryIndex}`}>
-            <CheckGlyph />
-            <span>#1 result</span>
-          </span>
-        )}
       </div>
     </div>
   );
 }
 
-// ---------- Inline glyphs ----------
+// ---------- Prefix glyphs ----------
+
+function SurfacePrefix({
+  kind,
+  accent,
+}: {
+  kind: PlatformSurface["prefix"];
+  accent: string;
+}) {
+  if (kind === "search") return <SearchGlyph />;
+  if (kind === "chat") return <ChatGlyph accent={accent} />;
+  if (kind === "sources") return <SourcesGlyph accent={accent} />;
+  return <SparkGlyph />;
+}
 
 function SearchGlyph() {
   return (
@@ -169,6 +130,104 @@ function SearchGlyph() {
         stroke="currentColor"
         strokeWidth="1.6"
         strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ChatGlyph({ accent }: { accent: string }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className="hero-tease__icon"
+    >
+      <path
+        d="M2 4 Q 2 2 4 2 H 12 Q 14 2 14 4 V 10 Q 14 12 12 12 H 7 L 4 14 V 12 H 4 Q 2 12 2 10 Z"
+        stroke={accent}
+        strokeWidth="1.4"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+function SourcesGlyph({ accent }: { accent: string }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className="hero-tease__icon"
+    >
+      <rect
+        x="2"
+        y="3"
+        width="5"
+        height="5"
+        rx="1"
+        stroke={accent}
+        strokeWidth="1.3"
+        fill="none"
+      />
+      <rect
+        x="9"
+        y="3"
+        width="5"
+        height="5"
+        rx="1"
+        stroke={accent}
+        strokeWidth="1.3"
+        fill="none"
+      />
+      <rect
+        x="2"
+        y="9"
+        width="5"
+        height="5"
+        rx="1"
+        stroke={accent}
+        strokeWidth="1.3"
+        fill="none"
+      />
+      <rect
+        x="9"
+        y="9"
+        width="5"
+        height="5"
+        rx="1"
+        stroke={accent}
+        strokeWidth="1.3"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+function SparkGlyph() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      aria-hidden="true"
+      className="hero-tease__icon"
+    >
+      <defs>
+        <linearGradient id="tease-spark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4285F4" />
+          <stop offset="50%" stopColor="#9747FF" />
+          <stop offset="100%" stopColor="#EA4335" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M8 1 L9.6 6 L14 7 L9.6 8 L8 13 L6.4 8 L2 7 L6.4 6 Z"
+        fill="url(#tease-spark-grad)"
       />
     </svg>
   );

@@ -6,14 +6,18 @@
 // hero box.
 
 import { TriangleMark } from "@/components/ui/TriangleMark";
-import { HeroSearchTease } from "./HeroSearchTease";
+import { Reveal } from "@/components/ui/Reveal";
 import { RankClimb } from "./RankClimb";
+
+// Session 45 — Live Demo simplified. The compact HeroSearchTease
+// moved back into the Hero box (synced to the cycling word), so the
+// LiveDemo section now hosts the big RankClimb demo only.
 
 export function LiveDemo() {
   return (
     <section className="live-demo" aria-label="Live demonstration">
       <div className="live-demo__inner">
-        <div className="live-demo__header">
+        <Reveal className="live-demo__header">
           <div className="live-demo__label">
             <TriangleMark size={10} />
             <span className="live-demo__label-dot" aria-hidden="true" />
@@ -27,15 +31,11 @@ export function LiveDemo() {
             This is what we engineer. A real query, a real climb to the top
             across every search surface.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="live-demo__tease">
-          <HeroSearchTease />
-        </div>
-
-        <div className="live-demo__main">
+        <Reveal className="live-demo__main" delay={120}>
           <RankClimb />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

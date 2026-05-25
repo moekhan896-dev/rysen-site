@@ -1,4 +1,6 @@
 import { OperatorsBannerIllustration } from "@/components/illustrations/OperatorsBannerIllustration";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
+import { LazyVideo } from "@/components/ui/LazyVideo";
 import {
   QuattroGrowthChart,
   HonestPlumbersChart,
@@ -18,9 +20,15 @@ export function BuiltByOperators() {
             <span className="operators__label-marker" aria-hidden="true" /> 05 — Operators
           </p>
           <h2 className="operators__headline">
-            We don&apos;t just market other companies.{" "}
-            <span className="operators__highlight">
-              We are entrepreneurs who made our OWN brands viral.
+            <span className="operators__headline-line">
+              We don&apos;t just market other companies.
+            </span>
+            <span className="operators__headline-line">
+              We&apos;re entrepreneurs who made our{" "}
+              <span className="operators__emph">
+                OWN brands viral.
+                <MarkerUnderline className="operators__emph-underline" />
+              </span>
             </span>
           </h2>
           <p className="operators__sub">
@@ -40,19 +48,12 @@ export function BuiltByOperators() {
           <article className="operator-card">
             <div className="operator-card__visual">
               <div className="operator-card__velocity">ZERO TO 150K · 4 YEARS</div>
-              <video
+              <LazyVideo
                 className="operator-card__video"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                width={800}
-                height={450}
-                aria-label="Quattro Labs car meet footage"
-              >
-                <source src="/assets/quattro-labs/car-meet-1.mp4" type="video/mp4" />
-              </video>
+                src="/assets/quattro-labs/car-meet-1.mp4"
+                aspectRatio="9 / 16"
+                ariaLabel="Quattro Labs car meet footage"
+              />
             </div>
             <div className="operator-card__chart">
               <QuattroGrowthChart />
@@ -187,51 +188,37 @@ export function BuiltByOperators() {
           </article>
         </div>
 
-        {/* Gallery row: 3 more Quattro videos */}
+        {/* Gallery row: 3 more Quattro videos — lazy-loaded so only
+            the in-view clip plays. Multiple high-res clips playing
+            simultaneously was the source of the prior lag (not the
+            source resolution). Source files preserved at full
+            quality. */}
         <div className="operators__gallery">
           <figure className="operators__gallery-item">
-            <video
+            <LazyVideo
               className="operators__gallery-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              width={600}
-              height={400}
-            >
-              <source src="/assets/quattro-labs/car-meet-1.mp4" type="video/mp4" />
-            </video>
+              src="/assets/quattro-labs/car-meet-1.mp4"
+              aspectRatio="16 / 9"
+              ariaLabel="Quattro Labs car meet 2025"
+            />
             <figcaption className="operators__gallery-caption">QUATTRO LABS · CAR MEET · 2025</figcaption>
           </figure>
           <figure className="operators__gallery-item">
-            <video
+            <LazyVideo
               className="operators__gallery-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              width={600}
-              height={400}
-            >
-              <source src="/assets/quattro-labs/car-meet-2.mp4" type="video/mp4" />
-            </video>
+              src="/assets/quattro-labs/car-meet-2.mp4"
+              aspectRatio="16 / 9"
+              ariaLabel="Quattro Labs Phoenix 2025"
+            />
             <figcaption className="operators__gallery-caption">QUATTRO LABS · PHOENIX · 2025</figcaption>
           </figure>
           <figure className="operators__gallery-item">
-            <video
+            <LazyVideo
               className="operators__gallery-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              width={600}
-              height={400}
-            >
-              <source src="/assets/quattro-labs/car-meet-3.mp4" type="video/mp4" />
-            </video>
+              src="/assets/quattro-labs/car-meet-3.mp4"
+              aspectRatio="16 / 9"
+              ariaLabel="Quattro Labs meet highlights"
+            />
             <figcaption className="operators__gallery-caption">QUATTRO LABS · MEET HIGHLIGHTS</figcaption>
           </figure>
         </div>

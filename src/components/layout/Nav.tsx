@@ -29,7 +29,7 @@ export function Nav() {
         </nav>
 
         <Link href="/contact" className="site-header__cta">
-          Request audit
+          Claim your city
         </Link>
       </div>
     </header>

@@ -1,18 +1,23 @@
-// Session 44 — TheOffice.
+// Session 45 — TheOffice rebuilt as a magazine collage.
 //
-// Photo-forward section that drops in right after TheOutcome. The
-// purpose is to show Rysen is a real, physical operation — not a
-// faceless agency. Short header, editorial gallery layout: one
-// large feature photo on the left + two smaller supporting photos
-// stacked on the right.
+// Varied frame sizes, one large feature slot left + smaller tiles
+// on the right. Each tile is a labeled PhotoPlaceholder so the user
+// knows exactly what shot to drop in (subject + aspect ratio).
+// Replaces Session 44's three-image gallery — when real photography
+// is captured, the placeholders swap to <img> in place.
 
 import { TriangleMark } from "@/components/ui/TriangleMark";
+import { Reveal } from "@/components/ui/Reveal";
+import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 
 export function TheOffice() {
   return (
-    <section className="office-section" aria-label="The studio">
+    <section
+      className="office-section office-section--collage"
+      aria-label="The studio"
+    >
       <div className="office-section__inner">
-        <div className="office-section__header">
+        <Reveal className="office-section__header">
           <div className="office-section__label">
             <TriangleMark size={10} />
             <span>THE STUDIO</span>
@@ -25,30 +30,27 @@ export function TheOffice() {
             We are a working studio of engineers and creatives. Not a faceless
             agency.
           </p>
-        </div>
+        </Reveal>
 
         <div className="office-section__gallery">
-          <div className="office-section__photo office-section__photo--feature">
-            <img
-              src="/assets/office/exterior-front.png"
-              alt="Rysen studio exterior"
-              loading="lazy"
+          <Reveal delay={0}>
+            <PhotoPlaceholder
+              label="OFFICE — WIDE EXTERIOR"
+              ratio="3 / 4"
             />
-          </div>
-          <div className="office-section__photo">
-            <img
-              src="/assets/office/interior-workspace.png"
-              alt="Rysen studio workspace"
-              loading="lazy"
+          </Reveal>
+          <Reveal delay={80}>
+            <PhotoPlaceholder
+              label="TEAM AT WORK"
+              ratio="4 / 5"
             />
-          </div>
-          <div className="office-section__photo">
-            <img
-              src="/assets/office/interior-collaboration.png"
-              alt="Rysen team collaborating"
-              loading="lazy"
+          </Reveal>
+          <Reveal delay={160}>
+            <PhotoPlaceholder
+              label="FOUNDER PORTRAIT"
+              ratio="16 / 9"
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

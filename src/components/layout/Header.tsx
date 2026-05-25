@@ -29,7 +29,7 @@ export function Header() {
         <HeaderNav />
 
         <Link href="/contact" className="site-header__cta">
-          Request audit
+          Claim your city
           <svg
             width="12"
             height="12"

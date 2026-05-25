@@ -75,7 +75,7 @@ export function TheClose() {
         </p>
 
         <Link href="/contact" className="the-close__cta">
-          Request audit
+          Claim your city
         </Link>
 
         <div className="the-close__contact">

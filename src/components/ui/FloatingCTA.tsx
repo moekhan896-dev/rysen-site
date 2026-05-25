@@ -17,9 +17,10 @@ export function FloatingCTA() {
 
   useEffect(() => {
     if (dismissed || isCTADestination) return;
-
+    // Session 45: only show after scrolling well past the hero
+    // (~1.2x viewport height) so the bar never shows on initial load.
     const onScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.9);
+      setVisible(window.scrollY > window.innerHeight * 1.2);
     };
 
     onScroll();
@@ -33,7 +34,7 @@ export function FloatingCTA() {
     <div
       className={`floating-cta${visible ? " is-visible" : ""}`}
       role="complementary"
-      aria-label="Request audit"
+      aria-label="Claim your city"
     >
       <button
         type="button"
@@ -51,7 +52,7 @@ export function FloatingCTA() {
           <span className="floating-cta__indicator-label">Currently accepting</span>
         </span>
         <span className="floating-cta__cta">
-          Request audit
+          Claim your city
           <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

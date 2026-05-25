@@ -4,6 +4,45 @@ import {
   MedicalVerticalIllustration,
 } from "@/components/illustrations/VerticalIllustrations";
 
+// Session 44 — expand vertical breadth: 13 legal practice areas + 16
+// medical specialties. Rendered as a flowing list with green-deep
+// middot separators (no pills, per Session 44 hard rule).
+
+const LEGAL_AREAS = [
+  "Probate",
+  "Estate planning",
+  "Family law",
+  "Divorce",
+  "Personal injury",
+  "Criminal defense",
+  "Immigration",
+  "Bankruptcy",
+  "Business and corporate",
+  "Real estate",
+  "Employment",
+  "Wills and trusts",
+  "Elder law",
+] as const;
+
+const MEDICAL_SPECIALTIES = [
+  "Cosmetic dermatology",
+  "Implant dentistry",
+  "Plastic surgery",
+  "Med spa and aesthetics",
+  "Orthodontics",
+  "Oral surgery",
+  "Ophthalmology and LASIK",
+  "Fertility and IVF",
+  "Medical dermatology",
+  "ENT",
+  "Vein and vascular",
+  "Bariatric",
+  "Chiropractic",
+  "Physical therapy",
+  "Pain management",
+  "Concierge medicine",
+] as const;
+
 export function Verticals() {
   return (
     <section className="verticals" aria-label="Verticals">
@@ -60,11 +99,22 @@ export function Verticals() {
                 </div>
               </div>
               <div className="vertical-side__metric">
-                <div className="vertical-side__metric-num">4</div>
+                <div className="vertical-side__metric-num">13</div>
                 <div className="vertical-side__metric-label">
                   practice areas
                 </div>
               </div>
+            </div>
+
+            <div className="vertical-side__areas-count">
+              13 PRACTICE AREAS
+            </div>
+            <div className="vertical-side__areas">
+              {LEGAL_AREAS.map((area) => (
+                <span key={area} className="vertical-side__area">
+                  {area}
+                </span>
+              ))}
             </div>
 
             <Link href="/case-studies?filter=legal" className="vertical-side__cta">
@@ -107,11 +157,22 @@ export function Verticals() {
                 </div>
               </div>
               <div className="vertical-side__metric">
-                <div className="vertical-side__metric-num">4</div>
+                <div className="vertical-side__metric-num">16</div>
                 <div className="vertical-side__metric-label">
                   specialties
                 </div>
               </div>
+            </div>
+
+            <div className="vertical-side__areas-count">
+              16 SPECIALTIES
+            </div>
+            <div className="vertical-side__areas">
+              {MEDICAL_SPECIALTIES.map((spec) => (
+                <span key={spec} className="vertical-side__area">
+                  {spec}
+                </span>
+              ))}
             </div>
 
             <Link

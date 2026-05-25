@@ -61,10 +61,23 @@ type LeadEntry = {
   state: string;
   service: string;
   type: LeadType;
+  phone: string;
+  value: number;
   timestamp: number;
 };
 
 type LeadTemplate = Omit<LeadEntry, "id" | "vertical" | "timestamp">;
+
+// Real metro area codes per city. The line number is masked with
+// bullet characters and "555" is reserved for representative use,
+// so these read as obviously non-real numbers.
+const METRO_PHONES: Record<string, string> = {
+  Tampa: "(813) 555-••••",
+  Atlanta: "(404) 555-••••",
+  Detroit: "(313) 555-••••",
+  Miami: "(305) 555-••••",
+  Chicago: "(312) 555-••••",
+};
 
 // ---------- Lead templates ----------
 //
@@ -73,31 +86,39 @@ type LeadTemplate = Omit<LeadEntry, "id" | "vertical" | "timestamp">;
 // Miami/Chicago for medical. Service phrasing mirrors how real
 // inbound leads describe themselves on intake forms.
 
+// Estimated revenue if signed/retained — realistic per-vertical
+// figures used to populate the per-lead "EST. VALUE IF SIGNED"
+// readout and to drive the pipeline + projection counters.
 const LEGAL_LEAD_TEMPLATES: LeadTemplate[] = [
-  { city: "Tampa", state: "FL", service: "Probate inquiry", type: "call" },
-  { city: "Atlanta", state: "GA", service: "Divorce consultation", type: "call" },
-  { city: "Detroit", state: "MI", service: "Estate planning consult", type: "form" },
-  { city: "Tampa", state: "FL", service: "Will preparation", type: "call" },
-  { city: "Atlanta", state: "GA", service: "Custody case", type: "booking" },
-  { city: "Tampa", state: "FL", service: "Trust administration", type: "form" },
-  { city: "Atlanta", state: "GA", service: "Family law consult", type: "call" },
-  { city: "Tampa", state: "FL", service: "Probate filing", type: "form" },
-  { city: "Detroit", state: "MI", service: "Estate dispute", type: "call" },
-  { city: "Atlanta", state: "GA", service: "Divorce filing", type: "booking" },
+  { city: "Tampa", state: "FL", service: "Probate inquiry", type: "call", phone: METRO_PHONES.Tampa, value: 4500 },
+  { city: "Atlanta", state: "GA", service: "Divorce consultation", type: "call", phone: METRO_PHONES.Atlanta, value: 3800 },
+  { city: "Detroit", state: "MI", service: "Estate planning consult", type: "form", phone: METRO_PHONES.Detroit, value: 2800 },
+  { city: "Tampa", state: "FL", service: "Will preparation", type: "call", phone: METRO_PHONES.Tampa, value: 1500 },
+  { city: "Atlanta", state: "GA", service: "Custody case", type: "booking", phone: METRO_PHONES.Atlanta, value: 5200 },
+  { city: "Tampa", state: "FL", service: "Trust administration", type: "form", phone: METRO_PHONES.Tampa, value: 3500 },
+  { city: "Atlanta", state: "GA", service: "Family law consult", type: "call", phone: METRO_PHONES.Atlanta, value: 3200 },
+  { city: "Tampa", state: "FL", service: "Probate filing", type: "form", phone: METRO_PHONES.Tampa, value: 4000 },
+  { city: "Detroit", state: "MI", service: "Estate dispute", type: "call", phone: METRO_PHONES.Detroit, value: 6500 },
+  { city: "Atlanta", state: "GA", service: "Divorce filing", type: "booking", phone: METRO_PHONES.Atlanta, value: 4200 },
 ];
 
 const MEDICAL_LEAD_TEMPLATES: LeadTemplate[] = [
-  { city: "Miami", state: "FL", service: "Cosmetic consultation", type: "booking" },
-  { city: "Chicago", state: "IL", service: "Implant evaluation", type: "call" },
-  { city: "Miami", state: "FL", service: "Dermatology booking", type: "booking" },
-  { city: "Chicago", state: "IL", service: "Implant consultation", type: "form" },
-  { city: "Miami", state: "FL", service: "Laser treatment consult", type: "booking" },
-  { city: "Chicago", state: "IL", service: "Full-mouth restoration", type: "call" },
-  { city: "Miami", state: "FL", service: "Cosmetic procedure inquiry", type: "form" },
-  { city: "Chicago", state: "IL", service: "Same-day implant", type: "call" },
-  { city: "Miami", state: "FL", service: "Aesthetic medicine consult", type: "booking" },
-  { city: "Chicago", state: "IL", service: "Cosmetic dental consult", type: "form" },
+  { city: "Miami", state: "FL", service: "Cosmetic consultation", type: "booking", phone: METRO_PHONES.Miami, value: 6800 },
+  { city: "Chicago", state: "IL", service: "Implant evaluation", type: "call", phone: METRO_PHONES.Chicago, value: 5500 },
+  { city: "Miami", state: "FL", service: "Dermatology booking", type: "booking", phone: METRO_PHONES.Miami, value: 1200 },
+  { city: "Chicago", state: "IL", service: "Implant consultation", type: "form", phone: METRO_PHONES.Chicago, value: 5000 },
+  { city: "Miami", state: "FL", service: "Laser treatment consult", type: "booking", phone: METRO_PHONES.Miami, value: 2400 },
+  { city: "Chicago", state: "IL", service: "Full-mouth restoration", type: "call", phone: METRO_PHONES.Chicago, value: 24000 },
+  { city: "Miami", state: "FL", service: "Cosmetic procedure inquiry", type: "form", phone: METRO_PHONES.Miami, value: 7500 },
+  { city: "Chicago", state: "IL", service: "Same-day implant", type: "call", phone: METRO_PHONES.Chicago, value: 4800 },
+  { city: "Miami", state: "FL", service: "Aesthetic medicine consult", type: "booking", phone: METRO_PHONES.Miami, value: 3200 },
+  { city: "Chicago", state: "IL", service: "Cosmetic dental consult", type: "form", phone: METRO_PHONES.Chicago, value: 4500 },
 ];
+
+// Starting pipeline value seed — a believable running total that
+// reads as "today's accumulated pipeline so far" on first render.
+const SEED_PIPELINE = 420000;
+const CLOSE_RATE = 0.10;
 
 // ---------- Component ----------
 
@@ -105,6 +126,8 @@ export function LiveLeadFeed() {
   const [legalLeads, setLegalLeads] = useState<LeadEntry[]>([]);
   const [medicalLeads, setMedicalLeads] = useState<LeadEntry[]>([]);
   const [totalToday, setTotalToday] = useState(147);
+  const [pipelineValue, setPipelineValue] = useState(SEED_PIPELINE);
+  const projectedRevenue = Math.round(pipelineValue * CLOSE_RATE);
 
   // Seed both columns with 5 leads each, timestamps spread back so
   // the "Xs ago" labels read realistically on first render.
@@ -151,11 +174,13 @@ export function LiveLeadFeed() {
       counter += 1;
       const now = Date.now();
 
+      let leadValue = 0;
       if (counter % 2 === 1) {
         const template =
           LEGAL_LEAD_TEMPLATES[
             Math.floor(Math.random() * LEGAL_LEAD_TEMPLATES.length)
           ];
+        leadValue = template.value;
         const newLead: LeadEntry = {
           id: `legal-new-${now}`,
           vertical: "legal",
@@ -168,6 +193,7 @@ export function LiveLeadFeed() {
           MEDICAL_LEAD_TEMPLATES[
             Math.floor(Math.random() * MEDICAL_LEAD_TEMPLATES.length)
           ];
+        leadValue = template.value;
         const newLead: LeadEntry = {
           id: `medical-new-${now}`,
           vertical: "medical",
@@ -178,6 +204,7 @@ export function LiveLeadFeed() {
       }
 
       setTotalToday((t) => t + 1);
+      setPipelineValue((p) => p + leadValue);
     }, 3800);
 
     return () => clearInterval(interval);
@@ -208,17 +235,21 @@ export function LiveLeadFeed() {
               leads engineered today
             </div>
           </div>
-          <div className="lead-feed__split-meta">
-            <div className="lead-feed__split-item">
-              <GavelIcon />
-              <span>Legal</span>
-              <span className="lead-feed__split-num">~71</span>
+          <div className="lead-feed__calc">
+            <div className="lead-feed__calc-num">
+              ~${pipelineValue.toLocaleString()}
             </div>
-            <div className="lead-feed__split-divider" aria-hidden="true" />
-            <div className="lead-feed__split-item">
-              <CaduceusIcon />
-              <span>Medical</span>
-              <span className="lead-feed__split-num">~76</span>
+            <div className="lead-feed__calc-label">
+              total pipeline value if signed
+            </div>
+          </div>
+          <div className="lead-feed__calc">
+            <div className="lead-feed__calc-num lead-feed__calc-num--green">
+              ~${projectedRevenue.toLocaleString()}
+            </div>
+            <div className="lead-feed__calc-label">
+              projected at{" "}
+              <span className="lead-feed__calc-rate">10% close rate</span>
             </div>
           </div>
         </div>
@@ -258,9 +289,9 @@ export function LiveLeadFeed() {
         <div className="lead-feed__disclaimer">
           <span>Representative activity from active engagements</span>
           <span className="lead-feed__disclaimer-sep" aria-hidden="true" />
-          <span>Client names omitted for confidentiality</span>
+          <span>Phone numbers and names masked for confidentiality</span>
           <span className="lead-feed__disclaimer-sep" aria-hidden="true" />
-          <span>Approximate figures</span>
+          <span>Estimated values, actual results vary</span>
         </div>
       </div>
     </section>
@@ -300,8 +331,17 @@ function LeadCard({ lead, isNew }: { lead: LeadEntry; isNew: boolean }) {
         </span>
       </div>
       <div className="lead-card__service">{lead.service}</div>
-      <div className="lead-card__location">
-        {lead.city}, {lead.state}
+      <div className="lead-card__detail-row">
+        <span className="lead-card__location">
+          {lead.city}, {lead.state}
+        </span>
+        <span className="lead-card__phone">{lead.phone}</span>
+      </div>
+      <div className="lead-card__value">
+        <span className="lead-card__value-label">EST. VALUE IF SIGNED</span>
+        <span className="lead-card__value-num">
+          ${lead.value.toLocaleString()}
+        </span>
       </div>
     </div>
   );

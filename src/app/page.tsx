@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
+import { LiveDemo } from "@/components/sections/LiveDemo";
+import { ViralCarousel } from "@/components/sections/ViralCarousel";
 import { LiveLeadFeed } from "@/components/sections/LiveLeadFeed";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { TheOutcome } from "@/components/sections/TheOutcome";
+import { TheOffice } from "@/components/sections/TheOffice";
 import { Verticals } from "@/components/sections/Verticals";
 import { TheStack } from "@/components/sections/TheStack";
 import { BuiltByOperators } from "@/components/sections/BuiltByOperators";
@@ -24,9 +27,12 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
+      <LiveDemo />
+      <ViralCarousel />
       <LiveLeadFeed />
       <SelectedWork />
       <TheOutcome />
+      <TheOffice />
       <Verticals />
       <TheStack />
       <BuiltByOperators />

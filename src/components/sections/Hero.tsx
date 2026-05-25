@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { ContourPattern } from "./ContourPattern";
-import { HeroSearchTease } from "./HeroSearchTease";
-import { RankClimb } from "./RankClimb";
 
 // Session 43 hero — aimfox-style bordered box wrapping the intro
 // (headline + sub + platform logos + CTAs + small search tease),
@@ -145,13 +143,7 @@ export function Hero() {
               See the work
             </Link>
           </div>
-
-          <HeroSearchTease />
         </div>
-      </div>
-
-      <div className="hero__demo">
-        <RankClimb />
       </div>
     </section>
   );

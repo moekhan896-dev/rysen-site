@@ -27498,15 +27498,21 @@ html, body {
 
 .operator-card__video,
 .operators__gallery-video {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  /* Session 44: removed `image-rendering: crisp-edges` — that
+     setting is for pixel-art images, not video, and produces a
+     pixelated look on downscaled video frames. `auto` lets the
+     browser bilinear-filter the video properly. */
+  image-rendering: auto;
   transform: translateZ(0);
   backface-visibility: hidden;
-  height: 280px !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .operators__gallery-video {
-  height: 220px !important;
+  aspect-ratio: 16 / 9;
 }
 
 /* === Path CTAs darken === */
@@ -32761,6 +32767,645 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .hero.hero--s43 .hero__box-bg svg { animation: none !important; }
   .hero-tease__cursor { animation: none !important; }
+}
+
+/* ============================================================
+   SESSION 44 — Hero box full width override
+   Session 43 capped at 1080px. Now expanded to 1280px to match
+   the rest of the site's content width.
+   ============================================================ */
+
+.hero.hero--s43 .hero__box {
+  max-width: 1280px !important;
+}
+
+/* ============================================================
+   SESSION 44 — Live Demonstration section
+   Hosts the HeroSearchTease (small cycling search bar) + the
+   RankClimb demo under a labeled header, separated from the
+   hero box with generous breathing room.
+   ============================================================ */
+
+.live-demo {
+  background: var(--canvas);
+  padding: var(--space-section-tight) clamp(24px, 5vw, 64px);
+  position: relative;
+}
+
+.live-demo__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.live-demo__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.live-demo__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.live-demo__label-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 6px var(--signal-glow);
+  animation: live-demo-pulse 2s ease-in-out infinite;
+}
+
+@keyframes live-demo-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.live-demo__headline {
+  font-family: var(--font-primary);
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.live-demo__highlight {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.live-demo__highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 5px;
+  background: var(--signal);
+  border-radius: 1px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.live-demo__sub {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.live-demo__tease {
+  display: flex;
+  justify-content: center;
+}
+
+.live-demo__main {
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-demo__label-dot { animation: none; }
+}
+
+/* ============================================================
+   SESSION 44 — Lead feed revenue economics
+   ============================================================ */
+
+.lead-feed__counter-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.lead-feed__calc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 20px;
+  border-left: 1px solid var(--line-soft);
+}
+
+.lead-feed__calc-num {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  font-feature-settings: "tnum";
+  line-height: 1;
+}
+
+.lead-feed__calc-num--green {
+  color: var(--signal-deep);
+}
+
+.lead-feed__calc-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.lead-feed__calc-rate {
+  color: var(--signal-deep);
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .lead-feed__counter-row {
+    grid-template-columns: 1fr;
+  }
+  .lead-feed__calc {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line-soft);
+  }
+}
+
+/* Per-card economics: phone, location, est value */
+.lead-card__detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.lead-card__phone {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  font-feature-settings: "tnum";
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.lead-card__value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line-medium);
+}
+
+.lead-card__value-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+}
+
+.lead-card__value-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--signal-deep);
+  font-feature-settings: "tnum";
+}
+
+/* ============================================================
+   SESSION 44 — Outcome station platform strip + triangle marks
+   ============================================================ */
+
+.cascade-station__platforms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-faint);
+}
+
+.cascade-station__platforms svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.85;
+}
+
+/* Section labels: tiny green triangle now sits with the marker */
+.outcome.outcome--cascade .outcome__label {
+  gap: 6px;
+}
+
+/* ============================================================
+   SESSION 44 — Verticals expanded list (13/16, no pills)
+   ============================================================ */
+
+.vertical-side__areas-count {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--signal-deep);
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.vertical-side__areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  margin: 0 0 16px;
+}
+
+.vertical-side__area {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  letter-spacing: -0.005em;
+}
+
+.vertical-side__area:not(:last-child)::after {
+  content: "·";
+  margin: 0 10px;
+  color: var(--signal-deep);
+  font-weight: 700;
+}
+
+/* ============================================================
+   SESSION 44 — TheOffice editorial photo gallery
+   ============================================================ */
+
+.office-section {
+  background: var(--canvas);
+  padding: var(--space-section) clamp(24px, 5vw, 64px);
+}
+
+.office-section__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.office-section__header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 56px;
+}
+
+.office-section__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.office-section__headline {
+  font-family: var(--font-primary);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  color: var(--text-primary);
+  margin: 0 0 14px;
+}
+
+.office-section__highlight {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.office-section__highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 5px;
+  background: var(--signal);
+  border-radius: 1px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.office-section__sub {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.office-section__gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 540px;
+}
+
+.office-section__photo {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line-soft);
+  background: var(--canvas-recessed);
+}
+
+.office-section__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms var(--ease-settle);
+}
+
+.office-section__photo:hover img {
+  transform: scale(1.04);
+}
+
+.office-section__photo--feature {
+  grid-row: 1 / span 2;
+}
+
+@media (max-width: 768px) {
+  .office-section__gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+  .office-section__photo {
+    height: 240px;
+  }
+  .office-section__photo--feature {
+    grid-row: auto;
+    height: 300px;
+  }
+}
+
+/* ============================================================
+   SESSION 44 — ViralCarousel
+   ============================================================ */
+
+.viral {
+  background: var(--canvas-recessed);
+  padding: var(--space-section) 0;
+  overflow: hidden;
+}
+
+.viral__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+}
+
+.viral__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.viral__headline {
+  font-family: var(--font-primary);
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  color: var(--text-primary);
+  margin: 0 0 14px;
+}
+
+.viral__highlight {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.viral__highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 5px;
+  background: var(--signal);
+  border-radius: 1px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.viral__sub {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.viral__carousel {
+  position: relative;
+}
+
+.viral__track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 clamp(24px, 8vw, 120px) 24px;
+  scrollbar-width: none;
+}
+
+.viral__track::-webkit-scrollbar {
+  display: none;
+}
+
+.viral-card {
+  flex: 0 0 auto;
+  width: 320px;
+  scroll-snap-align: center;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card-large);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 400ms var(--ease-settle),
+    box-shadow 400ms var(--ease-settle);
+}
+
+.viral-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.viral-card__image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--canvas-recessed);
+}
+
+.viral-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.viral-card__platform {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.viral-card__platform--instagram {
+  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+}
+
+.viral-card__platform--tiktok {
+  background: #000000;
+}
+
+.viral-card__platform--youtube {
+  background: #FF0000;
+}
+
+.viral-card__metric {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(12, 13, 15, 0.72);
+  backdrop-filter: blur(8px);
+  color: var(--text-on-ink);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.viral-card__metric-num {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--signal-text-on-dark);
+  font-feature-settings: "tnum";
+  line-height: 1;
+}
+
+.viral-card__metric-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-on-ink-muted);
+  margin-top: 2px;
+}
+
+.viral-card__footer {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.viral-card__brand {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.viral-card__caption {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+}
+
+.viral__nav {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-medium);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.viral__nav:hover {
+  border-color: var(--signal-line);
+}
+
+.viral__nav--prev {
+  left: 24px;
+}
+
+.viral__nav--next {
+  right: 24px;
+}
+
+.viral__disclaimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 0 24px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.viral__disclaimer-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+@media (max-width: 640px) {
+  .viral-card {
+    width: 260px;
+  }
+  .viral__nav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viral__track {
+    scroll-behavior: auto;
+  }
 }
 
 

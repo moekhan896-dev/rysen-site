@@ -18,14 +18,16 @@ export function BuiltByOperators() {
             <span className="operators__label-marker" aria-hidden="true" /> 05 — Operators
           </p>
           <h2 className="operators__headline">
-            We don&apos;t just market brands.{" "}
-            <span className="operators__highlight">We grow them from zero.</span>
+            We don&apos;t just market other companies.{" "}
+            <span className="operators__highlight">
+              We are entrepreneurs who made our OWN brands viral.
+            </span>
           </h2>
           <p className="operators__sub">
             Before serving law firms and medical practices, our team built four
             brands from scratch. Real founders. Real audiences. The same
-            proprietary data and AI stack we deploy for clients was first tested
-            on our own ventures. This is how we know it works.
+            proprietary data and AI stack we deploy for clients was first
+            tested on our own ventures. This is how we know it works.
           </p>
         </div>
 

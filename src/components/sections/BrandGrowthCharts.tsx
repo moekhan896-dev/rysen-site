@@ -26,8 +26,8 @@
 // a handful of lines (just the data points and labels) and means a
 // styling tweak applies uniformly to all four charts.
 
-const INK = "#18171A";
-const BRASS = "#A88B47";
+const INK = "#0C0D0F";
+const BRASS = "#34C759";
 
 // ---------- Shared sparkline renderer ----------
 

@@ -1,9 +1,9 @@
-// Session 40 — TheStack.
+// Session 42 — TheStack rewritten as a stacked-slab tower.
 //
-// New section between Verticals and BuiltByOperators. Establishes the
-// proprietary data + AI infrastructure that powers everything we
-// deliver. Four blocks, each with a custom illustration, body copy,
-// and a brass-accented specs strip.
+// 4 horizontal slabs stacked vertically, each with its illustration,
+// title, body, and specs. Green data-conduits connect slab to slab.
+// Flow labels top + bottom communicate the bottom-to-top hierarchy:
+// raw content foundation at the bottom, provable revenue at the top.
 
 import {
   QueryIntelligenceIllustration,
@@ -12,43 +12,53 @@ import {
   ContentEngineeringIllustration,
 } from "@/components/illustrations/StackIllustrations";
 
-type StackBlock = {
+type Slab = {
+  num: string;
   Illustration: () => React.JSX.Element;
   title: string;
   body: string;
   specs: string;
 };
 
-const BLOCKS: ReadonlyArray<StackBlock> = [
+// Logical order top-to-bottom in the array (top of tower first):
+//   Attribution Modeling     (top — closest to revenue)
+//   AI Citation Engine
+//   Query Intelligence
+//   Content Engineering      (bottom — content foundation)
+const SLABS: ReadonlyArray<Slab> = [
   {
-    Illustration: QueryIntelligenceIllustration,
-    title: "Query Intelligence",
-    body: "We track 200-300 high-intent queries per client across 4 search platforms. Daily monitoring. Weekly competitive analysis.",
-    specs: "DAILY UPDATES · 4 PLATFORMS · AUTO-ALERTS",
-  },
-  {
-    Illustration: AICitationEngineIllustration,
-    title: "AI Citation Engine",
-    body: "We engineer content so it gets cited as the answer in ChatGPT, Perplexity, Gemini, and Google's AI Overview. The new SEO.",
-    specs: "4 AI SURFACES · SCHEMA-FIRST · CITATION-OPTIMIZED",
-  },
-  {
+    num: "04",
     Illustration: AttributionModelingIllustration,
     title: "Attribution Modeling",
     body: "Every call, form fill, and consult traced back to source. We report in dollars, not impressions. CFO-grade tracking.",
     specs: "CALL TRACKING · FORM ATTRIBUTION · REVENUE ROI",
   },
   {
+    num: "03",
+    Illustration: AICitationEngineIllustration,
+    title: "AI Citation Engine",
+    body: "We engineer content so it gets cited as the answer in ChatGPT, Perplexity, Gemini, and Google's AI Overview.",
+    specs: "4 AI SURFACES · SCHEMA-FIRST · CITATION-OPTIMIZED",
+  },
+  {
+    num: "02",
+    Illustration: QueryIntelligenceIllustration,
+    title: "Query Intelligence",
+    body: "We track 200-300 high-intent queries per client across 4 search platforms. Daily monitoring. Weekly competitive analysis.",
+    specs: "DAILY UPDATES · 4 PLATFORMS · AUTO-ALERTS",
+  },
+  {
+    num: "01",
     Illustration: ContentEngineeringIllustration,
     title: "Content Engineering",
-    body: "Long-form articles built around your highest-value queries. Schema markup. Internal linking architecture. Compounding monthly.",
+    body: "Long-form articles built around your highest-value queries. Schema markup. Internal linking. Compounding monthly.",
     specs: "TOPIC MODELING · SCHEMA · INTERNAL LINKING",
   },
 ];
 
 export function TheStack() {
   return (
-    <section className="stack-section" aria-label="The Stack">
+    <section className="stack-section stack-section--tower" aria-label="The Stack">
       <div className="stack-section__inner">
         <div className="stack-section__header">
           <p className="stack-section__label">
@@ -57,32 +67,46 @@ export function TheStack() {
           </p>
           <h2 className="stack-section__headline">
             Built on a proprietary engine.{" "}
-            <span className="stack-section__highlight">
-              Powered by data and AI.
-            </span>
+            <span className="stack-section__highlight">Powered by data and AI.</span>
           </h2>
           <p className="stack-section__sub">
-            Every engagement runs through our internal infrastructure:
-            query monitoring, AI citation tracking, attribution modeling,
-            and content engineering. This is what makes us a data firm,
-            not an agency.
+            Four engineered layers, stacked. Foundation feeds intelligence,
+            intelligence feeds citation, citation feeds attribution. Every
+            engagement runs through all four.
           </p>
         </div>
 
-        <div className="stack-section__grid">
-          {BLOCKS.map((block) => {
-            const Illustration = block.Illustration;
+        <div className="stack-tower">
+          <div className="stack-tower__flow-top" aria-hidden="true">
+            <span>PROVABLE REVENUE</span>
+            <span className="stack-tower__flow-arrow">↑</span>
+          </div>
+
+          {SLABS.map((slab, i) => {
+            const Illustration = slab.Illustration;
+            const isFirst = i === 0;
             return (
-              <article key={block.title} className="stack-block">
-                <div className="stack-block__illustration">
+              <article key={slab.num} className="stack-slab">
+                {!isFirst && (
+                  <span className="stack-slab__conduit" aria-hidden="true" />
+                )}
+                <div className="stack-slab__num">{slab.num}</div>
+                <div className="stack-slab__illustration">
                   <Illustration />
                 </div>
-                <h3 className="stack-block__title">{block.title}</h3>
-                <p className="stack-block__body">{block.body}</p>
-                <div className="stack-block__specs">{block.specs}</div>
+                <div className="stack-slab__body">
+                  <h3 className="stack-slab__title">{slab.title}</h3>
+                  <p className="stack-slab__text">{slab.body}</p>
+                  <div className="stack-slab__specs">{slab.specs}</div>
+                </div>
               </article>
             );
           })}
+
+          <div className="stack-tower__flow-bottom" aria-hidden="true">
+            <span className="stack-tower__flow-arrow">↑</span>
+            <span>RAW CONTENT FOUNDATION</span>
+          </div>
         </div>
       </div>
     </section>

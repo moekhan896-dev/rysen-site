@@ -18,8 +18,8 @@ export function AWSLawFirmTile() {
             <stop offset="100%" stopColor="#f5f1e6" />
           </linearGradient>
           <linearGradient id="aws-chart-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -84,21 +84,21 @@ export function AWSLawFirmTile() {
           />
           <path
             d="M 0 70 L 130 60 L 260 50 L 390 52 L 520 12"
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeWidth="3"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
 
-          <circle cx="0" cy="70" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
-          <circle cx="130" cy="60" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
-          <circle cx="260" cy="50" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
-          <circle cx="390" cy="52" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="0" cy="70" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="130" cy="60" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="260" cy="50" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="390" cy="52" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
 
-          <circle cx="520" cy="12" r="22" fill="#FFE817" opacity="0.12" />
-          <circle cx="520" cy="12" r="14" fill="#FFE817" opacity="0.3" />
-          <circle cx="520" cy="12" r="7" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="520" cy="12" r="22" fill="#6EF06E" opacity="0.12" />
+          <circle cx="520" cy="12" r="14" fill="#6EF06E" opacity="0.3" />
+          <circle cx="520" cy="12" r="7" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
 
           <text x="0" y="100" fontFamily="var(--font-inter)" fontSize="10" fill="#8a8a90">Dec</text>
           <text x="130" y="100" fontFamily="var(--font-inter)" fontSize="10" fill="#8a8a90">Jan</text>

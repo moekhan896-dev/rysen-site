@@ -14,8 +14,8 @@ export function TylerFamilyLawTile() {
       >
         <defs>
           <linearGradient id="tyler-chart-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0.28" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.28" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -83,23 +83,23 @@ export function TylerFamilyLawTile() {
           />
           <path
             d="M 0 36 L 104 38 L 208 32 L 312 24 L 416 36 L 520 48"
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeWidth="3"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
 
-          <circle cx="0" cy="36" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
-          <circle cx="104" cy="38" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
-          <circle cx="208" cy="32" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
-          <circle cx="416" cy="36" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
-          <circle cx="520" cy="48" r="5" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="0" cy="36" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="104" cy="38" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="208" cy="32" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="416" cy="36" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="520" cy="48" r="5" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
 
           {/* Peak point (Mar) with glow */}
-          <circle cx="312" cy="24" r="22" fill="#FFE817" opacity="0.12" />
-          <circle cx="312" cy="24" r="14" fill="#FFE817" opacity="0.3" />
-          <circle cx="312" cy="24" r="7" fill="#FFE817" stroke="#0d0d0e" strokeWidth="2" />
+          <circle cx="312" cy="24" r="22" fill="#6EF06E" opacity="0.12" />
+          <circle cx="312" cy="24" r="14" fill="#6EF06E" opacity="0.3" />
+          <circle cx="312" cy="24" r="7" fill="#6EF06E" stroke="#0d0d0e" strokeWidth="2" />
 
           {/* X-axis */}
           {[

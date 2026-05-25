@@ -72,10 +72,10 @@ function LegalIcon({ cx, cy }: { cx: number; cy: number }) {
   // Gavel: head as horizontal bar, handle below
   return (
     <g transform={`translate(${cx - 8}, ${cy - 8})`} aria-hidden="true">
-      <rect x="2" y="3" width="12" height="3" fill="#FFE817" rx="0.5" />
-      <line x1="4" y1="6" x2="12" y2="14" stroke="#FFE817" strokeWidth="1.8" strokeLinecap="round" />
-      <line x1="0" y1="3" x2="3" y2="0" stroke="#FFE817" strokeWidth="1.2" strokeLinecap="round" />
-      <line x1="13" y1="3" x2="16" y2="0" stroke="#FFE817" strokeWidth="1.2" strokeLinecap="round" />
+      <rect x="2" y="3" width="12" height="3" fill="#6EF06E" rx="0.5" />
+      <line x1="4" y1="6" x2="12" y2="14" stroke="#6EF06E" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="0" y1="3" x2="3" y2="0" stroke="#6EF06E" strokeWidth="1.2" strokeLinecap="round" />
+      <line x1="13" y1="3" x2="16" y2="0" stroke="#6EF06E" strokeWidth="1.2" strokeLinecap="round" />
     </g>
   );
 }
@@ -84,10 +84,10 @@ function MedicalIcon({ cx, cy }: { cx: number; cy: number }) {
   // Caduceus-lite: vertical staff + two intertwined curves + small wing accent
   return (
     <g transform={`translate(${cx - 8}, ${cy - 8})`} aria-hidden="true">
-      <line x1="8" y1="0" x2="8" y2="16" stroke="#FFE817" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M 8 3 Q 4 5 8 8 Q 12 11 8 13" stroke="#FFE817" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <path d="M 8 3 Q 12 5 8 8 Q 4 11 8 13" stroke="#FFE817" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <path d="M 5 2 L 8 0 L 11 2 L 8 4 Z" fill="#FFE817" />
+      <line x1="8" y1="0" x2="8" y2="16" stroke="#6EF06E" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M 8 3 Q 4 5 8 8 Q 12 11 8 13" stroke="#6EF06E" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+      <path d="M 8 3 Q 12 5 8 8 Q 4 11 8 13" stroke="#6EF06E" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+      <path d="M 5 2 L 8 0 L 11 2 L 8 4 Z" fill="#6EF06E" />
     </g>
   );
 }
@@ -96,7 +96,7 @@ function BuiltIcon({ cx, cy }: { cx: number; cy: number }) {
   // 4-pointed sparkle
   return (
     <g transform={`translate(${cx - 8}, ${cy - 8})`} aria-hidden="true">
-      <path d="M 8 0 L 9.5 6.5 L 16 8 L 9.5 9.5 L 8 16 L 6.5 9.5 L 0 8 L 6.5 6.5 Z" fill="#FFE817" />
+      <path d="M 8 0 L 9.5 6.5 L 16 8 L 9.5 9.5 L 8 16 L 6.5 9.5 L 0 8 L 6.5 6.5 Z" fill="#6EF06E" />
     </g>
   );
 }
@@ -112,7 +112,7 @@ function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: n
   const sy = flipY ? -1 : 1;
   return (
     <g transform={`translate(${x},${y}) scale(${sx},${sy})`} aria-hidden="true">
-      <path d="M 0 30 L 0 0 L 30 0" stroke="#FFE817" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
+      <path d="M 0 30 L 0 0 L 30 0" stroke="#6EF06E" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
     </g>
   );
 }
@@ -126,9 +126,9 @@ export function FlywheelVisualization() {
         <defs>
           {/* === LAYER 1: Background environment gradients === */}
           <radialGradient id="fw-glow-signal" cx="27.7%" cy="27.7%" r="35.5%">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0" />
-            <stop offset="50%" stopColor="#FFE817" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0" />
+            <stop offset="50%" stopColor="#6EF06E" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="fw-glow-electric" cx="72.2%" cy="72.2%" r="35.5%">
             <stop offset="0%" stopColor="#4D7FFF" stopOpacity="0" />
@@ -145,14 +145,14 @@ export function FlywheelVisualization() {
 
           {/* === LAYER 5: Hub gradients === */}
           <radialGradient id="fw-hub-outer-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0.3" />
-            <stop offset="60%" stopColor="#FFE817" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.3" />
+            <stop offset="60%" stopColor="#6EF06E" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="fw-hub-inner-inset" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0" />
-            <stop offset="80%" stopColor="#FFE817" stopOpacity="0" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0.12" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0" />
+            <stop offset="80%" stopColor="#6EF06E" stopOpacity="0" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0.12" />
           </radialGradient>
 
           {/* === LAYER 4: Per-spoke gradients === */}
@@ -171,7 +171,7 @@ export function FlywheelVisualization() {
                 y2={y2}
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0%" stopColor="#FFE817" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.8" />
                 <stop offset="100%" stopColor="#4D7FFF" stopOpacity="0.25" />
               </linearGradient>
             );
@@ -199,7 +199,7 @@ export function FlywheelVisualization() {
             y1={t.y1}
             x2={t.x2}
             y2={t.y2}
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeOpacity="0.5"
             strokeWidth="1.5"
             strokeLinecap="round"
@@ -232,7 +232,7 @@ export function FlywheelVisualization() {
           const x2 = 450 + c.cos * SPOKE_OUTER;
           const y2 = 450 + c.sin * SPOKE_OUTER;
           return (
-            <circle key={`fw-pulse-${i}`} r="3" fill="#FFE817">
+            <circle key={`fw-pulse-${i}`} r="3" fill="#6EF06E">
               <animate
                 attributeName="cx"
                 values={`${x1};${x2}`}
@@ -263,17 +263,17 @@ export function FlywheelVisualization() {
         {/* 5a outer glow */}
         <circle cx="450" cy="450" r={HUB_OUTER_RING} fill="url(#fw-hub-outer-glow)" />
         {/* 5b ring */}
-        <circle cx="450" cy="450" r={HUB_RADIUS} fill="#050507" stroke="#FFE817" strokeWidth="2" />
+        <circle cx="450" cy="450" r={HUB_RADIUS} fill="#050507" stroke="#6EF06E" strokeWidth="2" />
         {/* 5c inner inset shadow */}
         <circle cx="450" cy="450" r={HUB_RADIUS - 5} fill="url(#fw-hub-inner-inset)" />
         {/* 5d concentric hairline */}
-        <circle cx="450" cy="450" r="76" fill="none" stroke="rgba(255, 232, 23, 0.15)" strokeWidth="0.75" strokeDasharray="2 4" />
+        <circle cx="450" cy="450" r="76" fill="none" stroke="rgba(110, 240, 110, 0.15)" strokeWidth="0.75" strokeDasharray="2 4" />
 
         {/* 5e rotating scan arc inside hub */}
         <g className="fw-scan" style={{ transformOrigin: "450px 450px" }}>
           <path
             d="M 450 370 A 80 80 0 0 1 510 410"
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeWidth="2"
             fill="none"
             strokeLinecap="round"
@@ -281,7 +281,7 @@ export function FlywheelVisualization() {
           />
           <path
             d="M 450 370 A 80 80 0 0 1 480 380"
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeWidth="1"
             fill="none"
             strokeLinecap="round"
@@ -290,13 +290,13 @@ export function FlywheelVisualization() {
         </g>
 
         {/* 5f brand triangle at top center of hub (28x28 corner-cut) */}
-        <polygon points="436,411 464,411 436,439" fill="#FFE817" />
+        <polygon points="436,411 464,411 436,439" fill="#6EF06E" />
 
         {/* 5g THE SYSTEM label */}
         <text
           x="450"
           y="468"
-          fill="#FFE817"
+          fill="#6EF06E"
           fontSize="11"
           fontWeight="700"
           fontFamily="Inter, sans-serif"
@@ -321,10 +321,10 @@ export function FlywheelVisualization() {
         </text>
 
         {/* 5i hub cardinal tick notches */}
-        <line x1="450" y1="362" x2="450" y2="370" stroke="#FFE817" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
-        <line x1="450" y1="530" x2="450" y2="538" stroke="#FFE817" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
-        <line x1="362" y1="450" x2="370" y2="450" stroke="#FFE817" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
-        <line x1="530" y1="450" x2="538" y2="450" stroke="#FFE817" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
+        <line x1="450" y1="362" x2="450" y2="370" stroke="#6EF06E" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
+        <line x1="450" y1="530" x2="450" y2="538" stroke="#6EF06E" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
+        <line x1="362" y1="450" x2="370" y2="450" stroke="#6EF06E" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
+        <line x1="530" y1="450" x2="538" y2="450" stroke="#6EF06E" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
 
         {/* ============ LAYER 6: Six client nodes ============ */}
         {CLIENT_POSITIONS.map((c) => {
@@ -337,7 +337,7 @@ export function FlywheelVisualization() {
                 cy={c.y}
                 r={NODE_RADIUS + 4}
                 fill="none"
-                stroke="rgba(255, 232, 23, 0.06)"
+                stroke="rgba(110, 240, 110, 0.06)"
                 strokeWidth="1"
               />
               {/* outer ring */}
@@ -346,7 +346,7 @@ export function FlywheelVisualization() {
                 cy={c.y}
                 r={NODE_RADIUS}
                 fill={isAlt ? "#050507" : "#14141C"}
-                stroke="#FFE817"
+                stroke="#6EF06E"
                 strokeOpacity="0.6"
                 strokeWidth="1.5"
               />
@@ -367,7 +367,7 @@ export function FlywheelVisualization() {
               <text
                 x={c.x}
                 y={c.y - 10}
-                fill="#FFE817"
+                fill="#6EF06E"
                 fontSize="8"
                 fontWeight="700"
                 fontFamily="Inter, sans-serif"
@@ -429,14 +429,14 @@ export function FlywheelVisualization() {
         <CornerBracket x={870} y={870} flipX flipY />
 
         {/* Measurement bar at the bottom edge */}
-        <line x1="30" y1="850" x2="870" y2="850" stroke="#FFE817" strokeWidth="0.5" opacity="0.15" />
+        <line x1="30" y1="850" x2="870" y2="850" stroke="#6EF06E" strokeWidth="0.5" opacity="0.15" />
 
         {/* "RADIUS · 1 PER METRO" vertical label on right */}
         <g transform="translate(875, 450) rotate(-90)">
           <text
             x="0"
             y="0"
-            fill="#FFE817"
+            fill="#6EF06E"
             fontSize="9"
             fontWeight="700"
             fontFamily="Inter, sans-serif"
@@ -452,7 +452,7 @@ export function FlywheelVisualization() {
         <text
           x="450"
           y="888"
-          fill="#FFE817"
+          fill="#6EF06E"
           fontSize="9"
           fontWeight="700"
           fontFamily="Inter, sans-serif"

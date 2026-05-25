@@ -13,7 +13,7 @@ function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: n
   const sy = flipY ? -1 : 1;
   return (
     <g transform={`translate(${x},${y}) scale(${sx},${sy})`}>
-      <path d="M 0 16 L 0 0 L 16 0" stroke="#FFE817" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
+      <path d="M 0 16 L 0 0 L 16 0" stroke="#6EF06E" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
     </g>
   );
 }
@@ -21,7 +21,7 @@ function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: n
 // ============== PILLAR 1: RANK ==============
 function RankPillar() {
   const ROWS = [
-    { isTop: true, position: "1", title: 200, snippet: 160, fill: "rgba(255, 232, 23, 0.12)", border: "#FFE817", borderW: 1.5, titleOp: 0.85, snipOp: 0.5 },
+    { isTop: true, position: "1", title: 200, snippet: 160, fill: "rgba(110, 240, 110, 0.12)", border: "#6EF06E", borderW: 1.5, titleOp: 0.85, snipOp: 0.5 },
     { isTop: false, position: "2", title: 180, snippet: 140, fill: "rgba(255, 255, 255, 0.03)", border: "rgba(255, 255, 255, 0.06)", borderW: 1, titleOp: 0.4, snipOp: 0.2 },
     { isTop: false, position: "3", title: 170, snippet: 130, fill: "rgba(255, 255, 255, 0.03)", border: "rgba(255, 255, 255, 0.06)", borderW: 1, titleOp: 0.35, snipOp: 0.18 },
     { isTop: false, position: "4", title: 160, snippet: 120, fill: "rgba(255, 255, 255, 0.03)", border: "rgba(255, 255, 255, 0.06)", borderW: 1, titleOp: 0.3, snipOp: 0.15 },
@@ -30,7 +30,7 @@ function RankPillar() {
 
   return (
     <g transform="translate(60, 80)">
-      <text x="140" y="0" fill="#FFE817" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.12em" textAnchor="middle">
+      <text x="140" y="0" fill="#6EF06E" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.12em" textAnchor="middle">
         01 — RANK
       </text>
 
@@ -41,7 +41,7 @@ function RankPillar() {
           <g key={`rank-row-${i}`} transform={`translate(0, ${y})`}>
             <rect x="0" y="0" width="280" height="32" rx="6" fill={row.fill} stroke={row.border} strokeWidth={row.borderW} />
             {/* Position pip */}
-            <circle cx="20" cy="16" r="9" fill={row.isTop ? "#FFE817" : "rgba(255, 255, 255, 0.08)"} stroke={row.isTop ? "none" : "rgba(255, 255, 255, 0.15)"} strokeWidth="1" />
+            <circle cx="20" cy="16" r="9" fill={row.isTop ? "#6EF06E" : "rgba(255, 255, 255, 0.08)"} stroke={row.isTop ? "none" : "rgba(255, 255, 255, 0.15)"} strokeWidth="1" />
             <text x="20" y="20" fill={row.isTop ? "#0A0A0F" : "rgba(255, 255, 255, 0.6)"} fontSize="10" fontWeight="800" fontFamily="Inter, sans-serif" textAnchor="middle">
               {row.position}
             </text>
@@ -52,7 +52,7 @@ function RankPillar() {
             {/* #1 badge on top row */}
             {row.isTop && (
               <g transform="translate(248, 6)">
-                <rect x="0" y="0" width="26" height="20" rx="10" fill="#FFE817" />
+                <rect x="0" y="0" width="26" height="20" rx="10" fill="#6EF06E" />
                 <text x="13" y="14" fill="#0A0A0F" fontSize="11" fontWeight="800" fontFamily="Inter, sans-serif" textAnchor="middle">
                   #1
                 </text>
@@ -63,7 +63,7 @@ function RankPillar() {
       })}
 
       {/* Soft glow below #1 row */}
-      <ellipse cx="140" cy="60" rx="120" ry="8" fill="#FFE817" opacity="0.12" />
+      <ellipse cx="140" cy="60" rx="120" ry="8" fill="#6EF06E" opacity="0.12" />
 
       {/* Title + body below stack */}
       <text x="140" y="260" fill="#FAFAF7" fontSize="16" fontWeight="700" fontFamily="Inter, sans-serif" textAnchor="middle" letterSpacing="-0.012em">
@@ -81,7 +81,7 @@ function RankPillar() {
 // ============== PILLAR 2: CAPTURE ==============
 function CapturePillar() {
   const BARS = [
-    { pos: "1", pct: "35%", height: 200, fill: "#FFE817", labelColor: "#FFE817" },
+    { pos: "1", pct: "35%", height: 200, fill: "#6EF06E", labelColor: "#6EF06E" },
     { pos: "2", pct: "17%", height: 100, fill: "rgba(255, 255, 255, 0.4)", labelColor: "rgba(255, 255, 255, 0.7)" },
     { pos: "3", pct: "9%", height: 50, fill: "rgba(255, 255, 255, 0.25)", labelColor: "rgba(255, 255, 255, 0.55)" },
     { pos: "4", pct: "4%", height: 25, fill: "rgba(255, 255, 255, 0.15)", labelColor: "rgba(255, 255, 255, 0.4)" },
@@ -93,7 +93,7 @@ function CapturePillar() {
 
   return (
     <g>
-      <text x="600" y="80" fill="#FFE817" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.12em" textAnchor="middle">
+      <text x="600" y="80" fill="#6EF06E" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.12em" textAnchor="middle">
         02 — CAPTURE
       </text>
 
@@ -147,8 +147,8 @@ function CapturePillar() {
 
       {/* Annotation: a thin curved arrow from bar 4 pointing back to "your position?" */}
       <g opacity="0.45">
-        <path d="M 800 250 Q 820 240 810 215" stroke="#FFE817" strokeWidth="1" fill="none" strokeDasharray="3 3" strokeLinecap="round" />
-        <text x="816" y="208" fill="#FFE817" fontSize="9" fontWeight="600" fontFamily="Inter, sans-serif" letterSpacing="0.12em">
+        <path d="M 800 250 Q 820 240 810 215" stroke="#6EF06E" strokeWidth="1" fill="none" strokeDasharray="3 3" strokeLinecap="round" />
+        <text x="816" y="208" fill="#6EF06E" fontSize="9" fontWeight="600" fontFamily="Inter, sans-serif" letterSpacing="0.12em">
           your position?
         </text>
       </g>
@@ -170,7 +170,7 @@ function CapturePillar() {
 function ConvertPillar() {
   return (
     <g>
-      <text x="1000" y="80" fill="#FFE817" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.12em" textAnchor="middle">
+      <text x="1000" y="80" fill="#6EF06E" fontSize="14" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.12em" textAnchor="middle">
         03 — CONVERT
       </text>
 
@@ -189,8 +189,8 @@ function ConvertPillar() {
       {/* Middle section */}
       <polygon
         points="900,176 1100,176 1070,236 930,236"
-        fill="rgba(255, 232, 23, 0.08)"
-        stroke="rgba(255, 232, 23, 0.2)"
+        fill="rgba(110, 240, 110, 0.08)"
+        stroke="rgba(110, 240, 110, 0.2)"
         strokeWidth="1"
       />
       <text x="1000" y="204" fill="#FAFAF7" fontSize="11" fontWeight="600" fontFamily="Inter, sans-serif" textAnchor="middle" letterSpacing="0.06em">
@@ -200,16 +200,16 @@ function ConvertPillar() {
       {/* Bottom section, narrowest */}
       <polygon
         points="930,242 1070,242 1040,302 960,302"
-        fill="rgba(255, 232, 23, 0.2)"
-        stroke="rgba(255, 232, 23, 0.4)"
+        fill="rgba(110, 240, 110, 0.2)"
+        stroke="rgba(110, 240, 110, 0.4)"
         strokeWidth="1.2"
       />
-      <text x="1000" y="270" fill="#FFE817" fontSize="11" fontWeight="700" fontFamily="Inter, sans-serif" textAnchor="middle" letterSpacing="0.06em">
+      <text x="1000" y="270" fill="#6EF06E" fontSize="11" fontWeight="700" fontFamily="Inter, sans-serif" textAnchor="middle" letterSpacing="0.06em">
         210 CONSULTS
       </text>
 
       {/* Bottom triangle "spilling out" */}
-      <polygon points="980,306 1020,306 980,332" fill="#FFE817" />
+      <polygon points="980,306 1020,306 980,332" fill="#6EF06E" />
 
       {/* Conversion percentage arrows */}
       <g opacity="0.6">
@@ -219,8 +219,8 @@ function ConvertPillar() {
         </text>
       </g>
       <g opacity="0.6">
-        <path d="M 1095 210 L 1140 245" stroke="rgba(255, 232, 23, 0.4)" strokeWidth="1" fill="none" strokeLinecap="round" />
-        <text x="1146" y="250" fill="#FFE817" fontSize="9" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.08em">
+        <path d="M 1095 210 L 1140 245" stroke="rgba(110, 240, 110, 0.4)" strokeWidth="1" fill="none" strokeLinecap="round" />
+        <text x="1146" y="250" fill="#6EF06E" fontSize="9" fontWeight="700" fontFamily="Inter, sans-serif" letterSpacing="0.08em">
           6%
         </text>
       </g>
@@ -248,7 +248,7 @@ function ConnectorArrow({ x1, x2, y, gradId, pulseDelay }: { x1: number; x2: num
     <g>
       <defs>
         <linearGradient id={gradId} x1={x1} y1={y} x2={x2} y2={y} gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#FFE817" stopOpacity="0.7" />
+          <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.7" />
           <stop offset="100%" stopColor="#4D7FFF" stopOpacity="0.4" />
         </linearGradient>
       </defs>
@@ -269,7 +269,7 @@ function ConnectorArrow({ x1, x2, y, gradId, pulseDelay }: { x1: number; x2: num
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle r="3" fill="#FFE817">
+      <circle r="3" fill="#6EF06E">
         <animateMotion dur="3s" begin={`${pulseDelay}s`} repeatCount="indefinite" path={`M ${x1} ${y} C ${cp1x} ${yMid}, ${cp2x} ${yMid}, ${x2} ${y}`} />
         <animate
           attributeName="opacity"
@@ -313,14 +313,14 @@ export function HowItWorksDiagram() {
         </text>
 
         {/* Bottom measurement bar with phase ticks */}
-        <line x1="60" y1="490" x2="1140" y2="490" stroke="rgba(255, 232, 23, 0.12)" strokeWidth="0.5" />
-        <line x1="200" y1="488" x2="200" y2="496" stroke="rgba(255, 232, 23, 0.4)" strokeWidth="1" strokeLinecap="round" />
-        <line x1="600" y1="488" x2="600" y2="496" stroke="rgba(255, 232, 23, 0.4)" strokeWidth="1" strokeLinecap="round" />
-        <line x1="1000" y1="488" x2="1000" y2="496" stroke="rgba(255, 232, 23, 0.4)" strokeWidth="1" strokeLinecap="round" />
+        <line x1="60" y1="490" x2="1140" y2="490" stroke="rgba(110, 240, 110, 0.12)" strokeWidth="0.5" />
+        <line x1="200" y1="488" x2="200" y2="496" stroke="rgba(110, 240, 110, 0.4)" strokeWidth="1" strokeLinecap="round" />
+        <line x1="600" y1="488" x2="600" y2="496" stroke="rgba(110, 240, 110, 0.4)" strokeWidth="1" strokeLinecap="round" />
+        <line x1="1000" y1="488" x2="1000" y2="496" stroke="rgba(110, 240, 110, 0.4)" strokeWidth="1" strokeLinecap="round" />
 
         {/* Side spec labels — small "DATA LIVE" indicators */}
         <g transform="translate(60, 460)">
-          <circle cx="0" cy="0" r="3" fill="#FFE817" opacity="0.6">
+          <circle cx="0" cy="0" r="3" fill="#6EF06E" opacity="0.6">
             <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" />
           </circle>
           <text x="10" y="4" fill="rgba(255, 255, 255, 0.45)" fontSize="9" fontWeight="600" fontFamily="Inter, sans-serif" letterSpacing="0.18em">

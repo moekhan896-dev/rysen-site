@@ -119,7 +119,7 @@ function CameraIcon() {
 function RysenTriangle() {
   return (
     <svg width="16" height="16" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <polygon points="4,4 28,4 4,28" fill="#FFE817" />
+      <polygon points="4,4 28,4 4,28" fill="#6EF06E" />
     </svg>
   );
 }

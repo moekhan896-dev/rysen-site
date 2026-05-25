@@ -16,7 +16,7 @@
 //
 // Style:
 //   - White card, subtle hairline border, soft shadow.
-//   - Brass (#A88B47) as the single chromatic accent.
+//   - Brass (#34C759) as the single chromatic accent.
 //   - Green (#4ADE80) only on the LIVE indicator + "held" trend pips.
 //   - Geist Sans throughout, wide letter-spacing for the small caps.
 //
@@ -210,8 +210,8 @@ function SparklineChart() {
           x2="0%"
           y2="100%"
         >
-          <stop offset="0%" stopColor="#A88B47" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#A88B47" stopOpacity="0" />
+          <stop offset="0%" stopColor="#34C759" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#34C759" stopOpacity="0" />
         </linearGradient>
       </defs>
 
@@ -221,7 +221,7 @@ function SparklineChart() {
         y1="20"
         x2="400"
         y2="20"
-        stroke="rgba(168, 139, 71, 0.16)"
+        stroke="rgba(110, 240, 110, 0.16)"
         strokeWidth="0.5"
         strokeDasharray="3 3"
       />
@@ -230,7 +230,7 @@ function SparklineChart() {
         y1="40"
         x2="400"
         y2="40"
-        stroke="rgba(24, 23, 26, 0.04)"
+        stroke="rgba(12, 13, 15, 0.04)"
         strokeWidth="0.5"
       />
       <line
@@ -238,7 +238,7 @@ function SparklineChart() {
         y1="60"
         x2="400"
         y2="60"
-        stroke="rgba(24, 23, 26, 0.04)"
+        stroke="rgba(12, 13, 15, 0.04)"
         strokeWidth="0.5"
       />
 
@@ -248,7 +248,7 @@ function SparklineChart() {
         y="22"
         fontSize="8"
         fontWeight="600"
-        fill="#A88B47"
+        fill="#34C759"
         letterSpacing="0.08em"
       >
         #1
@@ -280,7 +280,7 @@ function SparklineChart() {
       {/* The line itself */}
       <path
         d={linePath}
-        stroke="#A88B47"
+        stroke="#34C759"
         strokeWidth="1.5"
         fill="none"
         strokeLinecap="round"
@@ -289,12 +289,12 @@ function SparklineChart() {
 
       {/* Data points */}
       {points.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="1.5" fill="#A88B47" />
+        <circle key={i} cx={x} cy={y} r="1.5" fill="#34C759" />
       ))}
 
       {/* Current position pulse — last data point with glow */}
-      <circle cx="390" cy="22" r="5" fill="#A88B47" opacity="0.3" />
-      <circle cx="390" cy="22" r="3" fill="#A88B47">
+      <circle cx="390" cy="22" r="5" fill="#34C759" opacity="0.3" />
+      <circle cx="390" cy="22" r="3" fill="#34C759">
         <animate
           attributeName="r"
           values="3;5;3"
@@ -407,7 +407,7 @@ function CitationDonut({ percent }: { percent: number }) {
           cx="36"
           cy="36"
           r={radius}
-          stroke="rgba(168, 139, 71, 0.16)"
+          stroke="rgba(110, 240, 110, 0.16)"
           strokeWidth="6"
           fill="none"
         />
@@ -415,7 +415,7 @@ function CitationDonut({ percent }: { percent: number }) {
           cx="36"
           cy="36"
           r={radius}
-          stroke="#A88B47"
+          stroke="#34C759"
           strokeWidth="6"
           fill="none"
           strokeLinecap="round"
@@ -619,7 +619,7 @@ function TrendUpIcon() {
 function RysenTriangleSmall() {
   return (
     <svg width="10" height="10" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <polygon points="4,4 28,4 4,28" fill="#FFE817" />
+      <polygon points="4,4 28,4 4,28" fill="#6EF06E" />
     </svg>
   );
 }

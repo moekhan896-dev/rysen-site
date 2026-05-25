@@ -28,20 +28,20 @@ function FlowConnector({ delay }: { delay: number }) {
       <svg viewBox="0 0 80 40" fill="none">
         <path
           d="M 5 20 H 75"
-          stroke="#A88B47"
+          stroke="#34C759"
           strokeWidth="1.5"
           strokeDasharray="3 4"
           opacity="0.5"
         />
         <path
           d="M 70 14 L 76 20 L 70 26"
-          stroke="#A88B47"
+          stroke="#34C759"
           strokeWidth="1.5"
           fill="none"
           strokeLinejoin="round"
           strokeLinecap="round"
         />
-        <circle r="3" fill="#A88B47">
+        <circle r="3" fill="#34C759">
           <animateMotion
             dur="2s"
             begin={`${delay}s`}

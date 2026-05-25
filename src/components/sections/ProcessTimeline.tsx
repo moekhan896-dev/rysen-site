@@ -6,7 +6,7 @@
 
 const ST = "rgba(255, 255, 255, 0.4)";
 const STM = "rgba(255, 255, 255, 0.6)";
-const ACCENT = "#FFE817";
+const ACCENT = "#6EF06E";
 
 function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: number; flipX?: boolean; flipY?: boolean }) {
   const sx = flipX ? -1 : 1;
@@ -124,8 +124,8 @@ export function ProcessTimeline() {
       <svg viewBox="0 0 1200 360" className="process-timeline process-timeline--desktop" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
           <linearGradient id="proc-track" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0.7" />
-            <stop offset="50%" stopColor="#FFE817" stopOpacity="0.5" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.7" />
+            <stop offset="50%" stopColor="#6EF06E" stopOpacity="0.5" />
             <stop offset="80%" stopColor="#4D7FFF" stopOpacity="0.5" />
             <stop offset="100%" stopColor="#4D7FFF" stopOpacity="0.2" />
           </linearGradient>

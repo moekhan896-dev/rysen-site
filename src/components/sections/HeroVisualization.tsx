@@ -62,7 +62,7 @@ function CornerBracket({ x, y, flipX = false, flipY = false }: Bracket) {
   const sy = flipY ? -1 : 1;
   return (
     <g transform={`translate(${x},${y}) scale(${sx},${sy})`}>
-      <path d="M 0 24 L 0 0 L 24 0" stroke="#FFE817" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
+      <path d="M 0 24 L 0 0 L 24 0" stroke="#6EF06E" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
     </g>
   );
 }
@@ -79,20 +79,20 @@ export function HeroVisualization() {
             <stop offset="100%" stopColor="#4D7FFF" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="hv-glow-signal" cx="70%" cy="60%" r="35%">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0" />
-            <stop offset="50%" stopColor="#FFE817" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0" />
+            <stop offset="50%" stopColor="#6EF06E" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0" />
           </radialGradient>
 
           {/* === LAYER 5: Center hub gradients === */}
           <radialGradient id="hv-hub-outer-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0.35" />
-            <stop offset="55%" stopColor="#FFE817" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.35" />
+            <stop offset="55%" stopColor="#6EF06E" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="hv-hub-inner-inset" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFE817" stopOpacity="0" />
-            <stop offset="100%" stopColor="#FFE817" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="#6EF06E" stopOpacity="0" />
+            <stop offset="100%" stopColor="#6EF06E" stopOpacity="0.08" />
           </radialGradient>
 
           {/* === LAYER 4: Per-line gradients for the 8 connection lines === */}
@@ -106,7 +106,7 @@ export function HeroVisualization() {
               y2={n.y}
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0%" stopColor="#FFE817" stopOpacity="0.6" />
+              <stop offset="0%" stopColor="#6EF06E" stopOpacity="0.6" />
               <stop offset="100%" stopColor="#4D7FFF" stopOpacity="0.15" />
             </linearGradient>
           ))}
@@ -129,7 +129,7 @@ export function HeroVisualization() {
             y1={t.y1}
             x2={t.x2}
             y2={t.y2}
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeOpacity="0.3"
             strokeWidth="1"
             strokeLinecap="round"
@@ -151,7 +151,7 @@ export function HeroVisualization() {
 
         {/* ============ LAYER 4b: 8 animated data pulses traveling inward ============ */}
         {NODE_POSITIONS.map((n, i) => (
-          <circle key={`hv-pulse-${i}`} r="2.5" fill="#FFE817">
+          <circle key={`hv-pulse-${i}`} r="2.5" fill="#6EF06E">
             <animate
               attributeName="cx"
               values={`${n.x};300`}
@@ -214,7 +214,7 @@ export function HeroVisualization() {
         <text
           x="300"
           y="105"
-          fill="#FFE817"
+          fill="#6EF06E"
           fontSize="9"
           fontWeight="700"
           fontFamily="Inter, sans-serif"
@@ -265,17 +265,17 @@ export function HeroVisualization() {
         {/* 5a outer glow */}
         <circle cx="300" cy="300" r="100" fill="url(#hv-hub-outer-glow)" />
         {/* 5b outer ring */}
-        <circle cx="300" cy="300" r="60" fill="#0A0A0F" stroke="#FFE817" strokeWidth="1.5" />
+        <circle cx="300" cy="300" r="60" fill="#0A0A0F" stroke="#6EF06E" strokeWidth="1.5" />
         {/* 5c inner inset gradient */}
         <circle cx="300" cy="300" r="55" fill="url(#hv-hub-inner-inset)" />
         {/* 5d concentric inner hairline */}
-        <circle cx="300" cy="300" r="46" fill="none" stroke="rgba(255, 232, 23, 0.18)" strokeWidth="0.75" strokeDasharray="2 3" />
+        <circle cx="300" cy="300" r="46" fill="none" stroke="rgba(110, 240, 110, 0.18)" strokeWidth="0.75" strokeDasharray="2 3" />
 
         {/* 5e rotating scan arc inside hub */}
         <g className="hv-scan" style={{ transformOrigin: "300px 300px" }}>
           <path
             d="M 300 248 A 52 52 0 0 1 348 290"
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeWidth="2"
             strokeLinecap="round"
             fill="none"
@@ -283,7 +283,7 @@ export function HeroVisualization() {
           />
           <path
             d="M 300 248 A 52 52 0 0 1 332 264"
-            stroke="#FFE817"
+            stroke="#6EF06E"
             strokeWidth="1"
             strokeLinecap="round"
             fill="none"
@@ -292,13 +292,13 @@ export function HeroVisualization() {
         </g>
 
         {/* 5f brand triangle (corner-cut right triangle, mirroring the RysenLogo) */}
-        <polygon points="284,278 314,278 284,308" fill="#FFE817" />
+        <polygon points="284,278 314,278 284,308" fill="#6EF06E" />
 
         {/* 5g "#1" text */}
         <text
           x="324"
           y="304"
-          fill="#FFE817"
+          fill="#6EF06E"
           fontSize="26"
           fontWeight="800"
           fontFamily="Inter, sans-serif"
@@ -323,10 +323,10 @@ export function HeroVisualization() {
         </text>
 
         {/* 5i hub edge cardinal notches, 4 small ticks at compass points */}
-        <line x1="300" y1="234" x2="300" y2="240" stroke="#FFE817" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
-        <line x1="300" y1="360" x2="300" y2="366" stroke="#FFE817" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
-        <line x1="234" y1="300" x2="240" y2="300" stroke="#FFE817" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
-        <line x1="360" y1="300" x2="366" y2="300" stroke="#FFE817" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
+        <line x1="300" y1="234" x2="300" y2="240" stroke="#6EF06E" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
+        <line x1="300" y1="360" x2="300" y2="366" stroke="#6EF06E" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
+        <line x1="234" y1="300" x2="240" y2="300" stroke="#6EF06E" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
+        <line x1="360" y1="300" x2="366" y2="300" stroke="#6EF06E" strokeWidth="1.2" opacity="0.75" strokeLinecap="round" />
 
         {/* 5j hub edge sub-cardinal notches, 4 small ticks at NE/SE/SW/NW */}
         <line
@@ -334,7 +334,7 @@ export function HeroVisualization() {
           y1={300 + Math.sin(((45 - 90) * Math.PI) / 180) * 60}
           x2={300 + Math.cos(((45 - 90) * Math.PI) / 180) * 65}
           y2={300 + Math.sin(((45 - 90) * Math.PI) / 180) * 65}
-          stroke="#FFE817"
+          stroke="#6EF06E"
           strokeWidth="1"
           opacity="0.5"
           strokeLinecap="round"
@@ -344,7 +344,7 @@ export function HeroVisualization() {
           y1={300 + Math.sin(((135 - 90) * Math.PI) / 180) * 60}
           x2={300 + Math.cos(((135 - 90) * Math.PI) / 180) * 65}
           y2={300 + Math.sin(((135 - 90) * Math.PI) / 180) * 65}
-          stroke="#FFE817"
+          stroke="#6EF06E"
           strokeWidth="1"
           opacity="0.5"
           strokeLinecap="round"
@@ -354,7 +354,7 @@ export function HeroVisualization() {
           y1={300 + Math.sin(((225 - 90) * Math.PI) / 180) * 60}
           x2={300 + Math.cos(((225 - 90) * Math.PI) / 180) * 65}
           y2={300 + Math.sin(((225 - 90) * Math.PI) / 180) * 65}
-          stroke="#FFE817"
+          stroke="#6EF06E"
           strokeWidth="1"
           opacity="0.5"
           strokeLinecap="round"
@@ -364,7 +364,7 @@ export function HeroVisualization() {
           y1={300 + Math.sin(((315 - 90) * Math.PI) / 180) * 60}
           x2={300 + Math.cos(((315 - 90) * Math.PI) / 180) * 65}
           y2={300 + Math.sin(((315 - 90) * Math.PI) / 180) * 65}
-          stroke="#FFE817"
+          stroke="#6EF06E"
           strokeWidth="1"
           opacity="0.5"
           strokeLinecap="round"
@@ -377,10 +377,10 @@ export function HeroVisualization() {
         <CornerBracket x={560} y={560} flipX flipY />
 
         {/* Outer measurement notches at cardinal directions */}
-        <line x1="300" y1="50" x2="300" y2="42" stroke="#FFE817" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
-        <line x1="300" y1="550" x2="300" y2="558" stroke="#FFE817" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
-        <line x1="50" y1="300" x2="42" y2="300" stroke="#FFE817" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
-        <line x1="550" y1="300" x2="558" y2="300" stroke="#FFE817" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
+        <line x1="300" y1="50" x2="300" y2="42" stroke="#6EF06E" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
+        <line x1="300" y1="550" x2="300" y2="558" stroke="#6EF06E" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
+        <line x1="50" y1="300" x2="42" y2="300" stroke="#6EF06E" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
+        <line x1="550" y1="300" x2="558" y2="300" stroke="#6EF06E" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
 
         {/* Subtle outer frame */}
         <rect x="2" y="2" width="596" height="596" rx="4" ry="4" fill="none" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />

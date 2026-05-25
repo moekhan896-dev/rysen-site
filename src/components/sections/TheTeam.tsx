@@ -5,7 +5,7 @@ function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: n
   const sy = flipY ? -1 : 1;
   return (
     <g transform={`translate(${x},${y}) scale(${sx},${sy})`}>
-      <path d="M 0 14 L 0 0 L 14 0" stroke="#FFE817" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
+      <path d="M 0 14 L 0 0 L 14 0" stroke="#6EF06E" strokeWidth="1.5" fill="none" opacity="0.6" strokeLinecap="round" />
     </g>
   );
 }
@@ -13,9 +13,9 @@ function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: n
 function CarIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M 3 14 L 5 9 L 19 9 L 21 14 L 21 18 L 18 18 L 18 16 L 6 16 L 6 18 L 3 18 Z" stroke="#FFE817" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
-      <circle cx="7" cy="17" r="1.5" fill="#FFE817" />
-      <circle cx="17" cy="17" r="1.5" fill="#FFE817" />
+      <path d="M 3 14 L 5 9 L 19 9 L 21 14 L 21 18 L 18 18 L 18 16 L 6 16 L 6 18 L 3 18 Z" stroke="#6EF06E" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
+      <circle cx="7" cy="17" r="1.5" fill="#6EF06E" />
+      <circle cx="17" cy="17" r="1.5" fill="#6EF06E" />
     </svg>
   );
 }
@@ -23,7 +23,7 @@ function CarIcon() {
 function WrenchIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M 14 4 L 17 4 L 19 6 L 19 9 L 17 11 L 14 11 L 13 12 L 6 19 L 4 17 L 11 10 L 12 9 L 12 6 Z" stroke="#FFE817" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
+      <path d="M 14 4 L 17 4 L 19 6 L 19 9 L 17 11 L 14 11 L 13 12 L 6 19 L 4 17 L 11 10 L 12 9 L 12 6 Z" stroke="#6EF06E" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -31,10 +31,10 @@ function WrenchIcon() {
 function BroomIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <line x1="14" y1="4" x2="6" y2="14" stroke="#FFE817" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M 6 14 L 4 18 L 10 20 L 14 16 Z" stroke="#FFE817" strokeWidth="1.5" fill="rgba(255, 232, 23, 0.15)" strokeLinejoin="round" />
-      <line x1="6" y1="16" x2="8" y2="18" stroke="#FFE817" strokeWidth="1" />
-      <line x1="8" y1="15" x2="10" y2="17" stroke="#FFE817" strokeWidth="1" />
+      <line x1="14" y1="4" x2="6" y2="14" stroke="#6EF06E" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M 6 14 L 4 18 L 10 20 L 14 16 Z" stroke="#6EF06E" strokeWidth="1.5" fill="rgba(110, 240, 110, 0.15)" strokeLinejoin="round" />
+      <line x1="6" y1="16" x2="8" y2="18" stroke="#6EF06E" strokeWidth="1" />
+      <line x1="8" y1="15" x2="10" y2="17" stroke="#6EF06E" strokeWidth="1" />
     </svg>
   );
 }
@@ -42,9 +42,9 @@ function BroomIcon() {
 function WaveIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M 2 14 Q 6 8 10 12 T 18 12 T 22 8" stroke="#FFE817" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <circle cx="20" cy="6" r="2" fill="#FFE817" />
-      <path d="M 2 18 Q 6 14 10 16 T 18 16" stroke="#FFE817" strokeWidth="1" opacity="0.5" fill="none" strokeLinecap="round" />
+      <path d="M 2 14 Q 6 8 10 12 T 18 12 T 22 8" stroke="#6EF06E" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <circle cx="20" cy="6" r="2" fill="#6EF06E" />
+      <path d="M 2 18 Q 6 14 10 16 T 18 16" stroke="#6EF06E" strokeWidth="1" opacity="0.5" fill="none" strokeLinecap="round" />
     </svg>
   );
 }

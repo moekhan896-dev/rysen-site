@@ -17,8 +17,8 @@
 // scaffold reads as "instrument panel" rather than illustration. At
 // any scale the eye still gets the silhouette + brass focal point.
 
-const INK = "#18171A";
-const BRASS = "#A88B47";
+const INK = "#0C0D0F";
+const BRASS = "#34C759";
 
 function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: number; flipX?: boolean; flipY?: boolean }) {
   const sx = flipX ? -1 : 1;
@@ -51,7 +51,7 @@ export function SearchHappensIllustration() {
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
       <defs>
         <pattern id="oi-search-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.7" fill="rgba(24,23,26,0.06)" />
+          <circle cx="2" cy="2" r="0.7" fill="rgba(12, 13, 15,0.06)" />
         </pattern>
         <linearGradient id="oi-search-screen" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#FFFFFF" />
@@ -259,11 +259,11 @@ export function RankingPositionIllustration() {
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
       <defs>
         <linearGradient id="oi-rank-highlight" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(168,139,71,0.18)" />
-          <stop offset="100%" stopColor="rgba(168,139,71,0.04)" />
+          <stop offset="0%" stopColor="rgba(110, 240, 110,0.18)" />
+          <stop offset="100%" stopColor="rgba(110, 240, 110,0.04)" />
         </linearGradient>
         <pattern id="oi-rank-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.6" fill="rgba(24,23,26,0.05)" />
+          <circle cx="2" cy="2" r="0.6" fill="rgba(12, 13, 15,0.05)" />
         </pattern>
       </defs>
 
@@ -296,7 +296,7 @@ export function RankingPositionIllustration() {
         <animate attributeName="y" values="54;52;54" dur="3s" repeatCount="indefinite" />
       </rect>
       <circle cx="30" cy="62" r="2.5" fill={BRASS} />
-      <polygon points="28,60 33,60 28,65" fill="#FFE817" />
+      <polygon points="28,60 33,60 28,65" fill="#6EF06E" />
       <rect x="36" y="60" width="48" height="1.6" rx="0.8" fill={INK} opacity="0.7" />
       <rect x="36" y="63.5" width="32" height="1.2" rx="0.6" fill={INK} opacity="0.5" />
       <rect x="36" y="68" width="100" height="1.6" rx="0.8" fill={INK} opacity="0.85" />
@@ -312,7 +312,7 @@ export function RankingPositionIllustration() {
       </g>
       {/* #1 badge */}
       <rect x="134" y="58" width="14" height="14" rx="3" fill={INK} />
-      <text x="141" y="68" fontSize="9" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">1</text>
+      <text x="141" y="68" fontSize="9" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">1</text>
 
       {/* #2 result (faded) */}
       <rect x="22" y="88" width="128" height="20" rx="2" stroke={INK} strokeWidth="0.5" opacity="0.35" fill="none" />
@@ -402,7 +402,7 @@ export function RankingPositionIllustration() {
 
       {/* Side "AI Overview" sub-card */}
       <g transform="translate(162, 140)">
-        <rect width="32" height="30" rx="2" stroke={BRASS} strokeWidth="0.6" fill="rgba(168,139,71,0.06)" />
+        <rect width="32" height="30" rx="2" stroke={BRASS} strokeWidth="0.6" fill="rgba(110, 240, 110,0.06)" />
         <polygon points="3,3 6,2 5,5 8,4 6,7 9,8 5,8 6,11 4,9 1,11 3,8 0,7 3,6" fill={BRASS} />
         <rect x="10" y="2" width="18" height="1.4" rx="0.7" fill={INK} opacity="0.55" />
         <rect x="4" y="14" width="24" height="1.2" rx="0.6" fill={INK} opacity="0.45" />
@@ -449,7 +449,7 @@ export function RankingPositionIllustration() {
 
       {/* Bottom CTA strip */}
       <g transform="translate(22, 188)">
-        <rect width="128" height="4" rx="2" stroke={BRASS} strokeWidth="0.6" fill="rgba(168,139,71,0.06)" />
+        <rect width="128" height="4" rx="2" stroke={BRASS} strokeWidth="0.6" fill="rgba(110, 240, 110,0.06)" />
         <rect x="2" y="1" width="50" height="2" rx="1" fill={BRASS} opacity="0.65" />
         <rect x="56" y="1" width="40" height="2" rx="1" fill={INK} opacity="0.35" />
         <rect x="100" y="1" width="20" height="2" rx="1" fill={INK} opacity="0.25" />
@@ -474,11 +474,11 @@ export function ClickHappensIllustration() {
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
       <defs>
         <radialGradient id="oi-click-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="rgba(168,139,71,0.3)" />
-          <stop offset="100%" stopColor="rgba(168,139,71,0)" />
+          <stop offset="0%" stopColor="rgba(110, 240, 110,0.3)" />
+          <stop offset="100%" stopColor="rgba(110, 240, 110,0)" />
         </radialGradient>
         <pattern id="oi-click-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.6" fill="rgba(24,23,26,0.05)" />
+          <circle cx="2" cy="2" r="0.6" fill="rgba(12, 13, 15,0.05)" />
         </pattern>
       </defs>
 
@@ -493,7 +493,7 @@ export function ClickHappensIllustration() {
       <rect x="22" y="62" width="2.5" height="56" fill={BRASS} />
       {/* Favicon */}
       <circle cx="34" cy="74" r="3" stroke={INK} strokeWidth="0.7" fill="#FFFFFF" />
-      <polygon points="32,72 38,72 32,78" fill="#FFE817" />
+      <polygon points="32,72 38,72 32,78" fill="#6EF06E" />
       {/* Domain text */}
       <rect x="42" y="72" width="40" height="1.4" rx="0.7" fill={INK} opacity="0.7" />
       <rect x="42" y="75.5" width="58" height="1.2" rx="0.6" fill={INK} opacity="0.45" />
@@ -584,7 +584,7 @@ export function ClickHappensIllustration() {
       {/* Click counter overlay */}
       <g transform="translate(154, 156)">
         <rect width="36" height="14" rx="2" fill={INK} />
-        <text x="18" y="9" fontSize="6.5" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">+1 CLICK</text>
+        <text x="18" y="9" fontSize="6.5" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">+1 CLICK</text>
       </g>
 
       {/* Timing pip */}
@@ -621,7 +621,7 @@ export function ClickHappensIllustration() {
       {/* Hover state tag */}
       <g transform="translate(116, 56)">
         <rect width="34" height="6" rx="3" fill={INK} />
-        <circle cx="4" cy="3" r="1.2" fill="#FFE817" />
+        <circle cx="4" cy="3" r="1.2" fill="#6EF06E" />
         <text x="20" y="4.2" fontSize="3.5" fill="#FFFFFF" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.6">HOVER 1.2s</text>
       </g>
 
@@ -673,7 +673,7 @@ export function ClickHappensIllustration() {
       {/* Tag bubble */}
       <g transform="translate(150, 4)">
         <rect width="40" height="6" rx="3" fill={INK} />
-        <text x="20" y="4.2" fontSize="3.4" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">#1 RESULT</text>
+        <text x="20" y="4.2" fontSize="3.4" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">#1 RESULT</text>
       </g>
 
       <CornerBracket x={6} y={6} />
@@ -695,10 +695,10 @@ export function ContactHappensIllustration() {
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
       <defs>
         <pattern id="oi-contact-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.6" fill="rgba(24,23,26,0.05)" />
+          <circle cx="2" cy="2" r="0.6" fill="rgba(12, 13, 15,0.05)" />
         </pattern>
         <linearGradient id="oi-phone-screen" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FCFCFA" />
+          <stop offset="0%" stopColor="#FAFBFC" />
           <stop offset="100%" stopColor="#F2F2EE" />
         </linearGradient>
       </defs>
@@ -780,7 +780,7 @@ export function ContactHappensIllustration() {
         <rect width="36" height="34" rx="3" fill="#FFFFFF" stroke={INK} strokeWidth="0.8" />
         <rect width="36" height="6" rx="3" fill={INK} />
         <rect y="3" width="36" height="3" fill={INK} />
-        <text x="18" y="4.5" fontSize="3" fill="#FFE817" fontFamily="Geist, sans-serif" textAnchor="middle" letterSpacing="1.2">TUE</text>
+        <text x="18" y="4.5" fontSize="3" fill="#6EF06E" fontFamily="Geist, sans-serif" textAnchor="middle" letterSpacing="1.2">TUE</text>
         <text x="18" y="20" fontSize="11" fill={INK} fontFamily="Geist, sans-serif" textAnchor="middle" fontWeight="700">14</text>
         <rect x="6" y="24" width="10" height="1.4" rx="0.7" fill={INK} opacity="0.55" />
         <rect x="6" y="27" width="14" height="1" rx="0.5" fill={BRASS} opacity="0.85" />
@@ -789,7 +789,7 @@ export function ContactHappensIllustration() {
 
       {/* Notification badge */}
       <g transform="translate(34, 36)">
-        <circle r="8" fill="#FFE817" stroke={INK} strokeWidth="1" />
+        <circle r="8" fill="#6EF06E" stroke={INK} strokeWidth="1" />
         <text fontSize="7" fontWeight="700" fill={INK} textAnchor="middle" y="3" fontFamily="Geist, sans-serif">3</text>
       </g>
 
@@ -809,7 +809,7 @@ export function ContactHappensIllustration() {
         <rect x="3" y="3" width="34" height="10" rx="1" fill={INK} opacity="0.08" />
         <path d="M 3 4 L 20 12 L 37 4" stroke={INK} strokeWidth="0.7" fill="none" opacity="0.5" />
         <rect x="3" y="15" width="22" height="1.2" rx="0.6" fill={INK} opacity="0.55" />
-        <circle cx="36" cy="3" r="2" fill="#FFE817" stroke={INK} strokeWidth="0.6" />
+        <circle cx="36" cy="3" r="2" fill="#6EF06E" stroke={INK} strokeWidth="0.6" />
         <text x="36" y="4.6" fontSize="2.5" fontWeight="700" fill={INK} textAnchor="middle" fontFamily="Geist, sans-serif">1</text>
       </g>
 
@@ -826,10 +826,10 @@ export function ContactHappensIllustration() {
       {/* Call duration timer top-right of phone */}
       <g transform="translate(154, 92)">
         <rect width="38" height="12" rx="2" fill={INK} />
-        <circle cx="6" cy="6" r="2" stroke="#FFE817" strokeWidth="0.7" fill="none" />
-        <line x1="6" y1="6" x2="6" y2="4.2" stroke="#FFE817" strokeWidth="0.6" />
-        <line x1="6" y1="6" x2="7.2" y2="6" stroke="#FFE817" strokeWidth="0.6" />
-        <text x="22" y="8" fontSize="5.5" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">02:14</text>
+        <circle cx="6" cy="6" r="2" stroke="#6EF06E" strokeWidth="0.7" fill="none" />
+        <line x1="6" y1="6" x2="6" y2="4.2" stroke="#6EF06E" strokeWidth="0.6" />
+        <line x1="6" y1="6" x2="7.2" y2="6" stroke="#6EF06E" strokeWidth="0.6" />
+        <text x="22" y="8" fontSize="5.5" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">02:14</text>
       </g>
 
       {/* Form-fill side card */}
@@ -848,7 +848,7 @@ export function ContactHappensIllustration() {
         <circle r="3" fill={BRASS} />
         <polygon points="-2,2 0,6 2,2" fill={BRASS} />
         <rect x="6" y="-2" width="34" height="3" rx="1.5" fill={INK} />
-        <text x="23" y="0.4" fontSize="3" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">TAMPA · FL</text>
+        <text x="23" y="0.4" fontSize="3" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">TAMPA · FL</text>
       </g>
 
       {/* Quote bubble — "I'd like a consultation" */}
@@ -906,7 +906,7 @@ export function RevenueCompoundsIllustration() {
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
       <defs>
         <pattern id="oi-rev-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.6" fill="rgba(24,23,26,0.05)" />
+          <circle cx="2" cy="2" r="0.6" fill="rgba(12, 13, 15,0.05)" />
         </pattern>
         <linearGradient id="oi-rev-area" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor={BRASS} stopOpacity="0.35" />
@@ -979,7 +979,7 @@ export function RevenueCompoundsIllustration() {
       {/* Dollar bubble */}
       <g transform="translate(160, 34)">
         <rect x="0" y="0" width="32" height="14" rx="3" fill={INK} />
-        <text x="16" y="9" fontSize="6.5" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">+186%</text>
+        <text x="16" y="9" fontSize="6.5" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">+186%</text>
       </g>
 
       {/* X-axis quarter labels */}

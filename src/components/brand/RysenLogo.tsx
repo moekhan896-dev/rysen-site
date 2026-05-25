@@ -53,7 +53,7 @@ export const RysenLogo: FC<RysenLogoProps> = ({
           filter: withGlow ? "drop-shadow(0 0 8px var(--signal-glow))" : "none",
         }}
       >
-        <polygon points="4,4 28,4 4,28" fill="#FFE817" />
+        <polygon points="4,4 28,4 4,28" fill="var(--signal-logo, #5BE000)" />
       </svg>
       <span
         style={{

@@ -4,7 +4,7 @@
 
 const ST = "rgba(255, 255, 255, 0.6)"; // white-60% stroke
 const SW = 1.5;
-const ACCENT = "#FFE817";
+const ACCENT = "#6EF06E";
 
 // === 1. Local search visibility — city map dot grid with yellow pin ===
 export function LocalVisibilityIllustration() {

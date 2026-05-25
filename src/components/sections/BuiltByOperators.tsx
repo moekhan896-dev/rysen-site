@@ -144,8 +144,8 @@ export function BuiltByOperators() {
                 <svg className="operator-card__viz-curve" viewBox="0 0 400 80" fill="none" aria-hidden="true">
                   <defs>
                     <linearGradient id="madison-curve-fill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#A88B47" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#A88B47" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#34C759" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#34C759" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   <path
@@ -154,16 +154,16 @@ export function BuiltByOperators() {
                   />
                   <path
                     d="M 0 70 Q 80 68 120 65 Q 200 60 240 50 Q 320 35 400 5"
-                    stroke="#A88B47"
+                    stroke="#34C759"
                     strokeWidth="2.5"
                     fill="none"
                     strokeLinecap="round"
                   />
-                  <circle cx="0" cy="70" r="3" fill="#A88B47" />
-                  <circle cx="120" cy="65" r="3" fill="#A88B47" />
-                  <circle cx="240" cy="50" r="3" fill="#A88B47" />
-                  <circle cx="400" cy="5" r="5" fill="#A88B47" />
-                  <circle cx="400" cy="5" r="12" fill="#A88B47" opacity="0.25" />
+                  <circle cx="0" cy="70" r="3" fill="#34C759" />
+                  <circle cx="120" cy="65" r="3" fill="#34C759" />
+                  <circle cx="240" cy="50" r="3" fill="#34C759" />
+                  <circle cx="400" cy="5" r="5" fill="#34C759" />
+                  <circle cx="400" cy="5" r="12" fill="#34C759" opacity="0.25" />
                 </svg>
               </div>
             </div>

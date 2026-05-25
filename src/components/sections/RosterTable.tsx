@@ -265,8 +265,8 @@ function RosterSparkline({ points }: { points: number[] }) {
           x2="0%"
           y2="100%"
         >
-          <stop offset="0%" stopColor="#A88B47" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#A88B47" stopOpacity="0" />
+          <stop offset="0%" stopColor="#34C759" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#34C759" stopOpacity="0" />
         </linearGradient>
       </defs>
 
@@ -276,7 +276,7 @@ function RosterSparkline({ points }: { points: number[] }) {
         y1="4"
         x2={width}
         y2="4"
-        stroke="rgba(168, 139, 71, 0.2)"
+        stroke="rgba(110, 240, 110, 0.2)"
         strokeWidth="0.5"
         strokeDasharray="2 3"
       />
@@ -284,7 +284,7 @@ function RosterSparkline({ points }: { points: number[] }) {
       <path d={areaPath} fill="url(#roster-spark-fill)" />
       <path
         d={linePath}
-        stroke="#A88B47"
+        stroke="#34C759"
         strokeWidth="1.4"
         fill="none"
         strokeLinecap="round"
@@ -296,7 +296,7 @@ function RosterSparkline({ points }: { points: number[] }) {
         cx={width}
         cy={yFor(points[points.length - 1])}
         r="2.2"
-        fill="#A88B47"
+        fill="#34C759"
       />
     </svg>
   );
@@ -309,7 +309,7 @@ function RosterSparkline({ points }: { points: number[] }) {
 function RysenTriangleMicro() {
   return (
     <svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true">
-      <polygon points="4,4 28,4 4,28" fill="#FFE817" />
+      <polygon points="4,4 28,4 4,28" fill="#6EF06E" />
     </svg>
   );
 }

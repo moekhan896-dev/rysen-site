@@ -69,8 +69,8 @@
 // stroke color. BRASS is the single chromatic accent reserved for
 // the Madison Clark curve, endpoint labels, and the Rysen brand
 // triangle. No other chromatic color is used in this composition.
-const INK = "#18171A";
-const BRASS = "#A88B47";
+const INK = "#0C0D0F";
+const BRASS = "#34C759";
 
 export function OperatorsBannerIllustration() {
   return (
@@ -85,7 +85,7 @@ export function OperatorsBannerIllustration() {
     >
       <defs>
         <pattern id="opb-grid" width="30" height="30" patternUnits="userSpaceOnUse">
-          <circle cx="3" cy="3" r="1" fill="rgba(168,139,71,0.16)" />
+          <circle cx="3" cy="3" r="1" fill="rgba(110, 240, 110,0.16)" />
         </pattern>
         <linearGradient id="opb-fill-brass" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor={BRASS} stopOpacity="0.22" />
@@ -119,8 +119,8 @@ export function OperatorsBannerIllustration() {
       {/* "FROM ZERO" start indicator */}
       <g transform="translate(36, 156)">
         <rect width="68" height="14" rx="2" fill={INK} />
-        <circle cx="6" cy="7" r="2" fill="#FFE817" />
-        <text x="38" y="10" fontSize="7" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.22em">FROM ZERO</text>
+        <circle cx="6" cy="7" r="2" fill="#6EF06E" />
+        <text x="38" y="10" fontSize="7" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.22em">FROM ZERO</text>
       </g>
 
       {/* Vertical hairlines at intervals */}
@@ -229,8 +229,8 @@ export function OperatorsBannerIllustration() {
       </circle>
       <g transform="translate(1070, 12)">
         <rect width="100" height="22" rx="2" fill={INK} />
-        <text x="6" y="9" fontSize="7" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="0.18em">MADISON CLARK</text>
-        <text x="6" y="18" fontSize="9" fontWeight="700" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="-0.02em">100M VIEWS · 60D</text>
+        <text x="6" y="9" fontSize="7" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="0.18em">MADISON CLARK</text>
+        <text x="6" y="18" fontSize="9" fontWeight="700" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="-0.02em">100M VIEWS · 60D</text>
       </g>
 
       {/* Time axis label — "5 YEARS" */}
@@ -302,8 +302,8 @@ export function OperatorsBannerIllustration() {
       {/* Cumulative-reach pip near top */}
       <g transform="translate(800, 22)">
         <rect width="80" height="14" rx="2" fill={INK} />
-        <circle cx="6" cy="7" r="2" fill="#FFE817" />
-        <text x="44" y="9.5" fontSize="6.5" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">~100M+ COMBINED</text>
+        <circle cx="6" cy="7" r="2" fill="#6EF06E" />
+        <text x="44" y="9.5" fontSize="6.5" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">~100M+ COMBINED</text>
       </g>
 
       {/* Curve crossover annotation */}

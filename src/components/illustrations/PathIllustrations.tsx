@@ -18,14 +18,14 @@
 //     ambient grid, optional radar-sweep arc.
 //
 // Style mirrors the other illustration modules:
-//   - INK (#18171A) structural strokes, BRASS (#A88B47) single
+//   - INK (#0C0D0F) structural strokes, BRASS (#34C759) single
 //     chromatic accent, signal yellow only on the Rysen triangle.
 //   - Geist Sans annotations with wide letter spacing.
 //   - 1.2-1.8px primary stroke, 0.4-0.7px ambient detail.
 //   - Corner reticles on every illustration for editorial framing.
 
-const INK = "#18171A";
-const BRASS = "#A88B47";
+const INK = "#0C0D0F";
+const BRASS = "#34C759";
 
 function PathReticles() {
   return (
@@ -82,7 +82,7 @@ export function EstablishPathIllustration() {
     >
       <defs>
         <pattern id="est-grid" width="16" height="16" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.7" fill="rgba(24,23,26,0.07)" />
+          <circle cx="2" cy="2" r="0.7" fill="rgba(12, 13, 15,0.07)" />
         </pattern>
         <linearGradient id="est-step-grad" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#FFFFFF" />
@@ -94,7 +94,7 @@ export function EstablishPathIllustration() {
         </radialGradient>
       </defs>
 
-      <rect x="0" y="0" width="320" height="240" fill="#FCFCFA" />
+      <rect x="0" y="0" width="320" height="240" fill="#FAFBFC" />
       <rect x="0" y="0" width="320" height="240" fill="url(#est-grid)" />
 
       {/* Summit halo */}
@@ -168,7 +168,7 @@ export function EstablishPathIllustration() {
         <line x1="6" y1="64" x2="40" y2="64" stroke={BRASS} strokeWidth="0.4" opacity="0.35" />
         {/* Rysen triangle perched on top */}
         <g transform="translate(15, -16)">
-          <polygon points="0,0 16,0 0,16" fill="#FFE817" stroke={INK} strokeWidth="0.6" />
+          <polygon points="0,0 16,0 0,16" fill="#6EF06E" stroke={INK} strokeWidth="0.6" />
         </g>
         {/* "WIN" beneath triangle */}
         <text x="23" y="100" fontSize="8" fontWeight="700" fill={BRASS} textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">WIN</text>
@@ -198,8 +198,8 @@ export function EstablishPathIllustration() {
       {/* Top-right summit indicator */}
       <g transform="translate(250, 24)">
         <rect width="56" height="12" rx="2" fill={INK} />
-        <circle cx="6" cy="6" r="2" fill="#FFE817" />
-        <text x="32" y="8.5" fontSize="6.5" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">METRO #1</text>
+        <circle cx="6" cy="6" r="2" fill="#6EF06E" />
+        <text x="32" y="8.5" fontSize="6.5" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">METRO #1</text>
       </g>
 
       {/* Bottom-left start indicator */}
@@ -247,7 +247,7 @@ export function DominatePathIllustration() {
     >
       <defs>
         <pattern id="dom-grid" width="16" height="16" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.7" fill="rgba(24,23,26,0.07)" />
+          <circle cx="2" cy="2" r="0.7" fill="rgba(12, 13, 15,0.07)" />
         </pattern>
         <radialGradient id="dom-shield-halo" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor={BRASS} stopOpacity="0.22" />
@@ -259,7 +259,7 @@ export function DominatePathIllustration() {
         </linearGradient>
       </defs>
 
-      <rect x="0" y="0" width="320" height="240" fill="#FCFCFA" />
+      <rect x="0" y="0" width="320" height="240" fill="#FAFBFC" />
       <rect x="0" y="0" width="320" height="240" fill="url(#dom-grid)" />
 
       {/* Shield halo */}
@@ -287,7 +287,7 @@ export function DominatePathIllustration() {
 
       {/* Rysen triangle inside shield */}
       <g transform="translate(146, 102)">
-        <polygon points="0,0 28,0 0,28" fill="#FFE817" stroke={INK} strokeWidth="0.8" />
+        <polygon points="0,0 28,0 0,28" fill="#6EF06E" stroke={INK} strokeWidth="0.8" />
       </g>
 
       {/* "RYSEN" word under triangle */}
@@ -357,8 +357,8 @@ export function DominatePathIllustration() {
       {/* "CLOSED" indicator chip at top */}
       <g transform="translate(132, 22)">
         <rect width="56" height="14" rx="2" fill={INK} />
-        <circle cx="8" cy="7" r="2" fill="#FFE817" />
-        <text x="34" y="10" fontSize="7" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.22em">CLOSED</text>
+        <circle cx="8" cy="7" r="2" fill="#6EF06E" />
+        <text x="34" y="10" fontSize="7" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.22em">CLOSED</text>
       </g>
 
       {/* Vertical chip top-left */}
@@ -527,7 +527,7 @@ export function ExclusiveIcon() {
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <rect x="3" y="7" width="10" height="7" rx="1" fill={BRASS} stroke={ICON_STROKE} strokeWidth="0.8" />
       <path d="M5 7 L5 5 Q 5 2 8 2 Q 11 2 11 5 L 11 7" stroke={ICON_STROKE} strokeWidth="1.4" fill="none" />
-      <circle cx="8" cy="10" r="1.2" fill="#FFE817" />
+      <circle cx="8" cy="10" r="1.2" fill="#6EF06E" />
     </svg>
   );
 }

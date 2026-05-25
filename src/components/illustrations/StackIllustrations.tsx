@@ -42,7 +42,7 @@
 //
 // Style mirrors the other illustration modules:
 //   - INK structural lines, BRASS as the single chromatic accent,
-//     #FFE817 only inside brass blocks or Rysen marks.
+//     #6EF06E only inside brass blocks or Rysen marks.
 //   - Geist Sans annotations with wide letter spacing.
 //   - 1.2-1.5px primary stroke, 0.4-0.7px ambient detail.
 //   - Each illustration has ~50+ elements so it reads as engineered
@@ -75,8 +75,8 @@
 // Engine"), follow the same constraints — single brass beat, ≥50
 // elements, corner ticks, inline geometry only.
 
-const INK = "#18171A";
-const BRASS = "#A88B47";
+const INK = "#0C0D0F";
+const BRASS = "#34C759";
 
 // =====================================================================
 // 1) QUERY INTELLIGENCE
@@ -106,7 +106,7 @@ export function QueryIntelligenceIllustration() {
         </radialGradient>
       </defs>
 
-      <rect x="0" y="0" width="100" height="100" fill="#FCFCFA" />
+      <rect x="0" y="0" width="100" height="100" fill="#FAFBFC" />
 
       {/* Soft halo */}
       <circle cx="50" cy="50" r="36" fill="url(#qi-halo)" />
@@ -141,7 +141,7 @@ export function QueryIntelligenceIllustration() {
       {/* Query streams converging — top-left */}
       <line x1="6" y1="14" x2="32" y2="28" stroke={BRASS} strokeWidth="0.8" strokeLinecap="round" />
       <circle cx="6" cy="14" r="2" fill={INK} />
-      <circle cx="6" cy="14" r="0.8" fill="#FFE817" />
+      <circle cx="6" cy="14" r="0.8" fill="#6EF06E" />
       {/* Query label */}
       <rect x="-2" y="6" width="22" height="3" rx="1" fill={INK} fillOpacity="0.06" stroke={INK} strokeWidth="0.3" />
       <text x="9" y="8.2" fontSize="2" fill={INK} opacity="0.6" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.1em">Q · LEGAL</text>
@@ -149,7 +149,7 @@ export function QueryIntelligenceIllustration() {
       {/* Stream — top-right */}
       <line x1="94" y1="14" x2="68" y2="28" stroke={BRASS} strokeWidth="0.8" strokeLinecap="round" />
       <circle cx="94" cy="14" r="2" fill={INK} />
-      <circle cx="94" cy="14" r="0.8" fill="#FFE817" />
+      <circle cx="94" cy="14" r="0.8" fill="#6EF06E" />
       <rect x="80" y="6" width="22" height="3" rx="1" fill={INK} fillOpacity="0.06" stroke={INK} strokeWidth="0.3" />
       <text x="91" y="8.2" fontSize="2" fill={INK} opacity="0.6" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.1em">Q · MEDICAL</text>
 
@@ -186,13 +186,13 @@ export function QueryIntelligenceIllustration() {
 
       {/* Rysen triangle floating in front */}
       <g transform="translate(38, 56)">
-        <polygon points="0,0 8,0 0,8" fill="#FFE817" stroke={INK} strokeWidth="0.4" />
+        <polygon points="0,0 8,0 0,8" fill="#6EF06E" stroke={INK} strokeWidth="0.4" />
       </g>
 
       {/* Tiny "DB" tag */}
       <g transform="translate(34, 70)">
         <rect width="32" height="6" rx="3" fill={INK} />
-        <text x="16" y="4.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">QUERY DB</text>
+        <text x="16" y="4.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">QUERY DB</text>
       </g>
 
       {/* Outer corner ticks */}
@@ -252,7 +252,7 @@ export function AICitationEngineIllustration() {
         </radialGradient>
       </defs>
 
-      <rect x="0" y="0" width="100" height="100" fill="#FCFCFA" />
+      <rect x="0" y="0" width="100" height="100" fill="#FAFBFC" />
       <circle cx="50" cy="50" r="30" fill="url(#aice-halo)" />
 
       {/* Connectors — dashed brass converging on center */}
@@ -320,13 +320,13 @@ export function AICitationEngineIllustration() {
       {/* Center Rysen triangle source */}
       <g transform="translate(43, 43)">
         <circle r="9" cx="7" cy="7" fill="#FFFFFF" stroke={INK} strokeWidth="1.2" />
-        <polygon points="2,2 12,2 2,12" fill="#FFE817" />
+        <polygon points="2,2 12,2 2,12" fill="#6EF06E" />
       </g>
 
       {/* "Cited 4/4" pip */}
       <g transform="translate(50, 88)">
         <rect x="-18" y="0" width="36" height="6" rx="3" fill={INK} />
-        <text y="4.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">CITED 4 OF 4</text>
+        <text y="4.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.18em">CITED 4 OF 4</text>
       </g>
 
       {/* Tiny "answer" pulse around center */}
@@ -384,7 +384,7 @@ export function AttributionModelingIllustration() {
         </linearGradient>
       </defs>
 
-      <rect x="0" y="0" width="100" height="100" fill="#FCFCFA" />
+      <rect x="0" y="0" width="100" height="100" fill="#FAFBFC" />
 
       {/* Top searcher row — 8 small heads */}
       <g transform="translate(8, 6)">
@@ -413,7 +413,7 @@ export function AttributionModelingIllustration() {
 
       {/* Stage 4 — Revenue (brass-filled, the win) */}
       <path d="M 36 70 L 64 70 L 56 86 L 44 86 Z" stroke={BRASS} strokeWidth="1.4" fill={BRASS} />
-      <text x="50" y="80" fontSize="4.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.04em">$</text>
+      <text x="50" y="80" fontSize="4.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.04em">$</text>
 
       {/* Dollar signs raining out the bottom */}
       <text x="32" y="92" fontSize="5" fontWeight="700" fill={BRASS} fontFamily="Geist, sans-serif">$</text>
@@ -430,7 +430,7 @@ export function AttributionModelingIllustration() {
       {/* Right side: revenue badge */}
       <g transform="translate(78, 76)">
         <rect width="20" height="6" rx="3" fill={INK} />
-        <text x="10" y="4.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.14em">+186%</text>
+        <text x="10" y="4.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.14em">+186%</text>
       </g>
 
       {/* Side rail tick marks (measurement scaffolding) */}
@@ -446,7 +446,7 @@ export function AttributionModelingIllustration() {
       {/* Tiny attribution model badge top */}
       <g transform="translate(50, 2)">
         <rect x="-22" y="0" width="44" height="4" rx="1.5" fill={INK} fillOpacity="0.92" />
-        <text y="2.8" fontSize="2.2" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.2em">MULTI-TOUCH MODEL</text>
+        <text y="2.8" fontSize="2.2" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.2em">MULTI-TOUCH MODEL</text>
       </g>
 
       {/* Cohort note */}
@@ -487,7 +487,7 @@ export function ContentEngineeringIllustration() {
         </radialGradient>
       </defs>
 
-      <rect x="0" y="0" width="100" height="100" fill="#FCFCFA" />
+      <rect x="0" y="0" width="100" height="100" fill="#FAFBFC" />
       <circle cx="50" cy="50" r="32" fill="url(#ce-halo)" />
 
       {/* Connector grid lines */}
@@ -519,7 +519,7 @@ export function ContentEngineeringIllustration() {
       {/* Block 3 — Central block with Rysen triangle */}
       <g transform="translate(40, 42)">
         <rect width="20" height="16" rx="2" fill={INK} />
-        <polygon points="6,4 14,4 6,12" fill="#FFE817" />
+        <polygon points="6,4 14,4 6,12" fill="#6EF06E" />
       </g>
 
       {/* Block 4 — Side block left middle */}
@@ -564,7 +564,7 @@ export function ContentEngineeringIllustration() {
       {/* Floating schema fragment top */}
       <g transform="translate(30, 6)">
         <rect width="40" height="10" rx="1.5" fill={INK} fillOpacity="0.92" />
-        <text x="3" y="7" fontSize="3" fontWeight="700" fill="#FFE817" fontFamily="Geist Mono, monospace" letterSpacing="0.1em">{`{ @type: Article }`}</text>
+        <text x="3" y="7" fontSize="3" fontWeight="700" fill="#6EF06E" fontFamily="Geist Mono, monospace" letterSpacing="0.1em">{`{ @type: Article }`}</text>
       </g>
 
       {/* Connectors between blocks */}
@@ -583,7 +583,7 @@ export function ContentEngineeringIllustration() {
       {/* Schema marker chip — right side */}
       <g transform="translate(78, 4)" opacity="0.85">
         <rect width="18" height="6" rx="1.5" fill={INK} />
-        <text x="9" y="4.2" fontSize="2.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist Mono, monospace" letterSpacing="0.12em">{`{LD}`}</text>
+        <text x="9" y="4.2" fontSize="2.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist Mono, monospace" letterSpacing="0.12em">{`{LD}`}</text>
       </g>
 
       {/* Cursor caret blinking on the central block */}

@@ -111,10 +111,10 @@
 // brand-specific feel.
 //
 // Color tokens used across the file (kept here for fast review):
-//   INK   = #18171A — primary ink, all strokes, headline text
-//   BRASS = #A88B47 — single accent per illustration, highlights,
+//   INK   = #0C0D0F — primary ink, all strokes, headline text
+//   BRASS = #34C759 — single accent per illustration, highlights,
 //                     callouts, the "your firm" beat
-//   #FFE817        — signal yellow, used only inside brass blocks to
+//   #6EF06E        — signal yellow, used only inside brass blocks to
 //                     pull eye to the most important data point (the
 //                     "5.0" rating digits, "+1" badge counters, etc.)
 //   #F6B73C        — review stars only — kept distinct from brass so
@@ -146,8 +146,8 @@
 // accent, no chromatic explosion. Keep the file scrolling at this
 // density so the visual language stays consistent.
 
-const INK = "#18171A";
-const BRASS = "#A88B47";
+const INK = "#0C0D0F";
+const BRASS = "#34C759";
 
 function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: number; flipX?: boolean; flipY?: boolean }) {
   const sx = flipX ? -1 : 1;
@@ -181,15 +181,15 @@ export function LocalVisibilityIllustration() {
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
       <defs>
         <pattern id="si-loc-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M 20 0 L 0 0 0 20" stroke="rgba(24,23,26,0.06)" strokeWidth="0.4" fill="none" />
+          <path d="M 20 0 L 0 0 0 20" stroke="rgba(12, 13, 15,0.06)" strokeWidth="0.4" fill="none" />
         </pattern>
         <radialGradient id="si-loc-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="rgba(168,139,71,0.25)" />
-          <stop offset="100%" stopColor="rgba(168,139,71,0)" />
+          <stop offset="0%" stopColor="rgba(110, 240, 110,0.25)" />
+          <stop offset="100%" stopColor="rgba(110, 240, 110,0)" />
         </radialGradient>
       </defs>
 
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
       <rect x="0" y="0" width="200" height="200" fill="url(#si-loc-grid)" />
 
       {/* Map roads */}
@@ -238,7 +238,7 @@ export function LocalVisibilityIllustration() {
       <g>
         <path d="M 90 96 Q 90 84 100 84 Q 110 84 110 96 L 100 112 Z" fill={BRASS} />
         <circle cx="100" cy="94" r="3" fill="#FFFFFF" />
-        <polygon points="98,92 102,92 98,96" fill="#FFE817" />
+        <polygon points="98,92 102,92 98,96" fill="#6EF06E" />
       </g>
       <ellipse cx="100" cy="116" rx="8" ry="2" fill={INK} opacity="0.18" />
 
@@ -255,7 +255,7 @@ export function LocalVisibilityIllustration() {
 
         <g transform="translate(4, 10)">
           <circle cx="2.5" cy="3" r="2.5" fill={BRASS} />
-          <text x="2.5" y="4" fontSize="3.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">1</text>
+          <text x="2.5" y="4" fontSize="3.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">1</text>
           <rect x="8" y="0" width="34" height="1.4" rx="0.7" fill={INK} opacity="0.7" />
           <rect x="8" y="3" width="42" height="1.2" rx="0.6" fill={INK} opacity="0.45" />
           <g transform="translate(58, 1)">
@@ -326,7 +326,7 @@ export function LocalVisibilityIllustration() {
       {/* Distance bubble */}
       <g transform="translate(118, 142)">
         <rect width="18" height="8" rx="4" fill={INK} />
-        <text x="9" y="5.5" fontSize="4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">2.4mi</text>
+        <text x="9" y="5.5" fontSize="4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">2.4mi</text>
       </g>
 
       {/* Mini insets — neighborhood labels */}
@@ -372,8 +372,8 @@ export function LocalVisibilityIllustration() {
       {/* "Saves" bookmark counter */}
       <g transform="translate(8, 76)">
         <rect width="30" height="10" rx="2" fill={INK} />
-        <polygon points="3,2 8,2 8,8 5.5,6 3,8" fill="#FFE817" />
-        <text x="14" y="6" fontSize="2.6" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="1">SAVED</text>
+        <polygon points="3,2 8,2 8,8 5.5,6 3,8" fill="#6EF06E" />
+        <text x="14" y="6" fontSize="2.6" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="1">SAVED</text>
         <text x="14" y="9" fontSize="3" fontWeight="700" fill="#FFFFFF" fontFamily="Geist, sans-serif">1.2K</text>
       </g>
 
@@ -397,7 +397,7 @@ export function LocalVisibilityIllustration() {
 export function GBPIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
       {/* Card frame */}
       <rect x="16" y="16" width="168" height="168" rx="4" fill="#FFFFFF" stroke={INK} strokeWidth="1" />
 
@@ -406,7 +406,7 @@ export function GBPIllustration() {
       <polygon points="20,60 60,40 100,52 140,30 184,46 184,60" fill={INK} opacity="0.18" />
       <polygon points="50,60 86,46 130,56 184,42 184,60" fill={INK} opacity="0.12" />
       <circle cx="160" cy="32" r="6" fill={BRASS} opacity="0.7" />
-      <circle cx="160" cy="32" r="3" fill="#FFE817" />
+      <circle cx="160" cy="32" r="3" fill="#6EF06E" />
       {/* Camera count chip */}
       <g transform="translate(154, 50)">
         <rect width="26" height="8" rx="4" fill={INK} fillOpacity="0.85" />
@@ -545,9 +545,9 @@ export function GBPIllustration() {
 
       {/* Suggested edit pending banner */}
       <g transform="translate(24, 165)">
-        <rect width="152" height="10" rx="2" fill="#FFFCE6" stroke="#FFE817" strokeWidth="0.6" />
+        <rect width="152" height="10" rx="2" fill="#FFFCE6" stroke="#6EF06E" strokeWidth="0.6" />
         <circle cx="6" cy="5" r="2" fill={BRASS} />
-        <text x="6" y="6.2" fontSize="2.6" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">!</text>
+        <text x="6" y="6.2" fontSize="2.6" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">!</text>
         <text x="12" y="6.2" fontSize="2.8" fill={INK} fontFamily="Geist, sans-serif" letterSpacing="0.6">2 suggested edits pending owner approval</text>
         <rect x="124" y="2.5" width="22" height="5" rx="2.5" fill={BRASS} />
         <text x="135" y="6" fontSize="2.4" fontWeight="700" fill="#FFFFFF" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.8">REVIEW</text>
@@ -580,7 +580,7 @@ export function GBPIllustration() {
 export function AuthorityContentIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Document */}
       <rect x="38" y="18" width="124" height="164" rx="3" fill="#FFFFFF" stroke={INK} strokeWidth="0.9" />
@@ -661,21 +661,21 @@ export function AuthorityContentIllustration() {
         <rect x="2" y="5" width="18" height="1.2" rx="0.6" fill={INK} opacity="0.4" />
         <rect x="2" y="8" width="14" height="1.2" rx="0.6" fill={INK} opacity="0.35" />
         <circle cx="22" cy="2" r="2.5" fill={BRASS} />
-        <text x="22" y="3.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">1</text>
+        <text x="22" y="3.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">1</text>
       </g>
       <g transform="translate(166, 50)">
         <rect width="28" height="14" rx="2" fill="#FFFFFF" stroke={INK} strokeWidth="0.7" />
         <rect x="2" y="2" width="22" height="1.4" rx="0.7" fill={INK} opacity="0.6" />
         <rect x="2" y="5" width="18" height="1.2" rx="0.6" fill={INK} opacity="0.4" />
         <circle cx="24" cy="2" r="2.5" fill={BRASS} />
-        <text x="24" y="3.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">2</text>
+        <text x="24" y="3.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">2</text>
       </g>
       <g transform="translate(166, 110)">
         <rect width="28" height="14" rx="2" fill="#FFFFFF" stroke={INK} strokeWidth="0.7" />
         <rect x="2" y="2" width="22" height="1.4" rx="0.7" fill={INK} opacity="0.6" />
         <rect x="2" y="5" width="20" height="1.2" rx="0.6" fill={INK} opacity="0.4" />
         <circle cx="24" cy="2" r="2.5" fill={BRASS} />
-        <text x="24" y="3.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">3</text>
+        <text x="24" y="3.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">3</text>
       </g>
 
       {/* Connector lines from doc to bubbles */}
@@ -690,7 +690,7 @@ export function AuthorityContentIllustration() {
 
       {/* Word count + read time chip top */}
       <g transform="translate(126, 26)">
-        <rect width="32" height="8" rx="2" stroke={BRASS} strokeWidth="0.5" fill="rgba(168,139,71,0.08)" />
+        <rect width="32" height="8" rx="2" stroke={BRASS} strokeWidth="0.5" fill="rgba(110, 240, 110,0.08)" />
         <text x="3" y="5" fontSize="3.4" fill={BRASS} fontFamily="Geist, sans-serif" letterSpacing="1">2400w · 9 min</text>
       </g>
 
@@ -716,7 +716,7 @@ export function AuthorityContentIllustration() {
         <rect x="2" y="5" width="18" height="1.2" rx="0.6" fill={INK} opacity="0.4" />
         <rect x="2" y="8" width="16" height="1.2" rx="0.6" fill={INK} opacity="0.35" />
         <circle cx="22" cy="2" r="2.5" fill={BRASS} />
-        <text x="22" y="3.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">4</text>
+        <text x="22" y="3.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">4</text>
       </g>
       <path d="M 34 100 Q 40 110 46 122" stroke={BRASS} strokeWidth="0.5" strokeDasharray="2 3" fill="none" opacity="0.5" />
 
@@ -726,7 +726,7 @@ export function AuthorityContentIllustration() {
         <rect x="2" y="2" width="22" height="1.4" rx="0.7" fill={INK} opacity="0.6" />
         <rect x="2" y="5" width="18" height="1.2" rx="0.6" fill={INK} opacity="0.4" />
         <circle cx="22" cy="2" r="2.5" fill={BRASS} />
-        <text x="22" y="3.2" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">5</text>
+        <text x="22" y="3.2" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">5</text>
       </g>
       <path d="M 34 162 Q 38 158 46 152" stroke={BRASS} strokeWidth="0.5" strokeDasharray="2 3" fill="none" opacity="0.5" />
 
@@ -779,7 +779,7 @@ export function AuthorityContentIllustration() {
 export function AISearchIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Outer ring */}
       <circle cx="100" cy="100" r="78" stroke={INK} strokeWidth="0.4" strokeDasharray="2 4" fill="none" opacity="0.25" />
@@ -788,7 +788,7 @@ export function AISearchIllustration() {
 
       {/* Central node (your firm) */}
       <circle cx="100" cy="100" r="14" fill={BRASS} />
-      <polygon points="92,92 108,92 92,108" fill="#FFE817" />
+      <polygon points="92,92 108,92 92,108" fill="#6EF06E" />
       <circle cx="100" cy="100" r="18" stroke={BRASS} strokeWidth="0.8" fill="none" opacity="0.6">
         <animate attributeName="r" values="18;26;18" dur="2.4s" repeatCount="indefinite" />
         <animate attributeName="opacity" values="0.6;0;0.6" dur="2.4s" repeatCount="indefinite" />
@@ -879,7 +879,7 @@ export function AISearchIllustration() {
       {/* Citation tag */}
       <g transform="translate(140, 24)">
         <rect width="48" height="10" rx="1" fill={INK} />
-        <text x="24" y="6.5" fontSize="4" fill="#FFE817" textAnchor="middle" fontWeight="700" fontFamily="Geist, sans-serif" letterSpacing="1">CITED · #1</text>
+        <text x="24" y="6.5" fontSize="4" fill="#6EF06E" textAnchor="middle" fontWeight="700" fontFamily="Geist, sans-serif" letterSpacing="1">CITED · #1</text>
       </g>
 
       {/* Knowledge graph label */}
@@ -936,7 +936,7 @@ export function AISearchIllustration() {
       <g transform="translate(8, 168)">
         <rect width="46" height="10" rx="2" fill="#FFFFFF" stroke={INK} strokeWidth="0.5" />
         <circle cx="5" cy="5" r="2" fill={BRASS} />
-        <text x="5" y="6" fontSize="2.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">AI</text>
+        <text x="5" y="6" fontSize="2.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">AI</text>
         <text x="11" y="5.6" fontSize="2.6" fill={INK} opacity="0.7" fontFamily="Geist, sans-serif">GPT 5.1 · CLAUDE 4.7</text>
       </g>
 
@@ -962,7 +962,7 @@ export function AISearchIllustration() {
 export function ReputationIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Header */}
       <g transform="translate(16, 16)">
@@ -1082,7 +1082,7 @@ export function ReputationIllustration() {
       {/* Review platforms tabs at top */}
       <g transform="translate(110, 18)">
         <rect width="14" height="6" rx="1" fill={BRASS} />
-        <text x="7" y="4" fontSize="2.6" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">GOOGLE</text>
+        <text x="7" y="4" fontSize="2.6" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">GOOGLE</text>
         <rect x="16" width="14" height="6" rx="1" stroke={INK} strokeWidth="0.4" fill="#FFFFFF" />
         <text x="23" y="4" fontSize="2.6" fill={INK} opacity="0.55" textAnchor="middle" fontFamily="Geist, sans-serif">AVVO</text>
         <rect x="32" width="14" height="6" rx="1" stroke={INK} strokeWidth="0.4" fill="#FFFFFF" />
@@ -1103,9 +1103,9 @@ export function ReputationIllustration() {
       {/* New review notification toast */}
       <g transform="translate(140, 178)">
         <rect width="44" height="8" rx="2" fill={INK} />
-        <circle cx="5" cy="4" r="2" fill="#FFE817" />
+        <circle cx="5" cy="4" r="2" fill="#6EF06E" />
         <text x="5" y="5.4" fontSize="3" fontWeight="700" fill={INK} textAnchor="middle" fontFamily="Geist, sans-serif">!</text>
-        <text x="11" y="5.4" fontSize="2.6" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="1">2 NEW · LAST 24h</text>
+        <text x="11" y="5.4" fontSize="2.6" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="1">2 NEW · LAST 24h</text>
       </g>
 
       {/* Per-platform aggregate ranking */}
@@ -1144,7 +1144,7 @@ export function ReputationIllustration() {
 export function WebsiteConversionIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Browser chrome */}
       <rect x="16" y="16" width="128" height="168" rx="3" fill="#FFFFFF" stroke={INK} strokeWidth="0.9" />
@@ -1198,7 +1198,7 @@ export function WebsiteConversionIllustration() {
 
       {/* Sticky bottom bar */}
       <rect x="16" y="172" width="128" height="12" fill={INK} />
-      <rect x="22" y="176" width="30" height="1.6" rx="0.8" fill="#FFE817" />
+      <rect x="22" y="176" width="30" height="1.6" rx="0.8" fill="#6EF06E" />
       <rect x="22" y="179.5" width="60" height="1.4" rx="0.7" fill="#FFFFFF" opacity="0.55" />
       <rect x="112" y="175" width="28" height="6" rx="3" fill={BRASS} />
       <rect x="116" y="177.4" width="20" height="1.4" rx="0.7" fill="#FFFFFF" />
@@ -1248,7 +1248,7 @@ export function WebsiteConversionIllustration() {
       {/* Heatmap overlay (red/yellow on CTA) */}
       <g opacity="0.45">
         <ellipse cx="47" cy="73" rx="22" ry="8" fill={BRASS} />
-        <ellipse cx="47" cy="73" rx="14" ry="5" fill="#FFE817" />
+        <ellipse cx="47" cy="73" rx="14" ry="5" fill="#6EF06E" />
       </g>
 
       {/* Scroll depth indicator at right */}
@@ -1262,12 +1262,12 @@ export function WebsiteConversionIllustration() {
       <g transform="translate(22, 14)">
         <rect width="40" height="6" rx="3" fill={INK} />
         <circle cx="4" cy="3" r="1.4" fill={BRASS} />
-        <text x="20" y="4.3" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">A/B · VARIANT B</text>
+        <text x="20" y="4.3" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">A/B · VARIANT B</text>
       </g>
 
       {/* Live visitor count */}
       <g transform="translate(78, 14)">
-        <rect width="58" height="6" rx="3" stroke={BRASS} strokeWidth="0.5" fill="rgba(168,139,71,0.06)" />
+        <rect width="58" height="6" rx="3" stroke={BRASS} strokeWidth="0.5" fill="rgba(110, 240, 110,0.06)" />
         <circle cx="4" cy="3" r="1.2" fill={BRASS}>
           <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
         </circle>
@@ -1319,7 +1319,7 @@ export function WebsiteConversionIllustration() {
 export function PressIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Back paper (rotated) */}
       <g transform="rotate(-4 100 100)" opacity="0.6">
@@ -1343,7 +1343,7 @@ export function PressIllustration() {
 
       {/* Masthead */}
       <rect x="22" y="22" width="156" height="6" fill={INK} />
-      <text x="100" y="26.5" fontSize="3.5" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="2.5">THE TRIBUNE · VOL XXIV</text>
+      <text x="100" y="26.5" fontSize="3.5" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="2.5">THE TRIBUNE · VOL XXIV</text>
 
       {/* Title */}
       <text x="100" y="40" fontSize="7" fontWeight="700" fill={INK} textAnchor="middle" fontFamily="Geist, sans-serif">&quot;Best Probate Lawyer&quot;</text>
@@ -1413,13 +1413,13 @@ export function PressIllustration() {
       {/* Backlinks counter overlay */}
       <g transform="translate(140, 154)">
         <rect width="42" height="20" rx="2" fill={INK} />
-        <text x="4" y="6" fontSize="3" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="1.4">BACKLINKS</text>
-        <text x="4" y="14" fontSize="9" fontWeight="700" fill="#FFE817" fontFamily="Geist, sans-serif">+482</text>
+        <text x="4" y="6" fontSize="3" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="1.4">BACKLINKS</text>
+        <text x="4" y="14" fontSize="9" fontWeight="700" fill="#6EF06E" fontFamily="Geist, sans-serif">+482</text>
         <text x="24" y="18" fontSize="2.6" fill="#FFFFFF" opacity="0.55" fontFamily="Geist, sans-serif">DR 84</text>
       </g>
 
       {/* Edition number */}
-      <text x="178" y="32" fontSize="3" fill="#FFE817" textAnchor="end" fontFamily="Geist, sans-serif" letterSpacing="2">N°842</text>
+      <text x="178" y="32" fontSize="3" fill="#6EF06E" textAnchor="end" fontFamily="Geist, sans-serif" letterSpacing="2">N°842</text>
 
       {/* Below the fold strip - related pieces */}
       <g transform="translate(28, 178)">
@@ -1442,13 +1442,13 @@ export function PressIllustration() {
 
       {/* Editor mark */}
       <g transform="translate(28, 18)">
-        <rect width="40" height="2" rx="1" fill="#FFE817" />
+        <rect width="40" height="2" rx="1" fill="#6EF06E" />
       </g>
 
       {/* Pinned bookmark ribbon */}
       <g transform="translate(168, 22)">
         <polygon points="0,0 8,0 8,16 4,12 0,16" fill={BRASS} />
-        <rect x="2" y="3" width="4" height="1" rx="0.5" fill="#FFE817" />
+        <rect x="2" y="3" width="4" height="1" rx="0.5" fill="#6EF06E" />
       </g>
 
       {/* DA / DR scorecard */}
@@ -1466,7 +1466,7 @@ export function PressIllustration() {
       {/* Republish callout */}
       <g transform="translate(170, 138)">
         <rect width="20" height="14" rx="2" fill={BRASS} />
-        <text x="10" y="5" fontSize="2.6" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">REPUB</text>
+        <text x="10" y="5" fontSize="2.6" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">REPUB</text>
         <text x="10" y="9" fontSize="3.4" fontWeight="700" fill="#FFFFFF" textAnchor="middle" fontFamily="Geist, sans-serif">3×</text>
         <text x="10" y="12.5" fontSize="2.2" fill="#FFFFFF" opacity="0.7" textAnchor="middle" fontFamily="Geist, sans-serif">syndicated</text>
       </g>
@@ -1496,12 +1496,12 @@ export function PressIllustration() {
 export function SchemaIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Editor frame */}
       <rect x="14" y="14" width="172" height="172" rx="3" fill="#1F1E22" />
       {/* Title bar */}
-      <rect x="14" y="14" width="172" height="10" rx="3" fill="#2A2829" />
+      <rect x="14" y="14" width="172" height="10" rx="3" fill="#1A1C1F" />
       <circle cx="20" cy="19" r="1.4" fill="#FF5F57" />
       <circle cx="25" cy="19" r="1.4" fill="#FEBC2E" />
       <circle cx="30" cy="19" r="1.4" fill="#28C840" />
@@ -1516,49 +1516,49 @@ export function SchemaIllustration() {
       {/* Code body */}
       <g fontFamily="Geist Mono, monospace" fontSize="3.4">
         <text x="32" y="28" fill="#9AA0A6">{`{`}</text>
-        <text x="36" y="36" fill="#A88B47">&quot;@context&quot;</text>
+        <text x="36" y="36" fill="#34C759">&quot;@context&quot;</text>
         <text x="76" y="36" fill="#9AA0A6">:</text>
         <text x="80" y="36" fill="#7CB7FF">&quot;https://schema.org&quot;</text>
         <text x="138" y="36" fill="#9AA0A6">,</text>
-        <text x="36" y="44" fill="#A88B47">&quot;@type&quot;</text>
+        <text x="36" y="44" fill="#34C759">&quot;@type&quot;</text>
         <text x="64" y="44" fill="#9AA0A6">:</text>
         <text x="68" y="44" fill="#7CB7FF">&quot;LegalService&quot;</text>
         <text x="110" y="44" fill="#9AA0A6">,</text>
-        <text x="36" y="52" fill="#A88B47">&quot;name&quot;</text>
+        <text x="36" y="52" fill="#34C759">&quot;name&quot;</text>
         <text x="60" y="52" fill="#9AA0A6">:</text>
         <text x="64" y="52" fill="#7CB7FF">&quot;AWS Law Firm&quot;</text>
         <text x="110" y="52" fill="#9AA0A6">,</text>
-        <text x="36" y="60" fill="#A88B47">&quot;telephone&quot;</text>
+        <text x="36" y="60" fill="#34C759">&quot;telephone&quot;</text>
         <text x="80" y="60" fill="#9AA0A6">:</text>
         <text x="84" y="60" fill="#7CB7FF">&quot;+1-813-555-0142&quot;</text>
         <text x="148" y="60" fill="#9AA0A6">,</text>
-        <text x="36" y="68" fill="#A88B47">&quot;address&quot;</text>
+        <text x="36" y="68" fill="#34C759">&quot;address&quot;</text>
         <text x="70" y="68" fill="#9AA0A6">: {`{`}</text>
-        <text x="40" y="76" fill="#A88B47">&quot;@type&quot;</text>
+        <text x="40" y="76" fill="#34C759">&quot;@type&quot;</text>
         <text x="68" y="76" fill="#9AA0A6">:</text>
         <text x="72" y="76" fill="#7CB7FF">&quot;PostalAddress&quot;</text>
         <text x="120" y="76" fill="#9AA0A6">,</text>
-        <text x="40" y="84" fill="#A88B47">&quot;streetAddress&quot;</text>
+        <text x="40" y="84" fill="#34C759">&quot;streetAddress&quot;</text>
         <text x="92" y="84" fill="#9AA0A6">:</text>
         <text x="96" y="84" fill="#7CB7FF">&quot;200 N Tampa St&quot;</text>
         <text x="148" y="84" fill="#9AA0A6">,</text>
-        <text x="40" y="92" fill="#A88B47">&quot;addressLocality&quot;</text>
+        <text x="40" y="92" fill="#34C759">&quot;addressLocality&quot;</text>
         <text x="98" y="92" fill="#9AA0A6">:</text>
         <text x="102" y="92" fill="#7CB7FF">&quot;Tampa&quot;</text>
         <text x="36" y="100" fill="#9AA0A6">{`},`}</text>
-        <text x="36" y="108" fill="#A88B47">&quot;aggregateRating&quot;</text>
+        <text x="36" y="108" fill="#34C759">&quot;aggregateRating&quot;</text>
         <text x="98" y="108" fill="#9AA0A6">: {`{`}</text>
-        <text x="40" y="116" fill="#A88B47">&quot;@type&quot;</text>
+        <text x="40" y="116" fill="#34C759">&quot;@type&quot;</text>
         <text x="68" y="116" fill="#9AA0A6">:</text>
         <text x="72" y="116" fill="#7CB7FF">&quot;AggregateRating&quot;</text>
-        <text x="40" y="124" fill="#A88B47">&quot;ratingValue&quot;</text>
+        <text x="40" y="124" fill="#34C759">&quot;ratingValue&quot;</text>
         <text x="86" y="124" fill="#9AA0A6">:</text>
-        <text x="90" y="124" fill="#FFE817">&quot;5.0&quot;</text>
-        <text x="40" y="132" fill="#A88B47">&quot;reviewCount&quot;</text>
+        <text x="90" y="124" fill="#6EF06E">&quot;5.0&quot;</text>
+        <text x="40" y="132" fill="#34C759">&quot;reviewCount&quot;</text>
         <text x="86" y="132" fill="#9AA0A6">:</text>
-        <text x="90" y="132" fill="#FFE817">487</text>
+        <text x="90" y="132" fill="#6EF06E">487</text>
         <text x="36" y="140" fill="#9AA0A6">{`},`}</text>
-        <text x="36" y="148" fill="#A88B47">&quot;sameAs&quot;</text>
+        <text x="36" y="148" fill="#34C759">&quot;sameAs&quot;</text>
         <text x="64" y="148" fill="#9AA0A6">: [</text>
         <text x="40" y="156" fill="#7CB7FF">&quot;https://g.co/awslaw&quot;</text>
         <text x="40" y="164" fill="#7CB7FF">&quot;https://avvo.com/...&quot;</text>
@@ -1578,7 +1578,7 @@ export function SchemaIllustration() {
 
       {/* Test results panel right side */}
       <g transform="translate(146, 44)">
-        <rect width="38" height="68" rx="2" fill="#2A2829" stroke="#3A383C" strokeWidth="0.6" />
+        <rect width="38" height="68" rx="2" fill="#1A1C1F" stroke="#3A383C" strokeWidth="0.6" />
         <text x="4" y="6" fontSize="3" fill="#6B6968" fontFamily="Geist Mono, monospace" letterSpacing="1.2">VALIDATOR</text>
         <line x1="4" y1="9" x2="34" y2="9" stroke="#3A383C" strokeWidth="0.3" />
 
@@ -1598,9 +1598,9 @@ export function SchemaIllustration() {
           <circle cy="24" r="1.4" fill={BRASS} />
           <text x="4" y="25.5" fontSize="2.6" fill="#9AA0A6" fontFamily="Geist Mono, monospace">sameAs</text>
           <text x="32" y="25.5" fontSize="2.6" fill={BRASS} textAnchor="end" fontFamily="Geist Mono, monospace">OK</text>
-          <circle cy="30" r="1.4" fill="#FFE817" opacity="0.85" />
+          <circle cy="30" r="1.4" fill="#6EF06E" opacity="0.85" />
           <text x="4" y="31.5" fontSize="2.6" fill="#9AA0A6" fontFamily="Geist Mono, monospace">openHours</text>
-          <text x="32" y="31.5" fontSize="2.6" fill="#FFE817" textAnchor="end" fontFamily="Geist Mono, monospace">WARN</text>
+          <text x="32" y="31.5" fontSize="2.6" fill="#6EF06E" textAnchor="end" fontFamily="Geist Mono, monospace">WARN</text>
           <circle cy="36" r="1.4" fill={BRASS} />
           <text x="4" y="37.5" fontSize="2.6" fill="#9AA0A6" fontFamily="Geist Mono, monospace">geo</text>
           <text x="32" y="37.5" fontSize="2.6" fill={BRASS} textAnchor="end" fontFamily="Geist Mono, monospace">OK</text>
@@ -1615,8 +1615,8 @@ export function SchemaIllustration() {
 
       {/* Tab strip */}
       <g transform="translate(34, 26)">
-        <rect width="16" height="6" rx="1" fill="#2A2829" />
-        <text x="8" y="4.4" fontSize="2.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist Mono, monospace">.json</text>
+        <rect width="16" height="6" rx="1" fill="#1A1C1F" />
+        <text x="8" y="4.4" fontSize="2.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist Mono, monospace">.json</text>
         <text x="24" y="4.4" fontSize="2.4" fill="#52515A" textAnchor="middle" fontFamily="Geist Mono, monospace">.tsx</text>
         <text x="40" y="4.4" fontSize="2.4" fill="#52515A" textAnchor="middle" fontFamily="Geist Mono, monospace">.html</text>
       </g>
@@ -1634,7 +1634,7 @@ export function SchemaIllustration() {
 export function EmailIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Inbox container */}
       <rect x="14" y="14" width="172" height="172" rx="3" fill="#FFFFFF" stroke={INK} strokeWidth="0.9" />
@@ -1662,7 +1662,7 @@ export function EmailIllustration() {
       {/* Email content header */}
       <g transform="translate(58, 32)">
         <circle cx="6" cy="6" r="5" fill={BRASS} />
-        <text x="6" y="8" fontSize="5" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">R</text>
+        <text x="6" y="8" fontSize="5" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">R</text>
         <rect x="14" y="2" width="50" height="2" rx="1" fill={INK} opacity="0.7" />
         <rect x="14" y="6" width="80" height="1.6" rx="0.8" fill={INK} opacity="0.5" />
         <rect x="14" y="9.5" width="64" height="1.4" rx="0.7" fill={INK} opacity="0.4" />
@@ -1792,8 +1792,8 @@ export function EmailIllustration() {
       {/* AB test winner badge */}
       <g transform="translate(122, 32)">
         <rect width="38" height="6" rx="3" fill={BRASS} />
-        <circle cx="4" cy="3" r="1.4" fill="#FFE817" />
-        <text x="19" y="4.4" fontSize="2.6" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">A/B WINNER · +14%</text>
+        <circle cx="4" cy="3" r="1.4" fill="#6EF06E" />
+        <text x="19" y="4.4" fontSize="2.6" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1">A/B WINNER · +14%</text>
       </g>
 
       {/* Click map visualization on body */}
@@ -1835,7 +1835,7 @@ export function EmailIllustration() {
 export function SocialIllustration() {
   return (
     <svg viewBox="0 0 200 200" width="200" height="200" fill="none" aria-hidden="true" role="presentation">
-      <rect x="0" y="0" width="200" height="200" fill="#FCFCFA" />
+      <rect x="0" y="0" width="200" height="200" fill="#FAFBFC" />
 
       {/* Instagram post card (left) */}
       <g transform="translate(18, 30)">
@@ -1883,7 +1883,7 @@ export function SocialIllustration() {
         <rect width="48" height="82" rx="3" fill="#FFFFFF" stroke={INK} strokeWidth="0.7" />
         <g transform="translate(4, 4)">
           <circle r="3" fill={BRASS} />
-          <text y="1" fontSize="3.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif">R</text>
+          <text y="1" fontSize="3.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif">R</text>
           <rect x="6" y="-2" width="24" height="1.4" rx="0.7" fill={INK} opacity="0.7" />
           <rect x="6" y="1" width="18" height="1.2" rx="0.6" fill={INK} opacity="0.5" />
         </g>
@@ -1967,9 +1967,9 @@ export function SocialIllustration() {
       {/* Top performing post badge */}
       <g transform="translate(76, 12)">
         <rect width="48" height="8" rx="4" fill={INK} />
-        <circle cx="5" cy="4" r="2" fill="#FFE817" />
+        <circle cx="5" cy="4" r="2" fill="#6EF06E" />
         <polygon points="3.5,4 6.5,4 5,2 5,6" fill={INK} transform="rotate(0 5 4)" />
-        <text x="28" y="5.4" fontSize="3" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1.4">TOP POST · 1.2M</text>
+        <text x="28" y="5.4" fontSize="3" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="1.4">TOP POST · 1.2M</text>
       </g>
 
       {/* Cadence chart strip */}

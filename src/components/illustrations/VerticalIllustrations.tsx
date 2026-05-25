@@ -13,14 +13,14 @@
 //   - INK for all structural strokes. BRASS used for the single
 //     focal "beat" per scene (the desk lamp in Legal, the wall
 //     monitor in Medical).
-//   - Yellow (#FFE817) appears only inside brass blocks/Rysen marks.
+//   - Yellow (#6EF06E) appears only inside brass blocks/Rysen marks.
 //   - No serif text. Annotations use Geist with wide letter-spacing.
 //
 // Both files run to ~400 lines with 60+ SVG elements each to read as
 // rendered "drawn" interiors rather than icons.
 
-const INK = "#18171A";
-const BRASS = "#A88B47";
+const INK = "#0C0D0F";
+const BRASS = "#34C759";
 
 // =====================================================================
 // LEGAL WORLD — stylized law office interior
@@ -38,7 +38,7 @@ export function LegalVerticalIllustration() {
     >
       <defs>
         <pattern id="legal-floor-pat" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M 0 20 L 20 0" stroke="rgba(24,23,26,0.06)" strokeWidth="0.5" />
+          <path d="M 0 20 L 20 0" stroke="rgba(12, 13, 15,0.06)" strokeWidth="0.5" />
         </pattern>
         <linearGradient id="legal-lamp-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor={BRASS} stopOpacity="0.5" />
@@ -51,7 +51,7 @@ export function LegalVerticalIllustration() {
       </defs>
 
       {/* Canvas */}
-      <rect x="0" y="0" width="400" height="400" fill="#FCFCFA" />
+      <rect x="0" y="0" width="400" height="400" fill="#FAFBFC" />
 
       {/* Floor */}
       <rect x="0" y="300" width="400" height="100" fill="url(#legal-floor-pat)" />
@@ -91,7 +91,7 @@ export function LegalVerticalIllustration() {
       <rect x="146" y="104" width="12" height="24" fill={INK} opacity="0.78" />
       <rect x="160" y="108" width="9" height="20" fill={INK} opacity="0.55" />
       <rect x="171" y="104" width="14" height="24" fill={BRASS} />
-      <text x="178" y="120" fontSize="6" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" fontWeight="700" letterSpacing="0.1em">LEX</text>
+      <text x="178" y="120" fontSize="6" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" fontWeight="700" letterSpacing="0.1em">LEX</text>
       <rect x="187" y="106" width="10" height="22" fill={INK} opacity="0.7" />
       <rect x="199" y="104" width="8" height="24" fill={INK} opacity="0.6" />
       <rect x="209" y="106" width="12" height="22" fill={INK} opacity="0.78" />
@@ -176,7 +176,7 @@ export function LegalVerticalIllustration() {
       <rect x="316" y="228" width="22" height="3" rx="1" fill={INK} />
       <rect x="324" y="200" width="6" height="28" fill={BRASS} />
       <path d="M 314 192 L 340 192 L 332 202 L 322 202 Z" fill={BRASS} />
-      <circle cx="327" cy="206" r="3" fill="#FFE817" />
+      <circle cx="327" cy="206" r="3" fill="#6EF06E" />
       <circle cx="327" cy="206" r="6" fill="url(#legal-lamp-glow)" />
 
       {/* Stack of papers */}
@@ -230,7 +230,7 @@ export function LegalVerticalIllustration() {
 
       {/* Sticky note */}
       <g transform="translate(186, 234)">
-        <rect width="18" height="18" fill="#FFE817" stroke={INK} strokeWidth="0.4" />
+        <rect width="18" height="18" fill="#6EF06E" stroke={INK} strokeWidth="0.4" />
         <rect x="2" y="3" width="14" height="0.8" fill={INK} opacity="0.55" />
         <rect x="2" y="5" width="12" height="0.8" fill={INK} opacity="0.45" />
         <rect x="2" y="7" width="14" height="0.8" fill={INK} opacity="0.35" />
@@ -273,7 +273,7 @@ export function LegalVerticalIllustration() {
       <g transform="translate(308, 24)">
         <rect width="64" height="14" rx="2" fill={INK} />
         <circle cx="6" cy="7" r="1.6" fill={BRASS} />
-        <text x="14" y="10" fontSize="7" fontWeight="700" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="0.16em">LAW · 01</text>
+        <text x="14" y="10" fontSize="7" fontWeight="700" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="0.16em">LAW · 01</text>
       </g>
 
       {/* Specialty tags floating in the back wall */}
@@ -343,7 +343,7 @@ export function LegalVerticalIllustration() {
       {/* Tiny "by appt only" placard on desk */}
       <g transform="translate(238, 254)">
         <rect width="30" height="6" rx="1" fill={INK} fillOpacity="0.92" />
-        <text x="15" y="4.2" fontSize="3.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.14em">BY APPT</text>
+        <text x="15" y="4.2" fontSize="3.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.14em">BY APPT</text>
       </g>
 
       {/* Window blinds line indicator */}
@@ -415,9 +415,9 @@ export function MedicalVerticalIllustration() {
     >
       <defs>
         <pattern id="med-floor-pat" width="24" height="24" patternUnits="userSpaceOnUse">
-          <rect width="24" height="24" fill="#FCFCFA" />
-          <line x1="0" y1="0" x2="24" y2="0" stroke="rgba(24,23,26,0.08)" strokeWidth="0.5" />
-          <line x1="0" y1="0" x2="0" y2="24" stroke="rgba(24,23,26,0.08)" strokeWidth="0.5" />
+          <rect width="24" height="24" fill="#FAFBFC" />
+          <line x1="0" y1="0" x2="24" y2="0" stroke="rgba(12, 13, 15,0.08)" strokeWidth="0.5" />
+          <line x1="0" y1="0" x2="0" y2="24" stroke="rgba(12, 13, 15,0.08)" strokeWidth="0.5" />
         </pattern>
         <radialGradient id="med-monitor-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor={BRASS} stopOpacity="0.35" />
@@ -425,7 +425,7 @@ export function MedicalVerticalIllustration() {
         </radialGradient>
       </defs>
 
-      <rect x="0" y="0" width="400" height="400" fill="#FCFCFA" />
+      <rect x="0" y="0" width="400" height="400" fill="#FAFBFC" />
 
       {/* Floor — tiled */}
       <rect x="0" y="290" width="400" height="110" fill="url(#med-floor-pat)" />
@@ -449,10 +449,10 @@ export function MedicalVerticalIllustration() {
         {/* EKG line */}
         <path d="M 10 36 L 26 36 L 32 22 L 38 50 L 44 28 L 50 36 L 70 36 L 76 30 L 82 42 L 88 28 L 94 36 L 114 36" stroke={BRASS} strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         {/* Vitals readout */}
-        <text x="10" y="56" fontSize="3.6" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="0.1em">BPM 68</text>
-        <text x="34" y="56" fontSize="3.6" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="0.1em">BP 120/80</text>
-        <text x="64" y="56" fontSize="3.6" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="0.1em">SpO2 99</text>
-        <text x="90" y="56" fontSize="3.6" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="0.1em">TEMP 98.6</text>
+        <text x="10" y="56" fontSize="3.6" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="0.1em">BPM 68</text>
+        <text x="34" y="56" fontSize="3.6" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="0.1em">BP 120/80</text>
+        <text x="64" y="56" fontSize="3.6" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="0.1em">SpO2 99</text>
+        <text x="90" y="56" fontSize="3.6" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="0.1em">TEMP 98.6</text>
         {/* Bottom bar */}
         <rect x="3" y="65" width="114" height="6" fill={BRASS} />
         <text x="60" y="69.5" fontSize="3.6" fill="#FFFFFF" fontFamily="Geist, sans-serif" textAnchor="middle" letterSpacing="0.14em" fontWeight="700">RYSEN DATA · LIVE</text>
@@ -655,7 +655,7 @@ export function MedicalVerticalIllustration() {
       <g transform="translate(308, 24)">
         <rect width="64" height="14" rx="2" fill={INK} />
         <circle cx="6" cy="7" r="1.6" fill={BRASS} />
-        <text x="14" y="10" fontSize="7" fontWeight="700" fill="#FFE817" fontFamily="Geist, sans-serif" letterSpacing="0.16em">MED · 02</text>
+        <text x="14" y="10" fontSize="7" fontWeight="700" fill="#6EF06E" fontFamily="Geist, sans-serif" letterSpacing="0.16em">MED · 02</text>
       </g>
 
       {/* Specialty tag */}
@@ -667,9 +667,9 @@ export function MedicalVerticalIllustration() {
       {/* Ceiling lights */}
       <g opacity="0.65">
         <rect x="80" y="18" width="60" height="6" rx="3" fill="#FFFFFF" stroke={INK} strokeWidth="0.8" />
-        <rect x="84" y="20" width="52" height="2" fill="#FFE817" opacity="0.6" />
+        <rect x="84" y="20" width="52" height="2" fill="#6EF06E" opacity="0.6" />
         <rect x="260" y="18" width="60" height="6" rx="3" fill="#FFFFFF" stroke={INK} strokeWidth="0.8" />
-        <rect x="264" y="20" width="52" height="2" fill="#FFE817" opacity="0.6" />
+        <rect x="264" y="20" width="52" height="2" fill="#6EF06E" opacity="0.6" />
       </g>
 
       {/* Light cones */}
@@ -690,7 +690,7 @@ export function MedicalVerticalIllustration() {
       <g transform="translate(126, 60)">
         <rect width="32" height="36" rx="1" fill="#FFFFFF" stroke={INK} strokeWidth="1" />
         <rect width="32" height="8" fill={INK} />
-        <text x="16" y="6" fontSize="4" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.2em" fontWeight="700">MAY 2026</text>
+        <text x="16" y="6" fontSize="4" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.2em" fontWeight="700">MAY 2026</text>
         {/* Grid */}
         {[0, 1, 2, 3, 4].map((row) => (
           <g key={row}>
@@ -798,7 +798,7 @@ export function MedicalVerticalIllustration() {
         <rect width="84" height="14" rx="2" fill={INK} />
         <circle cx="8" cy="7" r="2.4" fill={BRASS} />
         <path d="M 6.5 7 L 7.5 8 L 9.5 6" stroke="#FFFFFF" strokeWidth="0.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="48" y="10" fontSize="4.4" fontWeight="700" fill="#FFE817" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.16em">HIPAA · COMPLIANT</text>
+        <text x="48" y="10" fontSize="4.4" fontWeight="700" fill="#6EF06E" textAnchor="middle" fontFamily="Geist, sans-serif" letterSpacing="0.16em">HIPAA · COMPLIANT</text>
       </g>
     </svg>
   );

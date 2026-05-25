@@ -1,20 +1,23 @@
 import Link from "next/link";
+import { ContourPattern } from "./ContourPattern";
+import { HeroSearchTease } from "./HeroSearchTease";
 import { RankClimb } from "./RankClimb";
 
-// Session 42 hero — full-width vertical stack. Headline + sub + platform
-// pills + CTAs centered on top; large RankClimb animated centerpiece
-// occupies the next row at near-full-width; proof row at the bottom.
-// The Position Monitor has moved into the Stack area (Session 42 P4.5).
+// Session 43 hero — aimfox-style bordered box wrapping the intro
+// (headline + sub + platform logos + CTAs + small search tease),
+// with a faint green topographic contour background. The large
+// RankClimb demo lives BELOW the box as a separate element.
+//
+// Vertical budget at 1440x900: headline (3 lines, ~180px) + sub
+// (~48px) + logos (~40px) + CTAs (~50px) + search tease (~46px) +
+// 5x 22px gaps (~110px) + 56px top padding ≈ 530px — comfortably
+// above the fold. The RankClimb demo may sit below the fold.
+//
+// Removed Session 42's "ENGINEERED · CREATIVE · BOUTIQUE" label.
 
 function ArrowIcon() {
   return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
       <path
         d="M3 7H11M11 7L7 3M11 7L7 11"
         stroke="currentColor"
@@ -75,7 +78,7 @@ function GeminiIconMini() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
       <defs>
-        <linearGradient id="hero42-gem-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="hero43-gem-grad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#4285F4" />
           <stop offset="50%" stopColor="#9747FF" />
           <stop offset="100%" stopColor="#EA4335" />
@@ -83,7 +86,7 @@ function GeminiIconMini() {
       </defs>
       <path
         d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"
-        fill="url(#hero42-gem-grad)"
+        fill="url(#hero43-gem-grad)"
       />
     </svg>
   );
@@ -91,75 +94,64 @@ function GeminiIconMini() {
 
 export function Hero() {
   return (
-    <section className="hero hero--s42" aria-label="Hero">
-      <div className="hero__intro">
-        <div className="hero__positioning">
-          <span>ENGINEERED</span>
-          <span className="hero__positioning-sep" aria-hidden="true" />
-          <span>CREATIVE</span>
-          <span className="hero__positioning-sep" aria-hidden="true" />
-          <span>BOUTIQUE</span>
+    <section className="hero hero--s43" aria-label="Hero">
+      <div className="hero__box">
+        <div className="hero__box-bg" aria-hidden="true">
+          <ContourPattern />
         </div>
 
-        <h1 className="hero__headline">
-          A{" "}
-          <span className="hero__highlight">search engineering agency</span>{" "}
-          that gets <span className="hero__bold">law firms</span> and{" "}
-          <span className="hero__bold">medical practices</span> at the top of
-          search results
-        </h1>
+        <div className="hero__box-content">
+          <h1 className="hero__headline">
+            <span className="hero__line">
+              A <span className="hero__highlight">search engineering agency</span>
+            </span>
+            <span className="hero__line">
+              that gets <span className="hero__bold">law firms</span> and{" "}
+              <span className="hero__bold">medical practices</span>
+            </span>
+            <span className="hero__line">
+              at <span className="hero__hash">#1</span> on all search results
+            </span>
+          </h1>
 
-        <p className="hero__sub">
-          A boutique studio of creatives and engineers. We compound visibility
-          for one firm per metro across these search surfaces:
-        </p>
+          <p className="hero__sub">
+            A boutique studio of creatives and engineers. One firm per metro.
+          </p>
 
-        <div className="hero__platforms">
-          <div className="hero__platform">
-            <GoogleIconMini />
-            <span>Google</span>
+          <div className="hero__platforms">
+            <div className="hero__platform">
+              <GoogleIconMini />
+              <span>Google</span>
+            </div>
+            <div className="hero__platform">
+              <ChatGPTIconMini />
+              <span>ChatGPT</span>
+            </div>
+            <div className="hero__platform">
+              <PerplexityIconMini />
+              <span>Perplexity</span>
+            </div>
+            <div className="hero__platform">
+              <GeminiIconMini />
+              <span>Gemini</span>
+            </div>
           </div>
-          <div className="hero__platform">
-            <ChatGPTIconMini />
-            <span>ChatGPT</span>
-          </div>
-          <div className="hero__platform">
-            <PerplexityIconMini />
-            <span>Perplexity</span>
-          </div>
-          <div className="hero__platform">
-            <GeminiIconMini />
-            <span>Gemini</span>
-          </div>
-        </div>
 
-        <div className="hero__ctas">
-          <Link href="/contact" className="hero__cta-primary">
-            Request audit <ArrowIcon />
-          </Link>
-          <Link href="#selected-work" className="hero__cta-secondary">
-            See the work
-          </Link>
+          <div className="hero__ctas">
+            <Link href="/contact" className="hero__cta-primary">
+              Request audit <ArrowIcon />
+            </Link>
+            <Link href="#selected-work" className="hero__cta-secondary">
+              See the work
+            </Link>
+          </div>
+
+          <HeroSearchTease />
         </div>
       </div>
 
-      <div className="hero__centerpiece">
+      <div className="hero__demo">
         <RankClimb />
-      </div>
-
-      <div className="hero__proof">
-        <div className="hero__proof-item">
-          <div className="hero__proof-num">1</div>
-          <div className="hero__proof-label">firm per metro</div>
-        </div>
-        <div className="hero__proof-item">
-          <div className="hero__proof-num">4</div>
-          <div className="hero__proof-label">platforms monitored</div>
-        </div>
-        <div className="hero__proof-item">
-          <div className="hero__proof-num">247</div>
-          <div className="hero__proof-label">queries tracked per client</div>
-        </div>
       </div>
     </section>
   );

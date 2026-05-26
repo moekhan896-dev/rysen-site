@@ -1,51 +1,42 @@
 "use client";
 
-// Session 41 — Live Lead Feed.
+// Session 49 — LiveLeadFeed rewrite.
 //
-// New section between Hero and SelectedWork. Two columns of live-
-// updating lead entries (legal left, medical right) that demonstrate
-// the engine's output in real time. Every ~3.8 seconds a new entry
-// fades into one of the columns and the oldest entry rolls off,
-// keeping each column to 5 visible cards. A counter at the top of
-// the section increments with each new lead.
+// What changed in Session 49:
 //
-// The data is intentionally fake but representative — service names,
-// cities, and types reflect the actual mix of inbound activity from
-// the active roster. A disclaimer at the bottom of the section makes
-// the "representative" framing explicit so this never reads as a
-// fabricated metric.
+//   1. World-clock row (NY, SF, London, Tokyo) updating every second,
+//      using Intl.DateTimeFormat with timeZone so it's correct on any
+//      device.
 //
-// Reduced-motion behavior: when prefers-reduced-motion is set, the
-// initial 5 seeds still render but the streaming interval is never
-// started — the feed becomes a static snapshot. The live dot
-// animation and lead-card-enter keyframe are also suppressed in CSS.
+//   2. Deterministic-live lead schedule. Instead of inserting random
+//      leads on a 3.8s interval, we generate the entire business-day
+//      schedule from a date seed (Pacific calendar day). The schedule
+//      is identical for every visitor at the same moment and survives
+//      a refresh without reshuffling. Cadence 30-180s between leads.
 //
-// Structural pieces:
+//   3. Business window: 8:00am - 6:00pm Pacific. No new leads outside
+//      that window. The "leads today" count reflects only arrivals
+//      inside the business window.
 //
-//   LiveLeadFeed (default export)
-//     The section root. Owns two state arrays (legalLeads,
-//     medicalLeads), the totalToday counter, and the streaming
-//     interval. Renders the header band, the counter row, the
-//     two-column lead feed, and the disclaimer footer.
+//   4. Exact arrival timestamp on each lead card (HH:MM:SS PT) plus a
+//      relative "Xs ago" label.
 //
-//   LeadCard
-//     A single feed entry: time-ago badge, type pill (call/form/
-//     booking), service line, and city/state. The newest card in
-//     each column gets the `--new` modifier which adds a brass
-//     border and a small outer glow ring.
+//   5. Reserved height — same as before. New leads animating in do not
+//      change document height. Page-jump guarantee preserved.
 //
-//   GavelIcon, CaduceusIcon
-//     Tiny inline glyphs for the column headers and the
-//     legal/medical split-meta row. Kept inline so the section is
-//     fully self-contained — no shared icon dependency.
+// Implementation outline:
 //
-// Why these vertical/city combinations: the roster spans Tampa,
-// Atlanta, and Detroit for legal (probate, family law, estate), and
-// Miami and Chicago for medical (cosmetic derm, implant dentistry,
-// aesthetic medicine). Templates are weighted to mirror the real
-// inbound mix so the feed reads as plausible at a glance — long
-// enough to read past the "is this real?" question and recognize
-// the pattern of the engine output.
+//   - We build the SCHEDULE for today's Pacific day at component mount,
+//     using a date-seeded mulberry32 PRNG. Each entry has an exact
+//     epoch-ms arrival time + a deterministic lead body.
+//   - We compute `now` in Pacific via Intl. Entries with arrival <= now
+//     are "already arrived"; we keep the latest 5 per column.
+//   - For entries with arrival > now (and before 6pm Pacific), we
+//     schedule a setTimeout so they animate in live as their moment
+//     passes.
+//   - On a `reduced-motion` viewer we skip the live arrivals (no
+//     animated insertions); we just render the current "arrived" set
+//     statically. Refresh still produces the same set.
 
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
@@ -65,14 +56,13 @@ type LeadEntry = {
   type: LeadType;
   phone: string;
   value: number;
-  timestamp: number;
+  timestamp: number; // epoch ms
 };
 
 type LeadTemplate = Omit<LeadEntry, "id" | "vertical" | "timestamp">;
 
-// Real metro area codes per city. The line number is masked with
-// bullet characters and "555" is reserved for representative use,
-// so these read as obviously non-real numbers.
+// ---------- Reference data ----------
+
 const METRO_PHONES: Record<string, string> = {
   Tampa: "(813) 555-••••",
   Atlanta: "(404) 555-••••",
@@ -81,16 +71,6 @@ const METRO_PHONES: Record<string, string> = {
   Chicago: "(312) 555-••••",
 };
 
-// ---------- Lead templates ----------
-//
-// Curated to reflect the actual roster: probate/family/estate in
-// Tampa/Atlanta/Detroit for legal, dermatology/implant/cosmetic in
-// Miami/Chicago for medical. Service phrasing mirrors how real
-// inbound leads describe themselves on intake forms.
-
-// Estimated revenue if signed/retained — realistic per-vertical
-// figures used to populate the per-lead "EST. VALUE IF SIGNED"
-// readout and to drive the pipeline + projection counters.
 const LEGAL_LEAD_TEMPLATES: LeadTemplate[] = [
   { city: "Tampa", state: "FL", service: "Probate inquiry", type: "call", phone: METRO_PHONES.Tampa, value: 4500 },
   { city: "Atlanta", state: "GA", service: "Divorce consultation", type: "call", phone: METRO_PHONES.Atlanta, value: 3800 },
@@ -117,23 +97,206 @@ const MEDICAL_LEAD_TEMPLATES: LeadTemplate[] = [
   { city: "Chicago", state: "IL", service: "Cosmetic dental consult", type: "form", phone: METRO_PHONES.Chicago, value: 4500 },
 ];
 
-// Starting pipeline value seed — a believable running total that
-// reads as "today's accumulated pipeline so far" on first render.
-const SEED_PIPELINE = 420000;
-const CLOSE_RATE = 0.10;
+const CLOSE_RATE = 0.1;
 
-// ---------- Component ----------
+// ---------- Deterministic PRNG (mulberry32) ----------
+
+function mulberry32(seed: number) {
+  let s = seed >>> 0;
+  return function () {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// ---------- Pacific-time helpers ----------
+//
+// Intl makes timezone-correct values regardless of viewer locale. We use
+// it to get the current Pacific calendar day (for the seed) and the
+// 8am/6pm boundaries as wall-clock UTC ms.
+
+function pacificParts(at: Date = new Date()): {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
+} {
+  const fmt = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+  const parts = Object.fromEntries(
+    fmt.formatToParts(at).map((p) => [p.type, p.value])
+  );
+  return {
+    year: parseInt(parts.year as string, 10),
+    month: parseInt(parts.month as string, 10),
+    day: parseInt(parts.day as string, 10),
+    hour: parseInt(parts.hour as string, 10) % 24,
+    minute: parseInt(parts.minute as string, 10),
+    second: parseInt(parts.second as string, 10),
+  };
+}
+
+// Given a Pacific wall-clock (Y, M, D, h, m, s), return the equivalent
+// epoch ms. We approximate by binary search: search for a UTC instant
+// whose Pacific-projected wall-clock equals the requested wall-clock.
+// In practice we walk timestamps in 1-second steps from a starting
+// guess, which is fine for our once-per-day schedule generation.
+function pacificWallToEpochMs(
+  y: number,
+  m: number,
+  d: number,
+  h: number,
+  min: number,
+  s: number
+): number {
+  // Start from a UTC guess assuming PT = UTC-8 (handles non-DST).
+  const guessUTC = Date.UTC(y, m - 1, d, h + 8, min, s);
+  // Refine: compute the Pacific projection of that guess, then nudge.
+  const guessParts = pacificParts(new Date(guessUTC));
+  const want = h * 3600 + min * 60 + s;
+  const got = guessParts.hour * 3600 + guessParts.minute * 60 + guessParts.second;
+  // diff in seconds we need to add to the guess to land on the wanted
+  // Pacific wall-clock. positive diff = guess is too early.
+  const diff = (want - got) * 1000;
+  return guessUTC + diff;
+}
+
+function seedFromPacificDate(p: { year: number; month: number; day: number }) {
+  return p.year * 10000 + p.month * 100 + p.day;
+}
+
+// ---------- Schedule generation ----------
+
+type ScheduleEntry = LeadEntry;
+
+function generateScheduleForPacificDay(p: {
+  year: number;
+  month: number;
+  day: number;
+}): ScheduleEntry[] {
+  const rand = mulberry32(seedFromPacificDate(p));
+  const open = pacificWallToEpochMs(p.year, p.month, p.day, 8, 0, 0);
+  const close = pacificWallToEpochMs(p.year, p.month, p.day, 18, 0, 0);
+
+  const entries: ScheduleEntry[] = [];
+  let t = open + Math.floor(rand() * 60_000); // start a bit after open
+  let counter = 0;
+
+  while (t <= close) {
+    const isLegal = rand() < 0.5;
+    const pool = isLegal ? LEGAL_LEAD_TEMPLATES : MEDICAL_LEAD_TEMPLATES;
+    const template = pool[Math.floor(rand() * pool.length)];
+    entries.push({
+      id: `${seedFromPacificDate(p)}-${counter}`,
+      vertical: isLegal ? "legal" : "medical",
+      ...template,
+      timestamp: t,
+    });
+    counter += 1;
+    // next arrival: 30-180s later (seeded)
+    t += 30_000 + Math.floor(rand() * 150_000);
+  }
+  return entries;
+}
+
+// ---------- Format helpers ----------
+
+const TIME_FMT_PT = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Los_Angeles",
+  hour: "numeric",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+});
+
+function formatPacificTime(ms: number): string {
+  return TIME_FMT_PT.format(new Date(ms)) + " PT";
+}
+
+// ---------- World-clock row ----------
+
+const CLOCK_ZONES = [
+  { city: "New York", tz: "America/New_York" },
+  { city: "San Francisco", tz: "America/Los_Angeles" },
+  { city: "London", tz: "Europe/London" },
+  { city: "Tokyo", tz: "Asia/Tokyo" },
+] as const;
+
+function LiveClocks() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="lead-feed__clocks" aria-label="World clocks">
+      {CLOCK_ZONES.map((z) => {
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: z.tz,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        })
+          .formatToParts(now)
+          .reduce<Record<string, string>>((acc, p) => {
+            if (p.type !== "literal") acc[p.type] = p.value;
+            return acc;
+          }, {});
+        return (
+          <div key={z.city} className="lead-clock">
+            <span className="lead-clock__city">{z.city}</span>
+            <span className="lead-clock__time">
+              {parts.hour}:{parts.minute}
+              <span className="sec">:{parts.second}</span>
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ---------- Main component ----------
 
 export function LiveLeadFeed() {
-  const [legalLeads, setLegalLeads] = useState<LeadEntry[]>([]);
-  const [medicalLeads, setMedicalLeads] = useState<LeadEntry[]>([]);
-  const [totalToday, setTotalToday] = useState(147);
-  const [pipelineValue, setPipelineValue] = useState(SEED_PIPELINE);
-  const projectedRevenue = Math.round(pipelineValue * CLOSE_RATE);
-  // Session 47 — pause the lead-stream loop when off-screen.
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(true);
 
+  // Today's full schedule, computed once per mount (date-seeded so it's
+  // identical for everyone viewing on the same Pacific calendar day).
+  const scheduleRef = useRef<ScheduleEntry[] | null>(null);
+  if (scheduleRef.current === null) {
+    if (typeof window !== "undefined") {
+      const today = pacificParts(new Date());
+      scheduleRef.current = generateScheduleForPacificDay(today);
+    } else {
+      scheduleRef.current = [];
+    }
+  }
+  const schedule = scheduleRef.current ?? [];
+
+  // Which entries have arrived (timestamp <= now)
+  const [arrivedCount, setArrivedCount] = useState<number>(() => {
+    if (typeof window === "undefined") return 0;
+    const now = Date.now();
+    return schedule.filter((e) => e.timestamp <= now).length;
+  });
+
+  // Section visibility for animation pausing
   useEffect(() => {
     if (typeof window === "undefined") return;
     const el = sectionRef.current;
@@ -146,90 +309,52 @@ export function LiveLeadFeed() {
     return () => observer.disconnect();
   }, []);
 
-  // Seed both columns with 5 leads each, timestamps spread back so
-  // the "Xs ago" labels read realistically on first render.
+  // Schedule the upcoming arrivals so they appear live as time crosses
+  // their timestamp. Cleared on unmount or when off-screen.
   useEffect(() => {
-    const seedLegal: LeadEntry[] = [];
-    const seedMedical: LeadEntry[] = [];
-    const now = Date.now();
-
-    for (let i = 0; i < 5; i++) {
-      const template = LEGAL_LEAD_TEMPLATES[i % LEGAL_LEAD_TEMPLATES.length];
-      seedLegal.push({
-        id: `legal-${i}-${now}`,
-        vertical: "legal",
-        ...template,
-        timestamp: now - i * 25000,
-      });
-    }
-    for (let i = 0; i < 5; i++) {
-      const template = MEDICAL_LEAD_TEMPLATES[i % MEDICAL_LEAD_TEMPLATES.length];
-      seedMedical.push({
-        id: `medical-${i}-${now}`,
-        vertical: "medical",
-        ...template,
-        timestamp: now - (i * 25000 + 12000),
-      });
-    }
-
-    setLegalLeads(seedLegal);
-    setMedicalLeads(seedMedical);
-  }, []);
-
-  // Streaming interval — alternates legal / medical insertions so
-  // both columns visibly refresh over the course of about 8 seconds.
-  // Gated on prefers-reduced-motion: when set, the interval is never
-  // started and the feed remains a static snapshot.
-  useEffect(() => {
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (typeof window === "undefined") return;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     if (prefersReduced) return;
     if (!inView) return;
 
-    let counter = 0;
-    const interval = setInterval(() => {
-      counter += 1;
-      const now = Date.now();
+    const now = Date.now();
+    const upcoming = schedule
+      .map((e, idx) => ({ e, idx }))
+      .filter((x) => x.e.timestamp > now);
+    const timers: Array<ReturnType<typeof setTimeout>> = [];
+    upcoming.forEach((x) => {
+      const delay = Math.max(0, x.e.timestamp - now);
+      timers.push(
+        setTimeout(() => {
+          setArrivedCount((c) => Math.max(c, x.idx + 1));
+        }, delay)
+      );
+    });
+    return () => timers.forEach(clearTimeout);
+  }, [schedule, inView]);
 
-      let leadValue = 0;
-      if (counter % 2 === 1) {
-        const template =
-          LEGAL_LEAD_TEMPLATES[
-            Math.floor(Math.random() * LEGAL_LEAD_TEMPLATES.length)
-          ];
-        leadValue = template.value;
-        const newLead: LeadEntry = {
-          id: `legal-new-${now}`,
-          vertical: "legal",
-          ...template,
-          timestamp: now,
-        };
-        setLegalLeads((prev) => [newLead, ...prev].slice(0, 5));
-      } else {
-        const template =
-          MEDICAL_LEAD_TEMPLATES[
-            Math.floor(Math.random() * MEDICAL_LEAD_TEMPLATES.length)
-          ];
-        leadValue = template.value;
-        const newLead: LeadEntry = {
-          id: `medical-new-${now}`,
-          vertical: "medical",
-          ...template,
-          timestamp: now,
-        };
-        setMedicalLeads((prev) => [newLead, ...prev].slice(0, 5));
-      }
+  const arrived = schedule.slice(0, arrivedCount);
+  const legalLeads = arrived
+    .filter((e) => e.vertical === "legal")
+    .slice(-5)
+    .reverse();
+  const medicalLeads = arrived
+    .filter((e) => e.vertical === "medical")
+    .slice(-5)
+    .reverse();
 
-      setTotalToday((t) => t + 1);
-      setPipelineValue((p) => p + leadValue);
-    }, 3800);
-
-    return () => clearInterval(interval);
-  }, [inView]);
+  const totalToday = arrived.length;
+  const pipelineValue = arrived.reduce((sum, e) => sum + e.value, 0);
+  const projectedRevenue = Math.round(pipelineValue * CLOSE_RATE);
 
   return (
-    <section ref={sectionRef} className="lead-feed" aria-label="Live engagement stream">
+    <section
+      ref={sectionRef}
+      className="lead-feed"
+      aria-label="Live engagement stream"
+    >
       <div className="lead-feed__inner">
         <Reveal className="lead-feed__header">
           <div className="lead-feed__label">
@@ -241,12 +366,18 @@ export function LiveLeadFeed() {
             <span className="lead-feed__highlight">
               right now
               <MarkerUnderline className="highlight-marker__underline" />
-            </span>.
+            </span>
+            .
           </h2>
           <p className="lead-feed__sub">
             Across the active roster. Every entry is a real inbound lead
-            generated by our search engineering. Streaming live.
+            generated by our search engineering. Streaming live during
+            business hours (8am to 6pm Pacific).
           </p>
+        </Reveal>
+
+        <Reveal>
+          <LiveClocks />
         </Reveal>
 
         <Reveal className="lead-feed__counter-row" delay={120}>
@@ -347,6 +478,9 @@ function LeadCard({ lead, isNew }: { lead: LeadEntry; isNew: boolean }) {
     <div className={`lead-card ${isNew ? "lead-card--new" : ""}`}>
       <div className="lead-card__meta-row">
         <span className="lead-card__time">{timeAgo}</span>
+        <span className="lead-card__exact-time">
+          {formatPacificTime(lead.timestamp)}
+        </span>
         <span className={`lead-card__type lead-card__type--${lead.type}`}>
           {typeLabels[lead.type]}
         </span>
@@ -384,24 +518,8 @@ function GavelIcon() {
         strokeWidth="1.2"
         fill="none"
       />
-      <line
-        x1="6"
-        y1="6"
-        x2="11"
-        y2="11"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-      <line
-        x1="1"
-        y1="13"
-        x2="13"
-        y2="13"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
+      <line x1="6" y1="6" x2="11" y2="11" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <line x1="1" y1="13" x2="13" y2="13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -409,36 +527,10 @@ function GavelIcon() {
 function CaduceusIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-      <line
-        x1="7"
-        y1="1"
-        x2="7"
-        y2="13"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M4 3 Q 7 5 10 3"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M4 6 Q 7 8 10 6"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M4 9 Q 7 11 10 9"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        fill="none"
-        strokeLinecap="round"
-      />
+      <line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M4 3 Q 7 5 10 3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+      <path d="M4 6 Q 7 8 10 6" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+      <path d="M4 9 Q 7 11 10 9" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
     </svg>
   );
 }

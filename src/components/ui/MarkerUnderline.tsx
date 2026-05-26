@@ -50,7 +50,7 @@ export function MarkerUnderline({ className }: MarkerUnderlineProps) {
           }
         });
       },
-      { threshold: 0.4, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.6, rootMargin: "0px 0px -10% 0px" }
     );
     obs.observe(node);
     return () => obs.disconnect();

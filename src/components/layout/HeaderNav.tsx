@@ -227,6 +227,16 @@ const NAV: NavItem[] = [
             href: "/about#press",
             description: "Recent placements",
           },
+          {
+            label: "Careers",
+            href: "/careers",
+            description: "Open roles in Detroit, Phoenix, and remote",
+          },
+          {
+            label: "Transparency",
+            href: "/privacy",
+            description: "How we handle your data",
+          },
         ],
       },
     ],

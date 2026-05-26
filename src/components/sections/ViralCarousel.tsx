@@ -75,31 +75,61 @@ const CASES: ReadonlyArray<CaseCard> = [
   },
 ];
 
-type UtilityCard = {
+// Session 49 — three feed-grid spotlight cards. Each shows the whole IG
+// grid of an in-house brand as proof of an active, growing audience.
+type FeedCard = {
   id: string;
-  href: string;
-  label: string;
-  title: string;
-  desc: string;
-  cta: string;
+  image: string;
+  handle: string;
+  stat: string;
+  footer: string;
 };
 
-const UTILITY_CARDS: ReadonlyArray<UtilityCard> = [
+const FEEDS: ReadonlyArray<FeedCard> = [
   {
-    id: "u-careers",
-    href: "/careers",
-    label: "JOIN US",
-    title: "Careers at Rysen",
-    desc: "Boutique studio of engineers and creatives. Real outcomes, real ownership.",
-    cta: "See open roles",
+    id: "f-quattro",
+    image: "/assets/viral/quattro-feed.jpg",
+    handle: "@quattrolabs",
+    stat: "~150K followers",
+    footer: "Built by Rysen · Automotive media · Phoenix",
   },
   {
-    id: "u-privacy",
-    href: "/privacy",
-    label: "TRANSPARENCY",
-    title: "How we handle data",
-    desc: "Our privacy practices, plainly stated.",
-    cta: "Read the policy",
+    id: "f-plumbers",
+    image: "/assets/viral/honest-plumbers-feed.jpg",
+    handle: "@thehonestplumbers",
+    stat: "#1 IG in MI",
+    footer: "Built by Rysen · Home service · Michigan",
+  },
+  {
+    id: "f-maids",
+    image: "/assets/viral/honest-maids-feed.jpg",
+    handle: "@thehonestmaids",
+    stat: "#1 IG in MI",
+    footer: "Built by Rysen · Home service · Michigan",
+  },
+];
+
+// Session 49 — search-ranking-climb card. A hand-coded SVG showing a
+// client moving from position 14 to position 1 over 6 sample dates.
+type RankingCard = {
+  id: string;
+  name: string;
+  metric: string;
+  positions: number[]; // positions over time, lower = better
+};
+
+const RANKINGS: ReadonlyArray<RankingCard> = [
+  {
+    id: "r-aws",
+    name: "AWS Law Firm",
+    metric: "Position 14 → #1 in 90 days",
+    positions: [14, 11, 7, 5, 3, 1],
+  },
+  {
+    id: "r-slim",
+    name: "Slim Dental",
+    metric: "Position 9 → #1 in 60 days",
+    positions: [9, 7, 4, 3, 2, 1],
   },
 ];
 
@@ -178,21 +208,33 @@ const POSTS: ReadonlyArray<ViralPost> = [
 export function ViralCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
 
-  // Session 48 — the deck of cards rendered into the infinite marquee.
+  // Session 49 — the deck of cards rendered into the infinite marquee.
   // The track renders this list TWICE so the loop can translate from
-  // 0 to -50% width seamlessly. The order is:
-  //   profile spotlight -> 5 viral posts -> 4 case-study cards -> 2 utility cards
+  // 0 to -50% width seamlessly. Order interleaves card types:
+  //   madison profile -> viral posts -> feed grids -> case studies -> rankings
+  // No utility (careers / privacy) cards — those are header pages.
   const deck = (
     <>
       <MadisonProfileSpotlightCard />
-      {POSTS.map((post) => (
+      {POSTS.slice(0, 2).map((post) => (
         <ViralCard key={post.id} post={post} />
       ))}
-      {CASES.map((c) => (
+      <FeedCardComponent card={FEEDS[0]} />
+      {POSTS.slice(2, 4).map((post) => (
+        <ViralCard key={post.id} post={post} />
+      ))}
+      <FeedCardComponent card={FEEDS[1]} />
+      {POSTS.slice(4).map((post) => (
+        <ViralCard key={post.id} post={post} />
+      ))}
+      <FeedCardComponent card={FEEDS[2]} />
+      <RankingCardComponent card={RANKINGS[0]} />
+      {CASES.slice(0, 2).map((c) => (
         <CaseStudyCard key={c.id} card={c} />
       ))}
-      {UTILITY_CARDS.map((u) => (
-        <UtilityCard key={u.id} card={u} />
+      <RankingCardComponent card={RANKINGS[1]} />
+      {CASES.slice(2).map((c) => (
+        <CaseStudyCard key={c.id} card={c} />
       ))}
     </>
   );
@@ -298,23 +340,135 @@ function CaseStudyCard({ card }: { card: CaseCard }) {
   );
 }
 
-// Session 48 — utility card. Careers / Privacy / etc. Text-forward.
-function UtilityCard({ card }: { card: UtilityCard }) {
+// Session 49 — feed-grid spotlight card. Whole IG profile grid as
+// proof of an active, growing audience. Same family as Madison's.
+function FeedCardComponent({ card }: { card: FeedCard }) {
   return (
-    <a
-      href={card.href}
-      className="viral-card viral-card--utility"
-      role="listitem"
-      aria-label={card.title}
-    >
-      <div className="viral-card__util-label">{card.label}</div>
-      <div className="viral-card__util-title">{card.title}</div>
-      <div className="viral-card__util-desc">{card.desc}</div>
-      <div className="viral-card__util-cta">
-        {card.cta}
-        <CarouselArrowGlyph />
+    <article className="viral-card viral-card--feed" role="listitem">
+      <div className="viral-card__feed-header">
+        <span className="viral-card__feed-name">{card.handle}</span>
+        <span className="viral-card__feed-stat">{card.stat}</span>
       </div>
-    </a>
+      <div className="viral-card__feed-grid">
+        <img
+          src={card.image}
+          alt={`${card.handle} Instagram feed grid`}
+          loading="lazy"
+        />
+      </div>
+      <div className="viral-card__feed-footer">
+        <TriangleMark size={10} />
+        <span>{card.footer}</span>
+      </div>
+    </article>
+  );
+}
+
+// Session 49 — search-ranking-climb card. Hand-coded mini chart: a
+// SERP-position line (lower y = higher rank, with #1 at top) climbing
+// from a starting position to #1 over 6 sample dates. Green endpoint
+// + #1 marker. Pure SVG, no chart library.
+function RankingCardComponent({ card }: { card: RankingCard }) {
+  // Chart geometry. We treat #1 as y=10 and the worst position as y=82
+  // so the line literally climbs upward as the client improves.
+  const W = 280;
+  const H = 140;
+  const PAD_X = 22;
+  const PAD_TOP = 14;
+  const PAD_BOTTOM = 28;
+  const maxPos = Math.max(...card.positions);
+  const minPos = 1;
+  const xStep = (W - PAD_X * 2) / (card.positions.length - 1);
+  const yFor = (pos: number) =>
+    PAD_TOP +
+    ((pos - minPos) / Math.max(1, maxPos - minPos)) *
+      (H - PAD_TOP - PAD_BOTTOM);
+  const points = card.positions.map((p, i) => ({
+    x: PAD_X + i * xStep,
+    y: yFor(p),
+    pos: p,
+  }));
+  const linePath = points
+    .map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`)
+    .join(" ");
+  const areaPath = `${linePath} L ${points[points.length - 1].x} ${
+    H - PAD_BOTTOM
+  } L ${points[0].x} ${H - PAD_BOTTOM} Z`;
+  const end = points[points.length - 1];
+
+  return (
+    <article className="viral-card viral-card--ranking" role="listitem">
+      <div className="viral-card__ranking-label">
+        <TriangleMark size={10} />
+        SEARCH RANKING
+      </div>
+      <div className="viral-card__ranking-chart">
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          fill="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id={`rk-${card.id}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#34C759" stopOpacity="0.28" />
+              <stop offset="100%" stopColor="#34C759" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          {/* #1 reference line */}
+          <line
+            x1={PAD_X}
+            y1={PAD_TOP}
+            x2={W - PAD_X}
+            y2={PAD_TOP}
+            stroke="rgba(110, 240, 110, 0.35)"
+            strokeWidth="1"
+            strokeDasharray="3 4"
+          />
+          <text
+            x={W - PAD_X + 2}
+            y={PAD_TOP + 4}
+            fontSize="10"
+            fontWeight="700"
+            fill="var(--signal-deep, #2A8E2A)"
+          >
+            #1
+          </text>
+          {/* area + line */}
+          <path d={areaPath} fill={`url(#rk-${card.id})`} />
+          <path
+            d={linePath}
+            stroke="#34C759"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+          {/* points */}
+          {points.map((pt, i) => (
+            <circle
+              key={i}
+              cx={pt.x}
+              cy={pt.y}
+              r={i === points.length - 1 ? 4.2 : 2.4}
+              fill={i === points.length - 1 ? "#34C759" : "#0C0D0F"}
+            />
+          ))}
+          {/* endpoint glow */}
+          <circle cx={end.x} cy={end.y} r="9" fill="#34C759" opacity="0.22" />
+          {/* baseline */}
+          <line
+            x1={PAD_X}
+            y1={H - PAD_BOTTOM}
+            x2={W - PAD_X}
+            y2={H - PAD_BOTTOM}
+            stroke="rgba(12, 13, 15, 0.18)"
+            strokeWidth="0.8"
+          />
+        </svg>
+      </div>
+      <div className="viral-card__ranking-name">{card.name}</div>
+      <div className="viral-card__ranking-metric">{card.metric}</div>
+    </article>
   );
 }
 

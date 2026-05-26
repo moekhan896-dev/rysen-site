@@ -66,7 +66,7 @@ export function Footer() {
       <div className="site-footer__strip">
         <span>© 2026 Rysen Growth. All rights reserved.</span>
         <span className="site-footer__legal-links">
-          <Link href="/privacy">Privacy</Link>
+          <Link href="/privacy">Transparency</Link>
           <Link href="/terms">Terms</Link>
         </span>
       </div>

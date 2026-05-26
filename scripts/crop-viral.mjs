@@ -58,6 +58,23 @@ const jobs = [
     dst: "quattro-motor-city.jpg",
     cropFraction: { topPct: 0.07, bottomPct: 0.23, leftPct: 0.04, rightPct: 0.14 },
   },
+  // Session 49 — three FEED-GRID screenshots. Crop status bar + tabs row
+  // off the top, IG tab bar off the bottom; keep the full 3-col grid.
+  {
+    src: "79963b62-IMG_0206.png",
+    dst: "honest-plumbers-feed.jpg",
+    cropFraction: { topPct: 0.155, bottomPct: 0.03, leftPct: 0.0, rightPct: 0.0 },
+  },
+  {
+    src: "4a5a6d91-IMG_0205.png",
+    dst: "honest-maids-feed.jpg",
+    cropFraction: { topPct: 0.155, bottomPct: 0.03, leftPct: 0.0, rightPct: 0.0 },
+  },
+  {
+    src: "9cefacc3-IMG_0204.png",
+    dst: "quattro-feed.jpg",
+    cropFraction: { topPct: 0.155, bottomPct: 0.03, leftPct: 0.0, rightPct: 0.0 },
+  },
 ];
 
 for (const job of jobs) {

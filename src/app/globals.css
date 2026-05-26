@@ -33600,11 +33600,17 @@ body::before {
   display: inline-block;
 }
 
-.marker-underline__stroke,
+.marker-underline__stroke {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  transition: stroke-dashoffset 650ms var(--motion-ease, var(--ease-settle));
+}
+
+/* Session 49 — second pass slightly delayed for a hand-drawn feel. */
 .marker-underline__stroke2 {
   stroke-dasharray: 240;
   stroke-dashoffset: 240;
-  transition: stroke-dashoffset 800ms var(--ease-settle);
+  transition: stroke-dashoffset 650ms var(--motion-ease, var(--ease-settle)) 140ms;
 }
 
 .marker-underline.is-drawn .marker-underline__stroke,
@@ -35210,6 +35216,344 @@ img[data-fade="true"][data-loaded="true"] {
   margin: 20px 0 8px;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   SESSION 49 — Header stacking fix
+   Root cause of the "white film over logo + CTA" bug: the logo
+   had z-index: 2 but no `position`, so the z-index never applied.
+   The nav items had `position: relative` and stacked on top of the
+   header background. Logo + CTA now get `position: relative` so
+   their z-index applies, and the inner row gets an explicit
+   stacking parent above any background layer.
+   ============================================================ */
+
+.site-header__inner {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.site-header__logo,
+.site-header__cta,
+.site-header .header-nav {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* The header background must always sit behind its content. We
+   apply it on the element itself rather than via a child layer. */
+.site-header {
+  isolation: isolate;
+}
+
+/* ============================================================
+   SESSION 49 — Hero static 4-logo inline cluster
+   Replaces the cycling platform word in line 3 of the headline.
+   Four small platform logos in a row, optically centered.
+   ============================================================ */
+
+.hero__platforms-inline {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: 8px;
+  /* Optical centering against cap height. Tuned for Geist 600/700
+     at the headline size. */
+  transform: translateY(-0.08em);
+  margin-left: 8px;
+}
+
+.hero__plogo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95em;
+  height: 0.95em;
+  flex-shrink: 0;
+}
+
+.hero__plogo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .hero__platforms-inline {
+    gap: 6px;
+    transform: translateY(-0.05em);
+  }
+}
+
+/* ============================================================
+   SESSION 49 — Lead feed: world clocks row
+   ============================================================ */
+
+.lead-feed__clocks {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto 28px;
+  padding: 14px 22px;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  max-width: 720px;
+}
+
+.lead-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 88px;
+}
+
+.lead-clock__city {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.lead-clock__time {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-feature-settings: "tnum";
+  letter-spacing: -0.005em;
+}
+
+.lead-clock__time .sec {
+  color: var(--signal-deep, #2A8E2A);
+  margin-left: 1px;
+}
+
+.lead-card__exact-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: -0.005em;
+  font-feature-settings: "tnum";
+  margin-left: 6px;
+}
+
+@media (max-width: 600px) {
+  .lead-feed__clocks { gap: 16px; padding: 10px 14px; }
+  .lead-clock { min-width: 70px; }
+  .lead-clock__time { font-size: 14px; }
+}
+
+/* ============================================================
+   SESSION 49 — Viral carousel: feed-grid spotlight + ranking card
+   Same family as the existing Madison profile-grid card.
+   ============================================================ */
+
+.viral-card--feed {
+  width: 320px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card-large);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.viral-card__feed-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--canvas-recessed);
+}
+
+.viral-card__feed-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.viral-card__feed-stat {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--signal-deep, #2A8E2A);
+  background: var(--signal-soft, rgba(110, 240, 110, 0.12));
+  padding: 3px 8px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.viral-card__feed-grid {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--canvas-recessed);
+}
+
+.viral-card__feed-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.viral-card__feed-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+/* ----- Ranking-climb card ----- */
+
+.viral-card--ranking {
+  width: 320px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card-large);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  aspect-ratio: 4 / 5;
+  position: relative;
+  overflow: hidden;
+}
+
+.viral-card--ranking::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(140% 80% at 100% 0%, rgba(110, 240, 110, 0.10), transparent 60%);
+}
+
+.viral-card__ranking-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.viral-card__ranking-chart {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.viral-card__ranking-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.viral-card__ranking-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.viral-card__ranking-metric {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--signal-deep, #2A8E2A);
+  margin-top: 4px;
+  letter-spacing: -0.005em;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .viral-card--feed,
+  .viral-card--ranking { width: 280px; }
+}
+
+/* ============================================================
+   SESSION 49 — Hero box: more active background
+   Slightly stronger contour visibility + traveling data points
+   along contour lines + stronger radial pulse.
+   ============================================================ */
+
+.hero__box-bg {
+  opacity: 0.85 !important;
+}
+
+.hero__box-datapoints {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero__box-datapoint {
+  fill: var(--signal, #6EF06E);
+  opacity: 0;
+}
+
+.hero__box-datapoint--a { animation: hero-dp-travel-a 12s linear infinite; }
+.hero__box-datapoint--b { animation: hero-dp-travel-b 14s linear infinite 3s; }
+.hero__box-datapoint--c { animation: hero-dp-travel-c 16s linear infinite 6s; }
+
+@keyframes hero-dp-travel-a {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 0.85; }
+  50%  { transform: translate(120px, -20px); opacity: 0.95; }
+  90%  { opacity: 0; transform: translate(240px, 0); }
+  100% { transform: translate(240px, 0); opacity: 0; }
+}
+
+@keyframes hero-dp-travel-b {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  15%  { opacity: 0.7; }
+  50%  { transform: translate(-140px, 30px); opacity: 0.95; }
+  85%  { opacity: 0; transform: translate(-260px, 0); }
+  100% { transform: translate(-260px, 0); opacity: 0; }
+}
+
+@keyframes hero-dp-travel-c {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  20%  { opacity: 0.6; }
+  50%  { transform: translate(60px, 80px); opacity: 0.9; }
+  80%  { opacity: 0; transform: translate(140px, 120px); }
+  100% { transform: translate(140px, 120px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__box-datapoint--a,
+  .hero__box-datapoint--b,
+  .hero__box-datapoint--c {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
 }
 
 

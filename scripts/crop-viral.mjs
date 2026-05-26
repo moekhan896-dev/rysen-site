@@ -51,6 +51,13 @@ const jobs = [
     dst: "madison-profile-grid.jpg",
     cropFraction: { topPct: 0.185, bottomPct: 0.04, leftPct: 0.0, rightPct: 0.0 },
   },
+  // Quattro Labs — "Motor City — Welcome to #QuattroLabs". Model + car.
+  // Strip top header + bottom caption/action UI + right action sidebar.
+  {
+    src: "cace2de4-IMG_0191.png",
+    dst: "quattro-motor-city.jpg",
+    cropFraction: { topPct: 0.07, bottomPct: 0.23, leftPct: 0.04, rightPct: 0.14 },
+  },
 ];
 
 for (const job of jobs) {

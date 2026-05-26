@@ -84,6 +84,15 @@ const POSTS: ReadonlyArray<ViralPost> = [
     metricLabel: "views · 2 weeks",
     caption: "Cars at The Canteen, Midtown",
   },
+  {
+    id: "v-motorcity",
+    image: "/assets/viral/quattro-motor-city.jpg",
+    brand: "Quattro Labs",
+    platform: "instagram",
+    metric: "1.5M",
+    metricLabel: "views · 10 days",
+    caption: "Motor City — Welcome to #QuattroLabs",
+  },
 ];
 
 // =====================================================================

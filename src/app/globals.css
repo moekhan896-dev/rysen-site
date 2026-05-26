@@ -34481,4 +34481,735 @@ img[data-fade="true"][data-loaded="true"] {
   }
 }
 
+/* ============================================================
+   SESSION 48 — Platform logo alignment fix
+   Inline SVGs (Google / ChatGPT / Perplexity / Gemini) used to
+   sit on the text baseline causing a half-pixel descender gap.
+   Force block display + flex centering so they sit truly inline
+   with their label and with each other across every surface
+   they appear on.
+   ============================================================ */
+
+.cycling-platform__logo svg,
+.cycling-platform__word svg,
+.cascade-station__platforms svg,
+.hero-tease__icon svg,
+.viral-card__platform svg {
+  display: block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.cycling-platform__word {
+  line-height: 1;
+}
+
+/* ============================================================
+   SESSION 48 — Hero capability list + scarcity line
+   Fills the white space below the search demo with a tight
+   4-item capability list and a "currently accepting Q2 2026"
+   status pill. Both sized to preserve the above-fold guarantee.
+   ============================================================ */
+
+.hero__capabilities {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero__cap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 28px;
+  max-width: 620px;
+  width: 100%;
+}
+
+.hero__cap-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.hero__cap-list li svg {
+  flex-shrink: 0;
+  display: block;
+}
+
+.hero__status-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px auto 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 7px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 9999px;
+  background: var(--canvas-elevated);
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.hero__status-dot--inline {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal, #6EF06E);
+  box-shadow: 0 0 6px rgba(110, 240, 110, 0.55);
+  animation: hero-status-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes hero-status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (max-width: 600px) {
+  .hero__cap-list {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    gap: 6px;
+  }
+  .hero__status-line {
+    font-size: 11px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__status-dot--inline { animation: none; }
+}
+
+/* ============================================================
+   SESSION 48 — Award seals strip
+   Below the hero / live demo block. Three designed seals + a
+   small label. Each seal sits in a flex column with its name.
+   ============================================================ */
+
+.awards-strip {
+  text-align: center;
+  padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px);
+  background: var(--canvas);
+  border-top: 1px solid var(--line-faint);
+  border-bottom: 1px solid var(--line-faint);
+}
+
+.awards-strip__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-tertiary);
+  margin-bottom: 32px;
+}
+
+.awards-strip__seals {
+  display: flex;
+  justify-content: center;
+  gap: clamp(28px, 6vw, 64px);
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.awards-strip__seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 180px;
+}
+
+.awards-strip__seal-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+  text-align: center;
+}
+
+.awards-strip__seal svg {
+  transition: transform 220ms var(--motion-ease);
+}
+
+.awards-strip__seal:hover svg {
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .awards-strip__seal:hover svg { transform: none; }
+}
+
+/* ============================================================
+   SESSION 48 — Infinite viral carousel + new card variants
+   The track duplicates the card array and animates translateX
+   from 0 to -50% in a continuous marquee. Pauses on hover.
+   Reduced motion suspends the animation.
+   ============================================================ */
+
+.viral__carousel--infinite {
+  overflow: hidden;
+  position: relative;
+}
+
+.viral__carousel--infinite::before,
+.viral__carousel--infinite::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.viral__carousel--infinite::before {
+  left: 0;
+  background: linear-gradient(to right, var(--canvas), transparent);
+}
+
+.viral__carousel--infinite::after {
+  right: 0;
+  background: linear-gradient(to left, var(--canvas), transparent);
+}
+
+.viral__track--infinite {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: viral-marquee 80s linear infinite;
+  will-change: transform;
+}
+
+.viral__carousel--infinite:hover .viral__track--infinite {
+  animation-play-state: paused;
+}
+
+@keyframes viral-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viral__track--infinite {
+    animation: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+/* ----- Case-study card (results-forward) ----- */
+
+.viral-card--case {
+  width: 320px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card-large);
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--hover-duration) var(--motion-ease),
+    box-shadow var(--hover-duration) var(--motion-ease),
+    border-color var(--hover-duration) var(--motion-ease);
+  aspect-ratio: 4 / 5;
+}
+
+.viral-card--case:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--signal-line, rgba(110, 240, 110, 0.45));
+}
+
+.viral-card__case-vertical {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.viral-card__case-vertical svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.viral-card__case-name {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-top: auto;
+  line-height: 1.15;
+}
+
+.viral-card__case-metric {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--signal-deep, #2A8E2A);
+  margin-top: 10px;
+  letter-spacing: -0.005em;
+}
+
+.viral-card__case-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 20px;
+}
+
+.viral-card__case-cta svg {
+  display: block;
+  transition: transform 220ms var(--motion-ease);
+}
+
+.viral-card--case:hover .viral-card__case-cta svg {
+  transform: translateX(3px);
+}
+
+/* ----- Utility card (careers / privacy) ----- */
+
+.viral-card--utility {
+  width: 280px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--ink);
+  color: var(--text-on-ink);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card-large);
+  padding: 22px;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--hover-duration) var(--motion-ease),
+    background var(--hover-duration) var(--motion-ease);
+  aspect-ratio: 4 / 5;
+}
+
+.viral-card--utility:hover {
+  transform: translateY(-6px);
+  background: var(--ink-elevated, #14171c);
+}
+
+.viral-card__util-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--signal, #6EF06E);
+}
+
+.viral-card__util-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: auto;
+  line-height: 1.15;
+  color: var(--text-on-ink);
+}
+
+.viral-card__util-desc {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-on-ink-muted, rgba(255, 255, 255, 0.65));
+  margin-top: 10px;
+  line-height: 1.45;
+}
+
+.viral-card__util-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--signal, #6EF06E);
+  margin-top: 22px;
+}
+
+.viral-card__util-cta svg {
+  display: block;
+  transition: transform 220ms var(--motion-ease);
+}
+
+.viral-card--utility:hover .viral-card__util-cta svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 600px) {
+  .viral-card--case,
+  .viral-card--utility {
+    width: 260px;
+  }
+}
+
+/* ============================================================
+   SESSION 48 — Careers page
+   ============================================================ */
+
+.careers-page {
+  background: var(--canvas);
+}
+
+.careers-hero {
+  padding: 140px clamp(24px, 5vw, 64px) 60px;
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.careers-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-tertiary);
+  margin-bottom: 18px;
+}
+
+.careers-hero__headline {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.careers-hero__emph {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.careers-hero__emph-underline {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -8px;
+  width: 104%;
+  height: 14px;
+  z-index: -1;
+}
+
+.careers-hero__sub {
+  font-size: clamp(16px, 1.6vw, 18px);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  margin: 24px auto 28px;
+  max-width: 640px;
+  text-wrap: balance;
+}
+
+.careers-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  background: var(--ink);
+  color: var(--text-on-ink);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform var(--hover-duration) var(--motion-ease);
+}
+
+.careers-hero__cta:hover { transform: translateY(-2px); }
+.careers-hero__cta svg { display: block; }
+
+/* Why Rysen */
+
+.careers-why {
+  padding: 60px clamp(24px, 5vw, 64px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.careers-why__label,
+.careers-culture__label,
+.careers-roles__label,
+.careers-apply__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+
+.careers-why__headline,
+.careers-culture__headline,
+.careers-roles__headline,
+.careers-apply__headline {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin: 0 0 36px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.careers-why__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.careers-why__card {
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition:
+    transform var(--hover-duration) var(--motion-ease),
+    box-shadow var(--hover-duration) var(--motion-ease);
+}
+
+.careers-why__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.careers-why__card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--signal-soft, rgba(110, 240, 110, 0.12));
+  color: var(--signal-deep, #2A8E2A);
+}
+
+.careers-why__card-icon svg { display: block; }
+
+.careers-why__card-title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 4px 0 0;
+}
+
+.careers-why__card-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+/* Culture */
+
+.careers-culture {
+  padding: 60px clamp(24px, 5vw, 64px);
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.careers-culture__body p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 16px;
+}
+
+.careers-culture__photo {
+  aspect-ratio: 4 / 5;
+  background: var(--canvas-recessed);
+  border: 1px dashed var(--line-medium);
+  border-radius: var(--radius-card-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-align: center;
+  padding: 32px;
+}
+
+/* Roles */
+
+.careers-roles {
+  padding: 80px clamp(24px, 5vw, 64px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.careers-roles__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.careers-role {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 24px;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  transition:
+    transform var(--hover-duration) var(--motion-ease),
+    border-color var(--hover-duration) var(--motion-ease),
+    box-shadow var(--hover-duration) var(--motion-ease);
+}
+
+.careers-role:hover {
+  transform: translateY(-2px);
+  border-color: var(--signal-line, rgba(110, 240, 110, 0.45));
+  box-shadow: var(--shadow-card);
+}
+
+.careers-role__title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+}
+
+.careers-role__desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.careers-role__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-tertiary);
+}
+
+.careers-role__meta-type {
+  color: var(--text-primary);
+}
+
+.careers-role__apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--text-on-ink);
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform var(--hover-duration) var(--motion-ease);
+  white-space: nowrap;
+}
+
+.careers-role__apply:hover { transform: translateY(-2px); }
+.careers-role__apply svg { display: block; }
+
+/* Apply / contact band */
+
+.careers-apply {
+  padding: 80px clamp(24px, 5vw, 64px) 120px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.careers-apply__body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 24px;
+}
+
+.careers-apply__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .careers-why__grid { grid-template-columns: 1fr; }
+  .careers-culture { grid-template-columns: 1fr; gap: 28px; }
+  .careers-role {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .careers-role__meta { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+  .careers-role__apply { align-self: flex-start; }
+}
+
+/* ============================================================
+   SESSION 48 — Legal page (Privacy) supplementary styles
+   The existing legal-page styles are preserved; this just adds
+   the body-class used by the refreshed page.
+   ============================================================ */
+
+.legal-body section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 20px 0 8px;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
 

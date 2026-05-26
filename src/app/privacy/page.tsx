@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-sections/PageHero";
 
+// Session 48 — Privacy Policy refresh.
+// NOTE: This content is a professional starting point. Have it reviewed
+// by qualified legal counsel before relying on it for compliance.
+
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Rysen Growth collects, uses, and protects your information. Last updated November 2024.",
+    "How Rysen Growth collects, uses, and protects your information.",
   robots: { index: true, follow: true },
 };
 
@@ -16,7 +20,7 @@ export default function PrivacyPage() {
         variant="compact"
         eyebrow="Legal"
         title="Privacy Policy"
-        subtitle="Last updated: November 2024"
+        subtitle="Last updated: May 2026"
         showAmbient={false}
       />
 
@@ -52,12 +56,23 @@ export default function PrivacyPage() {
             page, pages viewed, and timestamps. We use this for security, analytics,
             and performance monitoring.
           </p>
-          <h3>Cookies and similar technologies</h3>
+        </section>
+
+        <section>
+          <h2>Cookies and Tracking Technologies</h2>
           <p>
-            We use first-party cookies for session management and preferences. We may
-            use privacy-respecting analytics services (such as Vercel Analytics or
-            similar) that do not require third-party tracking cookies. Where additional
-            analytics are used, we will disclose them here.
+            We use first-party cookies for session management and user preferences.
+            We may use privacy-respecting analytics services (such as Vercel
+            Analytics or similar) that do not require third-party tracking cookies.
+            Where additional analytics or pixels are used, we will disclose them in
+            this section.
+          </p>
+          <p>
+            Most browsers let you refuse or delete cookies through their settings.
+            Disabling cookies may impair functionality on parts of the Site. You can
+            also opt out of common third-party analytics where applicable through the
+            tools those providers publish (for example, the Network Advertising
+            Initiative opt-out).
           </p>
         </section>
 
@@ -132,6 +147,16 @@ export default function PrivacyPage() {
             If you are in the European Economic Area or the United Kingdom, you have
             rights under the General Data Protection Regulation, including the right
             to lodge a complaint with your supervisory authority.
+          </p>
+        </section>
+
+        <section>
+          <h2>Third-Party Links</h2>
+          <p>
+            The Site may contain links to third-party websites, including case
+            studies, articles, and partner resources. We are not responsible for the
+            content or privacy practices of those sites. Review the privacy policy
+            of any third-party site before providing them with personal information.
           </p>
         </section>
 

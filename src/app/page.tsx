@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { LiveDemo } from "@/components/sections/LiveDemo";
+import { AwardsStrip } from "@/components/sections/AwardsStrip";
 import { ViralCarousel } from "@/components/sections/ViralCarousel";
 import { LiveLeadFeed } from "@/components/sections/LiveLeadFeed";
 import { SelectedWork } from "@/components/sections/SelectedWork";
@@ -28,6 +29,7 @@ export default function HomePage() {
     <main>
       <Hero />
       <LiveDemo />
+      <AwardsStrip />
       <ViralCarousel />
       <LiveLeadFeed />
       <SelectedWork />

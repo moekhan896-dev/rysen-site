@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContourPattern } from "./ContourPattern";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
+import { TriangleMark } from "@/components/ui/TriangleMark";
 import { HeroPlatformProvider, CyclingPlatform } from "./CyclingPlatform";
 import { HeroSearchTease } from "./HeroSearchTease";
 
@@ -89,6 +90,34 @@ export function Hero() {
               <Link href="#selected-work" className="hero__cta-secondary">
                 See the work
               </Link>
+            </div>
+
+            {/* Session 48 — fill the white space below the search demo
+                with a tight capability list + a scarcity / status line. */}
+            <div className="hero__capabilities">
+              <ul className="hero__cap-list">
+                <li>
+                  <TriangleMark size={10} />
+                  #1 rankings on Google and AI search
+                </li>
+                <li>
+                  <TriangleMark size={10} />
+                  One firm per metro, exclusive territory
+                </li>
+                <li>
+                  <TriangleMark size={10} />
+                  Data and AI engineering, not guesswork
+                </li>
+                <li>
+                  <TriangleMark size={10} />
+                  Built and proven on our own viral brands
+                </li>
+              </ul>
+            </div>
+
+            <div className="hero__status-line">
+              <span className="hero__status-dot--inline" aria-hidden="true" />
+              Currently accepting clients for Q2 2026 · A boutique studio working with a limited roster
             </div>
           </div>
         </div>

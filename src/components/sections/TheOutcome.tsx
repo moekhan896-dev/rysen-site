@@ -13,6 +13,7 @@ import {
 } from "@/components/illustrations/OutcomeIllustrations";
 import { TriangleMark } from "@/components/ui/TriangleMark";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 type Station = {
   Illustration: () => React.JSX.Element;
@@ -161,8 +162,12 @@ export function TheOutcome() {
             02 — The Outcome
           </p>
           <h2 className="outcome__headline">
-            What being <span className="outcome__highlight">#1</span> actually
-            produces.
+            What being{" "}
+            <span className="outcome__highlight">
+              #1
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>{" "}
+            actually produces.
           </h2>
           <p className="outcome__sub">
             Position #1 isn&apos;t a vanity metric. It&apos;s a data cascade.

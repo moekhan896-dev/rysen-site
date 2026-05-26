@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 // Target reticle background composition. Tight concentric rings with
 // crosshair and a small center triangle motif. Sits BEHIND the content
@@ -68,7 +69,10 @@ export function TheClose() {
         <h2 className="the-close__headline">
           Your competitors are #1.
           <br />
-          Until they&apos;re not.
+          <span className="the-close__highlight">
+            Until they&apos;re not.
+            <MarkerUnderline className="highlight-marker__underline" />
+          </span>
         </h2>
 
         <p className="the-close__sub">

@@ -12,6 +12,7 @@ import {
   ContentEngineeringIllustration,
 } from "@/components/illustrations/StackIllustrations";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 type Slab = {
   num: string;
@@ -68,7 +69,10 @@ export function TheStack() {
           </p>
           <h2 className="stack-section__headline">
             Built on a proprietary engine.{" "}
-            <span className="stack-section__highlight">Powered by data and AI.</span>
+            <span className="stack-section__highlight">
+              Powered by data and AI.
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>
           </h2>
           <p className="stack-section__sub">
             Four engineered layers, stacked. Foundation feeds intelligence,

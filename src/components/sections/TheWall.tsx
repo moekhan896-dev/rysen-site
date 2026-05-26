@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 // Session 40 — TheWall.
 //
@@ -86,7 +87,11 @@ export function TheWall() {
             06 — Results
           </p>
           <h2 className="wall__headline">
-            What our clients <em>actually see.</em>
+            What our clients{" "}
+            <span className="wall__highlight">
+              actually see.
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>
           </h2>
           <p className="wall__sub">
             Results vary by metro, vertical, and starting position. The

@@ -17,6 +17,7 @@ import {
   SocialIllustration,
 } from "@/components/illustrations/ServiceIllustrations";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 type LayerNum = 1 | 2 | 3 | 4;
 
@@ -54,7 +55,10 @@ export function TheServices() {
           </div>
           <h2 className="services__headline">
             Ten engineered services.{" "}
-            <span className="services__highlight">One stack.</span>
+            <span className="services__highlight">
+              One stack.
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>
           </h2>
           <p className="services__sub">
             Every engagement runs through our proprietary 4-layer

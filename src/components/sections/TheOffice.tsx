@@ -8,6 +8,7 @@
 
 import { TriangleMark } from "@/components/ui/TriangleMark";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 
 export function TheOffice() {
@@ -24,7 +25,10 @@ export function TheOffice() {
           </div>
           <h2 className="office-section__headline">
             A real team.{" "}
-            <span className="office-section__highlight">A real place.</span>
+            <span className="office-section__highlight">
+              A real place.
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>
           </h2>
           <p className="office-section__sub">
             We are a working studio of engineers and creatives. Not a faceless

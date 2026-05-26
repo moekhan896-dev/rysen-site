@@ -26,6 +26,12 @@ type PlatformSurface = {
   chipLabel: string;
   accent: string;
   prefix: "search" | "chat" | "sources" | "spark";
+  // Session 47 — one sample result per platform, framed as that
+  // platform's native answer shape (Google result vs ChatGPT cited
+  // line vs Perplexity primary source vs Gemini cited).
+  resultTitle: string;
+  resultUrl: string;
+  resultRank: string;
 };
 
 const SURFACES: Record<HeroPlatform, PlatformSurface> = {
@@ -34,24 +40,36 @@ const SURFACES: Record<HeroPlatform, PlatformSurface> = {
     chipLabel: "#1 result",
     accent: "#4285F4",
     prefix: "search",
+    resultTitle: "AWS Law Firm, Tampa Probate Attorneys",
+    resultUrl: "awslawfirm.com",
+    resultRank: "#1",
   },
   chatgpt: {
     query: "best probate lawyer in tampa?",
     chipLabel: "cited",
     accent: "#10A37F",
     prefix: "chat",
+    resultTitle: "AWS Law Firm is widely cited as Tampa's leading probate firm",
+    resultUrl: "Source: awslawfirm.com",
+    resultRank: "cited",
   },
   perplexity: {
     query: "top probate attorney tampa fl",
     chipLabel: "primary source",
     accent: "#20B8A6",
     prefix: "sources",
+    resultTitle: "AWS Law Firm, Tampa Probate Attorneys",
+    resultUrl: "Primary source · awslawfirm.com",
+    resultRank: "1 of 6",
   },
   gemini: {
     query: "who should i hire for probate in tampa?",
     chipLabel: "cited",
     accent: "#9747FF",
     prefix: "spark",
+    resultTitle: "AWS Law Firm, Tampa Probate Attorneys",
+    resultUrl: "Cited source · awslawfirm.com",
+    resultRank: "cited",
   },
 };
 
@@ -131,7 +149,36 @@ export function HeroSearchTease() {
           </span>
         )}
       </div>
+
+      {/* Session 47 — sample result row. Always rendered (reserved
+          height via CSS min-height on .hero-tease__result-slot) so
+          its fade-in NEVER changes layout. Visibility is purely an
+          opacity + small translateY transition. */}
+      <div className="hero-tease__result-slot">
+        <div
+          className="hero-tease__result"
+          data-resolved={phase === "resolved" ? "true" : "false"}
+          key={`result-${platform}`}
+        >
+          <span className="hero-tease__result-favicon" aria-hidden="true">
+            <TriangleFavicon />
+          </span>
+          <span className="hero-tease__result-text">
+            <span className="hero-tease__result-title">{surface.resultTitle}</span>
+            <span className="hero-tease__result-url">{surface.resultUrl}</span>
+          </span>
+          <span className="hero-tease__result-rank">{surface.resultRank}</span>
+        </div>
+      </div>
     </div>
+  );
+}
+
+function TriangleFavicon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true">
+      <polygon points="4,4 28,4 4,28" fill="var(--signal, #6EF06E)" />
+    </svg>
   );
 }
 

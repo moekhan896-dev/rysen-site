@@ -25,6 +25,7 @@
 import { useRef } from "react";
 import { TriangleMark } from "@/components/ui/TriangleMark";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 // =====================================================================
 // Types + data
@@ -42,82 +43,46 @@ type ViralPost = {
   caption: string;
 };
 
-// Source images: high-quality stills we already have in /public/assets.
-// The MP4 hero clips for Quattro live in /assets/quattro-labs/ — for
-// cards we use designed placeholder paths the asset team can swap in.
-// Office and team photos give us the immediate substance we need.
+// Session 47 — real Instagram post stills cropped from attached
+// screenshots (IG chrome stripped). All images in /assets/viral/.
+// Metrics are plausible placeholders matching the brand profile;
+// the user will edit as real metrics come in.
 const POSTS: ReadonlyArray<ViralPost> = [
   {
-    id: "v1",
-    image: "/assets/office/interior-collaboration.png",
+    id: "v-aventador",
+    image: "/assets/viral/quattro-aventador.jpg",
     brand: "Quattro Labs",
     platform: "instagram",
     metric: "2.4M",
     metricLabel: "views · 48 hours",
-    caption: "Phoenix car meet drone shot",
+    caption: "Aventador SVJ lobby shoot",
   },
   {
-    id: "v2",
-    image: "/assets/office/interior-workspace.png",
+    id: "v-mogged",
+    image: "/assets/viral/madison-mogged.jpg",
     brand: "Madison Clark",
-    platform: "tiktok",
-    metric: "100M",
-    metricLabel: "views · 60 days",
-    caption: "AI persona launch series",
+    platform: "instagram",
+    metric: "4.8M",
+    metricLabel: "views · 1 week",
+    caption: "“think I just mogged Clay”",
   },
   {
-    id: "v3",
-    image: "/assets/office/interior-lobby.png",
+    id: "v-maids",
+    image: "/assets/viral/honest-maids-30mins.jpg",
+    brand: "The Honest Maids",
+    platform: "instagram",
+    metric: "1.1M",
+    metricLabel: "views · 30 days",
+    caption: "What a cleaner does in 30 mins",
+  },
+  {
+    id: "v-canteen",
+    image: "/assets/viral/quattro-canteen.jpg",
     brand: "Quattro Labs",
-    platform: "youtube",
+    platform: "instagram",
     metric: "486K",
     metricLabel: "views · 2 weeks",
-    caption: "Build series episode 4",
-  },
-  {
-    id: "v4",
-    image: "/assets/office/interior-reception.png",
-    brand: "Quattro Labs",
-    platform: "instagram",
-    metric: "180K",
-    metricLabel: "likes · 24 hours",
-    caption: "Garage tour reveal",
-  },
-  {
-    id: "v5",
-    image: "/assets/office/interior-meeting-room.png",
-    brand: "Madison Clark",
-    platform: "instagram",
-    metric: "8.2M",
-    metricLabel: "views · 1 week",
-    caption: "Persona reel #14",
-  },
-  {
-    id: "v6",
-    image: "/assets/office/interior-conference.png",
-    brand: "Quattro Labs",
-    platform: "tiktok",
-    metric: "3.1M",
-    metricLabel: "views · 5 days",
-    caption: "Phoenix meet recap",
-  },
-  {
-    id: "v7",
-    image: "/assets/office/exterior-angle.png",
-    brand: "Madison Clark",
-    platform: "youtube",
-    metric: "1.4M",
-    metricLabel: "views · 1 month",
-    caption: "Behind the persona",
-  },
-  {
-    id: "v8",
-    image: "/assets/office/interior-team-photo-prep.png",
-    brand: "Quattro Labs",
-    platform: "instagram",
-    metric: "150K+",
-    metricLabel: "followers · 4 years",
-    caption: "Brand-from-zero growth",
+    caption: "Cars at The Canteen, Midtown",
   },
 ];
 
@@ -153,6 +118,7 @@ export function ViralCarousel() {
           We make brands go viral.{" "}
           <span className="viral__highlight">
             On search. On social. On everything.
+            <MarkerUnderline className="highlight-marker__underline" />
           </span>
         </h2>
         <p className="viral__sub">
@@ -172,8 +138,14 @@ export function ViralCarousel() {
         </button>
 
         <div className="viral__track" ref={trackRef} role="list">
+          {/* Session 47 — Madison Clark profile-grid spotlight card.
+              Sits at the head of the carousel as the proof-piece:
+              an entire IG profile of viral reels built from zero. */}
+          <Reveal delay={0}>
+            <MadisonProfileSpotlightCard />
+          </Reveal>
           {POSTS.map((post, i) => (
-            <Reveal key={post.id} delay={i * 70}>
+            <Reveal key={post.id} delay={(i + 1) * 70}>
               <ViralCard post={post} />
             </Reveal>
           ))}
@@ -201,6 +173,33 @@ export function ViralCarousel() {
 // =====================================================================
 // Card
 // =====================================================================
+
+function MadisonProfileSpotlightCard() {
+  return (
+    <article className="viral-card viral-card--profile" role="listitem">
+      <div className="viral-card__profile-header">
+        <span className="viral-card__profile-avatar" aria-hidden="true">
+          <TriangleMark size={10} />
+        </span>
+        <span className="viral-card__profile-name">@itsmadisonclarkk</span>
+        <span className="viral-card__profile-stat">
+          ~100M views · 60 days
+        </span>
+      </div>
+      <div className="viral-card__profile-grid">
+        <img
+          src="/assets/viral/madison-profile-grid.jpg"
+          alt="Madison Clark Instagram reels grid"
+          loading="lazy"
+        />
+      </div>
+      <div className="viral-card__profile-footer">
+        <TriangleMark size={10} />
+        <span>Built by Rysen · AI persona · zero ad spend</span>
+      </div>
+    </article>
+  );
+}
 
 function ViralCard({ post }: { post: ViralPost }) {
   return (

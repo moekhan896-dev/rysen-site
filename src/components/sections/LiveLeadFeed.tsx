@@ -47,8 +47,9 @@
 // enough to read past the "is this real?" question and recognize
 // the pattern of the engine output.
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 // ---------- Types ----------
 
@@ -129,6 +130,21 @@ export function LiveLeadFeed() {
   const [totalToday, setTotalToday] = useState(147);
   const [pipelineValue, setPipelineValue] = useState(SEED_PIPELINE);
   const projectedRevenue = Math.round(pipelineValue * CLOSE_RATE);
+  // Session 47 — pause the lead-stream loop when off-screen.
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Seed both columns with 5 leads each, timestamps spread back so
   // the "Xs ago" labels read realistically on first render.
@@ -169,6 +185,7 @@ export function LiveLeadFeed() {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
+    if (!inView) return;
 
     let counter = 0;
     const interval = setInterval(() => {
@@ -209,10 +226,10 @@ export function LiveLeadFeed() {
     }, 3800);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [inView]);
 
   return (
-    <section className="lead-feed" aria-label="Live engagement stream">
+    <section ref={sectionRef} className="lead-feed" aria-label="Live engagement stream">
       <div className="lead-feed__inner">
         <Reveal className="lead-feed__header">
           <div className="lead-feed__label">
@@ -221,7 +238,10 @@ export function LiveLeadFeed() {
           </div>
           <h2 className="lead-feed__headline">
             Leads being engineered{" "}
-            <span className="lead-feed__highlight">right now</span>.
+            <span className="lead-feed__highlight">
+              right now
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>.
           </h2>
           <p className="lead-feed__sub">
             Across the active roster. Every entry is a real inbound lead

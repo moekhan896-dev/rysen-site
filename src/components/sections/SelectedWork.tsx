@@ -1,5 +1,6 @@
 import { RosterTable } from "./RosterTable";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 export function SelectedWork() {
   return (
@@ -16,7 +17,10 @@ export function SelectedWork() {
           </p>
           <h2 className="selected-work__headline">
             Six firms. Six metros.{" "}
-            <span className="selected-work__highlight">All at position #1.</span>
+            <span className="selected-work__highlight">
+              All at position #1.
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>
           </h2>
           <p className="selected-work__sub">
             We maintain a small roster of selected engagements. Each one

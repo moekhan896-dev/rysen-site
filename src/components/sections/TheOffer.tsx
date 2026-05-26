@@ -18,6 +18,7 @@ import {
   StrategyIcon,
 } from "@/components/illustrations/PathIllustrations";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 function ArrowIcon() {
   return (
@@ -64,7 +65,10 @@ export function TheOffer() {
           </p>
           <h2 className="offer__headline">
             Two paths in.{" "}
-            <span className="offer__highlight">One destination.</span>
+            <span className="offer__highlight">
+              One destination.
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>
           </h2>
           <p className="offer__sub">
             Whether you&apos;re establishing visibility from outside the top 5

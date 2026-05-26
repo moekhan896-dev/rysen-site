@@ -24,6 +24,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -77,6 +78,22 @@ export function useHeroPlatform(): HeroPlatformContextValue {
 
 export function HeroPlatformProvider({ children }: { children: ReactNode }) {
   const [index, setIndex] = useState(0);
+  // Session 47 — pause the cycle when the hero is scrolled offscreen so
+  // we don't waste timers + force re-renders below the fold.
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const el = wrapRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -84,12 +101,13 @@ export function HeroPlatformProvider({ children }: { children: ReactNode }) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (reduced) return;
+    if (!inView) return;
 
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % PLATFORMS.length);
     }, CYCLE_INTERVAL_MS);
     return () => clearInterval(id);
-  }, []);
+  }, [inView]);
 
   const value = useMemo<HeroPlatformContextValue>(
     () => ({
@@ -103,6 +121,7 @@ export function HeroPlatformProvider({ children }: { children: ReactNode }) {
   return (
     <HeroPlatformContext.Provider value={value}>
       {children}
+      <span ref={wrapRef} className="hero-platform-provider-sentinel" aria-hidden="true" />
     </HeroPlatformContext.Provider>
   );
 }

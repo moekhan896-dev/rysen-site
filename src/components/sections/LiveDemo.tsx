@@ -7,6 +7,7 @@
 
 import { TriangleMark } from "@/components/ui/TriangleMark";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { RankClimb } from "./RankClimb";
 
 // Session 45 — Live Demo simplified. The compact HeroSearchTease
@@ -25,7 +26,10 @@ export function LiveDemo() {
           </div>
           <h2 className="live-demo__headline">
             Watch how a query becomes a{" "}
-            <span className="live-demo__highlight">#1 ranking</span>.
+            <span className="live-demo__highlight">
+              #1 ranking
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>.
           </h2>
           <p className="live-demo__sub">
             This is what we engineer. A real query, a real climb to the top

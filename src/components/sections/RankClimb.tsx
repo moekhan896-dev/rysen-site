@@ -301,6 +301,11 @@ export function RankClimb() {
   const reduced = useReducedMotion();
   const [state, dispatch] = useReducer(reducer, initialState);
   const timers = useRef<Array<ReturnType<typeof setTimeout>>>([]);
+  const rootRef = useRef<HTMLDivElement>(null);
+  // Session 47 — pause the loop when off-screen. IntersectionObserver
+  // toggles `inView`; the state-machine effect bails when false so no
+  // setTimeouts get scheduled while the demo isn't visible.
+  const [inView, setInView] = useState(true);
 
   const clearTimers = useCallback(() => {
     timers.current.forEach(clearTimeout);
@@ -310,6 +315,18 @@ export function RankClimb() {
   const queueTimer = useCallback((fn: () => void, delay: number) => {
     const id = setTimeout(fn, delay);
     timers.current.push(id);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const el = rootRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   // Reduced-motion path: jump to locked end-state and stop.
@@ -322,6 +339,10 @@ export function RankClimb() {
   // Main state-machine driver. Each phase schedules its own follow-on.
   useEffect(() => {
     if (reduced) return;
+    if (!inView) {
+      clearTimers();
+      return;
+    }
 
     const platform = state.platform;
     const phase = state.phase;
@@ -374,6 +395,7 @@ export function RankClimb() {
     state.typedChars,
     state.clientIndex,
     reduced,
+    inView,
     queueTimer,
     clearTimers,
   ]);
@@ -399,6 +421,7 @@ export function RankClimb() {
 
   return (
     <div
+      ref={rootRef}
       className={`rank-climb rank-climb--${state.platform} rank-climb--phase-${state.phase}`}
       role="figure"
       aria-label="Live rank-climb demonstration across four search platforms"

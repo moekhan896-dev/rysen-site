@@ -4,6 +4,7 @@ import {
   MedicalVerticalIllustration,
 } from "@/components/illustrations/VerticalIllustrations";
 import { Reveal } from "@/components/ui/Reveal";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 
 // Session 44 — expand vertical breadth: 13 legal practice areas + 16
 // medical specialties. Rendered as a flowing list with green-deep
@@ -53,7 +54,11 @@ export function Verticals() {
             <span aria-hidden="true" /> 02 — Verticals
           </p>
           <h2 className="verticals__headline">
-            Two verticals. <em>One playbook.</em>
+            Two verticals.{" "}
+            <span className="verticals__highlight">
+              One playbook.
+              <MarkerUnderline className="highlight-marker__underline" />
+            </span>
           </h2>
           <p className="verticals__sub">
             We engineer visibility differently for legal and medical. Same

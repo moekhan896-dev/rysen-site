@@ -1,60 +1,97 @@
-// Session 45 — TheOffice rebuilt as a magazine collage.
-//
-// Varied frame sizes, one large feature slot left + smaller tiles
-// on the right. Each tile is a labeled PhotoPlaceholder so the user
-// knows exactly what shot to drop in (subject + aspect ratio).
-// Replaces Session 44's three-image gallery — when real photography
-// is captured, the placeholders swap to <img> in place.
+// Session 50 — TheOffice. Heading renamed to "An inside look at our
+// team." The magazine-collage placeholders now host AI team images
+// (moved out of Operators). When real photography is captured, swap
+// each <img src> for the real shot at the same path.
 
+import Image from "next/image";
 import { TriangleMark } from "@/components/ui/TriangleMark";
 import { Reveal } from "@/components/ui/Reveal";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
+
+// AI placeholder shots living in /public/assets. Mark each as a
+// PLACEHOLDER so the real-shoot drop-in is obvious.
+type OfficeShot = {
+  src: string;
+  alt: string;
+  ratio: string;
+  width: number;
+  height: number;
+  caption: string;
+};
+
+const SHOTS: ReadonlyArray<OfficeShot> = [
+  {
+    src: "/assets/office/exterior-front.png",
+    alt: "Rysen studio exterior (placeholder)",
+    ratio: "3 / 4",
+    width: 720,
+    height: 960,
+    caption: "STUDIO · EXTERIOR · PLACEHOLDER",
+  },
+  {
+    src: "/assets/team/team-photo.png",
+    alt: "Rysen team at work (placeholder)",
+    ratio: "4 / 5",
+    width: 720,
+    height: 900,
+    caption: "TEAM AT WORK · PLACEHOLDER",
+  },
+  {
+    src: "/assets/founder/art-khan-portrait.png",
+    alt: "Founder portrait, Art Khan (placeholder)",
+    ratio: "16 / 9",
+    width: 960,
+    height: 540,
+    caption: "FOUNDER · PLACEHOLDER",
+  },
+];
 
 export function TheOffice() {
   return (
     <section
       className="office-section office-section--collage"
-      aria-label="The studio"
+      aria-label="The team"
     >
       <div className="office-section__inner">
         <Reveal className="office-section__header">
           <div className="office-section__label">
             <TriangleMark size={10} />
-            <span>THE STUDIO</span>
+            <span>THE TEAM</span>
           </div>
           <h2 className="office-section__headline">
-            A real team.{" "}
+            An inside look at{" "}
             <span className="office-section__highlight">
-              A real place.
+              our team
               <MarkerUnderline className="highlight-marker__underline" />
             </span>
+            .
           </h2>
           <p className="office-section__sub">
-            We are a working studio of engineers and creatives. Not a faceless
-            agency.
+            A working studio of engineers and creatives. These are the
+            people behind every engagement.
           </p>
         </Reveal>
 
         <div className="office-section__gallery">
-          <Reveal delay={0}>
-            <PhotoPlaceholder
-              label="OFFICE — WIDE EXTERIOR"
-              ratio="3 / 4"
-            />
-          </Reveal>
-          <Reveal delay={80}>
-            <PhotoPlaceholder
-              label="TEAM AT WORK"
-              ratio="4 / 5"
-            />
-          </Reveal>
-          <Reveal delay={160}>
-            <PhotoPlaceholder
-              label="FOUNDER PORTRAIT"
-              ratio="16 / 9"
-            />
-          </Reveal>
+          {SHOTS.map((shot, i) => (
+            <Reveal key={shot.src} delay={i * 80}>
+              <figure
+                className="office-section__shot"
+                style={{ aspectRatio: shot.ratio }}
+              >
+                <Image
+                  src={shot.src}
+                  alt={shot.alt}
+                  width={shot.width}
+                  height={shot.height}
+                  className="office-section__shot-img"
+                />
+                <figcaption className="office-section__shot-caption">
+                  {shot.caption}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

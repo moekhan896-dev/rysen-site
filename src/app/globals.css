@@ -35556,4 +35556,278 @@ img[data-fade="true"][data-loaded="true"] {
   }
 }
 
+/* ============================================================
+   SESSION 50 — Real clock styling (analog face + tabular digital)
+   ============================================================ */
+
+.lead-feed__clocks {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto 28px;
+  padding: 0;
+  background: none;
+  border: none;
+  max-width: 920px;
+}
+
+.lead-clock {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-direction: row !important;
+  padding: 10px 16px !important;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card, 12px);
+  min-width: 200px;
+}
+
+.lead-clock__face {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.lead-clock__digital {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.lead-clock__city {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  color: var(--text-tertiary) !important;
+  text-transform: uppercase;
+}
+
+.lead-clock__time {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  font-feature-settings: "tnum" !important;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05 !important;
+  letter-spacing: -0.01em;
+}
+
+.lead-clock__time .sec {
+  color: var(--signal-deep, #2A8E2A);
+  margin-left: 0;
+}
+
+.lead-clock__time .ampm {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: 0.06em;
+  margin-left: 4px;
+}
+
+.lead-clock__abbr {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--signal-deep, #2A8E2A);
+}
+
+@media (max-width: 720px) {
+  .lead-clock {
+    min-width: 0 !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  .lead-clock__face { width: 30px; height: 30px; }
+  .lead-clock__time { font-size: 16px !important; }
+}
+
+/* ============================================================
+   SESSION 50 — Case-study card chart slot
+   ============================================================ */
+
+.viral-card--case {
+  /* Keep dimensions stable; chart sits in reserved space. */
+}
+
+.viral-card__case-chart {
+  width: 100%;
+  aspect-ratio: 240 / 130;
+  margin: 14px 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viral-card__case-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   SESSION 50 — Office section: real photo treatment
+   ============================================================ */
+
+.office-section__shot {
+  position: relative;
+  margin: 0;
+  background: var(--canvas-recessed);
+  border-radius: var(--radius-card-large, 18px);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+}
+
+.office-section__shot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.office-section__shot-caption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 4px 8px;
+  background: rgba(12, 13, 15, 0.78);
+  color: var(--text-on-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+/* ============================================================
+   SESSION 50 — Stronger Claim-your-city CTA glow
+   Applied to the hero primary CTA, the header CTA, and floating
+   CTA. Pauses on hover and steadies under reduced motion.
+   ============================================================ */
+
+.hero.hero--s45 .hero__cta-primary,
+.site-header .site-header__cta,
+.floating-cta__link {
+  position: relative;
+  animation: cta-glow-strong 2.6s var(--motion-ease, ease-in-out) infinite !important;
+}
+
+@keyframes cta-glow-strong {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(110, 240, 110, 0.55),
+      0 0 18px 2px rgba(110, 240, 110, 0.28),
+      var(--shadow-soft, 0 2px 8px rgba(12, 13, 15, 0.10));
+  }
+  50% {
+    box-shadow:
+      0 0 0 10px rgba(110, 240, 110, 0.0),
+      0 0 28px 6px rgba(110, 240, 110, 0.12),
+      var(--shadow-card, 0 4px 12px rgba(12, 13, 15, 0.10));
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(110, 240, 110, 0.0),
+      0 0 18px 2px rgba(110, 240, 110, 0.28),
+      var(--shadow-soft, 0 2px 8px rgba(12, 13, 15, 0.10));
+  }
+}
+
+.hero__cta-primary:hover,
+.site-header__cta:hover {
+  animation-play-state: paused;
+  box-shadow:
+    0 0 24px 6px rgba(110, 240, 110, 0.38),
+    var(--shadow-card-hover, 0 8px 22px rgba(12, 13, 15, 0.18)) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cta-primary,
+  .site-header__cta {
+    animation: none !important;
+    box-shadow:
+      0 0 16px 2px rgba(110, 240, 110, 0.20),
+      var(--shadow-soft, 0 2px 8px rgba(12, 13, 15, 0.10)) !important;
+  }
+}
+
+/* ============================================================
+   SESSION 50 — Tasteful triangle motif: ghost watermarks on a
+   few dark sections (Operators, Close, Stack) using ::before.
+   Each is a large faint translucent triangle in a corner.
+   ============================================================ */
+
+.operators,
+.the-close,
+.stack-section--tower {
+  position: relative;
+  overflow: hidden;
+}
+
+.operators::before,
+.the-close::before,
+.stack-section--tower::before {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  background-image:
+    linear-gradient(135deg, var(--signal, #6EF06E) 0%, var(--signal, #6EF06E) 50%, transparent 50.01%);
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.operators::before {
+  top: -120px;
+  right: -120px;
+  transform: rotate(180deg);
+}
+
+.the-close::before {
+  bottom: -140px;
+  left: -140px;
+}
+
+.stack-section--tower::before {
+  top: 40%;
+  right: -160px;
+  transform: rotate(90deg);
+  opacity: 0.035;
+}
+
+/* Hero capability list bullets — keep triangle visible (already
+   present), just standardize sizing. */
+.hero__cap-list li svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* Section-transition rhythm marks — tiny centered triangles that
+   can be dropped between sections by adding .section-rhythm. */
+.section-rhythm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0;
+}
+
+.section-rhythm svg {
+  opacity: 0.5;
+}
+
+/* Footer brand triangle — bumped up slightly for presence. */
+.site-footer__col--brand .rysen-logo svg {
+  filter: drop-shadow(0 0 8px rgba(110, 240, 110, 0.22));
+}
+
+/* Header dropdown chevron on items WITHOUT a submenu is suppressed
+   by the JSX, but ensure padding stays consistent. */
+.header-nav__link { transition: background 200ms var(--motion-ease, ease); }
+
 

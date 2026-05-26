@@ -22,56 +22,81 @@ import { useEffect, useState } from "react";
 import { useHeroPlatform, type HeroPlatform } from "./CyclingPlatform";
 
 type PlatformSurface = {
-  query: string;
   chipLabel: string;
   accent: string;
   prefix: "search" | "chat" | "sources" | "spark";
-  // Session 47 — one sample result per platform, framed as that
-  // platform's native answer shape (Google result vs ChatGPT cited
-  // line vs Perplexity primary source vs Gemini cited).
-  resultTitle: string;
-  resultUrl: string;
   resultRank: string;
 };
 
 const SURFACES: Record<HeroPlatform, PlatformSurface> = {
-  google: {
+  google: { chipLabel: "#1 result", accent: "#4285F4", prefix: "search", resultRank: "#1" },
+  chatgpt: { chipLabel: "cited", accent: "#10A37F", prefix: "chat", resultRank: "cited" },
+  perplexity: { chipLabel: "primary source", accent: "#20B8A6", prefix: "sources", resultRank: "1 of 6" },
+  gemini: { chipLabel: "cited", accent: "#9747FF", prefix: "spark", resultRank: "cited" },
+};
+
+// Session 50 — search query pool. The tease cycles through these so it
+// never gets stuck on a single example. Each entry pairs with a sample
+// "winning" result tied to a real case-study client. Mixing verticals,
+// metros, and platforms keeps the demo alive.
+type SearchExample = {
+  query: string;
+  resultTitle: string;
+  resultUrl: string;
+};
+
+const SEARCH_EXAMPLES: ReadonlyArray<SearchExample> = [
+  {
     query: "who is the best probate lawyer in tampa?",
-    chipLabel: "#1 result",
-    accent: "#4285F4",
-    prefix: "search",
     resultTitle: "AWS Law Firm, Tampa Probate Attorneys",
     resultUrl: "awslawfirm.com",
-    resultRank: "#1",
   },
-  chatgpt: {
-    query: "best probate lawyer in tampa?",
-    chipLabel: "cited",
-    accent: "#10A37F",
-    prefix: "chat",
-    resultTitle: "AWS Law Firm is widely cited as Tampa's leading probate firm",
-    resultUrl: "Source: awslawfirm.com",
-    resultRank: "cited",
+  {
+    query: "best invisalign dentist in chicago?",
+    resultTitle: "Slim Dental, Chicago Cosmetic and Implant Dentistry",
+    resultUrl: "slimdental.com",
   },
-  perplexity: {
-    query: "top probate attorney tampa fl",
-    chipLabel: "primary source",
-    accent: "#20B8A6",
-    prefix: "sources",
-    resultTitle: "AWS Law Firm, Tampa Probate Attorneys",
-    resultUrl: "Primary source · awslawfirm.com",
-    resultRank: "1 of 6",
+  {
+    query: "top cosmetic dermatologist in miami?",
+    resultTitle: "Hartman Dermatology, Miami Cosmetic Skin",
+    resultUrl: "hartmandermatology.com",
   },
-  gemini: {
-    query: "who should i hire for probate in tampa?",
-    chipLabel: "cited",
-    accent: "#9747FF",
-    prefix: "spark",
-    resultTitle: "AWS Law Firm, Tampa Probate Attorneys",
-    resultUrl: "Cited source · awslawfirm.com",
-    resultRank: "cited",
+  {
+    query: "divorce attorney near atlanta",
+    resultTitle: "Tyler Family Law, Atlanta Divorce + Custody",
+    resultUrl: "tylerfamilylaw.com",
   },
-};
+  {
+    query: "dental implants chicago cost",
+    resultTitle: "Slim Dental, Chicago Implant Specialists",
+    resultUrl: "slimdental.com",
+  },
+  {
+    query: "estate planning lawyer detroit",
+    resultTitle: "AWS Law Firm, Detroit Estate Planning",
+    resultUrl: "awslawfirm.com",
+  },
+  {
+    query: "best med spa in scottsdale",
+    resultTitle: "Hartman Aesthetics, Scottsdale Cosmetic Medicine",
+    resultUrl: "hartmanaesthetics.com",
+  },
+  {
+    query: "personal injury attorney tampa",
+    resultTitle: "AWS Law Firm, Tampa Trial Attorneys",
+    resultUrl: "awslawfirm.com",
+  },
+  {
+    query: "who should i hire for a will in atlanta?",
+    resultTitle: "Tyler Family Law, Atlanta Wills and Trusts",
+    resultUrl: "tylerfamilylaw.com",
+  },
+  {
+    query: "lasik surgeon near los angeles",
+    resultTitle: "Hartman Vision, Los Angeles LASIK Specialists",
+    resultUrl: "hartmanvision.com",
+  },
+];
 
 type Phase = "typing" | "searching" | "resolved";
 
@@ -92,40 +117,46 @@ function useReducedMotion(): boolean {
 }
 
 export function HeroSearchTease() {
-  const { platform } = useHeroPlatform();
+  const { platform, index: platformIndex } = useHeroPlatform();
   const reduced = useReducedMotion();
   const surface = SURFACES[reduced ? "google" : platform];
   const [typed, setTyped] = useState("");
   const [phase, setPhase] = useState<Phase>("typing");
+  // Session 50 — query pool index. Advances on each platform change so
+  // the demo cycles through every example query in the pool, never
+  // sticking on one. Seeded from the platform tick so the pairing is
+  // deterministic across the same render.
+  const [exampleIndex, setExampleIndex] = useState(0);
+  useEffect(() => {
+    setExampleIndex((i) => (i + 1) % SEARCH_EXAMPLES.length);
+  }, [platformIndex]);
+  const example =
+    SEARCH_EXAMPLES[
+      reduced ? 0 : exampleIndex % SEARCH_EXAMPLES.length
+    ];
 
   // Reset + run the typing → searching → resolved cycle on every
   // platform change. Reduced-motion short-circuits to the resolved
-  // end-state.
+  // end-state with the first example.
   useEffect(() => {
     if (reduced) {
-      setTyped(SURFACES.google.query);
+      setTyped(SEARCH_EXAMPLES[0].query);
       setPhase("resolved");
       return;
     }
     const timers: Array<ReturnType<typeof setTimeout>> = [];
     setTyped("");
     setPhase("typing");
-    const query = surface.query;
-    // Type the query char-by-char.
+    const query = example.query;
     for (let i = 1; i <= query.length; i++) {
       const t = setTimeout(() => setTyped(query.slice(0, i)), i * TYPING_PER_CHAR);
       timers.push(t);
     }
-    // After typing completes → searching micro-pause → resolved.
     const searchStart = query.length * TYPING_PER_CHAR + 200;
-    timers.push(
-      setTimeout(() => setPhase("searching"), searchStart)
-    );
-    timers.push(
-      setTimeout(() => setPhase("resolved"), searchStart + SEARCH_PAUSE)
-    );
+    timers.push(setTimeout(() => setPhase("searching"), searchStart));
+    timers.push(setTimeout(() => setPhase("resolved"), searchStart + SEARCH_PAUSE));
     return () => timers.forEach(clearTimeout);
-  }, [platform, surface.query, reduced]);
+  }, [platform, example.query, reduced]);
 
   const showCursor = !reduced && phase === "typing";
   const showChip = phase === "resolved";
@@ -164,8 +195,8 @@ export function HeroSearchTease() {
             <TriangleFavicon />
           </span>
           <span className="hero-tease__result-text">
-            <span className="hero-tease__result-title">{surface.resultTitle}</span>
-            <span className="hero-tease__result-url">{surface.resultUrl}</span>
+            <span className="hero-tease__result-title">{example.resultTitle}</span>
+            <span className="hero-tease__result-url">{example.resultUrl}</span>
           </span>
           <span className="hero-tease__result-rank">{surface.resultRank}</span>
         </div>

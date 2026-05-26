@@ -26,6 +26,7 @@ import { useRef } from "react";
 import { TriangleMark } from "@/components/ui/TriangleMark";
 import { Reveal } from "@/components/ui/Reveal";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
+import { CaseStudyChart } from "@/components/ui/CaseStudyChart";
 
 // =====================================================================
 // Session 48 — case-study + utility mixed cards
@@ -38,6 +39,16 @@ type CaseCard = {
   metro: string;
   name: string;
   metric: string;
+  // Session 50 — per-client chart treatment so no case-study card is
+  // ever empty of visuals.
+  chartType: "calls-growth" | "growth-curve" | "donut-gauge";
+  chartProps?: {
+    peakLabel?: string;
+    bars?: number[];
+    growthLabel?: string;
+    percent?: number;
+    centerLabel?: string;
+  };
 };
 
 const CASES: ReadonlyArray<CaseCard> = [
@@ -48,6 +59,8 @@ const CASES: ReadonlyArray<CaseCard> = [
     metro: "TAMPA",
     name: "AWS Law Firm",
     metric: "~348 calls in 4 months",
+    chartType: "calls-growth",
+    chartProps: { peakLabel: "348 calls", bars: [12, 28, 44, 76, 118, 168, 232, 348] },
   },
   {
     id: "c-tyler",
@@ -56,6 +69,8 @@ const CASES: ReadonlyArray<CaseCard> = [
     metro: "ATLANTA",
     name: "Tyler Family Law",
     metric: "~169 calls in 6 months",
+    chartType: "calls-growth",
+    chartProps: { peakLabel: "169 calls", bars: [8, 18, 32, 54, 82, 112, 140, 169] },
   },
   {
     id: "c-slim",
@@ -64,6 +79,8 @@ const CASES: ReadonlyArray<CaseCard> = [
     metro: "CHICAGO",
     name: "Slim Dental",
     metric: "+186% qualified calls",
+    chartType: "growth-curve",
+    chartProps: { growthLabel: "+186%" },
   },
   {
     id: "c-hartman",
@@ -72,6 +89,8 @@ const CASES: ReadonlyArray<CaseCard> = [
     metro: "MIAMI",
     name: "Hartman Dermatology",
     metric: "38% AI citation rate",
+    chartType: "donut-gauge",
+    chartProps: { percent: 38, centerLabel: "AI citation" },
   },
 ];
 
@@ -118,18 +137,15 @@ type RankingCard = {
   positions: number[]; // positions over time, lower = better
 };
 
+// Session 50 — single ranking-climb card (deduplicated). Each case
+// study already gets its own per-client chart, so we only need one
+// dedicated ranking visual in the deck.
 const RANKINGS: ReadonlyArray<RankingCard> = [
   {
     id: "r-aws",
     name: "AWS Law Firm",
     metric: "Position 14 → #1 in 90 days",
     positions: [14, 11, 7, 5, 3, 1],
-  },
-  {
-    id: "r-slim",
-    name: "Slim Dental",
-    metric: "Position 9 → #1 in 60 days",
-    positions: [9, 7, 4, 3, 2, 1],
   },
 ];
 
@@ -229,11 +245,7 @@ export function ViralCarousel() {
       ))}
       <FeedCardComponent card={FEEDS[2]} />
       <RankingCardComponent card={RANKINGS[0]} />
-      {CASES.slice(0, 2).map((c) => (
-        <CaseStudyCard key={c.id} card={c} />
-      ))}
-      <RankingCardComponent card={RANKINGS[1]} />
-      {CASES.slice(2).map((c) => (
+      {CASES.map((c) => (
         <CaseStudyCard key={c.id} card={c} />
       ))}
     </>
@@ -329,6 +341,10 @@ function CaseStudyCard({ card }: { card: CaseCard }) {
       <div className="viral-card__case-vertical">
         <Icon />
         {card.vertical} · {card.metro}
+      </div>
+      {/* Session 50 — per-client chart so no case-study card is empty. */}
+      <div className="viral-card__case-chart">
+        <CaseStudyChart type={card.chartType} {...(card.chartProps ?? {})} />
       </div>
       <div className="viral-card__case-name">{card.name}</div>
       <div className="viral-card__case-metric">{card.metric}</div>

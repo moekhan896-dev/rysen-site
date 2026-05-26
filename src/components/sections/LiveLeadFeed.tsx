@@ -1,46 +1,30 @@
 "use client";
 
-// Session 49 — LiveLeadFeed rewrite.
+// Session 50 — LiveLeadFeed final polish.
 //
-// What changed in Session 49:
+// What changed in Session 50:
 //
-//   1. World-clock row (NY, SF, London, Tokyo) updating every second,
-//      using Intl.DateTimeFormat with timeZone so it's correct on any
-//      device.
+//   1. Business hours moved to 8:00 AM - 9:00 PM Eastern Time (was
+//      Pacific). The deterministic seed is now keyed on the Eastern
+//      calendar day; the window check + exact timestamps use
+//      America/New_York. All other determinism preserved.
 //
-//   2. Deterministic-live lead schedule. Instead of inserting random
-//      leads on a 3.8s interval, we generate the entire business-day
-//      schedule from a date seed (Pacific calendar day). The schedule
-//      is identical for every visitor at the same moment and survives
-//      a refresh without reshuffling. Cadence 30-180s between leads.
+//   2. Honest pipeline math. Daily lead volume capped to ~40-55 so the
+//      day's count + value + 10% projection reconcile. Believable for
+//      a boutique firm on a limited roster.
 //
-//   3. Business window: 8:00am - 6:00pm Pacific. No new leads outside
-//      that window. The "leads today" count reflects only arrivals
-//      inside the business window.
+//   3. Clocks now LOOK like clocks: a mini analog face beside a large
+//      tabular digital readout with the timezone abbreviation. Hands
+//      compute live from each timezone via Intl.
 //
-//   4. Exact arrival timestamp on each lead card (HH:MM:SS PT) plus a
-//      relative "Xs ago" label.
-//
-//   5. Reserved height — same as before. New leads animating in do not
-//      change document height. Page-jump guarantee preserved.
-//
-// Implementation outline:
-//
-//   - We build the SCHEDULE for today's Pacific day at component mount,
-//     using a date-seeded mulberry32 PRNG. Each entry has an exact
-//     epoch-ms arrival time + a deterministic lead body.
-//   - We compute `now` in Pacific via Intl. Entries with arrival <= now
-//     are "already arrived"; we keep the latest 5 per column.
-//   - For entries with arrival > now (and before 6pm Pacific), we
-//     schedule a setTimeout so they animate in live as their moment
-//     passes.
-//   - On a `reduced-motion` viewer we skip the live arrivals (no
-//     animated insertions); we just render the current "arrived" set
-//     statically. Refresh still produces the same set.
+// Session 49 inherited: world-clock row, deterministic-live schedule,
+// exact arrival timestamps, IntersectionObserver pause when off-screen,
+// reserved-height columns (no page-jump as leads arrive).
 
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
+import { TriangleMark } from "@/components/ui/TriangleMark";
 
 // ---------- Types ----------
 
@@ -56,7 +40,7 @@ type LeadEntry = {
   type: LeadType;
   phone: string;
   value: number;
-  timestamp: number; // epoch ms
+  timestamp: number;
 };
 
 type LeadTemplate = Omit<LeadEntry, "id" | "vertical" | "timestamp">;
@@ -98,8 +82,14 @@ const MEDICAL_LEAD_TEMPLATES: LeadTemplate[] = [
 ];
 
 const CLOSE_RATE = 0.1;
+// Session 50 — honest cap on the day's lead count. A boutique studio
+// on a limited roster should not be implying hundreds of leads/day.
+// Target ~40-55. Cadence below is tuned so a 13-hour window fills with
+// roughly this many arrivals.
+const DAILY_LEAD_CAP = 55;
+const DAILY_LEAD_FLOOR = 38;
 
-// ---------- Deterministic PRNG (mulberry32) ----------
+// ---------- Deterministic PRNG ----------
 
 function mulberry32(seed: number) {
   let s = seed >>> 0;
@@ -112,13 +102,9 @@ function mulberry32(seed: number) {
   };
 }
 
-// ---------- Pacific-time helpers ----------
-//
-// Intl makes timezone-correct values regardless of viewer locale. We use
-// it to get the current Pacific calendar day (for the seed) and the
-// 8am/6pm boundaries as wall-clock UTC ms.
+// ---------- Eastern-time helpers ----------
 
-function pacificParts(at: Date = new Date()): {
+function easternParts(at: Date = new Date()): {
   year: number;
   month: number;
   day: number;
@@ -127,7 +113,7 @@ function pacificParts(at: Date = new Date()): {
   second: number;
 } {
   const fmt = new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/Los_Angeles",
+    timeZone: "America/New_York",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -149,12 +135,7 @@ function pacificParts(at: Date = new Date()): {
   };
 }
 
-// Given a Pacific wall-clock (Y, M, D, h, m, s), return the equivalent
-// epoch ms. We approximate by binary search: search for a UTC instant
-// whose Pacific-projected wall-clock equals the requested wall-clock.
-// In practice we walk timestamps in 1-second steps from a starting
-// guess, which is fine for our once-per-day schedule generation.
-function pacificWallToEpochMs(
+function easternWallToEpochMs(
   y: number,
   m: number,
   d: number,
@@ -162,19 +143,16 @@ function pacificWallToEpochMs(
   min: number,
   s: number
 ): number {
-  // Start from a UTC guess assuming PT = UTC-8 (handles non-DST).
-  const guessUTC = Date.UTC(y, m - 1, d, h + 8, min, s);
-  // Refine: compute the Pacific projection of that guess, then nudge.
-  const guessParts = pacificParts(new Date(guessUTC));
+  // ET is UTC-5 or UTC-4 with DST. Start with a UTC-5 guess and refine.
+  const guessUTC = Date.UTC(y, m - 1, d, h + 5, min, s);
+  const guessParts = easternParts(new Date(guessUTC));
   const want = h * 3600 + min * 60 + s;
   const got = guessParts.hour * 3600 + guessParts.minute * 60 + guessParts.second;
-  // diff in seconds we need to add to the guess to land on the wanted
-  // Pacific wall-clock. positive diff = guess is too early.
   const diff = (want - got) * 1000;
   return guessUTC + diff;
 }
 
-function seedFromPacificDate(p: { year: number; month: number; day: number }) {
+function seedFromEasternDate(p: { year: number; month: number; day: number }) {
   return p.year * 10000 + p.month * 100 + p.day;
 }
 
@@ -182,58 +160,177 @@ function seedFromPacificDate(p: { year: number; month: number; day: number }) {
 
 type ScheduleEntry = LeadEntry;
 
-function generateScheduleForPacificDay(p: {
+function generateScheduleForEasternDay(p: {
   year: number;
   month: number;
   day: number;
 }): ScheduleEntry[] {
-  const rand = mulberry32(seedFromPacificDate(p));
-  const open = pacificWallToEpochMs(p.year, p.month, p.day, 8, 0, 0);
-  const close = pacificWallToEpochMs(p.year, p.month, p.day, 18, 0, 0);
+  const rand = mulberry32(seedFromEasternDate(p));
+  const open = easternWallToEpochMs(p.year, p.month, p.day, 8, 0, 0);
+  const close = easternWallToEpochMs(p.year, p.month, p.day, 21, 0, 0); // 9 PM ET
+  // Target a count inside the honest range, deterministic per day.
+  const targetCount =
+    DAILY_LEAD_FLOOR + Math.floor(rand() * (DAILY_LEAD_CAP - DAILY_LEAD_FLOOR + 1));
+  const windowMs = close - open;
+  // Average gap to fit `targetCount` arrivals in the window.
+  const avgGap = windowMs / (targetCount + 1);
 
   const entries: ScheduleEntry[] = [];
-  let t = open + Math.floor(rand() * 60_000); // start a bit after open
-  let counter = 0;
+  let t = open + Math.floor(rand() * avgGap);
 
-  while (t <= close) {
+  for (let i = 0; i < targetCount && t <= close; i++) {
     const isLegal = rand() < 0.5;
     const pool = isLegal ? LEGAL_LEAD_TEMPLATES : MEDICAL_LEAD_TEMPLATES;
     const template = pool[Math.floor(rand() * pool.length)];
     entries.push({
-      id: `${seedFromPacificDate(p)}-${counter}`,
+      id: `${seedFromEasternDate(p)}-${i}`,
       vertical: isLegal ? "legal" : "medical",
       ...template,
       timestamp: t,
     });
-    counter += 1;
-    // next arrival: 30-180s later (seeded)
-    t += 30_000 + Math.floor(rand() * 150_000);
+    // Jitter the next arrival around the average gap so cadence varies
+    // realistically (roughly +/- 40% around avg).
+    const jitter = (rand() - 0.5) * 0.8;
+    t += Math.max(60_000, Math.floor(avgGap * (1 + jitter)));
   }
   return entries;
 }
 
 // ---------- Format helpers ----------
 
-const TIME_FMT_PT = new Intl.DateTimeFormat("en-US", {
-  timeZone: "America/Los_Angeles",
+const TIME_FMT_ET = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/New_York",
   hour: "numeric",
   minute: "2-digit",
   second: "2-digit",
   hour12: true,
 });
 
-function formatPacificTime(ms: number): string {
-  return TIME_FMT_PT.format(new Date(ms)) + " PT";
+function formatEasternTime(ms: number): string {
+  return TIME_FMT_ET.format(new Date(ms)) + " ET";
+}
+
+// ---------- MiniClock (analog face) ----------
+//
+// Session 50 — a small analog clock face beside each digital readout so
+// the row is unmistakably a clock row. Hands rotate based on the live
+// hours/minutes/seconds in the target timezone.
+
+type MiniClockProps = {
+  hour: number;
+  minute: number;
+  second: number;
+  size?: number;
+};
+
+function MiniClock({ hour, minute, second, size = 34 }: MiniClockProps) {
+  const sec = (second / 60) * 360;
+  const min = ((minute + second / 60) / 60) * 360;
+  const hr = (((hour % 12) + minute / 60) / 12) * 360;
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      className="lead-clock__face"
+      aria-hidden="true"
+    >
+      <circle
+        cx="20"
+        cy="20"
+        r="18.5"
+        stroke="var(--text-primary, #0C0D0F)"
+        strokeWidth="1.2"
+        fill="var(--canvas, #FAFBFC)"
+      />
+      {/* Tick marks at each hour */}
+      {Array.from({ length: 12 }).map((_, i) => {
+        const a = (i / 12) * 360 - 90;
+        const rad = (a * Math.PI) / 180;
+        const x1 = 20 + Math.cos(rad) * 15.5;
+        const y1 = 20 + Math.sin(rad) * 15.5;
+        const x2 = 20 + Math.cos(rad) * 17.5;
+        const y2 = 20 + Math.sin(rad) * 17.5;
+        return (
+          <line
+            key={i}
+            x1={x1}
+            y1={y1}
+            x2={x2}
+            y2={y2}
+            stroke="var(--text-tertiary, #6B6968)"
+            strokeWidth={i % 3 === 0 ? 1.4 : 0.7}
+            strokeLinecap="round"
+          />
+        );
+      })}
+      {/* Hour hand */}
+      <line
+        x1="20"
+        y1="20"
+        x2="20"
+        y2="11"
+        stroke="var(--text-primary, #0C0D0F)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        transform={`rotate(${hr} 20 20)`}
+      />
+      {/* Minute hand */}
+      <line
+        x1="20"
+        y1="20"
+        x2="20"
+        y2="7"
+        stroke="var(--text-primary, #0C0D0F)"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        transform={`rotate(${min} 20 20)`}
+      />
+      {/* Second hand — green for the live tick */}
+      <line
+        x1="20"
+        y1="22"
+        x2="20"
+        y2="6"
+        stroke="var(--signal-deep, #2A8E2A)"
+        strokeWidth="1"
+        strokeLinecap="round"
+        transform={`rotate(${sec} 20 20)`}
+      />
+      <circle cx="20" cy="20" r="1.6" fill="var(--text-primary, #0C0D0F)" />
+    </svg>
+  );
 }
 
 // ---------- World-clock row ----------
 
 const CLOCK_ZONES = [
-  { city: "New York", tz: "America/New_York" },
-  { city: "San Francisco", tz: "America/Los_Angeles" },
-  { city: "London", tz: "Europe/London" },
-  { city: "Tokyo", tz: "Asia/Tokyo" },
+  { city: "New York", tz: "America/New_York", abbr: "ET" },
+  { city: "San Francisco", tz: "America/Los_Angeles", abbr: "PT" },
+  { city: "London", tz: "Europe/London", abbr: "GMT" },
+  { city: "Tokyo", tz: "Asia/Tokyo", abbr: "JST" },
 ] as const;
+
+function readZoneParts(at: Date, tz: string) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: tz,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  })
+    .formatToParts(at)
+    .reduce<Record<string, string>>((acc, p) => {
+      if (p.type !== "literal") acc[p.type] = p.value;
+      return acc;
+    }, {});
+  return {
+    h: parseInt(parts.hour, 10),
+    m: parseInt(parts.minute, 10),
+    s: parseInt(parts.second, 10),
+  };
+}
 
 function LiveClocks() {
   const [now, setNow] = useState(() => new Date());
@@ -244,25 +341,22 @@ function LiveClocks() {
   return (
     <div className="lead-feed__clocks" aria-label="World clocks">
       {CLOCK_ZONES.map((z) => {
-        const parts = new Intl.DateTimeFormat("en-US", {
-          timeZone: z.tz,
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        })
-          .formatToParts(now)
-          .reduce<Record<string, string>>((acc, p) => {
-            if (p.type !== "literal") acc[p.type] = p.value;
-            return acc;
-          }, {});
+        const { h, m, s } = readZoneParts(now, z.tz);
+        const hr12 = ((h + 11) % 12) + 1;
+        const ampm = h < 12 ? "AM" : "PM";
+        const pad = (n: number) => String(n).padStart(2, "0");
         return (
           <div key={z.city} className="lead-clock">
-            <span className="lead-clock__city">{z.city}</span>
-            <span className="lead-clock__time">
-              {parts.hour}:{parts.minute}
-              <span className="sec">:{parts.second}</span>
-            </span>
+            <MiniClock hour={h} minute={m} second={s} />
+            <div className="lead-clock__digital">
+              <span className="lead-clock__city">{z.city}</span>
+              <span className="lead-clock__time">
+                {hr12}:{pad(m)}
+                <span className="sec">:{pad(s)}</span>
+                <span className="ampm"> {ampm}</span>
+              </span>
+              <span className="lead-clock__abbr">{z.abbr}</span>
+            </div>
           </div>
         );
       })}
@@ -276,27 +370,43 @@ export function LiveLeadFeed() {
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(true);
 
-  // Today's full schedule, computed once per mount (date-seeded so it's
-  // identical for everyone viewing on the same Pacific calendar day).
+  // Session 50 — if we're BEFORE today's 8am ET open, show yesterday's
+  // closing schedule so the feed is never blank. Once 8am ET passes
+  // we switch back to today's deterministic schedule.
   const scheduleRef = useRef<ScheduleEntry[] | null>(null);
   if (scheduleRef.current === null) {
     if (typeof window !== "undefined") {
-      const today = pacificParts(new Date());
-      scheduleRef.current = generateScheduleForPacificDay(today);
+      const today = easternParts(new Date());
+      const todayOpen = easternWallToEpochMs(
+        today.year,
+        today.month,
+        today.day,
+        8,
+        0,
+        0
+      );
+      if (Date.now() < todayOpen) {
+        // Before today's open — use yesterday's full schedule (all
+        // entries already "arrived" since they were scheduled for the
+        // previous Eastern day).
+        const prev = new Date(todayOpen - 24 * 60 * 60 * 1000);
+        const yp = easternParts(prev);
+        scheduleRef.current = generateScheduleForEasternDay(yp);
+      } else {
+        scheduleRef.current = generateScheduleForEasternDay(today);
+      }
     } else {
       scheduleRef.current = [];
     }
   }
   const schedule = scheduleRef.current ?? [];
 
-  // Which entries have arrived (timestamp <= now)
   const [arrivedCount, setArrivedCount] = useState<number>(() => {
     if (typeof window === "undefined") return 0;
     const now = Date.now();
     return schedule.filter((e) => e.timestamp <= now).length;
   });
 
-  // Section visibility for animation pausing
   useEffect(() => {
     if (typeof window === "undefined") return;
     const el = sectionRef.current;
@@ -309,8 +419,6 @@ export function LiveLeadFeed() {
     return () => observer.disconnect();
   }, []);
 
-  // Schedule the upcoming arrivals so they appear live as time crosses
-  // their timestamp. Cleared on unmount or when off-screen.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const prefersReduced = window.matchMedia(
@@ -345,6 +453,10 @@ export function LiveLeadFeed() {
     .slice(-5)
     .reverse();
 
+  // Session 50 — honest, reconciling math.
+  //   pipelineValue = sum of per-lead values (deterministic)
+  //   projectedRevenue = exactly pipelineValue * 10%
+  //   totalToday = arrived count, capped by the deterministic schedule
   const totalToday = arrived.length;
   const pipelineValue = arrived.reduce((sum, e) => sum + e.value, 0);
   const projectedRevenue = Math.round(pipelineValue * CLOSE_RATE);
@@ -358,6 +470,7 @@ export function LiveLeadFeed() {
       <div className="lead-feed__inner">
         <Reveal className="lead-feed__header">
           <div className="lead-feed__label">
+            <TriangleMark size={10} />
             <span className="lead-feed__live-dot" aria-hidden="true" />
             <span>LIVE ENGAGEMENT STREAM</span>
           </div>
@@ -372,7 +485,7 @@ export function LiveLeadFeed() {
           <p className="lead-feed__sub">
             Across the active roster. Every entry is a real inbound lead
             generated by our search engineering. Streaming live during
-            business hours (8am to 6pm Pacific).
+            business hours (8am to 9pm Eastern).
           </p>
         </Reveal>
 
@@ -479,7 +592,7 @@ function LeadCard({ lead, isNew }: { lead: LeadEntry; isNew: boolean }) {
       <div className="lead-card__meta-row">
         <span className="lead-card__time">{timeAgo}</span>
         <span className="lead-card__exact-time">
-          {formatPacificTime(lead.timestamp)}
+          {formatEasternTime(lead.timestamp)}
         </span>
         <span className={`lead-card__type lead-card__type--${lead.type}`}>
           {typeLabels[lead.type]}

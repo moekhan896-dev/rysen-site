@@ -227,19 +227,24 @@ const NAV: NavItem[] = [
             href: "/about#press",
             description: "Recent placements",
           },
-          {
-            label: "Careers",
-            href: "/careers",
-            description: "Open roles in Detroit, Phoenix, and remote",
-          },
-          {
-            label: "Transparency",
-            href: "/privacy",
-            description: "How we handle your data",
-          },
         ],
       },
     ],
+  },
+  // Session 50 — Careers + Transparency as their own top-level tabs.
+  // No submenu (single-page destinations); the chevron is hidden via
+  // CSS for items that ship `submenu: []`.
+  {
+    label: "Careers",
+    href: "/careers",
+    description: "Open roles in Detroit, Phoenix, and remote",
+    submenu: [],
+  },
+  {
+    label: "Transparency",
+    href: "/privacy",
+    description: "How we handle your data",
+    submenu: [],
   },
 ];
 
@@ -281,23 +286,25 @@ export function HeaderNav() {
       onMouseLeave={handleLeave}
       aria-label="Primary navigation"
     >
-      {NAV.map((item, i) => (
+      {NAV.map((item, i) => {
+        const hasSubmenu = item.submenu.length > 0;
+        return (
         <div
           key={item.label}
           className={`header-nav__item ${openIndex === i ? "is-open" : ""}`}
-          onMouseEnter={() => handleEnter(i)}
+          onMouseEnter={() => hasSubmenu && handleEnter(i)}
         >
           <Link
             href={item.href}
             className="header-nav__link"
-            aria-expanded={openIndex === i}
-            aria-haspopup="true"
+            aria-expanded={hasSubmenu ? openIndex === i : undefined}
+            aria-haspopup={hasSubmenu ? "true" : undefined}
           >
             {item.label}
-            <ChevronIcon />
+            {hasSubmenu && <ChevronIcon />}
           </Link>
 
-          {openIndex === i && (
+          {hasSubmenu && openIndex === i && (
             <div className="header-nav__panel" role="menu">
               <div className="header-nav__panel-inner">
                 {item.submenu.map((section) => (
@@ -329,7 +336,8 @@ export function HeaderNav() {
             </div>
           )}
         </div>
-      ))}
+        );
+      })}
     </nav>
   );
 }

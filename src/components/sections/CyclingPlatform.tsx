@@ -45,8 +45,12 @@ const PLATFORMS: ReadonlyArray<PlatformConfig> = [
   { key: "gemini", label: "Gemini", color: "#9747FF" },
 ];
 
-const CYCLE_INTERVAL_MS = 2600;
-const SWAP_TRANSITION_MS = 140;
+// Session 46 — slowed cycle so the synced search bar has room to
+// type its query char-by-char and resolve a result chip on every
+// platform. ~6s per platform: ~3s typing, ~500ms searching, ~1.5s
+// chip hold, ~1s clear + cross-fade overlap.
+const CYCLE_INTERVAL_MS = 6000;
+const SWAP_TRANSITION_MS = 400;
 
 // ---------- Context ----------
 
@@ -104,35 +108,82 @@ export function HeroPlatformProvider({ children }: { children: ReactNode }) {
 }
 
 // ---------- The cycling word ----------
+//
+// Session 46 — fluid cross-fade. We keep the OUTGOING platform
+// configured for ~SWAP_TRANSITION_MS while the INCOMING fades in, so
+// there's overlap and no blank frame. The incoming platform starts
+// in the "pre" state (translated down + invisible) and transitions
+// to "in" on the next frame, while the outgoing is moved to "out"
+// (translated up + invisible) simultaneously. ~150ms after swap
+// start the outgoing element unmounts.
+
+type PhaseLabel = "current" | "outgoing" | "incoming";
 
 export function CyclingPlatform() {
-  const { config, index } = useHeroPlatform();
-  const [swapping, setSwapping] = useState(false);
+  const { config } = useHeroPlatform();
+  const [currentConfig, setCurrentConfig] = useState(config);
+  const [outgoingConfig, setOutgoingConfig] = useState<PlatformConfig | null>(
+    null
+  );
+  const [phase, setPhase] = useState<"steady" | "swapping">("steady");
 
-  // Trigger a quick "out then in" animation whenever the index ticks.
+  // When the provider index ticks, kick off a cross-fade: keep the
+  // existing config as outgoing, mount the new one as incoming.
   useEffect(() => {
-    setSwapping(true);
-    const id = setTimeout(() => setSwapping(false), SWAP_TRANSITION_MS);
-    return () => clearTimeout(id);
-  }, [index]);
+    if (config.key === currentConfig.key) return;
+    setOutgoingConfig(currentConfig);
+    setCurrentConfig(config);
+    // Force the incoming element to start in `pre` state and flip to
+    // `in` on the next frame so the transition runs.
+    setPhase("swapping");
+    // After the swap window, drop the outgoing element.
+    const id = window.setTimeout(() => {
+      setOutgoingConfig(null);
+      setPhase("steady");
+    }, SWAP_TRANSITION_MS);
+    return () => window.clearTimeout(id);
+  }, [config, currentConfig]);
+
+  // Drive the "pre → in" frame flip so the incoming actually animates.
+  const [incomingReady, setIncomingReady] = useState(false);
+  useEffect(() => {
+    if (phase !== "swapping") {
+      setIncomingReady(false);
+      return;
+    }
+    const raf = window.requestAnimationFrame(() => setIncomingReady(true));
+    return () => window.cancelAnimationFrame(raf);
+  }, [phase, currentConfig.key]);
 
   return (
-    <span
-      className={`cycling-platform ${swapping ? "is-swapping" : ""}`}
-      aria-live="polite"
-    >
+    <span className="cycling-platform__slot" aria-live="polite">
+      {outgoingConfig && (
+        <span
+          key={`out-${outgoingConfig.key}`}
+          className="cycling-platform__word is-out"
+          style={{ color: outgoingConfig.color }}
+        >
+          <span className="cycling-platform__logo" aria-hidden="true">
+            <PlatformGlyph platform={outgoingConfig.key} />
+          </span>
+          {outgoingConfig.label}
+        </span>
+      )}
       <span
-        className="cycling-platform__logo"
-        aria-hidden="true"
-        style={{ color: config.color }}
+        key={`in-${currentConfig.key}`}
+        className={`cycling-platform__word ${
+          phase === "swapping"
+            ? incomingReady
+              ? "is-in"
+              : "is-pre"
+            : "is-in"
+        }`}
+        style={{ color: currentConfig.color }}
       >
-        <PlatformGlyph platform={config.key} />
-      </span>
-      <span
-        className="cycling-platform__word"
-        style={{ color: config.color }}
-      >
-        {config.label}
+        <span className="cycling-platform__logo" aria-hidden="true">
+          <PlatformGlyph platform={currentConfig.key} />
+        </span>
+        {currentConfig.label}
       </span>
     </span>
   );

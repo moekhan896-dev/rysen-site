@@ -1,38 +1,37 @@
 "use client";
 
-// Session 45 — Reveal wrapper.
+// Session 46 — Reveal + RevealGroup.
 //
-// Drop-in component that fades + rises its children when they
-// scroll into view. IntersectionObserver disconnects after first
-// trigger so each element animates exactly once.
+// Single motion language for the whole site. Default variant is
+// "rise-blur" — the wearen5.com feel: opacity 0 → 1 + translateY
+// (--reveal-rise) → 0 + filter blur(--reveal-blur) → blur(0), all on
+// var(--motion-ease) at var(--reveal-duration). The blur-to-sharp is
+// what makes the reveal feel "developed" rather than just sliding.
 //
-// Props:
-//   children     React.ReactNode (required)
-//   delay        ms to defer the transition start (used for staggers
-//                across siblings; e.g. 0/80/160/240)
-//   threshold    fraction of the element that must be visible
-//                before the reveal fires (defaults to 0.12)
-//   rootMargin   pre-trigger or post-trigger margin around root
-//   as           optional element tag (defaults to "div") — useful
-//                when the wrapper has to be a <span>, <section>, etc.
-//   className    forwarded to the wrapper
+// All animation values reference :root motion tokens — no per-call-site
+// timing knobs. Stagger across siblings via RevealGroup using
+// --reveal-stagger.
 //
-// Reduced motion: short-circuits the observer, marks the element
-// as shown immediately, and the CSS rule disables the transition
-// + transform via `prefers-reduced-motion: reduce`.
+// Reduced motion: short-circuits the IntersectionObserver and marks
+// the element shown immediately. CSS rule disables transforms +
+// transitions in the reduced-motion media query.
 
 import {
+  Children,
   useEffect,
   useRef,
   useState,
+  type CSSProperties,
   type ElementType,
   type ReactNode,
-  type CSSProperties,
 } from "react";
+
+type RevealVariant = "rise" | "rise-blur" | "fade";
 
 type RevealProps = {
   children: ReactNode;
   delay?: number;
+  variant?: RevealVariant;
   threshold?: number;
   rootMargin?: string;
   as?: ElementType;
@@ -43,8 +42,9 @@ type RevealProps = {
 export function Reveal({
   children,
   delay = 0,
-  threshold = 0.12,
-  rootMargin = "0px 0px -8% 0px",
+  variant = "rise-blur",
+  threshold = 0.1,
+  rootMargin = "0px 0px -10% 0px",
   as,
   className,
   style,
@@ -87,10 +87,56 @@ export function Reveal({
   return (
     <Tag
       ref={ref}
-      className={`reveal ${shown ? "is-shown" : ""} ${className ?? ""}`}
+      className={`reveal reveal--${variant} ${shown ? "is-shown" : ""} ${
+        className ?? ""
+      }`}
       style={combinedStyle}
     >
       {children}
     </Tag>
+  );
+}
+
+// ---------- RevealGroup ----------
+//
+// Wraps a list of siblings and auto-staggers each child by
+// --reveal-stagger (90ms by default), with an optional baseDelay
+// before the first child enters. Each child becomes its own Reveal,
+// inheriting the variant.
+
+type RevealGroupProps = {
+  children: ReactNode;
+  variant?: RevealVariant;
+  baseDelay?: number;
+  stagger?: number;
+  className?: string;
+};
+
+export function RevealGroup({
+  children,
+  variant = "rise-blur",
+  baseDelay = 0,
+  stagger = 90,
+  className,
+}: RevealGroupProps) {
+  const items = Children.toArray(children);
+  return (
+    <>
+      {className ? (
+        <div className={className}>
+          {items.map((child, i) => (
+            <Reveal key={i} delay={baseDelay + i * stagger} variant={variant}>
+              {child}
+            </Reveal>
+          ))}
+        </div>
+      ) : (
+        items.map((child, i) => (
+          <Reveal key={i} delay={baseDelay + i * stagger} variant={variant}>
+            {child}
+          </Reveal>
+        ))
+      )}
+    </>
   );
 }

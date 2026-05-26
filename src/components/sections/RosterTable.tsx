@@ -19,6 +19,7 @@
 // The sparkline shifts slightly on hover so the row feels alive.
 
 import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
 
 // =====================================================================
 // Data — six clients, hand-curated to balance verticals + metros
@@ -123,8 +124,10 @@ export function RosterTable() {
         <div className="roster-table__col-cta">Case study</div>
       </div>
 
-      {ROSTER.map((row) => (
-        <RosterRowItem key={row.id} row={row} />
+      {ROSTER.map((row, i) => (
+        <Reveal key={row.id} delay={i * 80}>
+          <RosterRowItem row={row} />
+        </Reveal>
       ))}
     </div>
   );

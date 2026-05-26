@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
 
 // Target reticle background composition. Tight concentric rings with
 // crosshair and a small center triangle motif. Sits BEHIND the content
@@ -58,7 +59,7 @@ export function TheClose() {
     <section className="the-close" aria-label="Find out if your metro is open">
       <TargetReticleBackground />
 
-      <div className="the-close__inner">
+      <Reveal className="the-close__inner">
         <div className="the-work__heading-row">
           <span className="how__bar" aria-hidden="true" />
           <p className="how__label">Find out if your metro is open</p>
@@ -85,7 +86,7 @@ export function TheClose() {
           <span aria-hidden="true">·</span>
           <span>Detroit + Phoenix</span>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

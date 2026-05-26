@@ -12,6 +12,7 @@ import {
   RevenueCompoundsIllustration,
 } from "@/components/illustrations/OutcomeIllustrations";
 import { TriangleMark } from "@/components/ui/TriangleMark";
+import { Reveal } from "@/components/ui/Reveal";
 
 type Station = {
   Illustration: () => React.JSX.Element;
@@ -153,7 +154,7 @@ export function TheOutcome() {
       aria-label="The outcome"
     >
       <div className="outcome__inner">
-        <div className="outcome__header">
+        <Reveal className="outcome__header">
           <p className="outcome__label">
             <TriangleMark size={10} />
             <span className="outcome__label-marker" aria-hidden="true" />
@@ -168,7 +169,7 @@ export function TheOutcome() {
             We engineer each step into measurable case intake and patient
             bookings.
           </p>
-        </div>
+        </Reveal>
 
         <div className="outcome__cascade">
           <CascadeSpine stationCount={STATIONS.length} />
@@ -178,9 +179,10 @@ export function TheOutcome() {
               const side: "left" | "right" = i % 2 === 0 ? "left" : "right";
               const Illustration = station.Illustration;
               return (
-                <div
+                <Reveal
                   key={station.number}
                   className={`cascade-station cascade-station--${side}`}
+                  delay={i * 160}
                 >
                   <div className="cascade-station__node" aria-hidden="true" />
                   <article className="cascade-station__card">
@@ -210,7 +212,7 @@ export function TheOutcome() {
                       )}
                     </div>
                   </article>
-                </div>
+                </Reveal>
               );
             })}
           </div>

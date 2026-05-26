@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/ui/Reveal";
+
 // Session 40 — TheWall.
 //
 // Compressed from 12 testimonials to 5, arranged in an editorial
@@ -78,7 +80,7 @@ export function TheWall() {
   return (
     <section className="wall" aria-label="Results wall">
       <div className="wall__inner">
-        <div className="wall__header">
+        <Reveal className="wall__header">
           <p className="wall__label">
             <span className="wall__label-marker" aria-hidden="true" />
             06 — Results
@@ -90,24 +92,24 @@ export function TheWall() {
             Results vary by metro, vertical, and starting position. The
             pattern doesn&apos;t.
           </p>
-        </div>
+        </Reveal>
 
         <div className="wall__editorial">
-          <div className="wall__column wall__column--left">
+          <Reveal className="wall__column wall__column--left" delay={120}>
             {SUPPORTING_LEFT.map((q, i) => (
               <QuoteCard key={`left-${i}`} {...q} />
             ))}
-          </div>
+          </Reveal>
 
-          <div className="wall__column wall__column--center">
+          <Reveal className="wall__column wall__column--center" delay={240}>
             <QuoteCard {...FEATURED} featured />
-          </div>
+          </Reveal>
 
-          <div className="wall__column wall__column--right">
+          <Reveal className="wall__column wall__column--right" delay={360}>
             {SUPPORTING_RIGHT.map((q, i) => (
               <QuoteCard key={`right-${i}`} {...q} />
             ))}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

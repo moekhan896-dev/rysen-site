@@ -11,6 +11,7 @@ import {
   AttributionModelingIllustration,
   ContentEngineeringIllustration,
 } from "@/components/illustrations/StackIllustrations";
+import { Reveal } from "@/components/ui/Reveal";
 
 type Slab = {
   num: string;
@@ -60,7 +61,7 @@ export function TheStack() {
   return (
     <section className="stack-section stack-section--tower" aria-label="The Stack">
       <div className="stack-section__inner">
-        <div className="stack-section__header">
+        <Reveal className="stack-section__header">
           <p className="stack-section__label">
             <span className="stack-section__label-marker" aria-hidden="true" />
             04 — The Stack
@@ -74,7 +75,7 @@ export function TheStack() {
             intelligence feeds citation, citation feeds attribution. Every
             engagement runs through all four.
           </p>
-        </div>
+        </Reveal>
 
         <div className="stack-tower">
           <div className="stack-tower__flow-top" aria-hidden="true">
@@ -86,7 +87,12 @@ export function TheStack() {
             const Illustration = slab.Illustration;
             const isFirst = i === 0;
             return (
-              <article key={slab.num} className="stack-slab">
+              <Reveal
+                as="article"
+                key={slab.num}
+                className="stack-slab"
+                delay={i * 130}
+              >
                 {!isFirst && (
                   <span className="stack-slab__conduit" aria-hidden="true" />
                 )}
@@ -99,7 +105,7 @@ export function TheStack() {
                   <p className="stack-slab__text">{slab.body}</p>
                   <div className="stack-slab__specs">{slab.specs}</div>
                 </div>
-              </article>
+              </Reveal>
             );
           })}
 

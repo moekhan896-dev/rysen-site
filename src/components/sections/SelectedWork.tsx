@@ -1,4 +1,5 @@
 import { RosterTable } from "./RosterTable";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function SelectedWork() {
   return (
@@ -8,7 +9,7 @@ export function SelectedWork() {
       aria-label="Selected work"
     >
       <div className="selected-work__inner">
-        <div className="selected-work__header">
+        <Reveal className="selected-work__header">
           <p className="selected-work__label">
             <span className="selected-work__label-marker" aria-hidden="true" />
             01 — The Roster
@@ -22,11 +23,11 @@ export function SelectedWork() {
             operates as the dominant firm in their metro and vertical.
             Click a row to see their full case study.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="selected-work__dashboard">
+        <Reveal className="selected-work__dashboard" delay={120}>
           <RosterTable />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

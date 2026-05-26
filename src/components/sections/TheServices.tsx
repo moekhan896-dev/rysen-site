@@ -16,6 +16,7 @@ import {
   EmailIllustration,
   SocialIllustration,
 } from "@/components/illustrations/ServiceIllustrations";
+import { Reveal } from "@/components/ui/Reveal";
 
 type LayerNum = 1 | 2 | 3 | 4;
 
@@ -46,7 +47,7 @@ export function TheServices() {
   return (
     <section className="services" id="services" aria-label="Engineered systems">
       <div className="services__inner">
-        <div className="services__header">
+        <Reveal className="services__header">
           <div className="services__label">
             <span className="services__label-marker" aria-hidden="true" />
             07 — The System
@@ -61,9 +62,9 @@ export function TheServices() {
             feeds visibility. Visibility produces engagement and revenue.
             Stack any combination.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="services__architecture">
+        <Reveal className="services__architecture" delay={120}>
           <div className="services__flow-left">
             <div className="services__flow-label">DATA FLOW</div>
             <div className="services__flow-arrow" aria-hidden="true">↑</div>
@@ -190,7 +191,7 @@ export function TheServices() {
               <div>Foundation</div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

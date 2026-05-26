@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/ui/Reveal";
+
 const PHASES = [
   {
     num: "0.1",
@@ -41,17 +43,17 @@ export function TheProcess() {
   return (
     <section className="process" aria-label="Process">
       <div className="process__inner">
-        <div className="process__header">
+        <Reveal className="process__header">
           <p className="process__label">10 — Process</p>
           <h2 className="process__headline">An engineered methodology.</h2>
           <p className="process__sub">
             An engineered methodology with measurable checkpoints. Four phases. 120 days to compound velocity.
           </p>
-        </div>
+        </Reveal>
 
         <div className="process__phases">
-          {PHASES.map((p) => (
-            <article key={p.num} className="process-phase">
+          {PHASES.map((p, i) => (
+            <Reveal as="article" key={p.num} className="process-phase" delay={i * 130}>
               <div className="process-phase__photo">
                 <img src={p.photo} alt={p.alt} loading="lazy" />
                 <div className="process-phase__photo-overlay" aria-hidden="true" />
@@ -63,7 +65,7 @@ export function TheProcess() {
                 <h3 className="process-phase__title">{p.title}</h3>
                 <p className="process-phase__desc">{p.desc}</p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

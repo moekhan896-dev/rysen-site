@@ -1,6 +1,7 @@
 import { OperatorsBannerIllustration } from "@/components/illustrations/OperatorsBannerIllustration";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { LazyVideo } from "@/components/ui/LazyVideo";
+import { Reveal } from "@/components/ui/Reveal";
 import {
   QuattroGrowthChart,
   HonestPlumbersChart,
@@ -15,7 +16,7 @@ export function BuiltByOperators() {
   return (
     <section className="operators" aria-label="Built by operators">
       <div className="operators__inner">
-        <div className="operators__header">
+        <Reveal className="operators__header">
           <p className="operators__label">
             <span className="operators__label-marker" aria-hidden="true" /> 05 — Operators
           </p>
@@ -37,15 +38,15 @@ export function BuiltByOperators() {
             proprietary data and AI stack we deploy for clients was first
             tested on our own ventures. This is how we know it works.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="operators__banner">
+        <Reveal className="operators__banner" delay={120}>
           <OperatorsBannerIllustration />
-        </div>
+        </Reveal>
 
         <div className="operators__cards">
           {/* Card 1 — Quattro Labs */}
-          <article className="operator-card">
+          <Reveal as="article" className="operator-card" delay={0}>
             <div className="operator-card__visual">
               <div className="operator-card__velocity">ZERO TO 150K · 4 YEARS</div>
               <LazyVideo
@@ -70,10 +71,10 @@ export function BuiltByOperators() {
                 <span>Auto · Phoenix</span>
               </div>
             </div>
-          </article>
+          </Reveal>
 
           {/* Card 2 — The Honest Plumbers */}
-          <article className="operator-card">
+          <Reveal as="article" className="operator-card" delay={120}>
             <div className="operator-card__visual">
               <div className="operator-card__velocity">ZERO TO #1 · MICHIGAN</div>
               <img
@@ -102,10 +103,10 @@ export function BuiltByOperators() {
                 <span>Home service</span>
               </div>
             </div>
-          </article>
+          </Reveal>
 
           {/* Card 3 — The Honest Maids */}
-          <article className="operator-card">
+          <Reveal as="article" className="operator-card" delay={240}>
             <div className="operator-card__visual">
               <div className="operator-card__velocity">ZERO TO #1 · MICHIGAN</div>
               <img
@@ -134,10 +135,10 @@ export function BuiltByOperators() {
                 <span>Home service</span>
               </div>
             </div>
-          </article>
+          </Reveal>
 
           {/* Card 4 — Madison Clark */}
-          <article className="operator-card">
+          <Reveal as="article" className="operator-card" delay={360}>
             <div className="operator-card__visual">
               <div className="operator-card__velocity">ZERO TO 100M · 60 DAYS</div>
               <div className="operator-card__viz">
@@ -185,7 +186,7 @@ export function BuiltByOperators() {
                 <span>Zero spend</span>
               </div>
             </div>
-          </article>
+          </Reveal>
         </div>
 
         {/* Gallery row: 3 more Quattro videos — lazy-loaded so only
@@ -223,7 +224,7 @@ export function BuiltByOperators() {
           </figure>
         </div>
 
-        <div className="operators__aggregate">
+        <Reveal className="operators__aggregate" delay={120}>
           <div className="operators__agg-item">
             <div className="operators__agg-num">4</div>
             <div className="operators__agg-label">brands built from zero</div>
@@ -243,7 +244,7 @@ export function BuiltByOperators() {
             <div className="operators__agg-num">5 years</div>
             <div className="operators__agg-label">building our own ventures</div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

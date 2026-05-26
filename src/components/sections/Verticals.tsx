@@ -3,6 +3,7 @@ import {
   LegalVerticalIllustration,
   MedicalVerticalIllustration,
 } from "@/components/illustrations/VerticalIllustrations";
+import { Reveal } from "@/components/ui/Reveal";
 
 // Session 44 — expand vertical breadth: 13 legal practice areas + 16
 // medical specialties. Rendered as a flowing list with green-deep
@@ -47,7 +48,7 @@ export function Verticals() {
   return (
     <section className="verticals" aria-label="Verticals">
       <div className="verticals__inner">
-        <div className="verticals__header">
+        <Reveal className="verticals__header">
           <p className="verticals__label">
             <span aria-hidden="true" /> 02 — Verticals
           </p>
@@ -58,13 +59,13 @@ export function Verticals() {
             We engineer visibility differently for legal and medical. Same
             proprietary stack, different vertical playbooks.
           </p>
-        </div>
+        </Reveal>
 
         <div className="verticals__spread">
           <div className="verticals__divider" aria-hidden="true" />
 
           {/* LEGAL side */}
-          <article className="vertical-side vertical-side--legal">
+          <Reveal as="article" className="vertical-side vertical-side--legal" delay={120}>
             <div className="vertical-side__label">
               <span>LEGAL · VERTICAL 01</span>
             </div>
@@ -120,10 +121,10 @@ export function Verticals() {
             <Link href="/case-studies?filter=legal" className="vertical-side__cta">
               See legal case studies <span aria-hidden="true">→</span>
             </Link>
-          </article>
+          </Reveal>
 
           {/* MEDICAL side */}
-          <article className="vertical-side vertical-side--medical">
+          <Reveal as="article" className="vertical-side vertical-side--medical" delay={240}>
             <div className="vertical-side__label">
               <span>MEDICAL · VERTICAL 02</span>
             </div>
@@ -181,7 +182,7 @@ export function Verticals() {
             >
               See medical case studies <span aria-hidden="true">→</span>
             </Link>
-          </article>
+          </Reveal>
         </div>
       </div>
     </section>

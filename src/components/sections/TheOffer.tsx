@@ -17,6 +17,7 @@ import {
   PressIcon,
   StrategyIcon,
 } from "@/components/illustrations/PathIllustrations";
+import { Reveal } from "@/components/ui/Reveal";
 
 function ArrowIcon() {
   return (
@@ -56,7 +57,7 @@ export function TheOffer() {
   return (
     <section className="offer" aria-label="Engagement paths">
       <div className="offer__inner">
-        <div className="offer__header">
+        <Reveal className="offer__header">
           <p className="offer__label">
             <span className="offer__label-marker" aria-hidden="true" />
             06 — Engagement
@@ -70,10 +71,10 @@ export function TheOffer() {
             or scaling a top-3 firm into permanent metro lockup, we have a
             defined engagement model.
           </p>
-        </div>
+        </Reveal>
 
         <div className="offer__paths-row">
-          <article className="path-card">
+          <Reveal as="article" className="path-card" delay={120}>
             <div className="path-card__illustration">
               <EstablishPathIllustration />
             </div>
@@ -102,13 +103,13 @@ export function TheOffer() {
                 Apply for engagement <ArrowIcon />
               </Link>
             </div>
-          </article>
+          </Reveal>
 
           <div className="offer__fork" aria-hidden="true">
             <ForkConnector />
           </div>
 
-          <article className="path-card path-card--featured">
+          <Reveal as="article" className="path-card path-card--featured" delay={260}>
             <div className="path-card__badge">MOST AGGRESSIVE</div>
             <div className="path-card__illustration">
               <DominatePathIllustration />
@@ -138,7 +139,7 @@ export function TheOffer() {
                 Apply for engagement <ArrowIcon />
               </Link>
             </div>
-          </article>
+          </Reveal>
         </div>
       </div>
     </section>

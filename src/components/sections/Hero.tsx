@@ -71,7 +71,7 @@ export function Hero() {
                 </span>
               </span>
               <span className="hero__line hero__line--3">
-                to dominate <CyclingPlatform />
+                to dominate <CyclingPlatform /> results
               </span>
             </h1>
 

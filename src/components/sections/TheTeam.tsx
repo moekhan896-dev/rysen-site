@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/ui/Reveal";
 
 function CornerBracket({ x, y, flipX = false, flipY = false }: { x: number; y: number; flipX?: boolean; flipY?: boolean }) {
   const sx = flipX ? -1 : 1;
@@ -88,7 +89,7 @@ export function TheTeam() {
   return (
     <section className="the-team" aria-label="The team">
       <div className="the-team__inner">
-        <div className="the-team__copy-head">
+        <Reveal className="the-team__copy-head">
           <div className="the-work__heading-row">
             <span className="how__bar" aria-hidden="true" />
             <p className="how__label">The Team</p>
@@ -97,10 +98,10 @@ export function TheTeam() {
           <p className="how__sub">
             We didn&apos;t learn this in a course. We built the brands we now grow.
           </p>
-        </div>
+        </Reveal>
 
         <div className="the-team__grid">
-          <div className="the-team__portrait-wrap">
+          <Reveal className="the-team__portrait-wrap" delay={120}>
             <div className="the-team__portrait-offset" aria-hidden="true" />
             <div className="the-team__portrait-frame">
               <Image
@@ -125,11 +126,11 @@ export function TheTeam() {
                 <CornerBracket x={414} y={514} flipX flipY />
               </svg>
             </div>
-          </div>
+          </Reveal>
 
           <div className="the-team__credentials">
-            {VENTURES.map((v) => (
-              <div key={v.num} className="venture-card">
+            {VENTURES.map((v, i) => (
+              <Reveal key={v.num} className="venture-card" delay={200 + i * 90}>
                 <span className="venture-card__accent" aria-hidden="true" />
                 <div className="venture-card__head">
                   <div className="venture-card__icon">{v.icon}</div>
@@ -143,7 +144,7 @@ export function TheTeam() {
                   <span className="venture-card__metric-value">{v.metric}</span>
                   <span className="venture-card__metric-label">{v.metricLabel}</span>
                 </div>
-              </div>
+              </Reveal>
             ))}
 
             <p className="the-team__previously">

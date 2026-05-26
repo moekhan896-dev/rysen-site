@@ -24,6 +24,7 @@
 
 import { useRef } from "react";
 import { TriangleMark } from "@/components/ui/TriangleMark";
+import { Reveal } from "@/components/ui/Reveal";
 
 // =====================================================================
 // Types + data
@@ -143,7 +144,7 @@ export function ViralCarousel() {
 
   return (
     <section className="viral" aria-label="Viral social content">
-      <div className="viral__header">
+      <Reveal className="viral__header">
         <div className="viral__label">
           <TriangleMark size={10} />
           <span>CONTENT VIRALITY</span>
@@ -158,7 +159,7 @@ export function ViralCarousel() {
           Ranking #1 is half the system. We also engineer content that
           spreads. Our own brands prove it.
         </p>
-      </div>
+      </Reveal>
 
       <div className="viral__carousel">
         <button
@@ -171,8 +172,10 @@ export function ViralCarousel() {
         </button>
 
         <div className="viral__track" ref={trackRef} role="list">
-          {POSTS.map((post) => (
-            <ViralCard key={post.id} post={post} />
+          {POSTS.map((post, i) => (
+            <Reveal key={post.id} delay={i * 70}>
+              <ViralCard post={post} />
+            </Reveal>
           ))}
         </div>
 

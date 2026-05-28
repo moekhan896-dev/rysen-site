@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { MoreWork } from "@/components/sections/MoreWork";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
 
 // Session 52 — Slim Dental case study, real narrative.
 // All names and quotes are anonymized and representative of typical
@@ -18,6 +20,7 @@ export default function SlimDentalPage() {
       className="case-study-placeholder"
       aria-label="Slim Dental case study"
     >
+      <TrackPageView event="case_study_view" props={{ slug: "slim-dental" }} />
       <div className="legal-body__breadcrumbs">
         <Breadcrumbs
           trail={[
@@ -149,6 +152,8 @@ export default function SlimDentalPage() {
           Find out if your metro is open →
         </Link>
       </footer>
+
+      <MoreWork currentSlug="slim-dental" />
     </article>
   );
 }

@@ -9,6 +9,9 @@ import {
   CaseTacticsGrid,
 } from "@/components/page-sections/CaseStudyParts";
 import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
+import { MoreWork } from "@/components/sections/MoreWork";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title:
@@ -99,10 +102,21 @@ export default function TylerCaseStudyPage() {
 
   return (
     <main className="case-page">
+      <TrackPageView event="case_study_view" props={{ slug: "tyler-family-law" }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseJsonLd) }}
       />
+
+      <div className="case-page__breadcrumbs">
+        <Breadcrumbs
+          trail={[
+            { name: "Home", href: "/" },
+            { name: "Work", href: "/work" },
+            { name: "Tyler Family Law" },
+          ]}
+        />
+      </div>
 
       <section className="case-page-hero">
         <div className="page-hero-ambient" aria-hidden="true">
@@ -230,6 +244,8 @@ export default function TylerCaseStudyPage() {
         previous={{ href: "/case-studies/aws-law-firm", label: "AWS Law Firm" }}
         next={{ href: "/case-studies/coleman-co", label: "Coleman & Co." }}
       />
+
+      <MoreWork currentSlug="tyler-family-law" />
 
       <CTABanner
         title="Think your market is unwinnable?"

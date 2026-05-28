@@ -7,6 +7,8 @@ import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { BlueprintPullQuote } from "@/components/primitives/BlueprintPullQuote";
 import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
 import { RelatedContent } from "@/components/primitives/RelatedContent";
+import { MoreWork } from "@/components/sections/MoreWork";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
 
 export const metadata: Metadata = {
   title: "Madison Clark, AI persona, 100M views in 60 days",
@@ -26,6 +28,10 @@ const WEEK_LABELS = [
 export default function MadisonClarkCaseStudy() {
   return (
     <article className="deep-page deep-page--ink">
+      <TrackPageView
+        event="case_study_view"
+        props={{ slug: "madison-clark", kind: "owned-brand" }}
+      />
       {/* HERO */}
       <section className="deep-page-hero">
         <div style={{ position: "absolute", top: 32, left: 32, opacity: 0.6 }}>
@@ -193,6 +199,10 @@ export default function MadisonClarkCaseStudy() {
         previous={{ href: "/case-studies/ridge-dental", label: "Ridge Dental" }}
         next={{ href: "/case-studies/aws-law-firm", label: "AWS Law Firm" }}
       />
+
+      {/* Madison is an owned brand. MoreWork points back at the
+          search cases so owned-brand traffic still feeds the funnel. */}
+      <MoreWork currentSlug="madison-clark" />
 
       <RelatedContent
         items={[

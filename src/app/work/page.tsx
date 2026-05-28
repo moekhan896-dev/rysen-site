@@ -5,6 +5,7 @@ import { TriangleMark } from "@/components/ui/TriangleMark";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { CaseStudyChart } from "@/components/ui/CaseStudyChart";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { TrackedCard } from "@/components/analytics/TrackedCard";
 
 export const metadata: Metadata = {
   title: "Selected Work — Rysen Growth",
@@ -116,11 +117,12 @@ export default function WorkIndexPage() {
       <section className="work-grid-section">
         <RevealGroup className="work-grid" stagger={90}>
           {CLIENTS.map((c) => (
-            <Link
+            <TrackedCard
               key={c.id}
               href={c.href}
+              slug={c.id}
               className="work-card"
-              aria-label={`View ${c.name} case study`}
+              ariaLabel={`View ${c.name} case study`}
             >
               <div className="work-card__head">
                 <span className="work-card__vertical">
@@ -145,7 +147,7 @@ export default function WorkIndexPage() {
                   />
                 </svg>
               </div>
-            </Link>
+            </TrackedCard>
           ))}
           <div className="work-card work-card--placeholder">
             <span className="work-card__vertical">LEGAL · COMING</span>

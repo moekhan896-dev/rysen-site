@@ -1,4 +1,13 @@
-import Link from "next/link";
+// Session 53 — unify on the Session 52 Breadcrumbs component.
+//
+// This primitives wrapper is the original visible-only breadcrumbs.
+// As of Session 53 it delegates to @/components/ui/Breadcrumbs (which
+// emits BOTH the visible UI AND BreadcrumbList JSON-LD), mapping the
+// older { label, href } shape to the new { name, href } shape. Every
+// page that uses PageHero with a breadcrumbs prop now gets JSON-LD
+// coverage automatically.
+
+import { Breadcrumbs as UnifiedBreadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface Crumb {
   label: string;
@@ -10,31 +19,6 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ trail }: BreadcrumbsProps) {
-  return (
-    <nav aria-label="Breadcrumb" className="breadcrumbs">
-      <ol className="breadcrumbs-list">
-        {trail.map((c, i) => {
-          const isLast = i === trail.length - 1;
-          return (
-            <li key={`${c.label}-${i}`} className="breadcrumbs-item">
-              {c.href && !isLast ? (
-                <Link href={c.href} className="breadcrumbs-link">
-                  {c.label}
-                </Link>
-              ) : (
-                <span className="breadcrumbs-current" aria-current="page">
-                  {c.label}
-                </span>
-              )}
-              {!isLast && (
-                <span className="breadcrumbs-sep" aria-hidden="true">
-                  ›
-                </span>
-              )}
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
-  );
+  const mapped = trail.map((c) => ({ name: c.label, href: c.href }));
+  return <UnifiedBreadcrumbs trail={mapped} />;
 }

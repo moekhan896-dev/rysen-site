@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { MoreWork } from "@/components/sections/MoreWork";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
 
 // Session 52 — Quattro Labs case study, real narrative.
 // Quattro is an OWNED brand (not a client). This page documents the
@@ -17,6 +19,10 @@ export const metadata: Metadata = {
 export default function QuattroLabsPage() {
   return (
     <article className="case-study-placeholder" aria-label="Quattro Labs case study">
+      <TrackPageView
+        event="case_study_view"
+        props={{ slug: "quattro-labs", kind: "owned-brand" }}
+      />
       <div className="legal-body__breadcrumbs">
         <Breadcrumbs
           trail={[
@@ -130,6 +136,12 @@ export default function QuattroLabsPage() {
           Find out if your metro is open →
         </Link>
       </footer>
+
+      {/* Quattro is an owned brand, not a search client. The MoreWork
+          strip points at all 4 search case studies so the
+          owned-brand page still funnels traffic back into the
+          search-client narratives. */}
+      <MoreWork currentSlug="quattro-labs" />
     </article>
   );
 }

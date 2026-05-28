@@ -9,6 +9,9 @@ import {
   CaseTacticsGrid,
 } from "@/components/page-sections/CaseStudyParts";
 import { CaseStudyNav } from "@/components/primitives/CaseStudyNav";
+import { MoreWork } from "@/components/sections/MoreWork";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Hartman Dermatology Case Study, Miami Cosmetic Dermatology",
@@ -98,10 +101,21 @@ export default function HartmanCaseStudyPage() {
 
   return (
     <main className="case-page">
+      <TrackPageView event="case_study_view" props={{ slug: "hartman-dermatology" }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseJsonLd) }}
       />
+
+      <div className="case-page__breadcrumbs">
+        <Breadcrumbs
+          trail={[
+            { name: "Home", href: "/" },
+            { name: "Work", href: "/work" },
+            { name: "Hartman Dermatology" },
+          ]}
+        />
+      </div>
 
       <section className="case-page-hero">
         <div className="page-hero-ambient" aria-hidden="true">
@@ -228,6 +242,8 @@ export default function HartmanCaseStudyPage() {
         previous={{ href: "/case-studies/coleman-co", label: "Coleman & Co." }}
         next={{ href: "/case-studies/ridge-dental", label: "Ridge Dental" }}
       />
+
+      <MoreWork currentSlug="hartman-dermatology" />
 
       <CTABanner
         title="Want results like these?"

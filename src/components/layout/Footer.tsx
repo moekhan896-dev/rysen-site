@@ -67,6 +67,7 @@ export function Footer() {
         <span>© 2026 Rysen Growth. All rights reserved.</span>
         <span className="site-footer__legal-links">
           <Link href="/privacy">Transparency</Link>
+          <Link href="/cookies">Cookies</Link>
           <Link href="/terms">Terms</Link>
         </span>
       </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { RysenLogo } from "@/components/brand/RysenLogo";
 import { HeaderNav } from "./HeaderNav";
 import { MobileDrawer } from "./MobileDrawer";
+import { track } from "@/lib/analytics";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +35,11 @@ export function Header() {
 
           <HeaderNav />
 
-          <Link href="/contact" className="site-header__cta">
+          <Link
+            href="/contact"
+            className="site-header__cta"
+            onClick={() => track("cta_click", { location: "header" })}
+          >
             Claim your city
             <svg
               width="12"

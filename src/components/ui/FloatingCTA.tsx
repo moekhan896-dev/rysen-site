@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { track } from "@/lib/analytics";
 
 export function FloatingCTA() {
   const [visible, setVisible] = useState(false);
@@ -46,7 +47,11 @@ export function FloatingCTA() {
           <path d="M1 1L9 9M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       </button>
-      <Link href="/contact" className="floating-cta__link">
+      <Link
+        href="/contact"
+        className="floating-cta__link"
+        onClick={() => track("cta_click", { location: "floating" })}
+      >
         <span className="floating-cta__indicator">
           <span className="floating-cta__indicator-dot" aria-hidden="true" />
           <span className="floating-cta__indicator-label">Currently accepting</span>

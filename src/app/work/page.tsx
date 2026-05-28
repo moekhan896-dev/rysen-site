@@ -4,6 +4,7 @@ import { Reveal, RevealGroup } from "@/components/ui/Reveal";
 import { TriangleMark } from "@/components/ui/TriangleMark";
 import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 import { CaseStudyChart } from "@/components/ui/CaseStudyChart";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Selected Work — Rysen Growth",
@@ -87,11 +88,12 @@ export default function WorkIndexPage() {
     <main className="work-page">
       <section className="work-hero">
         <Reveal>
-          <p className="work-hero__breadcrumb">
-            <Link href="/">Home</Link>
-            <span aria-hidden="true">/</span>
-            <span>Work</span>
-          </p>
+          <Breadcrumbs
+            trail={[
+              { name: "Home", href: "/" },
+              { name: "Work" },
+            ]}
+          />
           <div className="work-hero__label">
             <TriangleMark size={10} />
             <span>SELECTED WORK</span>

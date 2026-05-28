@@ -36441,5 +36441,318 @@ img[data-fade="true"][data-loaded="true"] {
   .work-grid { grid-template-columns: 1fr; }
 }
 
+/* ============================================================
+   SESSION 52 — Cookie consent banner
+   ============================================================ */
+
+.cookie-consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 95;
+  background: var(--ink, #0C0D0F);
+  color: var(--text-on-ink, #F5F2EC);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -8px 28px rgba(12, 13, 15, 0.20);
+  animation: cookie-consent-in 320ms var(--motion-ease, ease);
+}
+
+@keyframes cookie-consent-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.cookie-consent__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px clamp(16px, 4vw, 48px);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cookie-consent__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  flex: 1 1 320px;
+  color: var(--text-on-ink-muted, rgba(255, 255, 255, 0.78));
+}
+
+.cookie-consent__text a {
+  color: var(--signal, #6EF06E);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-consent__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cookie-consent__btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 200ms var(--motion-ease, ease),
+              border-color 200ms var(--motion-ease, ease);
+  letter-spacing: -0.005em;
+}
+
+.cookie-consent__btn--secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--text-on-ink, #F5F2EC);
+}
+
+.cookie-consent__btn--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.36);
+}
+
+.cookie-consent__btn--primary {
+  background: var(--signal, #6EF06E);
+  border: 1px solid var(--signal, #6EF06E);
+  color: var(--ink, #0C0D0F);
+}
+
+.cookie-consent__btn--primary:hover {
+  background: var(--signal-deep, #2A8E2A);
+  border-color: var(--signal-deep, #2A8E2A);
+  color: var(--text-on-ink, #F5F2EC);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-consent { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .cookie-consent__inner { flex-direction: column; align-items: stretch; }
+  .cookie-consent__actions { justify-content: stretch; }
+  .cookie-consent__btn { flex: 1; }
+}
+
+/* Push the floating CTA up when the consent banner is visible — they
+   share the bottom-of-page real estate. Keep this simple: when the
+   banner is mounted it'll naturally stack above. The CTA bottom is
+   24px so the banner's ~52px height plus 24px keeps both visible. */
+
+/* ============================================================
+   SESSION 52 — Breadcrumbs
+   ============================================================ */
+
+.breadcrumbs {
+  font-size: 12px;
+  color: var(--text-tertiary, #6B6968);
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  letter-spacing: 0.02em;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumbs__link {
+  color: var(--text-secondary, #4A4A4A);
+  text-decoration: none;
+  transition: color 200ms var(--motion-ease, ease);
+}
+
+.breadcrumbs__link:hover {
+  color: var(--text-primary, #0C0D0F);
+  text-decoration: underline;
+}
+
+.breadcrumbs__sep {
+  color: var(--line-medium, #BFBFBF);
+}
+
+.breadcrumbs__current {
+  color: var(--text-primary, #0C0D0F);
+  font-weight: 600;
+}
+
+.legal-body__breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 18px;
+}
+
+/* ============================================================
+   SESSION 52 — Branded 404 page
+   ============================================================ */
+
+.not-found-404 {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 140px clamp(24px, 5vw, 64px) 120px;
+}
+
+.not-found-404__inner {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+
+.not-found-404__code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: clamp(72px, 12vw, 132px);
+  font-weight: 700;
+  color: var(--text-primary, #0C0D0F);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.not-found-404__triangle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+}
+
+.not-found-404__headline {
+  font-size: clamp(28px, 3.6vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary, #0C0D0F);
+  line-height: 1.12;
+  margin: 0 auto;
+  max-width: 720px;
+  text-wrap: balance;
+}
+
+.not-found-404__emph {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.not-found-404__emph-underline {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -8px;
+  width: 104%;
+  height: 14px;
+  z-index: -1;
+}
+
+.not-found-404__sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary, #4A4A4A);
+  margin: 22px auto 0;
+  max-width: 540px;
+}
+
+.not-found-404__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.not-found-404__tile {
+  background: var(--canvas-elevated, #FFFFFF);
+  border: 1px solid var(--line-soft, rgba(12, 13, 15, 0.08));
+  border-radius: var(--radius-card, 12px);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 200ms var(--motion-ease, ease),
+    border-color 200ms var(--motion-ease, ease),
+    box-shadow 200ms var(--motion-ease, ease);
+  position: relative;
+}
+
+.not-found-404__tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--signal-line, rgba(110, 240, 110, 0.45));
+  box-shadow: var(--shadow-card, 0 8px 22px rgba(12, 13, 15, 0.08));
+}
+
+.not-found-404__tile-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.not-found-404__tile-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary, #0C0D0F);
+}
+
+.not-found-404__tile-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-secondary, #4A4A4A);
+  margin: 0;
+}
+
+.not-found-404__tile-arrow {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: var(--text-tertiary, #6B6968);
+  transition: color 200ms var(--motion-ease, ease), transform 200ms var(--motion-ease, ease);
+}
+
+.not-found-404__tile:hover .not-found-404__tile-arrow {
+  color: var(--text-primary, #0C0D0F);
+  transform: translateX(3px);
+}
+
+.not-found-404__cta-wrap {
+  text-align: center;
+}
+
+.not-found-404__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  background: var(--ink, #0C0D0F);
+  color: var(--text-on-ink, #F5F2EC);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--ink, #0C0D0F);
+}
+
+@media (max-width: 600px) {
+  .not-found-404__grid { grid-template-columns: 1fr; }
+}
+
 
 

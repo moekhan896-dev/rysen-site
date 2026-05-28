@@ -1,107 +1,113 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
+import { TriangleMark } from "@/components/ui/TriangleMark";
+import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
+
+// Session 52 — branded 404. Replaces the previous sonar design with a
+// destination-led page: 4 tiles cover the main IA branches, plus a
+// stronger Claim-your-city CTA. The shared header + footer wrap via
+// root layout. The marker underline draws in on first paint.
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description:
+    "We could not find that page. Here is where you might want to go instead.",
+  robots: { index: false, follow: true },
+};
+
+const DESTINATIONS = [
+  {
+    href: "/",
+    label: "Home",
+    desc: "The full pitch, the search demo, and the live engagement feed.",
+  },
+  {
+    href: "/work",
+    label: "Selected work",
+    desc: "The roster of firms now at position #1 in their metro.",
+  },
+  {
+    href: "/about",
+    label: "About",
+    desc: "Who we are, the team, the methodology behind the engine.",
+  },
+  {
+    href: "/careers",
+    label: "Careers",
+    desc: "Open roles for engineers and creatives in Detroit and remote.",
+  },
+] as const;
 
 export default function NotFound() {
   return (
-    <main className="not-found-page">
-      <div className="not-found-ambient" aria-hidden="true">
-        <span className="not-found-blob not-found-blob-1" />
-        <span className="not-found-blob not-found-blob-2" />
-      </div>
+    <div className="not-found-404">
+      <Reveal>
+        <section className="not-found-404__inner">
+          <div className="not-found-404__code" aria-hidden="true">
+            <span>4</span>
+            <span className="not-found-404__triangle">
+              <TriangleMark size={56} />
+            </span>
+            <span>4</span>
+          </div>
+          <h1 className="not-found-404__headline">
+            We did not find that page.{" "}
+            <span className="not-found-404__emph">
+              Here is what you might want.
+              <MarkerUnderline className="not-found-404__emph-underline" />
+            </span>
+          </h1>
+          <p className="not-found-404__sub">
+            The URL you followed may be outdated or mistyped. The four
+            destinations below cover most of the site.
+          </p>
+        </section>
+      </Reveal>
 
-      <div className="not-found-inner">
-        <motion.div
-          className="not-found-sonar"
-          aria-hidden="true"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <svg viewBox="0 0 200 200" width="200" height="200">
-            <circle cx="100" cy="100" r="6" fill="var(--accent)" />
-            <circle
-              cx="100"
-              cy="100"
-              r="30"
-              fill="none"
-              stroke="var(--accent)"
-              strokeWidth="0.6"
-              className="nf-sonar-ring nf-sonar-ring-1"
-            />
-            <circle
-              cx="100"
-              cy="100"
-              r="55"
-              fill="none"
-              stroke="var(--accent)"
-              strokeWidth="0.5"
-              className="nf-sonar-ring nf-sonar-ring-2"
-            />
-            <circle
-              cx="100"
-              cy="100"
-              r="80"
-              fill="none"
-              stroke="var(--accent)"
-              strokeWidth="0.4"
-              className="nf-sonar-ring nf-sonar-ring-3"
-            />
-            <line
-              x1="100"
-              y1="100"
-              x2="180"
-              y2="100"
-              stroke="var(--accent)"
-              strokeWidth="1"
-              className="nf-sonar-sweep"
-              style={{ transformOrigin: "100px 100px" }}
+      <section className="not-found-404__grid">
+        {DESTINATIONS.map((d) => (
+          <Link key={d.href} href={d.href} className="not-found-404__tile">
+            <div className="not-found-404__tile-head">
+              <TriangleMark size={12} />
+              <span className="not-found-404__tile-label">{d.label}</span>
+            </div>
+            <p className="not-found-404__tile-desc">{d.desc}</p>
+            <span className="not-found-404__tile-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M3 7H11M11 7L7 3M11 7L7 11"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </Link>
+        ))}
+      </section>
+
+      <section className="not-found-404__cta-wrap">
+        <Link href="/contact" className="not-found-404__cta hero__cta-primary">
+          Claim your city
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 7H11M11 7L7 3M11 7L7 11"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
-        </motion.div>
-
-        <motion.div
-          className="not-found-display"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-        >
-          404
-        </motion.div>
-
-        <motion.h1
-          className="not-found-h1"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
-        >
-          This page doesn’t exist.
-        </motion.h1>
-
-        <motion.p
-          className="not-found-sub"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 }}
-        >
-          But your firm’s #1 ranking might. Let’s find out.
-        </motion.p>
-
-        <motion.div
-          className="not-found-actions"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.45 }}
-        >
-          <Link href="/audit" className="not-found-primary">
-            Get a free audit <span className="arrow">→</span>
-          </Link>
-          <Link href="/" className="not-found-secondary">
-            Go home <span className="arrow">→</span>
-          </Link>
-        </motion.div>
-      </div>
-    </main>
+        </Link>
+      </section>
+    </div>
   );
 }

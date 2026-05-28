@@ -1,18 +1,40 @@
 "use client";
 
 /**
- * FORMSPREE SETUP, REQUIRED FOR FORM TO WORK IN PRODUCTION
+ * FORMSPREE SETUP — Session 52 update.
  *
- * 1. Go to https://formspree.io and sign up using marketing@rysengrowth.com.
- * 2. Create a new form named "Rysen Contact".
- * 3. Copy the form's endpoint URL (looks like https://formspree.io/f/abcd1234).
- * 4. Replace YOUR_FORM_ID_HERE below with the real ID (or paste the full URL).
- * 5. Commit and push. Form will then deliver submissions to your inbox.
+ * The endpoint is now read from the public env var
+ * NEXT_PUBLIC_FORMSPREE_ENDPOINT. Steps to wire it in production:
+ *
+ *   1. Go to https://formspree.io and sign up using marketing@rysengrowth.com.
+ *   2. Create a new form named "Rysen Contact".
+ *   3. In Vercel project settings, add the env var
+ *      NEXT_PUBLIC_FORMSPREE_ENDPOINT with the full endpoint URL
+ *      (eg https://formspree.io/f/abcd1234).
+ *   4. Redeploy. Submissions will then land in the Rysen inbox.
+ *
+ *   5. AUTO-REPLY: In the Formspree dashboard, turn on Autoresponder for
+ *      this form with the copy:
+ *
+ *      "Thanks for reaching out. We received your inquiry and will be in
+ *       touch within one business day to set up an audit conversation.
+ *
+ *       — Art Khan
+ *       Founder, Rysen Growth"
+ *
+ *      Reference:
+ *      https://help.formspree.io/hc/en-us/articles/360013179914-Sending-an-Autoresponse-Email
+ *
+ * Until the env var is set, the form falls back to a stub URL so the
+ * dev experience does not break.
  */
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID_HERE";
+const FORMSPREE_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ||
+  "https://formspree.io/f/YOUR_FORM_ID_HERE";
 
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
+import { track } from "@/lib/analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -79,6 +101,8 @@ export function ContactForm() {
       });
       if (res.ok) {
         setStatus("success");
+        // Session 52 — fire conversion event (gated on consent).
+        track("contact_form_submit", { source: "contact_page" });
       } else {
         setStatus("error");
       }

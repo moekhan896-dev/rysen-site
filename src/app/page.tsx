@@ -13,7 +13,8 @@ import { TheServices } from "@/components/sections/TheServices";
 import { TheWall } from "@/components/sections/TheWall";
 import { TheOffer } from "@/components/sections/TheOffer";
 import { TheTeam } from "@/components/sections/TheTeam";
-import { TheProcess } from "@/components/sections/TheProcess";
+// Session 51 — TheProcess ("An engineered methodology") removed from
+// the homepage. The /methodology deep page remains.
 import { TheClose } from "@/components/sections/TheClose";
 
 export const metadata: Metadata = {
@@ -40,7 +41,6 @@ export default function HomePage() {
       <TheWall />
       <TheOffer />
       <TheTeam />
-      <TheProcess />
       <TheClose />
     </main>
   );

@@ -165,12 +165,12 @@ export function TheTeam() {
             <figcaption><span>The team</span></figcaption>
           </figure>
           <figure className="the-team__office-item">
-            <Image src="/assets/office/interior-reception.png" alt="Phoenix lobby" width={280} height={200} />
-            <figcaption><span>Phoenix lobby</span></figcaption>
+            <Image src="/assets/office/interior-reception.png" alt="Detroit studio lobby" width={280} height={200} />
+            <figcaption><span>Detroit lobby</span></figcaption>
           </figure>
           <figure className="the-team__office-item">
-            <Image src="/assets/office/exterior-front.png" alt="Phoenix HQ" width={280} height={200} />
-            <figcaption><span>Phoenix HQ</span></figcaption>
+            <Image src="/assets/office/exterior-front.png" alt="Detroit studio HQ" width={280} height={200} />
+            <figcaption><span>Detroit HQ</span></figcaption>
           </figure>
         </div>
       </div>

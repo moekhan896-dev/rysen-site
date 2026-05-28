@@ -88,7 +88,7 @@ export function TheClose() {
           <span aria-hidden="true">·</span>
           <a href="tel:+12484066223">(248) 406-6223</a>
           <span aria-hidden="true">·</span>
-          <span>Detroit + Phoenix</span>
+          <span>Detroit, Michigan</span>
         </div>
       </Reveal>
     </section>

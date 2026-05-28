@@ -68,7 +68,7 @@ export function BuiltByOperators() {
               <div className="operator-card__metrics">
                 <span>150K+ followers</span>
                 <span>Active 4 years</span>
-                <span>Auto · Phoenix</span>
+                <span>Auto · Detroit</span>
               </div>
             </div>
           </Reveal>
@@ -209,9 +209,9 @@ export function BuiltByOperators() {
               className="operators__gallery-video"
               src="/assets/quattro-labs/car-meet-2.mp4"
               aspectRatio="16 / 9"
-              ariaLabel="Quattro Labs Phoenix 2025"
+              ariaLabel="Quattro Labs Detroit 2025"
             />
-            <figcaption className="operators__gallery-caption">QUATTRO LABS · PHOENIX · 2025</figcaption>
+            <figcaption className="operators__gallery-caption">QUATTRO LABS · DETROIT · 2025</figcaption>
           </figure>
           <figure className="operators__gallery-item">
             <LazyVideo

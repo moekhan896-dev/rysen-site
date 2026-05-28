@@ -177,37 +177,47 @@ export function Hero() {
               <Link href="/contact" className="hero__cta-primary">
                 Claim your city <ArrowIcon />
               </Link>
-              <Link href="#selected-work" className="hero__cta-secondary">
+              <Link href="/work" className="hero__cta-secondary">
                 See the work
               </Link>
             </div>
 
-            {/* Session 48 — fill the white space below the search demo
-                with a tight capability list + a scarcity / status line. */}
-            <div className="hero__capabilities">
-              <ul className="hero__cap-list">
-                <li>
-                  <TriangleMark size={10} />
-                  #1 rankings on Google and AI search
-                </li>
-                <li>
-                  <TriangleMark size={10} />
-                  One firm per metro, exclusive territory
-                </li>
-                <li>
-                  <TriangleMark size={10} />
-                  Data and AI engineering, not guesswork
-                </li>
-                <li>
-                  <TriangleMark size={10} />
-                  Built and proven on our own viral brands
-                </li>
-              </ul>
+            {/* Session 51 — 4-pillar trust strip + distinct Q2 status pill */}
+            <div className="hero__pillars">
+              <div className="hero__pillar">
+                <TriangleMark size={12} />
+                <span className="hero__pillar-text">
+                  Rankings on <strong>Google</strong> and <strong>AI search</strong>
+                </span>
+              </div>
+              <div className="hero__pillar">
+                <TriangleMark size={12} />
+                <span className="hero__pillar-text">
+                  <strong>One firm</strong> per metro, exclusive territory
+                </span>
+              </div>
+              <div className="hero__pillar">
+                <TriangleMark size={12} />
+                <span className="hero__pillar-text">
+                  <strong>Data and AI engineering</strong>, not guesswork
+                </span>
+              </div>
+              <div className="hero__pillar">
+                <TriangleMark size={12} />
+                <span className="hero__pillar-text">
+                  Proven on our <strong>own viral brands</strong>
+                </span>
+              </div>
             </div>
 
-            <div className="hero__status-line">
-              <span className="hero__status-dot--inline" aria-hidden="true" />
-              Currently accepting clients for Q2 2026 · A boutique studio working with a limited roster
+            <div className="hero__status-row">
+              <span className="hero__status-pill">
+                <span className="hero__status-dot--inline" aria-hidden="true" />
+                Currently accepting clients for <strong>Q2 2026</strong>
+              </span>
+              <span className="hero__status-sub">
+                A boutique studio working with a limited roster
+              </span>
             </div>
           </div>
         </div>

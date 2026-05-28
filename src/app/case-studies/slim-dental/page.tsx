@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Slim Dental Case Study, Chicago Implant Dentistry, #1 Map Pack",
+  title: "Slim Dental Case Study, New York Implant Dentistry, #1 Map Pack",
   description:
-    "How Rysen took Slim Dental to the #1 position in the Chicago map pack for implant dentistry, with a +186% increase in qualified consultation calls.",
+    "How Rysen took Slim Dental to the #1 position in the New York map pack for implant dentistry, with a +186% increase in qualified consultation calls.",
 };
 
 export default function SlimDentalPage() {
@@ -15,11 +15,11 @@ export default function SlimDentalPage() {
     >
       <header className="case-study-placeholder__head">
         <p className="case-study-placeholder__tag">
-          Medical · Dental · Chicago
+          Medical · Dental · New York
         </p>
         <h1 className="case-study-placeholder__title">Slim Dental</h1>
         <p className="case-study-placeholder__lede">
-          #1 in the Chicago map pack for implant dentistry. +186% qualified
+          #1 in the New York map pack for implant dentistry. +186% qualified
           calls. Twelve-month engagement.
         </p>
       </header>

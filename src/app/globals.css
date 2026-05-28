@@ -35830,4 +35830,616 @@ img[data-fade="true"][data-loaded="true"] {
    by the JSX, but ensure padding stays consistent. */
 .header-nav__link { transition: background 200ms var(--motion-ease, ease); }
 
+/* ============================================================
+   SESSION 51 — Hero pillar strip + Q2 status pill
+   ============================================================ */
+
+.hero__pillars {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px 18px;
+  width: 100%;
+  max-width: 920px;
+  margin: 14px auto 0 !important;
+  padding: 14px 18px;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card, 12px);
+  box-shadow: var(--shadow-soft, 0 2px 8px rgba(12, 13, 15, 0.06));
+}
+
+.hero__pillar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+}
+
+.hero__pillar svg {
+  flex-shrink: 0;
+  display: block;
+}
+
+.hero__pillar-text strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.hero__status-row {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 14px !important;
+  flex-wrap: wrap;
+}
+
+.hero__status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 7px 14px;
+  border: 1px solid var(--signal-line, rgba(110, 240, 110, 0.45));
+  border-radius: 9999px;
+  background: var(--signal-soft, rgba(110, 240, 110, 0.10));
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.hero__status-pill strong {
+  color: var(--signal-deep, #2A8E2A);
+  font-weight: 700;
+}
+
+.hero__status-sub {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 900px) {
+  .hero__pillars { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .hero__pillars { grid-template-columns: 1fr; }
+  .hero__status-row { flex-direction: column; gap: 8px; }
+  .hero__status-pill { white-space: normal; text-align: center; }
+}
+
+/* ============================================================
+   SESSION 51 — Lead feed clarity: 3+3 reserved + per-card intro
+   ============================================================ */
+
+.lead-feed__purpose {
+  margin: 8px auto 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.005em;
+  line-height: 1.5;
+  max-width: 640px;
+  text-align: center;
+}
+
+.lead-feed__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Reserve height for exactly 3 stacked cards so the list does not
+     grow as leads arrive (Session 47 no-jump principle). */
+  min-height: 360px;
+  max-height: 360px;
+  overflow: hidden;
+}
+
+.lead-card__intro {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--signal-deep, #2A8E2A);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 720px) {
+  .lead-feed__list { min-height: 320px; max-height: 320px; }
+}
+
+/* ============================================================
+   SESSION 51 — Mobile menu: hamburger + slide-in drawer
+   ============================================================ */
+
+.site-header__hamburger {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line-soft);
+  color: var(--text-on-ink, #F5F2EC);
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: background 200ms var(--motion-ease, ease);
+}
+
+.site-header__hamburger:hover { background: rgba(255, 255, 255, 0.08); }
+.site-header__hamburger svg { display: block; }
+
+@media (max-width: 900px) {
+  .header-nav { display: none !important; }
+  .site-header__cta { display: none !important; }
+  .site-header__hamburger { display: inline-flex !important; }
+}
+
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+}
+
+.mobile-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 13, 15, 0.55);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  animation: mobile-drawer-backdrop-in 200ms var(--motion-ease, ease);
+}
+
+.mobile-drawer__panel {
+  position: relative;
+  margin-left: auto;
+  width: min(86vw, 360px);
+  height: 100%;
+  background: var(--canvas, #FAFBFC);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: mobile-drawer-in 280ms var(--motion-ease, ease);
+  overflow-y: auto;
+  box-shadow: -8px 0 32px rgba(12, 13, 15, 0.18);
+}
+
+@keyframes mobile-drawer-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mobile-drawer-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.mobile-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.mobile-drawer__brand {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.mobile-drawer__close {
+  background: transparent;
+  border: 1px solid var(--line-soft);
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.mobile-drawer__nav { flex: 1; }
+
+.mobile-drawer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-drawer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--line-soft);
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.mobile-drawer__link svg { color: var(--text-tertiary); }
+
+.mobile-drawer__cta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.mobile-drawer__cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 14px 22px !important;
+  background: var(--ink, #0C0D0F) !important;
+  color: var(--text-on-ink, #F5F2EC) !important;
+  border-radius: 9999px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  border: 1px solid var(--ink, #0C0D0F) !important;
+}
+
+.mobile-drawer__meta {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin: 4px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-drawer__panel,
+  .mobile-drawer__backdrop { animation: none !important; }
+}
+
+/* ============================================================
+   SESSION 51 — Office section: mobile stacking + headshot crop
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .office-section__gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    height: auto !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  .office-section__shot {
+    height: 320px !important;
+    width: 100% !important;
+    aspect-ratio: auto !important;
+  }
+}
+
+/* Founder headshot — shift the crop up so his face stays in frame. */
+.the-team__portrait-frame img,
+.office-section__shot-img[src*="art-khan"],
+.office-section__shot-img[alt*="ounder"] {
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+/* Team photo placeholder — focus on the group's faces. */
+.office-section__shot-img[src*="team-photo"] {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* ============================================================
+   SESSION 51 — Operators video crop fix
+   The car-meet clips are portrait-source displayed in a 16:9
+   container, which crops the top. Push the crop down to keep the
+   subject's face / car in frame.
+   ============================================================ */
+
+.operators__video,
+.operators__brand-video,
+.operators__gallery-video,
+.operator-card__video,
+.operators__gallery-item video,
+.operators__gallery-item .lazy-video,
+.operators__gallery-item video.lazy-video {
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+/* ============================================================
+   SESSION 51 — /work index page
+   ============================================================ */
+
+.work-page {
+  background: var(--canvas, #FAFBFC);
+}
+
+.work-hero {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 140px clamp(24px, 5vw, 64px) 40px;
+  text-align: center;
+}
+
+.work-hero__breadcrumb {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.work-hero__breadcrumb a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+}
+
+.work-hero__breadcrumb a:hover { color: var(--text-primary); }
+
+.work-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+
+.work-hero__headline {
+  font-size: clamp(34px, 4.8vw, 58px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  line-height: 1.06;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.work-hero__emph {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.work-hero__emph-underline {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -8px;
+  width: 104%;
+  height: 14px;
+  z-index: -1;
+}
+
+.work-hero__sub {
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+  line-height: 1.6;
+  margin: 22px auto 0;
+  max-width: 640px;
+  text-wrap: balance;
+}
+
+.work-grid-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px clamp(24px, 5vw, 64px);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card-large, 18px);
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform var(--hover-duration, 200ms) var(--motion-ease, ease),
+    box-shadow var(--hover-duration, 200ms) var(--motion-ease, ease),
+    border-color var(--hover-duration, 200ms) var(--motion-ease, ease);
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover, 0 12px 30px rgba(12, 13, 15, 0.10));
+  border-color: var(--signal-line, rgba(110, 240, 110, 0.45));
+}
+
+.work-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.work-card__vertical {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.work-card__metric {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--signal-deep, #2A8E2A);
+  letter-spacing: -0.005em;
+}
+
+.work-card__chart {
+  width: 100%;
+  aspect-ratio: 240 / 130;
+  margin: 6px 0;
+}
+
+.work-card__chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.work-card__name {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.work-card__desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+.work-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.work-card__cta svg {
+  display: block;
+  transition: transform 200ms var(--motion-ease, ease);
+}
+
+.work-card:hover .work-card__cta svg { transform: translateX(3px); }
+
+.work-card--placeholder {
+  background: var(--canvas-recessed, #F0F1F2);
+  border-style: dashed;
+}
+
+.work-methodology-callout {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px clamp(24px, 5vw, 64px);
+  text-align: center;
+}
+
+.work-methodology-callout__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+
+.work-methodology-callout__headline {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.work-methodology-callout__sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 18px auto 24px;
+  max-width: 560px;
+}
+
+.work-methodology-callout__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 1px solid var(--line-medium);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: border-color 200ms var(--motion-ease, ease);
+}
+
+.work-methodology-callout__cta:hover {
+  border-color: var(--signal-line, rgba(110, 240, 110, 0.45));
+}
+
+.work-final-cta {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px clamp(24px, 5vw, 64px) 140px;
+  text-align: center;
+}
+
+.work-final-cta__headline {
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin: 0 0 32px;
+}
+
+.work-final-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  background: var(--ink, #0C0D0F);
+  color: var(--text-on-ink, #F5F2EC);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--ink, #0C0D0F);
+}
+
+@media (max-width: 720px) {
+  .work-grid { grid-template-columns: 1fr; }
+}
+
+
 

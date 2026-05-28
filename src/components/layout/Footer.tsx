@@ -58,7 +58,7 @@ export function Footer() {
             <li>
               <a href="tel:+12484066223">(248) 406-6223</a>
             </li>
-            <li>Detroit + Phoenix</li>
+            <li>Detroit, Michigan</li>
           </ul>
         </div>
       </div>

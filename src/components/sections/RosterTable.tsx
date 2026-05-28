@@ -62,12 +62,13 @@ const ROSTER: RosterRow[] = [
     spark: [5, 4, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1, 1],
     href: "/case-studies/tyler-family-law",
   },
+  // Session 51 — Slim Dental relocated to New York.
   {
     id: "slim",
     brand: "Slim Dental",
     vertical: "Medical",
-    metro: "Chicago",
-    query: "chicago dental implants",
+    metro: "New York",
+    query: "new york dental implants",
     positions: { google: "#1", chatgpt: "#1", perplexity: "#1", gemini: "#1" },
     volume: { num: "+186%", label: "qualified calls" },
     spark: [4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -84,28 +85,9 @@ const ROSTER: RosterRow[] = [
     spark: [6, 5, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1, 1],
     href: "/case-studies/hartman-dermatology",
   },
-  {
-    id: "madison",
-    brand: "Madison Clark",
-    vertical: "Brand-built",
-    metro: "Internal",
-    query: "ai persona case study",
-    positions: { google: "#1", chatgpt: "#1", perplexity: "#1", gemini: "#1" },
-    volume: { num: "100M", label: "views · 60 days" },
-    spark: [8, 6, 5, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1],
-    href: "/case-studies/madison-clark",
-  },
-  {
-    id: "quattro",
-    brand: "Quattro Labs",
-    vertical: "Brand-built",
-    metro: "Internal",
-    query: "automotive media phoenix",
-    positions: { google: "#1", chatgpt: "#1", perplexity: "#2", gemini: "#1" },
-    volume: { num: "150K+", label: "followers · 4 yrs" },
-    spark: [3, 2, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1],
-    href: "/case-studies/quattro-labs",
-  },
+  // Session 51 — Quattro Labs and Madison Clark removed from the
+  // search-case-study roster (they remain in viral posts + Operators
+  // as owned-brand proof).
 ];
 
 // =====================================================================

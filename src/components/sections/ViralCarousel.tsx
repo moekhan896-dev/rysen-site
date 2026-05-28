@@ -76,7 +76,7 @@ const CASES: ReadonlyArray<CaseCard> = [
     id: "c-slim",
     href: "/case-studies/slim-dental",
     vertical: "MEDICAL",
-    metro: "CHICAGO",
+    metro: "NEW YORK",
     name: "Slim Dental",
     metric: "+186% qualified calls",
     chartType: "growth-curve",

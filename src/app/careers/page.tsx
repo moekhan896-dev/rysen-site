@@ -7,7 +7,7 @@ import { MarkerUnderline } from "@/components/ui/MarkerUnderline";
 export const metadata: Metadata = {
   title: "Careers — Rysen Growth",
   description:
-    "Join a boutique studio of engineers and creatives building the firm that engineers #1 rankings. Open roles in Detroit, Phoenix, and remote.",
+    "Join a boutique studio of engineers and creatives building the firm that engineers #1 rankings. Open roles in Detroit and remote.",
   robots: { index: true, follow: true },
 };
 
@@ -65,7 +65,7 @@ const ROLES: ReadonlyArray<Role> = [
   {
     title: "Paid Social Manager",
     type: "Full-time",
-    location: "Phoenix / Remote",
+    location: "Detroit / Remote",
     desc: "Engineer viral social campaigns across our brands and clients. Direct response and brand at once.",
   },
   {
@@ -154,7 +154,7 @@ export default function CareersPage() {
             we do — small, focused, accountable.
           </p>
           <p>
-            We work in Detroit and Phoenix studios, with senior team members
+            We work out of our Detroit studio, with senior team members
             remote. We meet quarterly. We protect deep-work blocks. And we
             keep meetings tight, because the work is the work.
           </p>

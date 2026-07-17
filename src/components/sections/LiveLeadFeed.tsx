@@ -496,6 +496,10 @@ export function LiveLeadFeed() {
             None of these are your leads. They&apos;re a snapshot of what
             a normal Tuesday looks like across the roster.
           </p>
+          <p className="lead-feed__illustrative">
+            Illustrative simulation of typical activity, seeded from the
+            calendar date so every visitor sees the same set.
+          </p>
         </Reveal>
 
         <Reveal>

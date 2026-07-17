@@ -109,7 +109,7 @@ const METROS: ReadonlyArray<Metro> = [
     vertical: "HQ",
   },
 
-  // ---- Light: metros open for Q2 (illustration of a building roster) ----
+  // ---- Light: currently open metros (illustration of a building roster) ----
   { id: "chicago", name: "Chicago", state: "IL", x: 620, y: 250, intensity: "light" },
   { id: "la", name: "Los Angeles", state: "CA", x: 130, y: 380, intensity: "light" },
   { id: "sf", name: "San Francisco", state: "CA", x: 82, y: 300, intensity: "light" },
@@ -442,7 +442,7 @@ function StatsStrip() {
       </div>
       <div className="coverage-map__stat">
         <span className="coverage-map__stat-num">~40</span>
-        <span className="coverage-map__stat-label">Metros open for Q2</span>
+        <span className="coverage-map__stat-label">Currently open metros</span>
       </div>
       <div className="coverage-map__stat">
         <span className="coverage-map__stat-num">1</span>

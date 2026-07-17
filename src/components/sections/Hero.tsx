@@ -214,7 +214,7 @@ export function Hero() {
             <div className="hero__status-row">
               <span className="hero__status-pill">
                 <span className="hero__status-dot--inline" aria-hidden="true" />
-                Currently accepting clients for <strong>Q2 2026</strong>
+                Currently accepting <strong>new engagements</strong>
               </span>
               <span className="hero__status-sub">
                 A boutique studio working with a limited roster

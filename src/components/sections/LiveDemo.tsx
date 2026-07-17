@@ -32,8 +32,16 @@ export function LiveDemo() {
             </span>.
           </h2>
           <p className="live-demo__sub">
-            This is what we engineer. A real query, a real climb to the top
-            across every search surface.
+            This is what we do. A real query, climbing to the top across every
+            search surface.
+          </p>
+          <p className="live-demo__define">
+            We call it <em>search engineering</em> because we treat your
+            website, local profiles, content, reputation, and tracking as
+            one connected acquisition system.
+          </p>
+          <p className="live-demo__illustrative">
+            Illustrative demonstration — sample query, animated for clarity.
           </p>
         </Reveal>
 

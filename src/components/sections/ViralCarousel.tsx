@@ -256,18 +256,19 @@ export function ViralCarousel() {
       <Reveal className="viral__header">
         <div className="viral__label">
           <TriangleMark size={10} />
-          <span>CONTENT VIRALITY</span>
+          <span>OPERATOR PROOF</span>
         </div>
         <h2 className="viral__headline">
-          We make brands go viral.{" "}
+          We test our thinking on our own brands first.{" "}
           <span className="viral__highlight">
-            On search. On social. On everything.
+            Attention, content, audience.
             <MarkerUnderline className="highlight-marker__underline" />
           </span>
         </h2>
         <p className="viral__sub">
-          Ranking #1 is half the system. We also engineer content that
-          spreads. Our own brands prove it.
+          Before we ever ran a campaign for a client, we built our own
+          brands from scratch. What you&apos;re looking at is our own work,
+          from our own accounts.
         </p>
       </Reveal>
 

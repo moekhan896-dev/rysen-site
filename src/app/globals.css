@@ -37250,4 +37250,107 @@ img[data-fade="true"][data-loaded="true"] {
   background: var(--canvas, #FAFBFC) !important;
 }
 
+/* ============================================================
+   SESSION 55 — Illustrative captions + "search engineering"
+   definition line + fit-and-exclusivity block + what-happens-next
+   ============================================================ */
+
+.live-demo__define {
+  margin: 12px auto 0;
+  max-width: 620px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary, #4A4A4A);
+  letter-spacing: -0.005em;
+}
+
+.live-demo__define em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--text-primary, #0C0D0F);
+}
+
+.live-demo__illustrative,
+.lead-feed__illustrative {
+  margin: 8px auto 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text-tertiary, #6B6968);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.offer__fit {
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 24px 28px;
+  background: var(--canvas-elevated, #FFFFFF);
+  border: 1px solid var(--line-soft, rgba(12, 13, 15, 0.08));
+  border-radius: var(--radius-card, 12px);
+  text-align: left;
+}
+
+.offer__fit-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--signal-deep, #2A8E2A);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.offer__fit-body {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-secondary, #4A4A4A);
+  margin: 0 0 12px;
+  letter-spacing: -0.005em;
+}
+
+.offer__fit-body:last-child {
+  margin-bottom: 0;
+}
+
+.the-close__next {
+  list-style: none;
+  padding: 0;
+  margin: 28px auto 32px;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.the-close__next li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  font-size: 14px;
+  color: var(--text-on-ink, #F5F2EC);
+  letter-spacing: -0.005em;
+}
+
+.the-close__next-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--signal, #6EF06E);
+  color: var(--ink, #0C0D0F);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .the-close__next li { font-size: 13px; padding: 10px 14px; }
+}
 

@@ -36,20 +36,21 @@ const SITE_URL = "https://rysengrowth.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rysen Growth, Marketing Engineering for Law Firms and Medical Practices",
+    default:
+      "Rysen Growth, Search Growth for Law Firms, Medical Practices, and High-Value Local Businesses",
     template: "%s | Rysen Growth",
   },
   description:
-    "Rysen Growth is a Detroit-based marketing firm engineered for selective law firms and medical practices. One firm per metro across Google, ChatGPT, Perplexity, and Gemini.",
+    "Rysen Growth is a Detroit-based search-growth agency for selective law firms, medical practices, dental practices, and other high-value local businesses. One firm per metro across Google, ChatGPT, Perplexity, and Gemini.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: "Rysen Growth",
     title:
-      "Rysen Growth, Marketing Engineering for Law Firms and Medical Practices",
+      "Rysen Growth, Search Growth for Law Firms, Medical Practices, and Local Businesses",
     description:
-      "A Detroit-based marketing firm. We make law firms and medical practices the #1 result across Google, ChatGPT, Perplexity, and Gemini.",
+      "A Detroit-based search-growth agency. We help law firms, medical practices, dental practices, and other high-value local businesses become the cited source across Google, ChatGPT, Perplexity, and Gemini.",
     images: [
       {
         url: "/og-default.png",
@@ -61,9 +62,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rysen Growth, Marketing Engineering for Law and Medical",
+    title: "Rysen Growth, Search Growth for Local Businesses",
     description:
-      "Detroit-based. 30+ engagements across legal and medical. By invitation.",
+      "Detroit-based. Law firms, medical practices, dental, high-value local. By invitation.",
     images: ["/og-default.png"],
   },
   robots: { index: true, follow: true },

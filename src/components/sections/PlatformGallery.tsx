@@ -95,7 +95,7 @@ export function PlatformGallery() {
       <div className="platform-gallery__strip">
         <span className="platform-gallery__strip-label">Same client, same query, four platforms</span>
         <span className="platform-gallery__strip-sep" aria-hidden="true" />
-        <span className="platform-gallery__strip-meta">AWS Law Firm · Tampa, FL · Probate · Q2 2026</span>
+        <span className="platform-gallery__strip-meta">AWS Law Firm · Tampa, FL · Probate · Q1 2026</span>
       </div>
     </div>
   );

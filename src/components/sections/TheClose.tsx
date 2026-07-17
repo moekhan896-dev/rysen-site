@@ -84,6 +84,24 @@ export function TheClose() {
           Claim your city
         </Link>
 
+        {/* Session 55 — what happens after you contact us, per audit. */}
+        <ol className="the-close__next">
+          <li>
+            <span className="the-close__next-num">1</span>
+            <span>We review your market and current visibility.</span>
+          </li>
+          <li>
+            <span className="the-close__next-num">2</span>
+            <span>
+              We share what we&apos;d change and what it would take.
+            </span>
+          </li>
+          <li>
+            <span className="the-close__next-num">3</span>
+            <span>If there&apos;s a fit, we schedule a strategy call.</span>
+          </li>
+        </ol>
+
         <div className="the-close__contact">
           <a href="mailto:marketing@rysengrowth.com">marketing@rysengrowth.com</a>
           <span aria-hidden="true">·</span>

@@ -20,9 +20,9 @@ import { TheClose } from "@/components/sections/TheClose";
 
 export const metadata: Metadata = {
   title:
-    "Rysen Growth, the search engineering agency for law firms and medical practices",
+    "Rysen Growth, the search-growth agency for law firms, medical practices, and high-value local businesses",
   description:
-    "We make law firms and medical practices the #1 result on Google, ChatGPT, Perplexity, and Gemini. One firm per metro. By invitation.",
+    "We help law firms, medical practices, dental practices, and other high-value local businesses become the cited source across Google, ChatGPT, Perplexity, and Gemini. One firm per metro. By invitation.",
 };
 
 export default function HomePage() {

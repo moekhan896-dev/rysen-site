@@ -144,6 +144,25 @@ export function TheOffer() {
             </div>
           </Reveal>
         </div>
+
+        {/* Session 55 — fit and exclusivity block, per audit. */}
+        <Reveal className="offer__fit" delay={200}>
+          <div className="offer__fit-label">HOW EXCLUSIVITY WORKS</div>
+          <p className="offer__fit-body">
+            We only take one firm per metro per vertical. A metro is a
+            single defined market — usually a city and its immediate
+            reach. If a competing firm in your specialty is already on
+            the roster in your market, we&apos;ll tell you before the
+            first call. Exclusivity holds for the full engagement.
+          </p>
+          <p className="offer__fit-body">
+            We work best with established practices that already have
+            real referrals and reputation and want to compound them
+            through search. We&apos;re probably not the fit for very new
+            practices without a book of business yet, or for firms
+            looking for month-to-month vendor work.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

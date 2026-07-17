@@ -640,7 +640,7 @@ export function MedicalVerticalIllustration() {
 
       {/* Floor metric label */}
       <text x="20" y="396" fontSize="9" fill={BRASS} fontFamily="Geist, sans-serif" letterSpacing="0.32em" fontWeight="700">
-        MIAMI · CHICAGO · ATLANTA
+        MIAMI · NEW YORK · ATLANTA
       </text>
 
       {/* Corner reticles */}

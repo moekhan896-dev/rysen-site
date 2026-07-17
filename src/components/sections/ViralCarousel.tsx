@@ -110,7 +110,7 @@ const FEEDS: ReadonlyArray<FeedCard> = [
     image: "/assets/viral/quattro-feed.jpg",
     handle: "@quattrolabs",
     stat: "~150K followers",
-    footer: "Built by Rysen · Automotive media · Phoenix",
+    footer: "Built by Rysen · Automotive media · Detroit",
   },
   {
     id: "f-plumbers",

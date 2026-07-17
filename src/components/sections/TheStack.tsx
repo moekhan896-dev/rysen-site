@@ -75,9 +75,9 @@ export function TheStack() {
             </span>
           </h2>
           <p className="stack-section__sub">
-            Four engineered layers, stacked. Foundation feeds intelligence,
-            intelligence feeds citation, citation feeds attribution. Every
-            engagement runs through all four.
+            The infrastructure behind the work. We built it because
+            &ldquo;trust us, we&apos;re good at SEO&rdquo; isn&apos;t a real
+            answer, and we wanted to be able to show ours.
           </p>
         </Reveal>
 

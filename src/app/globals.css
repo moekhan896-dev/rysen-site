@@ -36914,4 +36914,340 @@ img[data-fade="true"][data-loaded="true"] {
   padding: 100px clamp(24px, 5vw, 64px) 0;
 }
 
+/* ============================================================
+   SESSION 54 — CoverageHeatmap section
+   ============================================================ */
+
+.coverage-map {
+  background: var(--canvas, #FAFBFC);
+  padding: clamp(56px, 7vw, 96px) clamp(24px, 5vw, 64px);
+  border-top: 1px solid var(--line-soft, rgba(12, 13, 15, 0.06));
+  border-bottom: 1px solid var(--line-soft, rgba(12, 13, 15, 0.06));
+}
+
+.coverage-map__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.coverage-map__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.coverage-map__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-tertiary, #6B6968);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.coverage-map__headline {
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text-primary, #0C0D0F);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.coverage-map__emph {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.coverage-map__emph-underline {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -8px;
+  width: 104%;
+  height: 14px;
+  z-index: -1;
+}
+
+.coverage-map__sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary, #4A4A4A);
+  margin: 20px auto 0;
+  max-width: 560px;
+}
+
+.coverage-map__stage {
+  display: grid !important;
+  grid-template-columns: 1fr 260px;
+  gap: 32px;
+  align-items: start;
+  background: var(--canvas-elevated, #FFFFFF);
+  border: 1px solid var(--line-soft, rgba(12, 13, 15, 0.08));
+  border-radius: var(--radius-card-large, 18px);
+  padding: clamp(20px, 3vw, 36px);
+  box-shadow: var(--shadow-card, 0 8px 22px rgba(12, 13, 15, 0.06));
+}
+
+.coverage-map__map-wrap {
+  width: 100%;
+}
+
+.us-map {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+}
+
+.metro-dot--dominant {
+  fill: var(--signal, #6EF06E);
+  stroke: var(--signal-deep, #2A8E2A);
+  stroke-width: 0.8;
+}
+
+.metro-dot--active {
+  fill: var(--signal, #6EF06E);
+  opacity: 0.85;
+}
+
+.metro-dot--light {
+  fill: var(--text-tertiary, #6B6968);
+  opacity: 0.55;
+}
+
+.metro-dot__pulse {
+  fill: none;
+  stroke: var(--signal, #6EF06E);
+  stroke-width: 1.4;
+  transform-origin: center;
+  animation: metro-pulse 3.6s ease-out infinite;
+  opacity: 0;
+}
+
+.metro-dot__pulse--active {
+  stroke: var(--signal, #6EF06E);
+  opacity: 0.6;
+}
+
+.metro-dot__pulse--2 {
+  animation-delay: 1.8s;
+}
+
+@keyframes metro-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+    stroke-width: 1.6;
+  }
+  70% {
+    transform: scale(3);
+    opacity: 0;
+    stroke-width: 0.6;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.metro-dot__label {
+  font-family: var(--font-primary, "Geist", system-ui, sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--text-primary, #0C0D0F);
+  text-anchor: middle;
+  letter-spacing: 0.02em;
+}
+
+.metro-dot__label--active {
+  font-size: 9px;
+  fill: var(--text-secondary, #4A4A4A);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metro-dot__pulse {
+    animation: none;
+    opacity: 0.35;
+    transform: scale(1.4);
+  }
+}
+
+/* Legend */
+
+.coverage-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--canvas, #FAFBFC);
+  border: 1px solid var(--line-soft, rgba(12, 13, 15, 0.08));
+  border-radius: var(--radius-card, 12px);
+  padding: 18px 20px;
+  align-self: start;
+}
+
+.coverage-legend__title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-tertiary, #6B6968);
+  text-transform: uppercase;
+}
+
+.coverage-legend__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.coverage-legend__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-secondary, #4A4A4A);
+}
+
+.coverage-legend__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.coverage-legend__swatch--dominant {
+  background: var(--signal, #6EF06E);
+  box-shadow: 0 0 4px rgba(110, 240, 110, 0.55);
+}
+
+.coverage-legend__swatch--active {
+  background: var(--signal, #6EF06E);
+  opacity: 0.7;
+}
+
+.coverage-legend__swatch--light {
+  background: var(--text-tertiary, #6B6968);
+  opacity: 0.55;
+}
+
+.coverage-legend__item-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary, #0C0D0F);
+  letter-spacing: -0.005em;
+}
+
+.coverage-legend__item-desc {
+  font-size: 11px;
+  color: var(--text-tertiary, #6B6968);
+  margin-top: 2px;
+}
+
+.coverage-legend__footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft, rgba(12, 13, 15, 0.08));
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary, #4A4A4A);
+  letter-spacing: -0.005em;
+}
+
+/* Stats strip */
+
+.coverage-map__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.coverage-map__stat {
+  padding: 20px;
+  background: var(--canvas-elevated, #FFFFFF);
+  border: 1px solid var(--line-soft, rgba(12, 13, 15, 0.08));
+  border-radius: var(--radius-card, 12px);
+}
+
+.coverage-map__stat-num {
+  display: block;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text-primary, #0C0D0F);
+  letter-spacing: -0.03em;
+  font-feature-settings: "tnum";
+  line-height: 1;
+}
+
+.coverage-map__stat-label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary, #4A4A4A);
+  margin-top: 6px;
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 900px) {
+  .coverage-map__stage {
+    grid-template-columns: 1fr !important;
+  }
+  .coverage-map__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   SESSION 54 — Footer signature + Selected Work sub-note +
+   Lead Feed companion line
+   ============================================================ */
+
+.site-footer__signature {
+  margin: 8px 0 0;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-on-ink-muted, rgba(255, 255, 255, 0.62));
+  letter-spacing: -0.005em;
+}
+
+.selected-work__sub-note {
+  font-size: 13px;
+  color: var(--text-tertiary, #6B6968);
+  margin: 4px 0 12px;
+  letter-spacing: -0.005em;
+}
+
+.selected-work__sub-note em {
+  font-style: italic;
+}
+
+.lead-feed__companion {
+  margin: 8px auto 0;
+  font-size: 13px;
+  color: var(--text-tertiary, #6B6968);
+  font-style: italic;
+  letter-spacing: -0.005em;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* RankClimb chrome softening — thinner border, slightly lighter
+   chrome background so the demo reads as a sketch, not a SaaS
+   dashboard screenshot. */
+.rank-climb__chrome {
+  border-bottom-color: var(--line-faint, rgba(12, 13, 15, 0.04)) !important;
+  background: var(--canvas, #FAFBFC) !important;
+}
+
 

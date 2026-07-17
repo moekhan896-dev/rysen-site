@@ -170,9 +170,8 @@ export function TheOutcome() {
             actually produces.
           </h2>
           <p className="outcome__sub">
-            Position #1 isn&apos;t a vanity metric. It&apos;s a data cascade.
-            We engineer each step into measurable case intake and patient
-            bookings.
+            Being #1 isn&apos;t the point. What #1 actually produces is.
+            Here&apos;s how a search becomes a real inbound call, step by step.
           </p>
         </Reveal>
 

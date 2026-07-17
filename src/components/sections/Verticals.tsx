@@ -61,8 +61,9 @@ export function Verticals() {
             </span>
           </h2>
           <p className="verticals__sub">
-            We engineer visibility differently for legal and medical. Same
-            proprietary stack, different vertical playbooks.
+            We only work with two kinds of businesses: law firms and
+            medical practices. Every playbook we run is shaped around one
+            or the other. That focus is why we can be this specific.
           </p>
         </Reveal>
 

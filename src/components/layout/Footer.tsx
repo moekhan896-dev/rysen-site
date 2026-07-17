@@ -25,6 +25,9 @@ export function Footer() {
           <p className="site-footer__tagline">
             Marketing engineering for law firms and medical practices.
           </p>
+          <p className="site-footer__signature">
+            A small studio, on purpose. Made in Detroit.
+          </p>
         </div>
 
         <div className="site-footer__col">

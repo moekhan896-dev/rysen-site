@@ -492,6 +492,10 @@ export function LiveLeadFeed() {
             Inbound leads our search engine generated for clients today.
             Representative of typical activity across the active roster.
           </p>
+          <p className="lead-feed__companion">
+            None of these are your leads. They&apos;re a snapshot of what
+            a normal Tuesday looks like across the roster.
+          </p>
         </Reveal>
 
         <Reveal>
@@ -530,7 +534,7 @@ export function LiveLeadFeed() {
               <GavelIcon />
               <span>LEGAL</span>
               <span className="lead-feed__column-meta">
-                Probate · Family · Estate
+                Legal — probate, family, estate
               </span>
             </div>
             <div className="lead-feed__list">
@@ -545,7 +549,7 @@ export function LiveLeadFeed() {
               <CaduceusIcon />
               <span>MEDICAL</span>
               <span className="lead-feed__column-meta">
-                Dental · Dermatology · Aesthetic
+                Medical — dental, dermatology, aesthetic
               </span>
             </div>
             <div className="lead-feed__list">
@@ -557,7 +561,11 @@ export function LiveLeadFeed() {
         </div>
 
         <Reveal className="lead-feed__disclaimer" delay={400}>
-          <span>Representative activity from active engagements</span>
+          <span>
+            Everything you&apos;re seeing is happening today, for other
+            people&apos;s businesses. We only take one firm per metro so
+            this could be you tomorrow.
+          </span>
           <span className="lead-feed__disclaimer-sep" aria-hidden="true" />
           <span>Phone numbers and names masked for confidentiality</span>
           <span className="lead-feed__disclaimer-sep" aria-hidden="true" />

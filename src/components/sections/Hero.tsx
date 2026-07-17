@@ -167,8 +167,9 @@ export function Hero() {
             </h1>
 
             <p className="hero__sub">
-              We get your practice ranked #1 where clients and patients are
-              searching, on Google and across every AI search tool.
+              We&apos;re a small team of engineers and creatives who help a
+              handful of firms show up first when the right clients or
+              patients are searching.
             </p>
 
             <HeroSearchTease />

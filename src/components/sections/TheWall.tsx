@@ -94,8 +94,8 @@ export function TheWall() {
             </span>
           </h2>
           <p className="wall__sub">
-            Results vary by metro, vertical, and starting position. The
-            pattern doesn&apos;t.
+            The kind of thing our clients say when we&apos;re not in the
+            room.
           </p>
         </Reveal>
 

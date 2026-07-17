@@ -7,6 +7,7 @@ import { SelectedWork } from "@/components/sections/SelectedWork";
 import { TheOutcome } from "@/components/sections/TheOutcome";
 import { TheOffice } from "@/components/sections/TheOffice";
 import { Verticals } from "@/components/sections/Verticals";
+import { CoverageHeatmap } from "@/components/sections/CoverageHeatmap";
 import { TheStack } from "@/components/sections/TheStack";
 import { BuiltByOperators } from "@/components/sections/BuiltByOperators";
 import { TheServices } from "@/components/sections/TheServices";
@@ -35,6 +36,7 @@ export default function HomePage() {
       <TheOutcome />
       <TheOffice />
       <Verticals />
+      <CoverageHeatmap />
       <TheStack />
       <BuiltByOperators />
       <TheServices />

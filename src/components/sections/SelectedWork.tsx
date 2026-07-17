@@ -22,10 +22,10 @@ export function SelectedWork() {
               <MarkerUnderline className="highlight-marker__underline" />
             </span>
           </h2>
+          <p className="selected-work__sub-note"><em>Our whole client list, on purpose.</em></p>
           <p className="selected-work__sub">
-            We maintain a small roster of selected engagements. Each one
-            operates as the dominant firm in their metro and vertical.
-            Click a row to see their full case study.
+            A short list, on purpose. When we take a firm on, we work
+            with them for years, not months.
           </p>
         </Reveal>
 

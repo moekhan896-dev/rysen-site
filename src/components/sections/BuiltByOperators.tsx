@@ -33,10 +33,9 @@ export function BuiltByOperators() {
             </span>
           </h2>
           <p className="operators__sub">
-            Before serving law firms and medical practices, our team built four
-            brands from scratch. Real founders. Real audiences. The same
-            proprietary data and AI stack we deploy for clients was first
-            tested on our own ventures. This is how we know it works.
+            Before we ever ran a campaign for a client, we built our own
+            brands from scratch. We know this works because we&apos;ve
+            done it to ourselves first.
           </p>
         </Reveal>
 

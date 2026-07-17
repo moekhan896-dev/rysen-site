@@ -71,9 +71,8 @@ export function TheOffer() {
             </span>
           </h2>
           <p className="offer__sub">
-            Whether you&apos;re establishing visibility from outside the top 5
-            or scaling a top-3 firm into permanent metro lockup, we have a
-            defined engagement model.
+            Two ways to work with us. Both start with a real conversation,
+            not a sales pitch.
           </p>
         </Reveal>
 
